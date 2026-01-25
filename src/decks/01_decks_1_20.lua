@@ -247,6 +247,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
+                -- Add 26 random cards to reach 78 cards
                 for i = 1, 26 do
                     local card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'dim')
                     card:add_to_deck()

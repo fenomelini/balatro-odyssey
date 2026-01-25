@@ -152,9 +152,9 @@ SMODS.current_mod.calculate = function(self, context)
         if chips > 0 or mult > 0 or x_mult > 1 then
             return {
                 message = "Odyssey!",
-                chip_mod = chips > 0 and chips or nil,
-                mult_mod = mult > 0 and mult or nil,
-                Xmult_mod = x_mult > 1 and x_mult or nil,
+                chips = chips > 0 and chips or nil,
+                mult = mult > 0 and mult or nil,
+                x_mult = x_mult > 1 and x_mult or nil,
                 colour = G.C.PURPLE
             }
         end

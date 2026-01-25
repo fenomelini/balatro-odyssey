@@ -3567,7 +3567,7 @@ return {
  j_odyssey_j_luck_and_probability_fortune_cookie = {
  name = "Biscoito da Sorte",
  text = {
- "{C:mult}+5 Multi. A próxima carta de Tarô é garantida ser boa{}"
+ "{C:mult}+#1#{} Mult. Chance de {C:green}#2# em #3#{} de criar uma carta {C:spectral}Espectral{} ao usar um {C:tarot}Tarô{}"
  }
  },
  
@@ -7316,7 +7316,7 @@ return {
  c_odyssey_tarot_42 = {
  name = "O Infinito",
  text = {
- "Adiciona Edição Policromática a", "um Curinga selecionado."
+ "Adiciona Edição Policromática a", "um Curinga aleatório."
  
  }
  },
@@ -7540,7 +7540,7 @@ return {
  c_odyssey_tarot_68 = {
  name = "O Ladrão",
  text = {
- "Rouba uma carta da loja."
+ "Rouba um item aleatório da", "loja. Requer espaço no", "inventário correspondente."
  
  }
  },

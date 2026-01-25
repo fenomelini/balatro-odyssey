@@ -3567,7 +3567,7 @@ return {
  j_odyssey_j_luck_and_probability_fortune_cookie = {
  name = "Fortune Cookie",
  text = {
- "{C:mult}+5{} Mult. Next Tarot card is guaranteed to be a good one{}"
+ "{C:mult}+#1#{} Mult. {C:green}#2# in #3#{} chance to create a {C:spectral}Spectral{} card when a {C:tarot}Tarot{} card is used{}"
  }
  },
  
@@ -7316,7 +7316,7 @@ return {
  c_odyssey_tarot_42 = {
  name = "The Infinity",
  text = {
- "Adds Polychrome edition to a", "selected Joker."
+ "Adds Polychrome edition to a", "random Joker."
  
  }
  },
@@ -7540,7 +7540,7 @@ return {
  c_odyssey_tarot_68 = {
  name = "The Thief",
  text = {
- "Steals a card from the shop."
+ "Steals a random item from", "the shop. Requires available", "inventory space."
  
  }
  },

@@ -1,7 +1,7 @@
 -- Balatro Odyssey
 -- A mod adding 1000 unique Jokers
 -- Author: fenomelini
--- Version: 1.0.0
+-- Version: 0.1.1-alpha
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
@@ -36,6 +36,9 @@ function Game:start_run(args)
     G.GAME.round_resets.joker_slots = G.GAME.round_resets.joker_slots or G.jokers.config.card_limit
     G.GAME.round_resets.hand_size = G.GAME.round_resets.hand_size or G.hand.config.card_limit
     G.GAME.last_hand_time = G.TIMERS.REAL
+    
+    -- Odyssey Goal: Defeat ALL 100 custom Boss Blinds
+    G.GAME.win_ante = 100
 
     G.GAME.viking_destroyed_count = G.GAME.viking_destroyed_count or 0
     G.GAME.odyssey_king_of_kings_active = G.GAME.odyssey_king_of_kings_active or 0

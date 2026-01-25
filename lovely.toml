@@ -8,14 +8,30 @@ target = "game.lua"
 pattern = "for k, v in pairs(self.P_CENTERS) do"
 position = "after"
 payload = '''
-    -- Total Conversion Filter
+    -- Total Conversion Filter (Keeping only Odyssey centers, but Tags/Blinds are now excluded from this)
     if not string.find(k, "odyssey") then
-        local exempt_sets = {Booster = true, Back = true, Tag = true, Stake = true, Edition = true}
+        local exempt_sets = {Booster = true, Tag = true, Stake = true, Edition = true, Enhanced = true, Voucher = true, Tarot = true, Planet = true, Spectral = true}
         if v.set and not exempt_sets[v.set] then
             v.omit = true
         end
     end
 '''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "if not v.boss then"
+position = "at"
+payload = "if v.omit or not v.boss then"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "win_ante = 8,"
+position = "at"
+payload = "win_ante = 100,"
 match_indent = true
 
 [[patches]]
@@ -35,28 +51,26 @@ payload = "if v.rarity and v.set == 'Joker' and not v.demo and not v.omit then t
 match_indent = true
 
 [[patches]]
-[patches.pattern]
+[patches.regex]
 target = "game.lua"
-pattern = "{card_limit = 5, type = 'play'})"
+pattern = "card_limit\\s*=\\s*5,\\s*type\\s*=\\s*'play'"
 position = "at"
-payload = "{card_limit = 10, type = 'play'})"
-match_indent = true
+payload = "card_limit = 10, type = 'play'"
+
+[[patches]]
+[patches.regex]
+target = "functions/button_callbacks.lua"
+pattern = "#G\\.hand\\.highlighted\\s*>\\s*5"
+position = "at"
+payload = "#G.hand.highlighted > 10"
 
 [[patches]]
 [patches.pattern]
 target = "functions/button_callbacks.lua"
-pattern = "if #G.hand.highlighted <= 0 or G.GAME.blind.block_play or #G.hand.highlighted > 5 then"
+pattern = "G.hand.config.card_limit <= 0"
 position = "at"
-payload = "if #G.hand.highlighted <= 0 or G.GAME.blind.block_play or #G.hand.highlighted > 10 then"
-match_indent = true
-
-[[patches]]
-[patches.pattern]
-target = "functions/button_callbacks.lua"
-pattern = "(G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.STANDARD_PACK or G.STATE == G.STATES.BUFFOON_PACK or (G.hand and (G.hand.cards[1] or (G.hand.config.card_limit <= 0)))) then"
-position = "at"
-payload = "true then -- Forced selection for Odyssey"
-match_indent = true
+payload = "true"
+match_indent = false
 
 [[patches]]
 [patches.pattern]
@@ -84,8 +98,20 @@ match_indent = true
 
 [[patches]]
 [patches.pattern]
+target = "blind.lua"
+pattern = "function Blind:debuff_hand(cards, hand, handname, check)"
+position = "after"
+payload = '''
+    if self.config.blind and self.config.blind.debuff_hand and type(self.config.blind.debuff_hand) == 'function' then
+        if self.config.blind.debuff_hand(self, cards, hand, handname, check) then return true end
+    end
+'''
+match_indent = false
+
+[[patches]]
+[patches.regex]
 target = "functions/state_events.lua"
-pattern = "card_eval_status_text(_card, 'jokers', nil, percent, nil, effects.jokers)"
+pattern = "card_eval_status_text\\(_card,\\s*'jokers',\\s*nil,\\s*percent,\\s*nil,\\s*effects\\.jokers\\)"
 position = "after"
 payload = '''
             -- Odyssey: Joker on Joker effects (Quantum Field, Singularity, etc.)
@@ -102,4 +128,3 @@ payload = '''
                 end
             end
 '''
-match_indent = true

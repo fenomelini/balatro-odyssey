@@ -629,5 +629,14 @@ SMODS.Joker({
                 message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } }
             }
         end
+    end,
+    update = function(self, card)
+        if G.STAGE == G.STAGES.RUN and G.deck and G.deck.cards and #G.deck.cards > 0 and not G.GAME.blind.animating then
+            local top_card = G.deck.cards[#G.deck.cards]
+            if top_card.facing == 'back' then
+                top_card.facing = 'front'
+                top_card.sprite_facing = 'front'
+            end
+        end
     end
 })

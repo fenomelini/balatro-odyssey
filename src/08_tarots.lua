@@ -42,7 +42,16 @@ for _, t in ipairs(tarots) do
             elseif id == 61 then -- Death II (Joker)
                 return G.jokers.highlighted and #G.jokers.highlighted == 1
             elseif id == 68 then -- Thief (Shop)
-                return G.shop_jokers and G.shop_jokers.cards and #G.shop_jokers.cards > 0
+                if not (G.shop_jokers and G.shop_jokers.cards and #G.shop_jokers.cards > 0) then return false end
+                for k, v in ipairs(G.shop_jokers.cards) do
+                    local is_joker = (v.ability.set == 'Joker' or not v.ability.set)
+                    local is_consumeable = (v.ability.set == 'Tarot' or v.ability.set == 'Planet' or v.ability.set == 'Spectral')
+                    if (is_joker and #G.jokers.cards < G.jokers.config.card_limit) or
+                       (is_consumeable and #G.consumeables.cards < G.consumeables.config.card_limit) then
+                        return true
+                    end
+                end
+                return false
             elseif id == 47 or id == 48 or id == 46 or id == 32 or id == 21 or id == 66 then -- Joker Tarots
                 return #G.jokers.cards < G.jokers.config.card_limit or card.area == G.jokers
             elseif id == 71 or id == 52 or id == 3 or id == 5 then -- Consumable Tarots
@@ -252,18 +261,26 @@ for _, t in ipairs(tarots) do
             elseif id == 35 then -- Body
                 for i=1, math.min(#highlighted, 2) do
                     highlighted[i].ability.perma_bonus = (highlighted[i].ability.perma_bonus or 0) + 50
+                    highlighted[i]:juice_up()
+                    card_eval_status_text(highlighted[i], 'extra', nil, nil, nil, {message = "+50 Fichas", colour = G.C.CHIPS})
                 end
             elseif id == 36 then -- Heart
                 for i=1, math.min(#highlighted, 2) do
                     highlighted[i].ability.perma_mult = (highlighted[i].ability.perma_mult or 0) + 10
+                    highlighted[i]:juice_up()
+                    card_eval_status_text(highlighted[i], 'extra', nil, nil, nil, {message = "+10 Mult", colour = G.C.MULT})
                 end
             elseif id == 37 then -- Shadow
                 for i=1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_shadow)
+                    if G.P_CENTERS.m_odyssey_shadow then
+                        highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_shadow)
+                    end
                 end
             elseif id == 38 then -- Light
                 for i=1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_light)
+                    if G.P_CENTERS.m_odyssey_light then
+                        highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_light)
+                    end
                 end
             elseif id == 39 then -- Chaos
                 G.hand:shuffle()
@@ -418,10 +435,24 @@ for _, t in ipairs(tarots) do
                     return true
                 end}))
             elseif id == 68 then -- Thief
-                if G.shop_jokers and G.shop_jokers.cards and #G.shop_jokers.cards > 0 then
-                    local _card = pseudorandom_element(G.shop_jokers.cards, pseudoseed('thief'))
+                local pool = {}
+                if G.shop_jokers and G.shop_jokers.cards then
+                    for _, v in ipairs(G.shop_jokers.cards) do
+                        local is_joker = (v.ability.set == 'Joker' or not v.ability.set)
+                        local is_consumeable = (v.ability.set == 'Tarot' or v.ability.set == 'Planet' or v.ability.set == 'Spectral')
+                        if (is_joker and #G.jokers.cards < G.jokers.config.card_limit) or
+                           (is_consumeable and #G.consumeables.cards < G.consumeables.config.card_limit) then
+                            table.insert(pool, v)
+                        end
+                    end
+                end
+                
+                if #pool > 0 then
+                    local _card = pseudorandom_element(pool, pseudoseed('thief'))
+                    local area = (_card.ability.set == 'Joker' or not _card.ability.set) and G.jokers or G.consumeables
                     _card:add_to_deck()
-                    G.jokers:emplace(_card)
+                    area:emplace(_card)
+                    _card:juice_up()
                 end
             elseif id == 69 then -- Guardian
                 if #highlighted == 1 then
@@ -504,7 +535,9 @@ for _, t in ipairs(tarots) do
                 }
                 local max_h = tarot_max[id] or 1
                 for i=1, math.min(#highlighted, max_h) do
-                    highlighted[i]:set_ability(G.P_CENTERS[enhancements[id]])
+                    if G.P_CENTERS[enhancements[id]] then
+                        highlighted[i]:set_ability(G.P_CENTERS[enhancements[id]])
+                    end
                 end
             elseif id == 97 then -- Duplicator
                 if #highlighted == 1 then

@@ -115,18 +115,21 @@ local blinds = {
 for _, b in ipairs(blinds) do
     local config = {
         key = b.key,
+        name = b.name,
         atlas = "blind_" .. b.id,
         pos = { x = 0, y = 0 },
         dollars = 5,
         mult = blind_multipliers[b.id] or 4,
         vars = {},
+        boss_colour = G.C.BLACK,
         discovered = true
     }
     
-    config.boss = { min = 1, max = 10 }
+    config.boss = { min = 9, max = 99 }
     if b.id == 100 then -- Showdown
         config.boss.showdown = true
-        config.boss.min = 8
+        config.boss.max = 100
+        config.boss.min = 100
     end
 
     -- Lógica específica para cada Blind
@@ -223,6 +226,12 @@ for _, b in ipairs(blinds) do
                 end
             end
             self.triggered = false
+        end
+    elseif b.id == 23 then -- A Guilhotina: Destrói a primeira carta jogada
+        config.press_play = function(self)
+            if not self.disabled and G.play.cards[1] then
+                G.play.cards[1]:start_dissolve()
+            end
         end
     end
     
