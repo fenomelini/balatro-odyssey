@@ -1,0 +1,24 @@
+name: "Feature Request 💡"
+description: Suggest a new idea or mechanic for the mod.
+title: "[IDEA] <Short summary>"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a cool idea for a Joker, Deck, or Mechanic? Let us know!
+  - type: textarea
+    id: idea
+    attributes:
+      label: Describe your idea
+      description: What is the new feature or mechanic?
+      placeholder: e.g. A Joker that gives Mult based on how many empty slots you have.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should this be added?
+      description: How does it fit the cosmic/odyssey theme?
+    validations:
+      required: true

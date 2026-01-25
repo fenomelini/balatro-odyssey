@@ -1,0 +1,105 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "for k, v in pairs(self.P_CENTERS) do"
+position = "after"
+payload = '''
+    -- Total Conversion Filter
+    if not string.find(k, "odyssey") then
+        local exempt_sets = {Booster = true, Back = true, Tag = true, Stake = true, Edition = true}
+        if v.set and not exempt_sets[v.set] then
+            v.omit = true
+        end
+    end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if v.set == 'Joker' then table.insert(self.P_CENTER_POOLS['Joker'], v) end"
+position = "at"
+payload = "if v.set == 'Joker' and not v.omit then table.insert(self.P_CENTER_POOLS['Joker'], v) end"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if v.rarity and v.set == 'Joker' and not v.demo then table.insert(self.P_JOKER_RARITY_POOLS[v.rarity], v) end"
+position = "at"
+payload = "if v.rarity and v.set == 'Joker' and not v.demo and not v.omit then table.insert(self.P_JOKER_RARITY_POOLS[v.rarity], v) end"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "{card_limit = 5, type = 'play'})"
+position = "at"
+payload = "{card_limit = 10, type = 'play'})"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "if #G.hand.highlighted <= 0 or G.GAME.blind.block_play or #G.hand.highlighted > 5 then"
+position = "at"
+payload = "if #G.hand.highlighted <= 0 or G.GAME.blind.block_play or #G.hand.highlighted > 10 then"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "(G.STATE == G.STATES.PLANET_PACK or G.STATE == G.STATES.STANDARD_PACK or G.STATE == G.STATES.BUFFOON_PACK or (G.hand and (G.hand.cards[1] or (G.hand.config.card_limit <= 0)))) then"
+position = "at"
+payload = "true then -- Forced selection for Odyssey"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "G.shop_jokers.config.card_limit = G.GAME.shop.joker_max"
+position = "at"
+payload = "G.shop_jokers.config.card_limit = (G.GAME.blind and G.GAME.blind.key == 'blind_odyssey_blind_80') and 0 or G.GAME.shop.joker_max"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "for i = #G.shop_jokers.cards, G.GAME.shop.joker_max+1, -1 do"
+position = "at"
+payload = "for i = #G.shop_jokers.cards, ((G.GAME.blind and G.GAME.blind.key == 'blind_odyssey_blind_80') and 0 or G.GAME.shop.joker_max)+1, -1 do"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "for i = 1, G.GAME.shop.joker_max - #G.shop_jokers.cards do"
+position = "at"
+payload = "for i = 1, ((G.GAME.blind and G.GAME.blind.key == 'blind_odyssey_blind_80') and 0 or G.GAME.shop.joker_max) - #G.shop_jokers.cards do"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "card_eval_status_text(_card, 'jokers', nil, percent, nil, effects.jokers)"
+position = "after"
+payload = '''
+            -- Odyssey: Joker on Joker effects (Quantum Field, Singularity, etc.)
+            for _, v in ipairs(G.jokers.cards) do
+                local effect = v:calculate_joker{full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, other_joker = _card}
+                if effect then
+                    local extras = {mult = false, hand_chips = false}
+                    if effect.mult_mod then mult = mod_mult(mult + effect.mult_mod);extras.mult = true end
+                    if effect.chip_mod then hand_chips = mod_chips(hand_chips + effect.chip_mod);extras.hand_chips = true end
+                    if (effect.Xmult_mod or effect.x_mult_mod) then mult = mod_mult(mult*(effect.Xmult_mod or effect.x_mult_mod));extras.mult = true  end
+                    if extras.mult or extras.hand_chips then update_hand_text({delay = 0}, {chips = extras.hand_chips and hand_chips, mult = extras.mult and mult}) end
+                    if extras.mult or extras.hand_chips then card_eval_status_text(v, 'jokers', nil, percent, nil, effect) end
+                    percent = percent+percent_delta
+                end
+            end
+'''
+match_indent = true

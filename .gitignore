@@ -1,0 +1,55 @@
+# Build outputs
+BalatroOdyssey.lua
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Assets temporários
+assets/output/
+assets/raw/temp/
+
+# Archives (mantém estrutura mas ignora conteúdo se necessário)
+# archive/*
+
+# Zip build (gerado automaticamente)
+zip/
+tests/reports/
+
+# Private/Game Files
+balatro_game/
+docs/image_generation_guide.md
+docs/JSON-test-names.json
+assets/raw/
+.env
+.env.example
+ACTION_PLAN.md
+
+# Build Scripts & Tools
+build_and_package.py
+check_nesting_verbose.py
+process_assets.py
+process_joker_sprites.py
+process_tarot_assets.py
+process_vouchers.py
+test_runner.py

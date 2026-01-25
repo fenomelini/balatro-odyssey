@@ -1,0 +1,9 @@
+{
+    "name": "Balatro Odyssey",
+    "id": "BalatroOdyssey",
+    "prefix": "odyssey",
+    "main_file": "BalatroOdyssey.lua",
+    "author": ["fenomelini"],
+    "description": "1,000 unique Jokers - The Ultimate Balatro Expansion",
+    "version": "1.0.2"
+}
