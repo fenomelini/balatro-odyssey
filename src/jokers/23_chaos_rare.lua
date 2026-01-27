@@ -13,7 +13,7 @@ SMODS.Joker({
     perishable_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -55,7 +55,7 @@ SMODS.Joker({
     perishable_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { G.GAME.probabilities.normal, extra.odds } }
 
@@ -156,7 +156,7 @@ SMODS.Joker({
     perishable_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -242,7 +242,7 @@ SMODS.Joker({
     perishable_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult_per_suit } }
 
@@ -283,7 +283,7 @@ SMODS.Joker({
     perishable_compat = false,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 

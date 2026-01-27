@@ -19,7 +19,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.min, extra.max } }
@@ -56,7 +56,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.mult_per } }
@@ -94,7 +94,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.dollars, extra.interval } }
@@ -135,7 +135,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.chips } }
@@ -173,7 +173,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.odds, extra.x_mult, extra.mult } }
@@ -217,7 +217,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.x_mult } }
@@ -257,7 +257,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { G.GAME.probabilities.normal or 1, extra.odds } }
@@ -295,7 +295,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.mult } }

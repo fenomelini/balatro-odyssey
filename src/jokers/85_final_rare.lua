@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 15,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -38,7 +38,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 15,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -60,7 +60,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 15,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local bonus = card.ability.extra.x_mult
@@ -86,7 +86,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -108,7 +108,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 15,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             if G.GAME.blind and not G.GAME.blind.reveal_boss then 
@@ -133,7 +133,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult, ((card and card.ability.extra or self.config.extra)).hand_size } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult, (( (card and card.ability and card.ability.extra) or self.config.extra )).hand_size } } end,
     add_to_deck = function(self, card)
         G.hand:change_size(card.ability.extra.hand_size)
     end,
@@ -184,7 +184,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 15,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -236,7 +236,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).min_mult, ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).min_mult, (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {

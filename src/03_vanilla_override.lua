@@ -92,11 +92,7 @@ local old_generate_UIBox_ability_table = Card.generate_UIBox_ability_table
 function Card:generate_UIBox_ability_table()
     local res = old_generate_UIBox_ability_table(self)
     if (self.ability.set == 'Default' or self.ability.set == 'Enhanced') and self.ability.perma_mult and self.ability.perma_mult ~= 0 then
-        -- Find the loc_vars in the res table and inject perma_mult
-        -- This is a bit complex depending on how SMODS handles it, but let's try a simple inject
-        if res.name == 'Default' or res.name == 'Enhanced' then
-            -- Actually, SMODS might have already returned the table.
-        end
+        -- Inject perma_mult into loc_vars if needed
     end
     return res
 end

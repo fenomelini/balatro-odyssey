@@ -214,7 +214,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -253,17 +253,35 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
     end,
     calculate = function(self, card, context)
         if context.joker_main then
-            return {
-                mult_mod = card.ability.extra.mult,
-                message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } }
-            }
+            local king_present = false
+            if G.jokers then
+                for _, v in ipairs(G.jokers.cards) do
+                    if v.config.center.key == 'j_odyssey_j_pos_king' then
+                        king_present = true
+                        break
+                    end
+                end
+            end
+
+            if king_present then
+                return {
+                    x_mult = 2,
+                    message = "PROTECTED!",
+                    colour = G.C.BLUE
+                }
+            else
+                return {
+                    mult_mod = card.ability.extra.mult,
+                    message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } }
+                }
+            end
         end
     end
 })
@@ -281,7 +299,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -313,7 +331,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -341,7 +359,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -376,7 +394,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -404,7 +422,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -437,7 +455,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -465,7 +483,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -496,7 +514,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 

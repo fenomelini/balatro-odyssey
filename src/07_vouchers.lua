@@ -1558,7 +1558,7 @@ SMODS.Voucher{
     atlas = 'v_dice',
     cost = 10,
     redeem = function(self)
-        G.GAME.shop_reroll_cost_mod = (G.GAME.shop_reroll_cost_mod or 0) - 1
+        G.GAME.round_resets.reroll_cost = math.max(1, G.GAME.round_resets.reroll_cost - 1)
     end
 }
 
@@ -1571,7 +1571,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_dice_v' },
     redeem = function(self)
-        G.GAME.shop_reroll_cost_mod = (G.GAME.shop_reroll_cost_mod or 0) - 1
+        G.GAME.round_resets.reroll_cost = math.max(1, (G.GAME.round_resets.reroll_cost or 0) - 1)
     end
 }
 

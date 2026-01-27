@@ -44,7 +44,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds, (card and card.ability.extra or self.config.extra).mult } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, ( (card and card.ability and card.ability.extra) or self.config.extra ).odds, ( (card and card.ability and card.ability.extra) or self.config.extra ).mult } } end
 })
 
 -- 703. Horseshoe
@@ -74,7 +74,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 704. D6 Die
@@ -155,7 +155,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, 2, (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, 2, ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 707. Safe Bet
@@ -176,7 +176,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 708. Risky Bet
@@ -199,7 +199,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds, (card and card.ability.extra or self.config.extra).mult } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, ( (card and card.ability and card.ability.extra) or self.config.extra ).odds, ( (card and card.ability and card.ability.extra) or self.config.extra ).mult } } end
 })
 
 -- 709. Raffle
@@ -224,7 +224,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 710. Bingo
@@ -243,7 +243,7 @@ SMODS.Joker({
             return { message = localize('$')..card.ability.extra, colour = G.C.MONEY }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 711. Jackpot
@@ -268,7 +268,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 712. Slot Machine
@@ -289,7 +289,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 713. Sports Betting
@@ -310,7 +310,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ) } } end
 })
 
 -- 714. Scratch Card
@@ -364,7 +364,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra).mult, G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).mult, G.GAME.probabilities.normal, ( (card and card.ability and card.ability.extra) or self.config.extra ).odds } } end
 })
 
 -- 716. Amulet

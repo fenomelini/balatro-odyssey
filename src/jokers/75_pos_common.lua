@@ -14,21 +14,15 @@ SMODS.Joker({
     cost = 4,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        local my_pos = nil
-        for i=1, #G.jokers.cards do
-            if G.jokers.cards[i] == card then my_pos = i break end
-        end
-        if my_pos and my_pos > 1 then
-            local other_joker = G.jokers.cards[my_pos - 1]
-            if other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat then
-                context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1
-                context.blueprint_card = context.blueprint_card or card
-                if context.blueprint > #G.jokers.cards + 1 then return end
-                local other_joker_ret = other_joker:calculate_joker(context)
-                if other_joker_ret then
-                    other_joker_ret.card = context.blueprint_card or card
-                    return other_joker_ret
-                end
+        local other_joker = get_joker_neighbor(card, 'left')
+        if other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat then
+            context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1
+            context.blueprint_card = context.blueprint_card or card
+            if context.blueprint > #G.jokers.cards + 1 then return end
+            local other_joker_ret = other_joker:calculate_joker(context)
+            if other_joker_ret then
+                other_joker_ret.card = context.blueprint_card or card
+                return other_joker_ret
             end
         end
     end
@@ -46,21 +40,15 @@ SMODS.Joker({
     cost = 4,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        local my_pos = nil
-        for i=1, #G.jokers.cards do
-            if G.jokers.cards[i] == card then my_pos = i break end
-        end
-        if my_pos and my_pos < #G.jokers.cards then
-            local other_joker = G.jokers.cards[my_pos + 1]
-            if other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat then
-                context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1
-                context.blueprint_card = context.blueprint_card or card
-                if context.blueprint > #G.jokers.cards + 1 then return end
-                local other_joker_ret = other_joker:calculate_joker(context)
-                if other_joker_ret then
-                    other_joker_ret.card = context.blueprint_card or card
-                    return other_joker_ret
-                end
+        local other_joker = get_joker_neighbor(card, 'right')
+        if other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat then
+            context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1
+            context.blueprint_card = context.blueprint_card or card
+            if context.blueprint > #G.jokers.cards + 1 then return end
+            local other_joker_ret = other_joker:calculate_joker(context)
+            if other_joker_ret then
+                other_joker_ret.card = context.blueprint_card or card
+                return other_joker_ret
             end
         end
     end
@@ -79,7 +67,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -296,7 +284,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -330,7 +318,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips } }
 
@@ -416,7 +404,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -444,13 +432,28 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.factor } }
 
     end,
     calculate = function(self, card, context)
-        -- Auto-generated functional stub
+        local other_joker = get_joker_neighbor(card, 'right')
+        if other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat then
+            context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1
+            context.blueprint_card = context.blueprint_card or card
+            if context.blueprint > #G.jokers.cards + 1 then return end
+            local other_joker_ret = other_joker:calculate_joker(context)
+            if other_joker_ret then
+                if other_joker_ret.mult_mod then other_joker_ret.mult_mod = other_joker_ret.mult_mod * (card.ability.extra.factor - 1) end
+                if other_joker_ret.chip_mod then other_joker_ret.chip_mod = other_joker_ret.chip_mod * (card.ability.extra.factor - 1) end
+                if other_joker_ret.x_mult then 
+                    other_joker_ret.x_mult = card.ability.extra.factor - (card.ability.extra.factor - 1) / other_joker_ret.x_mult
+                end
+                other_joker_ret.card = card
+                return other_joker_ret
+            end
+        end
     end
 })
 
@@ -467,7 +470,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult } }
 
@@ -494,18 +497,14 @@ SMODS.Joker({
     cost = 6,
     blueprint_compat = true,
     calculate = function(self, card, context)
-        local my_pos = nil
-        for i=1, #G.jokers.cards do if G.jokers.cards[i] == card then my_pos = i break end end
-        if my_pos and my_pos < #G.jokers.cards then
-            local other_joker = G.jokers.cards[my_pos + 1]
-            if other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat then
-                context.repetition = (context.repetition or 0) + 1
-                if context.repetition > 1 then return end
-                local other_joker_ret = other_joker:calculate_joker(context)
-                if other_joker_ret then
-                     other_joker_ret.message = "RECHARGE!"
-                     return other_joker_ret
-                end
+        local other_joker = get_joker_neighbor(card, 'right')
+        if other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat then
+            context.repetition = (context.repetition or 0) + 1
+            if context.repetition > 1 then return end
+            local other_joker_ret = other_joker:calculate_joker(context)
+            if other_joker_ret then
+                 other_joker_ret.message = "RECHARGE!"
+                 return other_joker_ret
             end
         end
     end
@@ -524,7 +523,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips } }
 
@@ -544,7 +543,7 @@ SMODS.Joker({
     discovered = true,
     unlocked = true,
     key = 'j_pos_connector',
-    config = { extra = { mult = 15 } },
+    config = { extra = { mult = 10 } },
     rarity = 1,
     atlas = 'j_pos_connector',
     pos = { x = 0, y = 0 },
@@ -552,7 +551,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -561,7 +560,7 @@ SMODS.Joker({
         if context.joker_main then
             return {
                 mult_mod = card.ability.extra.mult,
-                message = "CONNECTED",
+                message = "BRIDGE",
                 colour = G.C.MULT
             }
         end

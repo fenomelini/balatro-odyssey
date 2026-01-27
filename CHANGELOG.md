@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2-alpha] - 2026-01-26
+
+### Fixed
+- **Hate Joker Description**: Corrected formatting for the "Ódio" (Hate) Joker in both Portuguese and English, ensuring proper spacing and line breaks.
+- **Lovely Injection Warnings**: Optimized patch patterns in `lovely.toml` to prevent "no matches" warnings in the log, ensuring card limit (10 cards) and other critical patches apply correctly.
+- **Nuclear Total Conversion**: Implemented a final pool cleanup ("Nuclear Option") that physically removes vanilla items from `P_CENTER_POOLS`. This ensures that Tarots, Planets, Spectrals, and Vouchers categories in the Collection view only show Balatro Odyssey content.
+
+### Changed
+- **Privacy & Security**: Updated `.gitignore` to protect development documentation and AI instructions from being uploaded to public repositories.
+- **Historical Data Cleanup**: Removed sensitive files from Git history and remote tags to ensure a clean public release.
+
 ## [0.1.1-alpha] - 2026-01-25
 
 ### Fixed

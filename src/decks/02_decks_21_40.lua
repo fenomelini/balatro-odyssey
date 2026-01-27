@@ -5,6 +5,7 @@ SMODS.Back({
     atlas = "b_holographic",
     pos = { x = 0, y = 0 },
     config = { odyssey_holographic = true },
+    loc_vars = function(self, info_queue, card) return { vars = {} } end,
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -25,6 +26,7 @@ SMODS.Back({
     atlas = "b_polychrome",
     pos = { x = 0, y = 0 },
     config = { odyssey_polychrome = true },
+    loc_vars = function(self, info_queue, card) return { vars = {} } end,
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -38,13 +40,14 @@ SMODS.Back({
     end
 })
 
--- 23. Baralho Foil
+-- 23. Baralho Laminado
 SMODS.Back({
-    name = "Foil",
-    key = "foil",
+    name = "Laminado",
+    key = "laminado",
     atlas = "b_foil",
     pos = { x = 0, y = 0 },
-    config = { odyssey_foil = true },
+    config = { odyssey_laminado = true },
+    loc_vars = function(self, info_queue, card) return { vars = {} } end,
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -65,6 +68,7 @@ SMODS.Back({
     atlas = "b_negative",
     pos = { x = 0, y = 0 },
     config = { odyssey_negative = true },
+    loc_vars = function(self, info_queue, card) return { vars = {} } end,
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()

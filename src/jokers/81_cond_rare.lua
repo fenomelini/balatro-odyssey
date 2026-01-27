@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.first_hand_drawn then
             G.hand:sort()
@@ -41,7 +41,7 @@ SMODS.Joker({
     cost = 9,
     blueprint_compat = true,
     perishable_compat = false,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -91,7 +91,7 @@ SMODS.Joker({
     cost = 9,
     blueprint_compat = true,
     perishable_compat = false,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult, ((card and card.ability.extra or self.config.extra)).gain } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult, (( (card and card.ability and card.ability.extra) or self.config.extra )).gain } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -153,7 +153,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { (G.playing_cards and #G.playing_cards or 52) } }
 
@@ -180,7 +180,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = false,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).gain } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).gain } } end,
     calculate = function(self, card, context)
         if context.end_of_round and not context.other_card and not context.repetition then
             card.ability.sell_cost = card.ability.sell_cost + card.ability.extra.gain
@@ -203,8 +203,9 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     add_to_deck = function(self, card)
+        card.ability.eternal = true
         card.ability.sell_cost = 0
     end,
     calculate = function(self, card, context)

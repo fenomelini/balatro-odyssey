@@ -15,7 +15,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Hearts") then
@@ -41,7 +41,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).chips } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Spades") then
@@ -67,7 +67,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Diamonds") then
@@ -93,7 +93,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).chips } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Clubs") then
@@ -120,7 +120,7 @@ SMODS.Joker({
     eternal_compat = true,
     perishable_compat = false,
     loc_vars = function(self, info_queue, card) 
-        return { vars = { (card and card.ability.extra or self.config.extra).mult, (card and card.ability.extra or self.config.extra).perma_mult, (card and card.ability.extra or self.config.extra).gain } } 
+        return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).mult, ( (card and card.ability and card.ability.extra) or self.config.extra ).perma_mult, ( (card and card.ability and card.ability.extra) or self.config.extra ).gain } } 
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -161,7 +161,7 @@ SMODS.Joker({
     eternal_compat = true,
     perishable_compat = false,
     loc_vars = function(self, info_queue, card) 
-        return { vars = { (card and card.ability.extra or self.config.extra).chips, (card and card.ability.extra or self.config.extra).perma_chips, (card and card.ability.extra or self.config.extra).gain } } 
+        return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).chips, ( (card and card.ability and card.ability.extra) or self.config.extra ).perma_chips, ( (card and card.ability and card.ability.extra) or self.config.extra ).gain } } 
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -201,7 +201,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).dollars } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult, (( (card and card.ability and card.ability.extra) or self.config.extra )).dollars } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -236,7 +236,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -263,7 +263,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds, (card and card.ability.extra or self.config.extra).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, ( (card and card.ability and card.ability.extra) or self.config.extra ).odds, ( (card and card.ability and card.ability.extra) or self.config.extra ).x_mult } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Hearts") then
@@ -292,7 +292,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips, ((card and card.ability.extra or self.config.extra)).mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).chips, (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Spades") then
@@ -319,7 +319,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local clubs = false
@@ -401,7 +401,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).gain } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult, (( (card and card.ability and card.ability.extra) or self.config.extra )).gain } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -438,7 +438,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips, ((card and card.ability.extra or self.config.extra)).gain } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).chips, (( (card and card.ability and card.ability.extra) or self.config.extra )).gain } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -475,7 +475,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local only_diamonds = true
@@ -503,7 +503,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, ( (card and card.ability and card.ability.extra) or self.config.extra ).odds } } end,
     calculate = function(self, card, context)
         if context.before and G.GAME.blind.boss and not G.GAME.blind.disabled then
             local clubs = false
@@ -533,7 +533,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.hands_played == 0 then
             local red = true
@@ -563,7 +563,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).chips } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.hands_played == 0 then
             local black = true
@@ -593,7 +593,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).dollars } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).dollars } } end,
     calculate = function(self, card, context)
         if context.discard and not context.blueprint then
             local red_count = 0

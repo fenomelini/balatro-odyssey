@@ -19,7 +19,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.x_mult } }
@@ -94,7 +94,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.mult } }
@@ -145,7 +145,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.mult } }
@@ -182,7 +182,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.x_mult } }
@@ -218,7 +218,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.xmult } }
@@ -352,7 +352,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.mult } }
@@ -404,8 +404,8 @@ SMODS.Joker({
     
     loc_vars = function(self, info_queue, card)
         local empty_slots = (G.jokers and G.jokers.config and G.jokers.cards) and math.max(0, G.jokers.config.card_limit - #G.jokers.cards) or 0
-        local total_x_mult = 1 + (empty_slots * (card and card.ability.extra or self.config.extra).x_mult_per_slot)
-        return { vars = { (card and card.ability.extra or self.config.extra).x_mult_per_slot, empty_slots, total_x_mult } }
+        local total_x_mult = 1 + (empty_slots * ( (card and card.ability and card.ability.extra) or self.config.extra ).x_mult_per_slot)
+        return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).x_mult_per_slot, empty_slots, total_x_mult } }
     end,
     
     calculate = function(self, card, context)
@@ -477,7 +477,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.x_mult } }
@@ -522,7 +522,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.x_mult } }

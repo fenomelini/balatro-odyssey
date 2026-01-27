@@ -48,6 +48,26 @@ function count_jokers_by_rarity(rarity)
     return count
 end
 
+-- Helper: Get neighbor Joker (supports Connector bridging)
+function get_joker_neighbor(card, direction)
+    local my_pos = nil
+    for i=1, #G.jokers.cards do
+        if G.jokers.cards[i] == card then my_pos = i break end
+    end
+    if not my_pos then return nil end
+    
+    local step = direction == 'left' and -1 or 1
+    local target_pos = my_pos + step
+    
+    local target = G.jokers.cards[target_pos]
+    if target and target.config.center.key == 'j_odyssey_j_pos_connector' then
+        target_pos = target_pos + step
+        target = G.jokers.cards[target_pos]
+    end
+    
+    return target
+end
+
 -- Helper: Check if only one Joker of this type exists
 function is_unique_joker(card)
     local duplicates = 0
@@ -182,6 +202,7 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.odyssey_galileo_active = nil
         G.GAME.odyssey_newton_active = nil
         G.GAME.odyssey_einstein_active = nil
+        G.GAME.odyssey_drake_active = nil
         
         -- Reset Tarot buffs
         G.GAME.warrior_chips = 0

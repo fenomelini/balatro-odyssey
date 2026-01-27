@@ -24,7 +24,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips, G.GAME.probabilities.normal, extra.chance } }
 
@@ -62,7 +62,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.dollars } }
 
@@ -122,7 +122,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.xmult, G.GAME.probabilities.normal, extra.chance } }
 
@@ -159,7 +159,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips, extra.mult } }
 
@@ -191,7 +191,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips, G.GAME.probabilities.normal, extra.chance } }
 
@@ -228,7 +228,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.dollars } }
 
@@ -257,7 +257,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult } }
 
@@ -286,7 +286,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips } }
 
@@ -315,7 +315,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.xmult } }
 
@@ -345,7 +345,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { G.GAME.probabilities.normal, extra.chance, extra.dollars } }
 
@@ -377,7 +377,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips_gain } }
 
@@ -410,7 +410,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.mult, extra.chips } }
 
@@ -441,7 +441,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { G.GAME.probabilities.normal, extra.chance } }
 
@@ -475,7 +475,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.xmult, extra.chips_loss } }
 
@@ -507,7 +507,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { G.GAME.probabilities.normal, extra.chance } }
 
@@ -554,7 +554,7 @@ SMODS.Enhancement({
     },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.chips } }
 

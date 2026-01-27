@@ -1362,7 +1362,7 @@ return {
  j_odyssey_j_corruption_plague = {
  name = "Peste",
  text = {
- "{C:green}1 em #1#{} chance de{}", "destruir uma carta descartada"
+ "{C:green}#1# em #2#{} chance de{}", "destruir uma carta descartada"
  }
  },
  
@@ -1642,7 +1642,7 @@ return {
  j_odyssey_j_dimensions_master_of_space = {
  name = "Mestre do Espaço",
  text = {
- "Todas as cartas jogadas", "contam como {C:attention}Wild Cards{}", "{C:inactive}(Qualquer naipe){}"
+ "Todas as cartas jogadas", "contam como {C:attention}Cartas Coringa{}", "{C:inactive}(Qualquer naipe){}"
  }
  },
  
@@ -2566,7 +2566,7 @@ return {
  j_odyssey_j_final_hate = {
  name = "Ódio",
  text = {
- "{X:mult,C:white} X1.5 Multi para cada carta de {}{C:attention}Espadas{} pontuada.{}"
+ "{X:mult,C:white}X1.5{} Multi para cada", "carta de {C:attention}Espadas{} pontuada."
  }
  },
  
@@ -2958,7 +2958,7 @@ return {
  j_odyssey_j_glitch_noclip = {
  name = "Noclip",
  text = {
- "Cartas de {C:attention}Figura{} contam{}", "como qualquer naipe", "({C:attention}Cartas Naipe{}/Wild Cards){}"
+ "Cartas de {C:attention}Figura{} contam{}", "como qualquer naipe", "({C:attention}Cartas Coringa{}){}"
  }
  },
  
@@ -4144,7 +4144,7 @@ return {
  j_odyssey_j_pos_castling = {
  name = "Roque",
  text = {
- "Troca de posição com o Rei", "para protegê-lo."
+ "Dá {C:mult}+20{} Multi. Se o", "curinga {C:attention}Rei{} estiver", "presente, dá {X:mult,C:white} X2 {} Multi."
  }
  },
  
@@ -4186,7 +4186,7 @@ return {
  j_odyssey_j_pos_connector = {
  name = "Conector",
  text = {
- "Permite que Curingas não adjacentes", "interajam entre si."
+ "Permite que Curingas não", "adjacentes interajam entre", "si (Ponte). Dá {C:mult}+#1#{} Multi."
  }
  },
  
@@ -4486,7 +4486,7 @@ return {
  j_odyssey_j_professions_beast_tamer = {
  name = "Domador de Feras",
  text = {
- "Cartas \'Selvagens' (Wild Cards)", "dão {X:mult,C:white} X2 Multi.{}"
+ "Cartas {C:attention}Coringa{}", "dão {X:mult,C:white} X2 Multi.{}"
  }
  },
  
@@ -4668,7 +4668,7 @@ return {
  j_odyssey_j_professions_magician = {
  name = "Mágico",
  text = {
- "Transforma 3 cartas", "aleatórias em {C:attention}Wild Cards{}", "ao entrar na loja."
+ "Transforma 3 cartas", "aleatórias em {C:attention}Cartas Coringa{}", "ao entrar na loja."
  }
  },
  
@@ -8753,10 +8753,7 @@ return {
  c_odyssey_spectral_35 = {
  name = "Drake",
  text = {
- "Mostra {C:green}'VITÓRIA{}",
- "GARANTIDA'{} se a sua mão atual",
- "for suficiente para vencer o",
- "Blind."
+ "Mostra {C:green}'VITÓRIA GARANTIDA'{} se", "a sua mão atual for suficiente", "para vencer o {C:attention}Blind{}."
  }
  },
  
@@ -10999,7 +10996,7 @@ return {
  }
  },
  
- b_odyssey_foil = {
+ b_odyssey_laminado = {
  name = "Baralho Laminado",
  text = {
  "Começa com um Curinga", "{C:dark_edition}Laminado{} aleatório{}", "(Raridade Comum)"

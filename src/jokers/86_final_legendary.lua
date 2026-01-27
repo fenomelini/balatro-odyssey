@@ -12,7 +12,7 @@ SMODS.Joker({
     soul_pos = { x = 0, y = 0 },
     cost = 20,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).x_mult } } end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             for k, v in ipairs(G.jokers.cards) do

@@ -9,7 +9,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult } }
 
@@ -44,7 +44,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.mult } }
 
@@ -118,7 +118,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.mult } }
 
@@ -143,7 +143,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult } }
 
@@ -170,7 +170,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { G.GAME.probabilities.normal, extra.odds } }
 
@@ -217,7 +217,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = G.P_CENTERS.m_odyssey_emerald
-            return { vars = { (card and card.ability.extra or self.config.extra).mult } }
+            return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).mult } }
         end,
         calculate = function(self, card, context)
             if context.setting_blind and not context.blueprint then
@@ -269,7 +269,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult } }
 
@@ -305,7 +305,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult } }
 
@@ -356,7 +356,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.mult, 3, extra.x_mult, extra.rounds_remaining } }
 
@@ -404,7 +404,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { G.GAME.probabilities.normal, extra.odds, extra.dollars } }
 
@@ -434,7 +434,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult } }
 

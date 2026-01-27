@@ -10,7 +10,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult } }
 
@@ -58,7 +58,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.mult, extra.gain } }
 
@@ -131,7 +131,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.dollars } }
 
@@ -173,7 +173,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.dollars } }
 
@@ -200,7 +200,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult, extra.threshold } }
 
@@ -228,7 +228,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.chips } }
 
@@ -282,7 +282,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult, extra.loss } }
 
@@ -310,7 +310,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.mult } }
 
@@ -342,7 +342,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.mult } }
 
@@ -376,7 +376,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.chips } }
 
@@ -409,7 +409,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.x_mult, extra.limit } }
 
@@ -445,7 +445,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = (card and card.ability.extra or self.config.extra)
+            local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
             return { vars = { extra.dollars } }
 

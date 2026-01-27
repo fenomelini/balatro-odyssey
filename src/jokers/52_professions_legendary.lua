@@ -17,7 +17,7 @@ SMODS.Joker({
     config = { extra = { x_mult = 3, gain = 0.5 } },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult, extra.gain } }
 
@@ -53,7 +53,7 @@ SMODS.Joker({
     config = { extra = { x_mult = 5, huge_mult = 10, threshold = 100 } },
     loc_vars = function(self, info_queue, card)
 
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
         return { vars = { extra.x_mult, extra.huge_mult, extra.threshold } }
 

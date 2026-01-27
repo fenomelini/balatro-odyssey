@@ -326,6 +326,9 @@ local spectral_logic = {
         card:add_to_deck()
         G.jokers:emplace(card)
     end,
+    [35] = function(card, area, copier) -- Drake
+        G.GAME.odyssey_drake_active = true
+    end,
     [38] = function(card, area, copier) -- Kepler
         for k, v in pairs(G.GAME.hands) do
             if v.level > 1 then

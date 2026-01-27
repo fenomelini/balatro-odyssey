@@ -8,12 +8,13 @@ target = "game.lua"
 pattern = "for k, v in pairs(self.P_CENTERS) do"
 position = "after"
 payload = '''
-    -- Total Conversion Filter (Keeping only Odyssey centers, but Tags/Blinds are now excluded from this)
-    if not string.find(k, "odyssey") then
-        local exempt_sets = {Booster = true, Tag = true, Stake = true, Edition = true, Enhanced = true, Voucher = true, Tarot = true, Planet = true, Spectral = true}
-        if v.set and not exempt_sets[v.set] then
-            v.omit = true
+    -- SMODS Stability: Ensure vanilla editions have safe loc_vars for nil card instances (Deck Selection)
+    if k == 'e_foil' or k == 'e_holo' or k == 'e_polychrome' then
+        v.loc_vars = function(self, info_queue, card)
+            return { vars = { self.config.extra } }
         end
+    elseif k == 'e_negative' then
+        v.loc_vars = function(self, info_queue, card) return { vars = {} } end
     end
 '''
 match_indent = true
@@ -37,9 +38,66 @@ match_indent = true
 [[patches]]
 [patches.pattern]
 target = "game.lua"
+pattern = "self.P_CENTER_POOLS = {"
+position = "before"
+payload = '''
+    -- Balatro Odyssey: Permanent Vanilla Omission
+    -- This sets v.omit = true for all base game items we want to replace.
+    -- Done BEFORE pool population to ensure they are excluded.
+    for k, v in pairs(self.P_CENTERS) do
+        if not string.find(string.lower(k), "odyssey") then
+            local to_replace = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Back = true}
+            if v.set and to_replace[v.set] then
+                v.omit = true
+            end
+        end
+    end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
 pattern = "if v.set == 'Joker' then table.insert(self.P_CENTER_POOLS['Joker'], v) end"
 position = "at"
 payload = "if v.set == 'Joker' and not v.omit then table.insert(self.P_CENTER_POOLS['Joker'], v) end"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if v.set == 'Tarot' or v.set == 'Planet' then table.insert(self.P_CENTER_POOLS['Tarot_Planet'], v) end"
+position = "at"
+payload = "if (v.set == 'Tarot' or v.set == 'Planet') and not v.omit then table.insert(self.P_CENTER_POOLS['Tarot_Planet'], v) end"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if v.consumeable then table.insert(self.P_CENTER_POOLS['Consumeables'], v) end"
+position = "at"
+payload = "if v.consumeable and not v.omit then table.insert(self.P_CENTER_POOLS['Consumeables'], v) end"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "table.sort(self.P_CENTER_POOLS[\"Joker\"], function (a, b) return a.order < b.order end)"
+position = "before"
+payload = '''
+    -- Balatro Odyssey: Nuclear Option (Final Pool Cleanup)
+    -- Removes any vanilla items that managed to sneak into the pools.
+    for pool_name, pool in pairs(self.P_CENTER_POOLS) do
+        local replace_sets = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Back = true, Tarot_Planet = true, Consumeables = true}
+        if replace_sets[pool_name] then
+            for i = #pool, 1, -1 do
+                if pool[i].key and not string.find(string.lower(pool[i].key), "odyssey") then
+                    table.remove(pool, i)
+                end
+            end
+        end
+    end
+'''
 match_indent = true
 
 [[patches]]
@@ -58,11 +116,12 @@ position = "at"
 payload = "card_limit = 10, type = 'play'"
 
 [[patches]]
-[patches.regex]
+[patches.pattern]
 target = "functions/button_callbacks.lua"
-pattern = "#G\\.hand\\.highlighted\\s*>\\s*5"
+pattern = "#G.hand.highlighted > 5"
 position = "at"
 payload = "#G.hand.highlighted > 10"
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -70,7 +129,7 @@ target = "functions/button_callbacks.lua"
 pattern = "G.hand.config.card_limit <= 0"
 position = "at"
 payload = "true"
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -109,13 +168,14 @@ payload = '''
 match_indent = false
 
 [[patches]]
-[patches.regex]
+[patches.pattern]
 target = "functions/state_events.lua"
-pattern = "card_eval_status_text\\(_card,\\s*'jokers',\\s*nil,\\s*percent,\\s*nil,\\s*effects\\.jokers\\)"
+pattern = "card_eval_status_text(G.jokers.cards[i], 'jokers', nil, percent, nil, effects.jokers)"
 position = "after"
 payload = '''
             -- Odyssey: Joker on Joker effects (Quantum Field, Singularity, etc.)
             for _, v in ipairs(G.jokers.cards) do
+                local _card = G.jokers.cards[i]
                 local effect = v:calculate_joker{full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, other_joker = _card}
                 if effect then
                     local extras = {mult = false, hand_chips = false}
@@ -128,3 +188,4 @@ payload = '''
                 end
             end
 '''
+match_indent = true

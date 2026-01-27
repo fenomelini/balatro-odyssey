@@ -13,7 +13,7 @@ SMODS.Joker({
     atlas = 'j_time_father_time',
     pos = { x = 0, y = 0 },
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).xmult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).xmult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -35,7 +35,7 @@ SMODS.Joker({
     atlas = 'j_time_guardian_of_eternity',
     pos = { x = 0, y = 0 },
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).xmult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).xmult } } end,
     add_to_deck = function(self, card)
         G.GAME.odyssey_guardian_of_eternity = (G.GAME.odyssey_guardian_of_eternity or 0) + 1
         if G.jokers and G.jokers.cards then

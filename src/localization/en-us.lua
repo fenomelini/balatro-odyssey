@@ -1362,7 +1362,7 @@ return {
  j_odyssey_j_corruption_plague = {
  name = "Plague",
  text = {
- "{C:green}1 in #1#{} chance to{}", "destroy a discarded card"
+ "{C:green}#1# in #2#{} chance to{}", "destroy a discarded card"
  }
  },
  
@@ -2566,7 +2566,7 @@ return {
  j_odyssey_j_final_hate = {
  name = "Hate",
  text = {
- "{X:mult,C:white} X1.5 {} Mult for each {}{C:attention}Spades{} card scored.{}"
+ "{X:mult,C:white}X1.5{} Mult for each", "{C:attention}Spades{} card scored."
  }
  },
  
@@ -4144,7 +4144,7 @@ return {
  j_odyssey_j_pos_castling = {
  name = "Castling",
  text = {
- "Swaps places with the King", "to protect it."
+ "Gives {C:mult}+20{} Mult. If the", "{C:attention}King{} Joker is present,", "gives {X:mult,C:white} X2 {} Mult."
  }
  },
  
@@ -4186,7 +4186,7 @@ return {
  j_odyssey_j_pos_connector = {
  name = "Connector",
  text = {
- "Allows non-adjacent Jokers", "to interact."
+ "Allows non-adjacent Jokers", "to interact (Bridge).", "Gives {C:mult}+#1#{} Mult."
  }
  },
  
@@ -8751,9 +8751,7 @@ return {
  c_odyssey_spectral_35 = {
  name = "Drake",
  text = {
- "Shows {C:green}'GUARANTEED{}",
- "WIN'{} if your current hand is",
- "enough to win the Blind."
+ "Shows {C:green}'GUARANTEED WIN'{} if", "your current hand is enough", "to beat the {C:attention}Blind{}."
  }
  },
  
@@ -10870,7 +10868,7 @@ return {
  }
  },
  
- b_odyssey_foil = {
+ b_odyssey_laminado = {
  name = "Foil Deck",
  text = {
  "Starts with a random", "{C:dark_edition}Foil{} Joker{}", "(Common Rarity)"

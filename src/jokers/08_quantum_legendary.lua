@@ -18,7 +18,7 @@ SMODS.Joker({
     
     loc_vars = function(self, info_queue, card)
         local normal_prob = G.GAME and G.GAME.probabilities and G.GAME.probabilities.normal or 1
-        return { vars = { (card and card.ability.extra or self.config.extra).x_mult, '' .. normal_prob, (card and card.ability.extra or self.config.extra).odds } }
+        return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).x_mult, '' .. normal_prob, ( (card and card.ability and card.ability.extra) or self.config.extra ).odds } }
     end,
     
     calculate = function(self, card, context)
@@ -58,7 +58,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = (card and card.ability.extra or self.config.extra)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
 
     
         return { vars = { extra.x_mult } }

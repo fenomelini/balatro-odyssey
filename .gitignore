@@ -38,12 +38,12 @@ tests/reports/
 
 # Private/Game Files
 balatro_game/
-docs/image_generation_guide.md
-docs/JSON-test-names.json
+docs/
 assets/raw/
 .env
 .env.example
 ACTION_PLAN.md
+.github/copilot-instructions.md
 
 # Build Scripts & Tools
 build_and_package.py
