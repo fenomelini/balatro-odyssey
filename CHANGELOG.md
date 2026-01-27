@@ -2,16 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.2-alpha] - 2026-01-26
-
-### Fixed
-- **Hate Joker Description**: Corrected formatting for the "Ódio" (Hate) Joker in both Portuguese and English, ensuring proper spacing and line breaks.
-- **Lovely Injection Warnings**: Optimized patch patterns in `lovely.toml` to prevent "no matches" warnings in the log, ensuring card limit (10 cards) and other critical patches apply correctly.
-- **Nuclear Total Conversion**: Implemented a final pool cleanup ("Nuclear Option") that physically removes vanilla items from `P_CENTER_POOLS`. This ensures that Tarots, Planets, Spectrals, and Vouchers categories in the Collection view only show Balatro Odyssey content.
+## [0.1.2-alpha] - 2026-01-27
+### Added
+- **Rogue Joker (Castling) Mechanic**: Implemented full protection logic. Now grants +20 Mult normally, but upgrades to X2 Mult when King Joker is present in the inventory.
+- **Connector Joker Bridge Functionality**: Jokers that depend on neighbor positions now "skip" the Connector and interact with the next adjacent Joker, creating a "bridge" effect. Also provides +10 Mult as a secondary bonus.
+- **Drake Spectral Oracle System**: Implemented victory guarantee display. When Drake is used, the game shows "VITÓRIA GARANTIDA" whenever the selected hand mathematically exceeds the current Blind's score requirement.
 
 ### Changed
+- **Amplifier Joker**: Fully implemented the 50% effect boost mechanic. Now correctly identifies the Joker to the right and amplifies its Chips, Mult, or XMult effects by +50%.
+- **NFT Joker**: Now properly unsellable. Receives the Eternal sticker automatically on acquisition and has sell value forced to $0.
+- **Reroll Vouchers (Dados/D20)**: Fixed the cost reduction mechanic. Now correctly applies -$1 to the shop reroll cost immediately after redemption.
+- **Plague Joker Probability Display**: Corrected the localization variable system to show accurate odds (e.g., "1 em 3" instead of "1 em 1").
+
+### Fixed
+- **Critical Crash: Polychrome Edition in Tags/HUD**: Resolved the game.lua:1272 crash that occurred when hovering over Tags or viewing editions without a physical card instance. Applied nil-safety checks across 100+ files.
+- **Foil Deck "ERROR" Display**: Fixed naming conflict between "Foil Deck" and "Foil Edition". Renamed the deck's internal key to laminado to disambiguate from vanilla editions.
+- **Foil Edition Display Bug**: Corrected the +table: 0x... visual glitch that appeared when Foil edition was applied to Jokers with complex internal data structures (like Metronome).
+- **Tryhard Joker Crash**: Replaced deprecated G.shake reference with the correct G.ROOM.jiggle system call.
+- **Total Conversion Filter Regression**: Vanilla Planets, Tarots, Spectrals, and Vouchers had reappeared in shops. Reapplied the complete filter to ensure only Odyssey content spawns (except exempted sets like Boosters, Backs, Tags, Stakes, and Editions).
+- **Blind Icon Rendering**: Fixed missing/generic Blind sprites (like "O Gancho") by exempting the Blind set from the Total Conversion filter.
 - **Privacy & Security**: Updated `.gitignore` to protect development documentation and AI instructions from being uploaded to public repositories.
 - **Historical Data Cleanup**: Removed sensitive files from Git history and remote tags to ensure a clean public release.
+
+### Localization
+- **Magician Joker**: Replaced "Wild Cards" with "Cartas Coringa" in Portuguese localization.
+- **Master of Space, Noclip, Beast Tamer**: Translated remaining "Wild Cards" references to "Cartas Coringa".
+- **Rogue Joker Description**: Clarified the King protection mechanic in both PT-BR and EN-US.
+- **Drake Spectral Description**: Improved formatting and added proper color tags for clarity.
+
+### Technical
+- **Lovely TOML Patches**: Updated regex patterns for edition safety and shop variety preservation.
+- **Nil-Safety Overhaul**: Applied defensive programming across all Joker loc_vars and calculate functions to prevent crashes when card or card.ability is nil during UI rendering.
+- **Build System**: Regenerated BalatroOdyssey.lua (42,769 lines) and BalatroOdyssey.zip with all corrections.
+
+### Known Issues
+- **Hand Limit Regex Patches**: Lovely patches for increasing hand limit from 5 to 10 cards are failing to match target code. Functionality works in-game, but warnings persist in logs. (Not fixed per user request - flagged for future investigation).
 
 ## [0.1.1-alpha] - 2026-01-25
 
