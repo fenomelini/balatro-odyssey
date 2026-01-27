@@ -94,7 +94,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.xmult, G.GAME.probabilities.normal, card.ability.extra.odds } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra).xmult, G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds } } end
 })
 
 -- 743. Zero Entropy
@@ -115,7 +115,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.money } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds, (card and card.ability.extra or self.config.extra).money } } end
 })
 
 -- 744. The Chosen One
@@ -163,7 +163,7 @@ SMODS.Joker({
             return { message = localize('$')..card.ability.extra.money, colour = G.C.MONEY }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.xmult, card.ability.extra.money } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).xmult, ((card and card.ability.extra or self.config.extra)).money } } end
 })
 
 -- 746. Golden Midas Hand
@@ -213,7 +213,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 748. 777
@@ -242,7 +242,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.xmult, card.ability.extra.money } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).xmult, ((card and card.ability.extra or self.config.extra)).money } } end
 })
 
 -- 749. Fortuna
@@ -269,7 +269,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 750. Manifest Destiny
@@ -296,5 +296,5 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })

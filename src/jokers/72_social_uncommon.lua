@@ -15,7 +15,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -45,7 +45,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.chips } }
 
@@ -74,7 +74,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.chips, extra.mult } }
 
@@ -111,7 +111,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult, extra.limit, G.GAME.round_resets.hands_played } }
 
@@ -178,7 +178,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -207,7 +207,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.x_mult, extra.limit } }
 
@@ -235,7 +235,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -266,7 +266,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -275,7 +275,9 @@ SMODS.Joker({
         if context.joker_main then
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    G.shake = G.shake + 1
+                    if G.ROOM and G.ROOM.jiggle then
+                        G.ROOM.jiggle = G.ROOM.jiggle + 0.7
+                    end
                     return true
                 end
             }))
@@ -340,7 +342,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -368,7 +370,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.x_mult } }
 
@@ -397,7 +399,7 @@ SMODS.Joker({
     blueprint_compat = false,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -426,7 +428,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult, extra.cost } }
 
@@ -456,7 +458,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.chips } }
 
@@ -485,7 +487,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 

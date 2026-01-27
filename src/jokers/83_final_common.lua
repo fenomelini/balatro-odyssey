@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             if G.GAME.current_round.hands_left == 0 and G.GAME.round_resets.ante >= 8 then
@@ -40,7 +40,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.chips } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).chips } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.hands_played < 3 then
             return {
@@ -63,7 +63,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.hands_left == 3 then
             return {
@@ -85,7 +85,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint and card.ability.extra.last_ante < G.GAME.round_resets.ante then
             card.ability.extra.last_ante = G.GAME.round_resets.ante
@@ -116,7 +116,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.end_of_round and not context.blueprint and not context.repetition and not context.other_card then
             local overkill = G.GAME.chips - G.GAME.blind.chips
@@ -152,7 +152,7 @@ SMODS.Joker({
     cost = 4,
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card) 
-        return { vars = { card.ability.extra.mult_per_hand, (G.GAME.current_round.hands_played or 0) * card.ability.extra.mult_per_hand } } 
+        return { vars = { (card and card.ability.extra or self.config.extra).mult_per_hand, (G.GAME.current_round.hands_played or 0) * (card and card.ability.extra or self.config.extra).mult_per_hand } } 
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -179,7 +179,7 @@ SMODS.Joker({
     cost = 5,
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card) 
-        return { vars = { card.ability.extra.mult_per_discard, (G.GAME.current_round.discards_used or 0) * card.ability.extra.mult_per_discard } } 
+        return { vars = { (card and card.ability.extra or self.config.extra).mult_per_discard, (G.GAME.current_round.discards_used or 0) * (card and card.ability.extra or self.config.extra).mult_per_discard } } 
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -205,9 +205,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) 
-        return { vars = { card.ability.extra.mult_per_card } } 
-    end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult_per_card } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             return {
@@ -229,7 +227,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             if (G.GAME.last_hand_sampling.flush or G.GAME.last_hand_sampling.straight) then
@@ -259,7 +257,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             if pseudorandom('plot_twist') < G.GAME.probabilities.normal / 4 and not context.blueprint then
@@ -289,7 +287,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and #G.jokers.cards <= 1 then
             return {
@@ -311,7 +309,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     add_to_deck = function(self, card)
         G.GAME.round_resets.hands = G.GAME.round_resets.hands - 1
         ease_hands_left(-1)
@@ -343,7 +341,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card) 
         local count = (G.jokers and G.jokers.cards) and #G.jokers.cards or 1
-        return { vars = { card.ability.extra.mult, (count - 1) * card.ability.extra.mult } } 
+        return { vars = { (card and card.ability.extra or self.config.extra).mult, (count - 1) * (card and card.ability.extra or self.config.extra).mult } } 
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -403,7 +401,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.chips < G.GAME.blind.chips then
             return {
@@ -425,7 +423,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit('Hearts') then
@@ -449,7 +447,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit('Spades') then
@@ -473,7 +471,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.discards_used == 0 then
             return {
@@ -495,7 +493,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult_per_dest, card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult_per_dest, ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -518,7 +516,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             if #G.hand.cards > 0 and not context.blueprint then

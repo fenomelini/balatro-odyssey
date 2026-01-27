@@ -23,7 +23,7 @@ SMODS.Joker({
             G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end,
     calculate = function(self, card, context)
         -- Auto-generated functional stub
     end
@@ -50,7 +50,7 @@ SMODS.Joker({
             G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end,
     calculate = function(self, card, context)
         -- Auto-generated functional stub
     end
@@ -81,7 +81,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.hands_needed, card.ability.extra.hands_played } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).hands_needed, ((card and card.ability.extra or self.config.extra)).hands_played } } end
 })
 
 -- 654. Trash Can
@@ -105,7 +105,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 655. Full Hand
@@ -128,7 +128,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 656. Empty Hand
@@ -151,7 +151,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 657. Juggler
@@ -175,7 +175,7 @@ SMODS.Joker({
             G.hand:change_size(-card.ability.extra)
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end,
     calculate = function(self, card, context)
         -- Auto-generated functional stub
     end
@@ -204,7 +204,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.money } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds, (card and card.ability.extra or self.config.extra).money } } end
 })
 
 -- 659. Cards Up Sleeve
@@ -237,7 +237,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra).odds } } end
 })
 
 -- 660. Dealer
@@ -260,7 +260,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 661. Auto Shuffler
@@ -291,7 +291,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end
 })
 
 -- 662. Deck Cut
@@ -324,7 +324,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.cards, card.ability.extra.mult } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).cards, ((card and card.ability.extra or self.config.extra)).mult } } end
 })
 
 -- 663. Ghost Hand
@@ -378,7 +378,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end
 })
 
 -- 665. Steady Hand
@@ -396,7 +396,7 @@ SMODS.Joker({
             return { x_mult = card.ability.extra }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 666. Shaky Hand
@@ -414,7 +414,7 @@ SMODS.Joker({
             return { chip_mod = card.ability.extra }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 667. Boxing Glove
@@ -433,7 +433,7 @@ SMODS.Joker({
             return { chip_mod = hand_count * card.ability.extra }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra, (G.hand and G.hand.cards and #G.hand.cards or 0) * card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra), (G.hand and G.hand.cards and #G.hand.cards or 0) * (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 668. Silk Glove
@@ -451,7 +451,7 @@ SMODS.Joker({
             return { mult_mod = G.GAME.current_round.discards_left * card.ability.extra }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra, G.GAME.current_round.discards_left * card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra), G.GAME.current_round.discards_left * (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 669. Gauntlet
@@ -473,7 +473,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.joker_main then return { chip_mod = card.ability.extra.chips } end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.chips, card.ability.extra.discards } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips, ((card and card.ability.extra or self.config.extra)).discards } } end
 })
 
 -- 670. Magic Finger

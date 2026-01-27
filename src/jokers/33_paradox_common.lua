@@ -16,7 +16,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult, extra.max_cards } }
 
@@ -46,7 +46,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -78,7 +78,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.dollars } }
 
@@ -109,7 +109,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.chip_gain, extra.current_chips } }
 
@@ -154,7 +154,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -187,7 +187,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.x_mult } }
 
@@ -228,7 +228,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -270,7 +270,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -300,7 +300,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -339,7 +339,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -369,7 +369,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.per_dollar, extra.threshold } }
 
@@ -401,7 +401,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -431,7 +431,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.x_mult } }
 
@@ -468,7 +468,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -498,7 +498,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.chip_mod, extra.ace_bonus } }
 
@@ -534,7 +534,7 @@ SMODS.Joker({
     eternal_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.chips } }
 

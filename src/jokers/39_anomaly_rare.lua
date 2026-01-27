@@ -16,7 +16,7 @@ local jokers = {
         end,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 
@@ -66,7 +66,7 @@ local jokers = {
         cost = 8,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.consumable, extra.joker } }
 
@@ -133,7 +133,7 @@ local jokers = {
         cost = 8,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.consumable, extra.joker, extra.hand } }
 
@@ -163,7 +163,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 
@@ -193,7 +193,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.money } }
 

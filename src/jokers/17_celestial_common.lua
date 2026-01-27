@@ -19,7 +19,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.mult } }
@@ -66,7 +66,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.xmult, extra.req_faces } }
@@ -111,7 +111,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { G.GAME.probabilities.normal or 1, extra.odds } }
@@ -151,7 +151,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.mult } }
@@ -225,7 +225,7 @@ SMODS.Joker({
     
     loc_vars = function(self, info_queue, card)
         local deck_size = G.playing_cards and #G.playing_cards or 0
-        return { vars = { deck_size * card.ability.extra.chips_per_card } }
+        return { vars = { deck_size * (card and card.ability.extra or self.config.extra).chips_per_card } }
     end,
     
     calculate = function(self, card, context)
@@ -258,7 +258,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.current_chips } }
@@ -303,7 +303,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.mult } }
@@ -361,7 +361,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.current_chips } }
@@ -410,7 +410,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.x_mult } }
@@ -454,7 +454,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.money } }
@@ -493,7 +493,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.money_per_10, extra.max_money } }
@@ -533,7 +533,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.x_mult } }
@@ -579,7 +579,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.base_chips, extra.chips_per_card } }
@@ -617,7 +617,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
         local deck_size = G.playing_cards and #G.playing_cards or 0
         local excess = math.max(0, deck_size - 52)
-        return { vars = { excess * card.ability.extra.mult_per_card } }
+        return { vars = { excess * (card and card.ability.extra or self.config.extra).mult_per_card } }
     end,
     
     calculate = function(self, card, context)
@@ -653,7 +653,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.chips } }

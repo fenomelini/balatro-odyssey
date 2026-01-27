@@ -28,7 +28,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 672. Iron Hand
@@ -55,7 +55,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 673. Stone Hand
@@ -82,7 +82,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 674. Glass Hand
@@ -114,7 +114,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 675. Helping Hand
@@ -158,7 +158,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 677. Divine Hand
@@ -179,7 +179,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 678. Cursed Hand
@@ -206,7 +206,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 679. Perfect Discard
@@ -230,7 +230,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 680. Strategic Discard
@@ -271,7 +271,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end
 })
 
 -- 681. Gold Discard
@@ -290,7 +290,7 @@ SMODS.Joker({
             return { message = localize('$')..card.ability.extra, colour = G.C.MONEY, card = card }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 682. Steel Discard
@@ -318,7 +318,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.gain } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).gain } } end
 })
 
 -- 683. Glass Discard
@@ -349,7 +349,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { G.GAME.probabilities.normal, (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 684. Mirrored Hand
@@ -370,7 +370,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 685. Shadow Hand
@@ -455,7 +455,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.current_mult } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).current_mult } } end
 })
 
 -- 688. Ambidextrous
@@ -478,7 +478,7 @@ SMODS.Joker({
             G.play.config.card_limit = 10
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end,
     calculate = function(self, card, context)
         -- Auto-generated functional stub
     end

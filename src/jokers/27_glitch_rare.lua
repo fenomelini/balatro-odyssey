@@ -26,7 +26,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.money, extra.threshold } }
 
@@ -114,7 +114,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult, G.GAME.probabilities.normal, extra.odds } }
 
@@ -154,7 +154,7 @@ local local_jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 

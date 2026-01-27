@@ -16,7 +16,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
         local modes = {"X5 Mult", "+500 Chips", "+100 Mult", "$5 per hand"}
-        return { vars = { card.ability.extra.x_mult, modes[card.ability.extra.mode] } }
+        return { vars = { (card and card.ability.extra or self.config.extra).x_mult, modes[(card and card.ability.extra or self.config.extra).mode] } }
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -52,7 +52,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.x_mult } }
 

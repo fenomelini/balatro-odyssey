@@ -28,7 +28,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.xmult_gain, card.ability.extra.played, 1 + (card.ability.extra.played * card.ability.extra.xmult_gain) } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra).xmult_gain, (card and card.ability.extra or self.config.extra).played, 1 + ((card and card.ability.extra or self.config.extra).played * (card and card.ability.extra or self.config.extra).xmult_gain) } } end
 })
 
 -- 690. Devil's Hand
@@ -62,7 +62,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 691. King's Hand
@@ -118,7 +118,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.money } } end
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).money } } end
 })
 
 -- 693. Jack's Hand
@@ -148,7 +148,7 @@ SMODS.Joker({
             end
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 694. Ace's Hand
@@ -229,7 +229,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         -- We'll handle this in 03_vanilla_override.lua for the discard button press
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 697. Supreme Hand
@@ -279,7 +279,7 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end
 })
 
 -- 699. The Creator
@@ -340,6 +340,6 @@ SMODS.Joker({
             }
         end
     end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra, 2 } } end
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra), 2 } } end
 })
 

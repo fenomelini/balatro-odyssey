@@ -10,7 +10,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -42,7 +42,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.chips } }
 
@@ -71,7 +71,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -112,7 +112,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult, extra.dollars } }
 
@@ -142,7 +142,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.dollars } }
 
@@ -168,7 +168,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult_per_hand } }
 
@@ -201,7 +201,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -251,7 +251,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult, extra.gain } }
 
@@ -285,7 +285,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult, G.GAME.probabilities.normal, extra.odds } }
 
@@ -322,7 +322,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = G.P_CENTERS.m_odyssey_emerald
-            return { vars = { card.ability.extra.mult } }
+            return { vars = { (card and card.ability.extra or self.config.extra).mult } }
         end,
         calculate = function(self, card, context)
             if context.joker_main then
@@ -350,7 +350,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.chips } }
 
@@ -381,7 +381,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.face_pen, extra.num_bonus } }
 
@@ -413,7 +413,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { G.GAME.probabilities.normal, extra.odds } }
 
@@ -440,7 +440,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.dollars } }
 
@@ -473,7 +473,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -505,7 +505,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult, extra.hand_size } }
 

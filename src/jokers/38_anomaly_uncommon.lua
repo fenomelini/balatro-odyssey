@@ -9,7 +9,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -63,7 +63,7 @@ local jokers = {
         cost = 6,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.hand_size, extra.joker_slot } }
 
@@ -89,7 +89,7 @@ local jokers = {
         perishable_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult, (G.GAME and G.GAME.probabilities.normal or 1), extra.odds } }
 
@@ -151,7 +151,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 
@@ -188,7 +188,7 @@ local jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.chips } }
 
@@ -212,7 +212,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 
@@ -244,7 +244,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.money } }
 
@@ -316,7 +316,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult, extra.seconds } }
 
@@ -341,7 +341,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 
@@ -367,7 +367,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
             local modes = {"Mult", "Chips", "Money"}
-            return { vars = { card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.dollars, modes[card.ability.extra.mode] } }
+            return { vars = { (card and card.ability.extra or self.config.extra).mult, (card and card.ability.extra or self.config.extra).chips, (card and card.ability.extra or self.config.extra).dollars, modes[(card and card.ability.extra or self.config.extra).mode] } }
         end,
         calculate = function(self, card, context)
              if context.end_of_round and not context.repetition and not context.other_card then

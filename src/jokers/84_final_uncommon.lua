@@ -35,7 +35,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult, card.ability.extra.per_boss, card.ability.extra.penalty } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra).x_mult, (card and card.ability.extra or self.config.extra).per_boss, (card and card.ability.extra or self.config.extra).penalty } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -63,7 +63,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.tri_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).tri_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local most_played = nil
@@ -101,7 +101,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and #G.hand.cards == 0 then
             return {
@@ -151,7 +151,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.timer } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).timer } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local now = G.TIMERS.REAL
@@ -179,7 +179,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local reds = 0
@@ -209,7 +209,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local has_yang = false
@@ -244,7 +244,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult, card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult, ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local has_yin = false
@@ -279,7 +279,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.chips, card.ability.extra.per_hand } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips, ((card and card.ability.extra or self.config.extra)).per_hand } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -313,7 +313,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card) 
         local slots = (G.consumeables and G.consumeables.config) and G.consumeables.config.card_limit or 0
-        return { vars = { card.ability.extra.mult_per_slot, slots * card.ability.extra.mult_per_slot } } 
+        return { vars = { (card and card.ability.extra or self.config.extra).mult_per_slot, slots * (card and card.ability.extra or self.config.extra).mult_per_slot } } 
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -339,7 +339,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local suits = {}
@@ -402,7 +402,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 9,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.discards_used == 0 then
             return {
@@ -472,7 +472,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.dollars == 0 then
             return {
@@ -496,8 +496,8 @@ SMODS.Joker({
     blueprint_compat = false,
     loc_vars = function(self, info_queue, card) 
         local name = "None"
-        if card.ability.extra.target_key then
-            name = G.P_CENTERS[card.ability.extra.target_key].name
+        if (card and card.ability.extra or self.config.extra).target_key then
+            name = G.P_CENTERS[(card and card.ability.extra or self.config.extra).target_key].name
         end
         return { vars = { name } } 
     end,

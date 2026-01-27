@@ -15,7 +15,7 @@ SMODS.Joker({
     config = { extra = { x_mult = 1.5 } },
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.x_mult } }
 
@@ -40,7 +40,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.money, extra.threshold } }
 
@@ -102,7 +102,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.xmult, extra.tax * 100 } }
 
@@ -136,7 +136,7 @@ SMODS.Joker({
     remove_from_deck = function(self, card) G.GAME.odyssey_money_laundering_active = (G.GAME.odyssey_money_laundering_active or 0) - 1 end,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.mult } }
 
@@ -205,7 +205,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.money } }
 
@@ -244,7 +244,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.xmult } }
 
@@ -272,7 +272,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.money, extra.threshold } }
 
@@ -303,7 +303,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { G.GAME.probabilities.normal, extra.chance, extra.money } }
 
@@ -336,7 +336,7 @@ SMODS.Joker({
     remove_from_deck = function(self, card) G.GAME.odyssey_insurance_active = (G.GAME.odyssey_insurance_active or 0) - 1 end,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.money } }
 
@@ -359,7 +359,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.gain } }
 
@@ -420,7 +420,7 @@ SMODS.Joker({
     blueprint_compat = false,
     add_to_deck = function(self, card) G.GAME.bankrupt_at = G.GAME.bankrupt_at - card.ability.extra end,
     remove_from_deck = function(self, card) G.GAME.bankrupt_at = G.GAME.bankrupt_at + card.ability.extra end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end,
     calculate = function(self, card, context)
         -- Auto-generated functional stub
     end
@@ -460,7 +460,7 @@ SMODS.Joker({
     blueprint_compat = true,
     add_to_deck = function(self, card) G.GAME.odyssey_day_trader_active = (G.GAME.odyssey_day_trader_active or 0) + 1 end,
     remove_from_deck = function(self, card) G.GAME.odyssey_day_trader_active = (G.GAME.odyssey_day_trader_active or 0) - 1 end,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { (card and card.ability.extra or self.config.extra) } } end,
     calculate = function(self, card, context)
         -- Auto-generated functional stub
     end
@@ -479,7 +479,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
 
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
         return { vars = { extra.money } }
 

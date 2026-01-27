@@ -15,7 +15,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -42,7 +42,7 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {

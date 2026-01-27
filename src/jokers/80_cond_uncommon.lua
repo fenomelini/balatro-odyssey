@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult_true, card.ability.extra.x_mult_false } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult_true, ((card and card.ability.extra or self.config.extra)).x_mult_false } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local cond = (pseudorandom('boolean') > 0.5)
@@ -80,7 +80,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local msgs = {"YOU CAN DO IT", "STAY FOCUSED", "BIG BLIND AHEAD", "LUA IS BEST"}
@@ -165,7 +165,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -209,7 +209,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.money } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).money } } end,
     calculate = function(self, card, context)
         -- Triggered if something "fails" (like a 1 in X chance)
         if context.joker_main and G.GAME.probabilities.normal > 100 then -- fake cond
@@ -233,7 +233,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.money } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).money } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             -- Tries to activate a random joker
@@ -302,7 +302,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.x_mult, card.ability.extra.rounds } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).x_mult, ((card and card.ability.extra or self.config.extra)).rounds } } end,
     calculate = function(self, card, context)
         if context.end_of_round and not context.other_card and not context.repetition and not context.blueprint then
             card.ability.extra.rounds = card.ability.extra.rounds - 1
@@ -379,7 +379,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -408,7 +408,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.money } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).money } } end,
     calc_dollar_bonus = function(self, card)
         return (G.jokers and G.jokers.cards and #G.jokers.cards or 0) * card.ability.extra.money
     end,

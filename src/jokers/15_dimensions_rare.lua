@@ -120,7 +120,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.mult } }
@@ -207,7 +207,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.active and "Sim" or "Não" } }

@@ -35,7 +35,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult, extra.hand_size_mod } }
 
@@ -67,7 +67,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult, extra.gain } }
 
@@ -198,7 +198,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 
@@ -235,7 +235,7 @@ local local_jokers = {
         eternal_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 
@@ -265,7 +265,7 @@ local local_jokers = {
         in_pool = function() return false end,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.x_mult } }
 

@@ -19,7 +19,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.mult, extra.gain } }
@@ -74,7 +74,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.xmult } }
@@ -119,7 +119,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.xmult, extra.gain_per_destroyed } }
@@ -203,7 +203,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.repetitions } }
@@ -239,7 +239,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.chips } }
@@ -274,7 +274,7 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card)
 
     
-        local extra = card and card.ability.extra or self.config.extra
+        local extra = (card and card.ability.extra or self.config.extra)
 
     
         return { vars = { extra.xmult } }
@@ -310,7 +310,7 @@ SMODS.Joker({
     perishable_compat = true,
     
     loc_vars = function(self, info_queue, card)
-        local current_xmult = 1 + (G.GAME.hands_played * card.ability.extra.gain)
+        local current_xmult = 1 + (G.GAME.hands_played * (card and card.ability.extra or self.config.extra).gain)
         return { vars = { current_xmult } }
     end,
     

@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 2,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.cardarea == G.play and not context.repetition then
             return {
@@ -34,7 +34,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and context.full_hand and #context.full_hand == 5 then
             return {
@@ -56,7 +56,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.discards_left == 0 then
             return {
@@ -78,7 +78,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.dollars == 0 then
             return {
@@ -100,7 +100,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 3,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.dollars ~= 0 then
             return {
@@ -122,7 +122,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.chips } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).chips } } end,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.discards_left > 0 then
             return {
@@ -144,7 +144,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local count = #G.hand.cards
@@ -281,7 +281,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 2,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -326,7 +326,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.money } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).money } } end,
     calc_dollar_bonus = function(self, card)
         return card.ability.extra.money
     end,
@@ -346,7 +346,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -375,7 +375,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 3,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -424,7 +424,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.other_joker and context.other_joker.config.rarity == 1 and context.other_joker ~= card then
             if context.joker_main then
@@ -474,7 +474,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     blueprint_compat = true,
-    loc_vars = function(self, info_queue, card) return { vars = { card.ability.extra.mult } } end,
+    loc_vars = function(self, info_queue, card) return { vars = { ((card and card.ability.extra or self.config.extra)).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
             local count = #G.jokers.cards

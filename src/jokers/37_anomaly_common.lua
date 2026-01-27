@@ -9,7 +9,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -40,7 +40,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -71,7 +71,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -102,7 +102,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -147,7 +147,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult, extra.chips } }
 
@@ -196,7 +196,7 @@ local jokers = {
         cost = 5,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.money } }
 
@@ -257,7 +257,7 @@ local jokers = {
         perishable_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult } }
 
@@ -291,7 +291,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult, localize(extra.current_suit, 'suits_singular') } }
 
@@ -333,7 +333,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.chips } }
 
@@ -357,7 +357,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.mult, extra.bonus } }
 
@@ -391,7 +391,7 @@ local jokers = {
         cost = 4,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.money, (G.GAME and G.GAME.probabilities.normal or 1), extra.odds } }
 
@@ -418,7 +418,7 @@ local jokers = {
         blueprint_compat = false,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.hands } }
 
@@ -450,7 +450,7 @@ local jokers = {
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
 
-            local extra = card and card.ability.extra or self.config.extra
+            local extra = (card and card.ability.extra or self.config.extra)
 
             return { vars = { extra.chips } }
 
