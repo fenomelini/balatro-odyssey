@@ -4,7 +4,7 @@
 
 -- J821 Fourth Wall
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_fourth_wall',
     config = { extra = { mult = 20 } },
@@ -34,7 +34,7 @@ SMODS.Joker({
 
 -- J822 Developer
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_developer',
     config = { extra = { chips = 50 } },
@@ -44,26 +44,66 @@ SMODS.Joker({
     cost = 6,
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
-
         local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
-
         return { vars = { extra.chips } }
-
     end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
                 chip_mod = card.ability.extra.chips,
-                message = "DEBUG: "..card.ability.extra.chips,
-                colour = G.C.BLUE
+                message = localize{type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips}},
+                colour = G.C.CHIPS
             }
+        end
+
+        if context.end_of_round and not context.other_card and not context.blueprint then
+            -- "Debug" the deck: Remove the lowest rank card
+            if G.deck.cards and #G.deck.cards > 0 then
+                local lowest_card = nil
+                local min_id = 99
+                for _, v in ipairs(G.deck.cards) do
+                    local id = v:get_id()
+                    if id > 0 and id < min_id then
+                        min_id = id
+                        lowest_card = v
+                    end
+                end
+
+                if lowest_card then
+                    -- Create the "Patch" card
+                    local _card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'developer')
+                    
+                    -- Hardcoded random enhancement to avoid nil errors if pools aren't ready
+                    local enhancements = {'m_bonus', 'm_mult', 'm_wild', 'm_glass', 'm_steel', 'm_stone', 'm_lucky', 'm_gold'}
+                    _card:set_ability(G.P_CENTERS[pseudorandom_element(enhancements, pseudoseed('dev_enh'))])
+                    
+                    -- Random Edition
+                    local editions = {'e_foil', 'e_holo', 'e_polychrome'}
+                    _card:set_edition({[pseudorandom_element(editions, pseudoseed('dev_ed'))] = true})
+                    
+                    -- Random Seal
+                    local seals = {'Red', 'Blue', 'Gold', 'Purple'}
+                    _card:set_seal(pseudorandom_element(seals, pseudoseed('dev_seal')))
+
+                    _card:add_to_deck()
+                    G.deck:emplace(_card)
+
+                    -- Remove the lowest card
+                    lowest_card:remove()
+                    
+                    return {
+                        message = "Patch applied!",
+                        colour = G.C.FILTER
+                    }
+                end
+            end
         end
     end
 })
 
 -- J823 Beta Tester
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_beta_tester',
     config = { extra = { chips = 40, mult = 10 } },
@@ -100,7 +140,7 @@ SMODS.Joker({
 
 -- J824 Speedrunner
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_speedrunner',
     config = { extra = { mult = 30, limit = 120 } },
@@ -131,7 +171,7 @@ SMODS.Joker({
 
 -- J825 Completionist
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_completionist',
     config = { extra = { x_mult = 2 } },
@@ -167,7 +207,7 @@ SMODS.Joker({
 
 -- J826 Lore Master
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_lore_master',
     config = { extra = { mult = 20 } },
@@ -196,7 +236,7 @@ SMODS.Joker({
 
 -- J827 Min-Maxer
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_min_maxer',
     config = { extra = { x_mult = 3, limit = 40 } },
@@ -224,7 +264,7 @@ SMODS.Joker({
 
 -- J828 Casual
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_casual',
     config = { extra = { mult = 15 } },
@@ -255,7 +295,7 @@ SMODS.Joker({
 
 -- J829 Tryhard
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_tryhard',
     config = { extra = { mult = 30 } },
@@ -292,7 +332,7 @@ SMODS.Joker({
 
 -- J830 Rage Quit
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_rage_quit',
     config = { extra = { active = true } },
@@ -310,7 +350,7 @@ SMODS.Joker({
 
 -- J831 Save Scummer
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_save_scummer',
     config = { extra = { uses = 1 } },
@@ -331,7 +371,7 @@ SMODS.Joker({
 
 -- J832 Modder
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_modder',
     config = { extra = { mult = 10 } },
@@ -359,7 +399,7 @@ SMODS.Joker({
 
 -- J833 Pirate
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_pirate',
     config = { extra = { x_mult = 1.5 } },
@@ -388,7 +428,7 @@ SMODS.Joker({
 
 -- J834 DRM
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_drm',
     config = { extra = { mult = 40 } },
@@ -417,7 +457,7 @@ SMODS.Joker({
 
 -- J835 Microtransaction
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_microtransaction',
     config = { extra = { mult = 5, cost = 1 } },
@@ -447,7 +487,7 @@ SMODS.Joker({
 
 -- J836 DLC
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_dlc',
     config = { extra = { chips = 20 } },
@@ -476,7 +516,7 @@ SMODS.Joker({
 
 -- J837 Patch Notes
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_patch_notes',
     config = { extra = { mult = 10 } },
@@ -505,7 +545,7 @@ SMODS.Joker({
 
 -- J838 Easter Egg
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_easter_egg',
     config = { extra = { clicks = 0, req = 10, dollars = 10 } },

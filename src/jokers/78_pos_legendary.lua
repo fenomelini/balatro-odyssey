@@ -4,7 +4,7 @@
 
 -- J899 The Architect
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_the_architect',
     config = { extra = { slots = 5 } },
@@ -34,7 +34,7 @@ SMODS.Joker({
 
 -- J900 The Conductor
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_the_conductor',
     config = { extra = { x_mult = 5, step = 0.2 } },

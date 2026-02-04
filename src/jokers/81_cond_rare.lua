@@ -2,7 +2,7 @@
 
 -- Algorithm (J939)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_algorithm',
     config = { extra = { mult = 15 } },
@@ -31,7 +31,7 @@ SMODS.Joker({
 
 -- AI (J940)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_ai',
     config = { extra = { x_mult = 1 } },
@@ -61,7 +61,7 @@ SMODS.Joker({
 
 -- Neural Net (J941)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_neural_net',
     rarity = 3,
@@ -81,7 +81,7 @@ SMODS.Joker({
 
 -- Deep Learning (J942)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_deep_learning',
     config = { extra = { x_mult = 1, gain = 0.5 } },
@@ -111,7 +111,7 @@ SMODS.Joker({
 
 -- Machine Learning (J943)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_machine_learning',
     config = { extra = { last_hand = nil, count = 0 } },
@@ -143,7 +143,7 @@ SMODS.Joker({
 
 -- Big Data (J944)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_big_data',
     rarity = 3,
@@ -171,7 +171,7 @@ SMODS.Joker({
 
 -- Blockchain (J945)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_blockchain',
     config = { extra = { gain = 2 } },
@@ -194,7 +194,7 @@ SMODS.Joker({
 
 -- NFT (J946)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_nft',
     config = { extra = { x_mult = 3 } },
@@ -220,7 +220,7 @@ SMODS.Joker({
 
 -- Metaverse (J947)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_metaverse',
     rarity = 3,
@@ -263,7 +263,7 @@ SMODS.Joker({
 
 -- Web 3.0 (J948)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_web3',
     rarity = 3,

@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_piggy_bank',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 1 } },
     rarity = 1,
     cost = 4,
@@ -38,7 +38,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_angel_investor',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 2, gain = 1 } },
     rarity = 1,
     cost = 4,
@@ -71,7 +71,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_clearance_sale',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_economy_clearance_sale',
@@ -93,7 +93,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_coupon',
-    discovered = true,
+    discovered = false,
     config = { extra = { active = true, last_ante = 0 } },
     rarity = 1,
     cost = 4,
@@ -130,7 +130,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_rebate',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 1, max = 5, current = 0 } },
     rarity = 1,
     cost = 4,
@@ -165,7 +165,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_service_fee',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 1 } },
     rarity = 1,
     cost = 4,
@@ -194,7 +194,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_tip_jar',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 1 } },
     rarity = 1,
     cost = 4,
@@ -223,7 +223,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_black_market',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_economy_black_market',
@@ -241,7 +241,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_loan_shark',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 20, loss = 2 } },
     rarity = 1,
     cost = 4,
@@ -273,7 +273,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_inheritance',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 10 } },
     rarity = 1,
     cost = 4,
@@ -302,7 +302,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_tithe',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 10, threshold = 20 } },
     rarity = 1,
     cost = 4,
@@ -342,7 +342,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_inflation',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2, cost_inc = 1 } },
     rarity = 1,
     cost = 4,
@@ -372,7 +372,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_deflation',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 50, cost_dec = 1 } },
     rarity = 1,
     cost = 4,
@@ -402,7 +402,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_pawn_shop',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_economy_pawn_shop',
@@ -420,7 +420,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_treasure_hunt',
-    discovered = true,
+    discovered = false,
     config = { extra = { chance = 5, money = 5 } },
     rarity = 1,
     cost = 4,
@@ -454,7 +454,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_gold_mine',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 2 } },
     rarity = 1,
     cost = 4,
@@ -486,7 +486,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_unionizer',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 1 } },
     rarity = 1,
     cost = 4,
@@ -518,7 +518,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_accountant',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 15 } },
     rarity = 1,
     cost = 4,
@@ -549,7 +549,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_auditor',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 20, gain = 20 } },
     rarity = 1,
     cost = 4,
@@ -589,7 +589,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_capitalist',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 1.5 } },
     rarity = 1,
     cost = 4,

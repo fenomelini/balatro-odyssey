@@ -2,7 +2,7 @@
 
 -- Rebirth (J971)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_rebirth',
     rarity = 2,
@@ -26,7 +26,7 @@ SMODS.Joker({
 
 -- Karma (J972)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_karma',
     config = { extra = { x_mult = 1.5, per_boss = 0.2, penalty = 0.5 } },
@@ -54,7 +54,7 @@ SMODS.Joker({
 
 -- Dharma (J973)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_dharma',
     config = { extra = { mult = 20, tri_mult = 60 } },
@@ -92,7 +92,7 @@ SMODS.Joker({
 
 -- Nirvana (J974)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_nirvana',
     config = { extra = { x_mult = 3 } },
@@ -114,7 +114,7 @@ SMODS.Joker({
 
 -- Samsara (J975)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_samsara',
     rarity = 2,
@@ -142,7 +142,7 @@ SMODS.Joker({
 
 -- Zen (J976)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_zen',
     config = { extra = { mult = 30, timer = 10, last_hand_time = G.TIMERS.REAL } },
@@ -170,7 +170,7 @@ SMODS.Joker({
 
 -- Tao (J977)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_tao',
     config = { extra = { x_mult = 2 } },
@@ -200,7 +200,7 @@ SMODS.Joker({
 
 -- Yin (J978)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_yin',
     config = { extra = { mult = 20, x_mult = 2 } },
@@ -235,7 +235,7 @@ SMODS.Joker({
 
 -- Yang (J979)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_yang',
     config = { extra = { mult = 20, x_mult = 2 } },
@@ -270,7 +270,7 @@ SMODS.Joker({
 
 -- Chi (J980)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_chi',
     config = { extra = { chips = 50, per_hand = 10 } },
@@ -302,7 +302,7 @@ SMODS.Joker({
 
 -- Chakra (J981)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_chakra',
     config = { extra = { mult_per_slot = 10 } },
@@ -330,7 +330,7 @@ SMODS.Joker({
 
 -- Mantra (J982)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_mantra',
     config = { extra = { x_mult = 1.5 } },
@@ -361,7 +361,7 @@ SMODS.Joker({
 
 -- Mandala (J983)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_mandala',
     rarity = 2,
@@ -393,7 +393,7 @@ SMODS.Joker({
 
 -- Lótus (J984)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_lotus',
     config = { extra = { x_mult = 3 } },
@@ -415,7 +415,7 @@ SMODS.Joker({
 
 -- Om (J985)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_om',
     rarity = 2,
@@ -438,7 +438,7 @@ SMODS.Joker({
 
 -- Guru (J986)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_guru',
     rarity = 2,
@@ -463,7 +463,7 @@ SMODS.Joker({
 
 -- Yogi (J987)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_yogi',
     config = { extra = { mult = 20 } },
@@ -485,7 +485,7 @@ SMODS.Joker({
 
 -- Avatar (J988)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_avatar',
     config = { extra = { target_key = nil } },

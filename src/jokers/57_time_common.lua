@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_hourglass',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 20, loss = 2, current_mult = 20 } },
     rarity = 1,
     cost = 4,
@@ -40,7 +40,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_stopwatch',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 30 } },
     rarity = 1,
     cost = 4,
@@ -70,7 +70,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_countdown',
-    discovered = true,
+    discovered = false,
     config = { extra = { start = 10, current = 10, reward = 50 } },
     rarity = 1,
     cost = 4,
@@ -107,7 +107,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_patience',
-    discovered = true,
+    discovered = false,
     config = { extra = { time = 30, mult = 20 } },
     rarity = 1,
     cost = 4,
@@ -142,7 +142,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_haste',
-    discovered = true,
+    discovered = false,
     config = { extra = { time = 5, mult = 10 } },
     rarity = 1,
     cost = 4,
@@ -177,7 +177,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_extra_turn',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_time_extra_turn',
@@ -205,7 +205,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_rush_hour',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 50 } },
     rarity = 1,
     cost = 4,
@@ -233,7 +233,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_delay',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_time_delay',
@@ -260,7 +260,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_cycle',
-    discovered = true,
+    discovered = false,
     config = { extra = { rounds = 4, current = 4 } },
     rarity = 1,
     cost = 4,
@@ -304,7 +304,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_seasons',
-    discovered = true,
+    discovered = false,
     config = { extra = { suit = 'Hearts', index = 1 } },
     rarity = 1,
     cost = 4,
@@ -348,7 +348,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_day_night',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 50, mult = 10, state = 'day' } },
     rarity = 1,
     cost = 4,
@@ -386,7 +386,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_sundial',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult_per_card = 0.5 } },
     rarity = 1,
     cost = 4,
@@ -414,7 +414,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_pendulum',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult_low = 0.5, xmult_high = 2.0, state = 'low' } },
     rarity = 1,
     cost = 4,
@@ -443,7 +443,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_metronome',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 20, last_count = nil } },
     rarity = 1,
     cost = 4,
@@ -476,7 +476,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_zone',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_time_zone',
@@ -499,7 +499,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_ice_age',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_time_ice_age',
@@ -517,7 +517,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_stone_age',
-    discovered = true,
+    discovered = false,
     rarity = 1,
     cost = 4,
     atlas = 'j_time_stone_age',
@@ -547,7 +547,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_bronze_age',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 15 } },
     rarity = 1,
     cost = 4,
@@ -578,7 +578,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_iron_age',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 30 } },
     rarity = 1,
     cost = 4,
@@ -608,7 +608,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_future',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 15 } },
     rarity = 1,
     cost = 4,

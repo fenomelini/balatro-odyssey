@@ -4,7 +4,7 @@
 
 -- J839 Game Master
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_game_master',
     config = { extra = { used = false } },
@@ -23,7 +23,7 @@ SMODS.Joker({
 
 -- J840 Admin
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_admin',
     config = {},
@@ -45,7 +45,7 @@ SMODS.Joker({
 
 -- J841 God Mode
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_god_mode',
     config = { extra = { rounds = 1 } },
@@ -66,7 +66,7 @@ SMODS.Joker({
 
 -- J842 Noclip
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_noclip',
     config = { extra = { x_mult = 2 } },
@@ -98,7 +98,7 @@ SMODS.Joker({
 
 -- J843 Infinite Ammo
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_infinite_ammo',
     config = { extra = { discards = 5 } },
@@ -123,7 +123,7 @@ SMODS.Joker({
 
 -- J844 Aimbot
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_aimbot',
     config = { extra = { x_mult = 3 } },
@@ -160,7 +160,7 @@ SMODS.Joker({
 
 -- J845 Wallhack
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_wallhack',
     config = { extra = { chips = 150 } },
@@ -194,7 +194,7 @@ SMODS.Joker({
 
 -- J846 Lag Switch
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_lag_switch',
     config = { extra = { chips = 100, x_mult = 1.5 } },
@@ -224,7 +224,7 @@ SMODS.Joker({
 
 -- J847 Ban Hammer
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_ban_hammer',
     config = { extra = { x_mult = 5 } },
@@ -263,7 +263,7 @@ SMODS.Joker({
 
 -- J848 Credits
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_credits',
     config = { extra = { x_mult = 1 } },

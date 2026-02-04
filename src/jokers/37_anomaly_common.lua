@@ -468,6 +468,6 @@ local jokers = {
 
 for _, joker_def in ipairs(jokers) do
     joker_def.unlocked = true
-    joker_def.discovered = true
+    joker_def.discovered = false
     SMODS.Joker(joker_def)
 end

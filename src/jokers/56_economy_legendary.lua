@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_mammon',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 5 } },
     rarity = 4,
     cost = 20,
@@ -44,7 +44,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_markets_hand',
-    discovered = true,
+    discovered = false,
     rarity = 4,
     cost = 20,
     atlas = 'j_economy_markets_hand',

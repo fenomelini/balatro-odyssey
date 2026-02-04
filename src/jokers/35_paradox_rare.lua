@@ -4,7 +4,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_bootstrap_paradox',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_bootstrap_paradox',
     config = { extra = { x_mult = 1.5 } },
     rarity = 3,
@@ -61,7 +61,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_chicken_egg',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_chicken_egg',
     rarity = 3,
     pos = { x = 0, y = 0 },
@@ -84,7 +84,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_ship_of_theseus',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_ship_of_theseus',
     config = { extra = { x_mult = 5 } },
     rarity = 3,
@@ -122,7 +122,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_fermi_paradox',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_fermi_paradox',
     config = { extra = { x_mult = 3 } },
     rarity = 3,
@@ -160,7 +160,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_evil_twin',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_evil_twin',
     rarity = 3,
     pos = { x = 0, y = 0 },
@@ -202,7 +202,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_anti_joker',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_anti_joker',
     rarity = 3,
     pos = { x = 0, y = 0 },
@@ -232,7 +232,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_reverse_logic',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_reverse_logic',
     rarity = 3,
     pos = { x = 0, y = 0 },
@@ -267,7 +267,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_impossible',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_impossible',
     config = { extra = { x_mult = 100 } },
     rarity = 3,

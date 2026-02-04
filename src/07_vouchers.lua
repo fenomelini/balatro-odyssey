@@ -6,7 +6,7 @@
 SMODS.Voucher{
     key = 'telescope',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_telescope',
     cost = 10,
@@ -18,7 +18,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'observatory_1',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_observatory_1',
     cost = 10,
@@ -32,7 +32,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'asteroid',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_asteroid',
     cost = 10,
@@ -44,7 +44,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'meteor',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_meteor',
     cost = 10,
@@ -58,7 +58,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'comet_1',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_comet_1',
     cost = 10,
@@ -70,7 +70,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'falling_star',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_falling_star',
     cost = 10,
@@ -84,7 +84,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'satellite',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_satellite',
     cost = 10,
@@ -97,7 +97,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'space_station',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_space_station',
     cost = 10,
@@ -112,7 +112,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'rocket',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_rocket',
     cost = 10,
@@ -125,7 +125,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'shuttle',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_shuttle',
     cost = 10,
@@ -140,7 +140,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'propellant',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_propellant',
     cost = 10,
@@ -152,7 +152,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'separation',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_separation',
     cost = 10,
@@ -166,7 +166,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'fuel_tank',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_fuel_tank',
     cost = 10,
@@ -178,7 +178,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'core',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_core',
     cost = 10,
@@ -192,7 +192,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'solar_panel',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_solar_panel',
     cost = 10,
@@ -204,7 +204,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'dyson_sphere',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_dyson_sphere',
     cost = 10,
@@ -218,7 +218,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'recycler',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_recycler',
     cost = 10,
@@ -230,7 +230,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'converter',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_converter',
     cost = 10,
@@ -244,7 +244,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'dark_matter',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_dark_matter',
     cost = 10,
@@ -256,7 +256,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'dark_energy',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_dark_energy',
     cost = 10,
@@ -270,7 +270,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'quantum_bit',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_quantum_bit',
     cost = 10,
@@ -282,7 +282,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'qubit',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_qubit',
     cost = 10,
@@ -296,7 +296,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'time_capsule',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_time_capsule',
     cost = 10,
@@ -308,7 +308,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'time_machine_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_time_machine',
     cost = 10,
@@ -322,7 +322,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'warp_drive',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_warp_drive',
     cost = 10,
@@ -334,7 +334,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'hyperdrive',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_hyperdrive',
     cost = 10,
@@ -348,7 +348,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'shield',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_shield',
     cost = 10,
@@ -360,7 +360,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'force_field',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_force_field',
     cost = 10,
@@ -375,7 +375,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'laser',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_laser',
     cost = 10,
@@ -387,7 +387,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'destroyer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_destroyer',
     cost = 10,
@@ -401,7 +401,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'gold_plating',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_gold_plating',
     cost = 10,
@@ -413,7 +413,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'midas_touch',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_midas_touch',
     cost = 10,
@@ -427,7 +427,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'blower',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_blower',
     cost = 10,
@@ -439,7 +439,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'crystal_forge',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_crystal_forge',
     cost = 10,
@@ -453,7 +453,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'steelworks',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_steelworks',
     cost = 10,
@@ -465,7 +465,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'titanium',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_titanium',
     cost = 10,
@@ -479,7 +479,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'amulet',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_amulet',
     cost = 10,
@@ -491,7 +491,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'rabbits_foot',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_rabbits_foot',
     cost = 10,
@@ -505,7 +505,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'cloning',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_cloning',
     cost = 10,
@@ -520,7 +520,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'replicator',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_replicator',
     cost = 10,
@@ -537,7 +537,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'black_market',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_black_market',
     cost = 10,
@@ -549,7 +549,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'contraband',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_contraband',
     cost = 10,
@@ -563,7 +563,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'coupon',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_coupon',
     cost = 10,
@@ -576,7 +576,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'liquidation',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_liquidation',
     cost = 10,
@@ -591,7 +591,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'investment',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_investment',
     cost = 10,
@@ -603,7 +603,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'hedge_fund_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_hedge_fund',
     cost = 10,
@@ -617,7 +617,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'insurance',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_insurance',
     cost = 10,
@@ -629,7 +629,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'bailout',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_bailout',
     cost = 10,
@@ -643,7 +643,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'library',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_library',
     cost = 10,
@@ -655,7 +655,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'archives',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_archives',
     cost = 10,
@@ -669,7 +669,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'deep_space_obs',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_deep_space_obs',
     cost = 10,
@@ -681,7 +681,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'planetarium',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_planetarium',
     cost = 10,
@@ -695,7 +695,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'laboratory',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_laboratory',
     cost = 10,
@@ -707,7 +707,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'research_center',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_research_center',
     cost = 10,
@@ -721,7 +721,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'casino',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_casino',
     cost = 10,
@@ -733,7 +733,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'high_roller',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_high_roller',
     cost = 10,
@@ -747,7 +747,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'bank',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_bank',
     cost = 10,
@@ -759,7 +759,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'vault',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_vault',
     cost = 10,
@@ -773,7 +773,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'tax_haven',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_tax_haven',
     cost = 10,
@@ -785,7 +785,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'offshore',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_offshore',
     cost = 10,
@@ -799,7 +799,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'recruiter',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_recruiter',
     cost = 10,
@@ -811,7 +811,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'talent_scout',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_talent_scout',
     cost = 10,
@@ -825,7 +825,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'scout',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_scout',
     cost = 10,
@@ -837,7 +837,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'pathfinder',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_pathfinder',
     cost = 10,
@@ -851,7 +851,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'cartographer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_cartographer',
     cost = 10,
@@ -863,7 +863,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'explorer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_explorer',
     cost = 10,
@@ -877,7 +877,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'mechanic',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_mechanic',
     cost = 10,
@@ -889,7 +889,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'engineer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_engineer',
     cost = 10,
@@ -903,7 +903,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'artist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_artist',
     cost = 10,
@@ -915,7 +915,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'masterpiece',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_masterpiece',
     cost = 10,
@@ -929,7 +929,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'juggler',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_juggler',
     cost = 10,
@@ -941,7 +941,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'acrobat',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_acrobat',
     cost = 10,
@@ -955,7 +955,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'magician',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_magician',
     cost = 10,
@@ -967,7 +967,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'illusionist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_illusionist',
     cost = 10,
@@ -981,7 +981,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'gambler',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_gambler',
     cost = 10,
@@ -993,7 +993,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'pro',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_pro',
     cost = 10,
@@ -1007,7 +1007,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'collector',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_collector',
     cost = 10,
@@ -1019,7 +1019,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'curator',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_curator',
     cost = 10,
@@ -1033,7 +1033,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'minimalist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_minimalist',
     cost = 10,
@@ -1045,7 +1045,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'essentialist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_essentialist',
     cost = 10,
@@ -1059,7 +1059,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'maximalist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_maximalist',
     cost = 10,
@@ -1071,7 +1071,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'accumulator',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_accumulator',
     cost = 10,
@@ -1085,7 +1085,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'astronomer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_astronomer',
     cost = 10,
@@ -1097,7 +1097,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'cosmologist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_cosmologist',
     cost = 10,
@@ -1111,7 +1111,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'alchemist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_alchemist',
     cost = 10,
@@ -1123,7 +1123,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'transmuter',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_transmuter',
     cost = 10,
@@ -1137,7 +1137,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'archaeologist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_archaeologist',
     cost = 10,
@@ -1149,7 +1149,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'historian',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_historian',
     cost = 10,
@@ -1163,7 +1163,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'futurist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_futurist',
     cost = 10,
@@ -1175,7 +1175,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'visionary',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_visionary',
     cost = 10,
@@ -1189,7 +1189,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'optimist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_optimist',
     cost = 10,
@@ -1201,7 +1201,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'utopian',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_utopian',
     cost = 10,
@@ -1215,7 +1215,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'pessimist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_pessimist',
     cost = 10,
@@ -1227,7 +1227,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'distopian',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_distopian',
     cost = 10,
@@ -1241,7 +1241,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'realist',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_realist',
     cost = 10,
@@ -1253,7 +1253,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'pragmatic',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_pragmatic',
     cost = 10,
@@ -1267,7 +1267,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'dreamer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_dreamer',
     cost = 10,
@@ -1279,7 +1279,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'lucid',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_lucid',
     cost = 10,
@@ -1293,7 +1293,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'seed',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_seed',
     cost = 10,
@@ -1305,7 +1305,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'tree',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_tree',
     cost = 10,
@@ -1319,7 +1319,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'magnet',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_magnet',
     cost = 10,
@@ -1331,7 +1331,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'electromagnet',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_electromagnet',
     cost = 10,
@@ -1345,7 +1345,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'lens',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_lens',
     cost = 10,
@@ -1357,7 +1357,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'microscope',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_microscope',
     cost = 10,
@@ -1371,7 +1371,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'prism_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_prism',
     cost = 10,
@@ -1383,7 +1383,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'specter',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_specter',
     cost = 10,
@@ -1397,7 +1397,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'anvil',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_anvil',
     cost = 10,
@@ -1409,7 +1409,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'hammer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_hammer',
     cost = 10,
@@ -1423,7 +1423,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'feather',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_feather',
     cost = 10,
@@ -1435,7 +1435,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'inkwell',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_inkwell',
     cost = 10,
@@ -1449,7 +1449,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'compass',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_compass',
     cost = 10,
@@ -1461,7 +1461,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'gps',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_gps',
     cost = 10,
@@ -1475,7 +1475,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'map',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_map',
     cost = 10,
@@ -1487,7 +1487,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'atlas_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_atlas',
     cost = 10,
@@ -1501,7 +1501,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'key',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_key',
     cost = 10,
@@ -1513,7 +1513,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'master_key',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_master_key',
     cost = 10,
@@ -1527,7 +1527,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'lock',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_lock',
     cost = 10,
@@ -1539,7 +1539,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'strongbox',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_strongbox',
     cost = 10,
@@ -1553,7 +1553,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'dice_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_dice',
     cost = 10,
@@ -1565,7 +1565,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'd20_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_d20',
     cost = 10,
@@ -1579,7 +1579,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'chip',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_chip',
     cost = 10,
@@ -1591,7 +1591,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'stack',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_stack',
     cost = 10,
@@ -1605,7 +1605,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'mult_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_mult',
     cost = 10,
@@ -1617,7 +1617,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'mega_mult',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_mega_mult',
     cost = 10,
@@ -1631,7 +1631,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'xmult_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_xmult',
     cost = 10,
@@ -1643,7 +1643,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'giga_mult',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_giga_mult',
     cost = 10,
@@ -1657,7 +1657,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'joker_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_joker',
     cost = 10,
@@ -1669,7 +1669,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'circus',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_circus',
     cost = 10,
@@ -1683,7 +1683,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'card_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_card',
     cost = 10,
@@ -1695,7 +1695,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'deck_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_deck',
     cost = 10,
@@ -1709,7 +1709,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'pack_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_pack',
     cost = 10,
@@ -1721,7 +1721,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'box',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_box',
     cost = 10,
@@ -1735,7 +1735,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'gold_coupon',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_gold_coupon',
     cost = 10,
@@ -1747,7 +1747,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'gold_ticket',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_gold_ticket',
     cost = 10,
@@ -1761,7 +1761,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'partner',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_partner',
     cost = 10,
@@ -1773,7 +1773,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'vip',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_vip',
     cost = 10,
@@ -1787,7 +1787,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'member',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_member',
     cost = 10,
@@ -1799,7 +1799,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'founder',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_founder',
     cost = 10,
@@ -1813,7 +1813,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'apprentice',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_apprentice',
     cost = 10,
@@ -1826,7 +1826,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'master',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_master',
     cost = 10,
@@ -1841,7 +1841,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'novice',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_novice',
     cost = 10,
@@ -1853,7 +1853,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'veteran',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_veteran',
     cost = 10,
@@ -1867,7 +1867,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'squire_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_squire',
     cost = 10,
@@ -1880,7 +1880,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'knight_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_knight',
     cost = 10,
@@ -1895,7 +1895,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'pawn_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_pawn',
     cost = 10,
@@ -1907,7 +1907,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'rook',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_rook',
     cost = 10,
@@ -1921,7 +1921,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'bishop',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_bishop',
     cost = 10,
@@ -1933,7 +1933,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'king_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_king',
     cost = 10,
@@ -1947,7 +1947,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'queen_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_queen',
     cost = 10,
@@ -1959,7 +1959,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'empress',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_empress',
     cost = 10,
@@ -1973,7 +1973,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'ace_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_ace',
     cost = 10,
@@ -1985,7 +1985,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'god',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_god',
     cost = 10,
@@ -2000,7 +2000,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'jester_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_jester',
     cost = 10,
@@ -2012,7 +2012,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'fool_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_fool',
     cost = 10,
@@ -2026,7 +2026,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'mimic',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_mimic',
     cost = 10,
@@ -2038,7 +2038,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'doppelganger',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_doppelganger',
     cost = 10,
@@ -2052,7 +2052,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'magic_mirror',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_magic_mirror',
     cost = 10,
@@ -2064,7 +2064,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'portal',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_portal',
     cost = 10,
@@ -2078,7 +2078,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'shadow_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_shadow',
     cost = 10,
@@ -2090,7 +2090,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'darkness',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_darkness',
     cost = 10,
@@ -2104,7 +2104,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'light',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_light',
     cost = 10,
@@ -2116,7 +2116,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'glow',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_glow',
     cost = 10,
@@ -2130,7 +2130,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'fire',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_fire',
     cost = 10,
@@ -2142,7 +2142,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'inferno',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_inferno',
     cost = 10,
@@ -2156,7 +2156,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'ice',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_ice',
     cost = 10,
@@ -2168,7 +2168,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'absolute_zero_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_absolute_zero',
     cost = 10,
@@ -2182,7 +2182,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'wind',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_wind',
     cost = 10,
@@ -2194,7 +2194,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'hurricane',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_hurricane',
     cost = 10,
@@ -2208,7 +2208,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'earth',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_earth',
     cost = 10,
@@ -2220,7 +2220,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'mountain',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_mountain',
     cost = 10,
@@ -2234,7 +2234,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'water_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_water',
     cost = 10,
@@ -2246,7 +2246,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'ocean',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_ocean',
     cost = 10,
@@ -2260,7 +2260,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'lightning_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_lightning',
     cost = 10,
@@ -2272,7 +2272,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'storm_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_storm',
     cost = 10,
@@ -2286,7 +2286,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'metal',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_metal',
     cost = 10,
@@ -2298,7 +2298,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'alloy',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_alloy',
     cost = 10,
@@ -2312,7 +2312,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'wood',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_wood',
     cost = 10,
@@ -2324,7 +2324,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'forest',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_forest',
     cost = 10,
@@ -2338,7 +2338,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'plastic',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_plastic',
     cost = 10,
@@ -2350,7 +2350,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'polymer',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_polymer',
     cost = 10,
@@ -2364,7 +2364,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'rubber',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_rubber',
     cost = 10,
@@ -2376,7 +2376,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'tire',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_tire',
     cost = 10,
@@ -2390,7 +2390,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'ceramic',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_ceramic',
     cost = 10,
@@ -2402,7 +2402,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'vase',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_vase',
     cost = 10,
@@ -2416,7 +2416,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'cloth',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_cloth',
     cost = 10,
@@ -2428,7 +2428,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'tapestry',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_tapestry',
     cost = 10,
@@ -2442,7 +2442,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'paper',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_paper',
     cost = 10,
@@ -2454,7 +2454,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'origami',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_origami',
     cost = 10,
@@ -2468,7 +2468,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'stone_2',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_stone_2',
     cost = 10,
@@ -2480,7 +2480,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'rock',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_rock',
     cost = 10,
@@ -2494,7 +2494,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'glass_2',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_glass_2',
     cost = 10,
@@ -2506,7 +2506,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'window',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_window',
     cost = 10,
@@ -2520,7 +2520,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'diamond_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_diamond',
     cost = 10,
@@ -2532,7 +2532,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'jewelry',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_jewelry',
     cost = 10,
@@ -2546,7 +2546,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'ruby',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_ruby',
     cost = 10,
@@ -2558,7 +2558,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'gem',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_gem',
     cost = 10,
@@ -2572,7 +2572,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'emerald',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_emerald',
     cost = 10,
@@ -2584,7 +2584,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'crystal_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_crystal',
     cost = 10,
@@ -2598,7 +2598,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'platinum_v',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_platinum',
     cost = 10,
@@ -2610,7 +2610,7 @@ SMODS.Voucher{
 SMODS.Voucher{
     key = 'iridium',
     pos = { x = 0, y = 0 },
-    discovered = true,
+    discovered = false,
     unlocked = true,
     atlas = 'v_iridium',
     cost = 10,

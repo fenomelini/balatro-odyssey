@@ -5,7 +5,7 @@
 -- J771 Vampire (Steamodded already has a Vampire, but we add our own or override)
 -- We use a prefix to avoid conflict
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_vampire',
     config = { extra = { x_mult = 1, x_mult_mod = 0.2 } },
@@ -49,7 +49,7 @@ SMODS.Joker({
 
 -- J772 Werewolf
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_werewolf',
     config = { extra = { chips = 50 } },
@@ -78,7 +78,7 @@ SMODS.Joker({
 
 -- J773 Frankenstein
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_frankenstein',
     config = {},
@@ -92,7 +92,7 @@ SMODS.Joker({
             if #context.full_hand >= 2 then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local new_card = create_card('Suit', G.hand, nil, nil, nil, nil, nil, 'frank')
+                        local new_card = create_card('Default', G.hand, nil, nil, nil, nil, nil, 'frank')
                         new_card:add_to_deck()
                         G.hand:emplace(new_card)
                         return true
@@ -109,7 +109,7 @@ SMODS.Joker({
 
 -- J774 Zombie
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_zombie',
     config = { extra = { odds = 4 } },
@@ -132,7 +132,7 @@ SMODS.Joker({
                 -- Let's just create a random card in hand as a "returned" one
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local new_card = create_card('Suit', G.hand, nil, nil, nil, nil, nil, 'zombie')
+                        local new_card = create_card('Default', G.hand, nil, nil, nil, nil, nil, 'zombie')
                         new_card:add_to_deck()
                         G.hand:emplace(new_card)
                         return true
@@ -149,7 +149,7 @@ SMODS.Joker({
 
 -- J775 Phantom of the Opera
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_phantom_of_the_opera',
     config = { extra = { x_mult = 2 } },
@@ -175,7 +175,7 @@ SMODS.Joker({
 
 -- J776 Jekyll & Hyde
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_jekyll_hyde',
     config = { extra = { active = false, x_mult_a = 0.5, x_mult_b = 4 } },
@@ -203,7 +203,7 @@ SMODS.Joker({
 
 -- J777 Mutant
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_mutant',
     config = { extra = { mult = 10 } },
@@ -219,7 +219,7 @@ SMODS.Joker({
 
 -- J778 Hybrid
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_hybrid',
     config = {},
@@ -235,7 +235,7 @@ SMODS.Joker({
 
 -- J779 Chimera
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_chimera',
     config = { extra = { mult = 10, chips = 50, money = 1, x_mult = 1.5 } },
@@ -262,7 +262,7 @@ SMODS.Joker({
 
 -- J780 Hydra
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_hydra',
     config = {},
@@ -286,7 +286,7 @@ SMODS.Joker({
 
 -- J781 Dark Phoenix
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_dark_phoenix',
     config = {},
@@ -306,7 +306,7 @@ SMODS.Joker({
                     delay = 0.1,
                     func = function()
                         v:start_dissolve()
-                        local new_card = create_card('Suit', G.deck, nil, nil, nil, nil, nil, 'dark_phoenix')
+                        local new_card = create_card('Default', G.deck, nil, nil, nil, nil, nil, 'dark_phoenix')
                         new_card:set_ability(G.P_CENTERS.m_odyssey_platinum)
                         new_card:add_to_deck()
                         G.deck:emplace(new_card)
@@ -324,7 +324,7 @@ SMODS.Joker({
 
 -- J782 Basilisk
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_basilisk',
     config = {},
@@ -343,7 +343,7 @@ SMODS.Joker({
 
 -- J783 Medusa
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_medusa',
     config = { extra = { mult = 50 } },
@@ -376,7 +376,7 @@ SMODS.Joker({
 
 -- J784 Siren
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_siren',
     config = {},
@@ -415,7 +415,7 @@ SMODS.Joker({
 
 -- J785 Griffin
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_griffin',
     config = { extra = { chips = 0, chip_gain = 10 } },
@@ -451,7 +451,7 @@ SMODS.Joker({
 
 -- J786 Dragon
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_dragon',
     config = { extra = { x_mult = 3 } },
@@ -480,7 +480,7 @@ SMODS.Joker({
 
 -- J787 Unicorn
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_unicorn',
     config = { extra = { x_mult = 2.5 } },
@@ -508,7 +508,7 @@ SMODS.Joker({
 
 -- J788 Centaur
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_centaur',
     config = { extra = { mult = 15 } },

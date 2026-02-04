@@ -107,7 +107,7 @@ for _, p in ipairs(planets) do
         atlas = "planet_" .. p.id,
         pos = { x = 0, y = 0 },
         config = { hand_type = p.hand },
-        discovered = true,
+        discovered = false,
         set = "Planet",
         cost = 3,
         loc_vars = function(self, info_queue, card)

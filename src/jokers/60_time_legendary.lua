@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_father_time',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 5 } },
     rarity = 4,
     cost = 20,
@@ -28,7 +28,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_guardian_of_eternity',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 4 } },
     rarity = 4,
     cost = 20,

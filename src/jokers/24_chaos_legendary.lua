@@ -1,7 +1,7 @@
 -- 239. Azathoth
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_azathoth',
     config = { extra = { x_mult = 10 } },
     rarity = 4,
@@ -48,7 +48,7 @@ SMODS.Joker({
 -- 240. Crawling Chaos
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_crawling_chaos',
     config = { extra = { x_mult = 2, gain = 0.5 } },
     rarity = 4,

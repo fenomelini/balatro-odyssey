@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_phoenix',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 0, gain = 1 } },
     rarity = 3,
     atlas = 'j_elemental_phoenix',
@@ -41,7 +41,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_leviathan',
-    discovered = true,
+    discovered = false,
     config = { extra = { hands = 1 } },
     rarity = 3,
     atlas = 'j_elemental_leviathan',
@@ -69,7 +69,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_behemoth',
-    discovered = true,
+    discovered = false,
     config = { extra = { slots = 1 } },
     rarity = 3,
     atlas = 'j_elemental_behemoth',
@@ -105,7 +105,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_ziz',
-    discovered = true,
+    discovered = false,
     config = { extra = { discards = 1, dollars = 5 } },
     rarity = 3,
     atlas = 'j_elemental_ziz',
@@ -134,7 +134,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_fifth_element',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 5 } },
     rarity = 3,
     atlas = 'j_elemental_fifth_element',
@@ -170,7 +170,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_master_alchemist',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 3,
     atlas = 'j_elemental_master_alchemist',
@@ -205,7 +205,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_heart_of_the_world',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 3, odyssey_suit_immune = true } },
     rarity = 3,
     atlas = 'j_elemental_heart_of_the_world',
@@ -232,7 +232,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_neutron_star',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 20 } },
     rarity = 3,
     atlas = 'j_elemental_neutron_star',
@@ -259,7 +259,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_superconductor',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 3,
     atlas = 'j_elemental_superconductor',
@@ -285,7 +285,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_absolute_zero',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 10, next_hand_active = false } },
     rarity = 3,
     atlas = 'j_elemental_absolute_zero',

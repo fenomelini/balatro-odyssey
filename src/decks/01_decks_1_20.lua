@@ -249,7 +249,7 @@ SMODS.Back({
             func = function()
                 -- Add 26 random cards to reach 78 cards
                 for i = 1, 26 do
-                    local card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'dim')
+                    local card = create_card('Default', G.deck, nil, nil, nil, nil, nil, 'dim')
                     card:add_to_deck()
                     G.deck:emplace(card)
                     table.insert(G.playing_cards, card)

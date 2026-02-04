@@ -4,7 +4,7 @@
 
 -- J849 The Player
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_the_player',
     config = { extra = { x_mult = 5, mode = 1 } },
@@ -40,7 +40,7 @@ SMODS.Joker({
 
 -- J850 LocalThunk
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_localthunk',
     config = { extra = { x_mult = 10 } },

@@ -4,7 +4,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_ouroboros',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_ouroboros',
     config = { extra = { x_mult = 3 } },
     rarity = 4,
@@ -48,7 +48,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_paradox_grandfather_paradox',
-    discovered = true,
+    discovered = false,
     atlas = 'j_paradox_grandfather_paradox',
     rarity = 4,
     pos = { x = 0, y = 0 },

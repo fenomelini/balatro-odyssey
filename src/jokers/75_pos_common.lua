@@ -4,7 +4,7 @@
 
 -- J851 Left Neighbor
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_left_neighbor',
     config = {},
@@ -30,7 +30,7 @@ SMODS.Joker({
 
 -- J852 Right Neighbor
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_right_neighbor',
     config = {},
@@ -56,7 +56,7 @@ SMODS.Joker({
 
 -- J853 Bodyguard
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_bodyguard',
     config = { extra = { mult = 10 } },
@@ -85,7 +85,7 @@ SMODS.Joker({
 
 -- J854 Leader
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_leader',
     config = { extra = { mult_per = 5 } },
@@ -111,7 +111,7 @@ SMODS.Joker({
 
 -- J855 Follower
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_follower',
     config = { extra = { mult_per = 5 } },
@@ -136,7 +136,7 @@ SMODS.Joker({
 
 -- J856 Center Stage
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_center_stage',
     config = { extra = { mult = 20 } },
@@ -160,7 +160,7 @@ SMODS.Joker({
 
 -- J857 Outsider
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_outsider',
     config = { extra = { mult = 15 } },
@@ -184,7 +184,7 @@ SMODS.Joker({
 
 -- J858 Pair
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_pair',
     config = { extra = { x_mult = 2 } },
@@ -211,7 +211,7 @@ SMODS.Joker({
 
 -- J859 Trio
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_trio',
     config = { extra = { x_mult = 3 } },
@@ -248,7 +248,7 @@ SMODS.Joker({
 
 -- J860 Chain
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_chain',
     config = { extra = { mult_per = 5 } },
@@ -273,7 +273,7 @@ SMODS.Joker({
 
 -- J861 Magnet
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_magnet',
     config = { extra = { mult = 15 } },
@@ -307,7 +307,7 @@ SMODS.Joker({
 
 -- J862 Repulsor
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_repulsor',
     config = { extra = { chips = 100 } },
@@ -341,7 +341,7 @@ SMODS.Joker({
 
 -- J863 Mirror
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_mirror',
     config = {},
@@ -374,7 +374,7 @@ SMODS.Joker({
 
 -- J864 Prism
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_prism',
     config = {},
@@ -393,7 +393,7 @@ SMODS.Joker({
 
 -- J865 Lens
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_lens',
     config = { extra = { mult = 0 } },
@@ -421,7 +421,7 @@ SMODS.Joker({
 
 -- J866 Amplifier
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_amplifier',
     config = { extra = { factor = 1.5 } },
@@ -459,7 +459,7 @@ SMODS.Joker({
 
 -- J867 Silencer
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_silencer',
     config = { extra = { x_mult = 3 } },
@@ -487,7 +487,7 @@ SMODS.Joker({
 
 -- J868 Battery
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_battery',
     config = {},
@@ -512,7 +512,7 @@ SMODS.Joker({
 
 -- J869 Ground Wire
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_ground_wire',
     config = { extra = { chips = 100 } },
@@ -540,7 +540,7 @@ SMODS.Joker({
 
 -- J870 Connector
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_connector',
     config = { extra = { mult = 10 } },

@@ -1,7 +1,7 @@
 -- Balatro Odyssey
 -- A mod adding 1000 unique Jokers
 -- Author: fenomelini
--- Version: 0.1.2-alpha
+-- Version: 0.1.3-alpha
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
@@ -48,6 +48,8 @@ function Game:start_run(args)
     G.GAME.skip_reward_multiplier = G.GAME.skip_reward_multiplier or 1
     G.GAME.interest_rate = G.GAME.interest_rate or 0
     G.GAME.interest_mult = G.GAME.interest_mult or 1
+    G.GAME.odyssey_pawn_shop_active = G.GAME.odyssey_pawn_shop_active or 0
+    G.GAME.odyssey_curie_active = G.GAME.odyssey_curie_active or false
     G.GAME.reveal_future_blinds = G.GAME.reveal_future_blinds or 0
     G.GAME.reveal_skip_rewards = G.GAME.reveal_skip_rewards or false
     G.GAME.odyssey_prev_round_1_hand = G.GAME.odyssey_prev_round_1_hand or false

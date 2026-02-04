@@ -599,7 +599,7 @@ return {
  j_odyssey_j_chaos_butterfly_effect = {
  name = "Butterfly Effect",
  text = {
- "The {C:attention}first played card{} sets{}", "the suit of all other cards", "for scoring"
+ "The {C:attention}first played card{} converts", "all cards in your hand", "to its suit"
  }
  },
  
@@ -1334,7 +1334,7 @@ return {
  j_odyssey_j_corruption_noxious_spores = {
  name = "Noxious Spores",
  text = {
- "{C:mult}+#1#{} Mult{}", "Played cards become", "{C:attention}Stone Cards{}"
+ "{C:mult}+#1#{} Mult{}", "Played cards become", "{C:attention}Emerald Cards{}"
  }
  },
  
@@ -3574,7 +3574,7 @@ return {
  j_odyssey_j_luck_and_probability_four_leaf_clover = {
  name = "Four Leaf Clover",
  text = {
- "Increases probabilities by {C:attention}10%{} (additive){}"
+ "Adds {C:attention}+1{} to the numerator", "of all {C:green}probabilities{}"
  }
  },
  
@@ -3682,7 +3682,7 @@ return {
  j_odyssey_j_luck_and_probability_prophecy = {
  name = "Prophecy",
  text = {
- "If predicting the winning hand, gain {X:mult,C:white} X2 {} Mult{}"
+ "Prophesied Hand: {C:attention}#2#{}", "Gives {X:mult,C:white} X#1# {} Mult if the", "played hand matches the prophecy"
  }
  },
  
@@ -4060,7 +4060,7 @@ return {
  j_odyssey_j_paradox_value_inversion = {
  name = "Value Inversion",
  text = {
- "{C:attention}Face cards{} give {}{C:chips}#1#{} Chips,{}", "{C:attention}Aces{} give {}{C:chips}+#2#{} Chips{}"
+ "{C:attention}Face cards{} give {C:chips}#1#{} Chips,", "{C:attention}Aces{} give {C:chips}+#2#{} Chips"
  }
  },
  
@@ -4591,7 +4591,7 @@ return {
  j_odyssey_j_professions_futurist = {
  name = "Futurist",
  text = {
- "{C:attention}+15 {}{C:mult}Mult{} Mult{}.{}", "Predicts the next Boss Blind."
+ "{C:mult}+15{} Mult. Doubles all levels", "gained for {C:attention}poker hands{}"
  }
  },
  
@@ -5431,7 +5431,7 @@ return {
  j_odyssey_j_social_developer = {
  name = "Developer",
  text = {
- "{C:chips}+50{} Chips. Reveals{}", "{C:attention}hidden hitboxes{} on screen{}"
+ "{C:chips}+50{} Chips. At the end of round,", "'Debug' your deck: remove the lowest", "rank card and create a random", "{C:attention}Patch Card{} (Enhanced, Edition, Seal)"
  }
  },
  
@@ -6390,7 +6390,7 @@ return {
  j_odyssey_j_transformations_costume = {
  name = "Costume",
  text = {
- "{C:mult}+10{} Mult. Changes card art{}", "to the Joker's theme"
+ "{C:mult}+#1#{} Mult. When you play a hand, convert", "the first card into a random {C:attention}Enhanced Card{}"
  }
  },
  
@@ -6481,7 +6481,7 @@ return {
  j_odyssey_j_transformations_jekyll_hyde = {
  name = "Jekyll & Hyde",
  text = {
- "Alternates between {X:mult,C:white} X0.5 {} Mult and {}{X:mult,C:white} X4 {} Mult{}", "every hand played"
+ "Alternates between {X:mult,C:white} X0.5 {} and {X:mult,C:white} X4 {} Mult", "every hand (Currently: {X:mult,C:white} X#1# {})"
  }
  },
  
@@ -7285,8 +7285,7 @@ return {
  c_odyssey_tarot_39 = {
  name = "The Chaos",
  text = {
- "Randomizes your hand."
- 
+ "Randomizes Rank and Suit", "of all cards in hand"
  }
  },
  
@@ -7452,8 +7451,7 @@ return {
  c_odyssey_tarot_58 = {
  name = "The War",
  text = {
- "Destroys all Face cards in hand", "and gives money."
- 
+ "Destroys all {C:attention}Face cards{} in hand", "and gain {C:money}$2{} for each card destroyed."
  }
  },
  
@@ -7652,7 +7650,7 @@ return {
  c_odyssey_tarot_80 = {
  name = "The Warrior",
  text = {
- "+100 Chips this round."
+ "Add {C:chips}+100{} permanent bonus", "to up to {C:attention}2{} selected cards."
  }
  },
  

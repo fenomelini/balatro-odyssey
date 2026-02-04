@@ -4,7 +4,7 @@
 
 -- J799 The Changeling
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_the_changeling',
     config = { extra = { copied_key = nil } },
@@ -46,7 +46,7 @@ SMODS.Joker({
 
 -- J800 Proteus
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_proteus',
     config = { extra = { x_mult = 1, hand_types = {} } },

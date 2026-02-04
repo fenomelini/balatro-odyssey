@@ -10,7 +10,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     -- Simplified: same as Four Leaf Clover but stronger
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.GAME.probabilities.normal = G.GAME.probabilities.normal + 1 end
@@ -32,7 +32,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.odyssey_dice_master = (G.GAME.odyssey_dice_master or 0) + 1
     end,
@@ -53,7 +53,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.repetition and not context.repetition_only then
             if context.other_card.config.center == G.P_CENTERS.m_lucky then
@@ -76,7 +76,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             if G.GAME.chips < G.GAME.blind.chips * 0.1 then
@@ -99,7 +99,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -120,7 +120,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local count = 0
@@ -150,7 +150,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.GAME.probabilities.normal = G.GAME.probabilities.normal - 0.5 end
     end,
@@ -177,7 +177,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.round_resets.ante <= 1 then
             return {
@@ -197,14 +197,15 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 func = function()
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        local card = create_card('Consumeable', G.consumeables, nil, nil, nil, nil, nil, 'dest')
+                        local card_type = pseudorandom_element({'Tarot', 'Planet', 'Spectral'}, pseudoseed('destiny'))
+                        local card = create_card(card_type, G.consumeables, nil, nil, nil, nil, nil, 'dest')
                         card:add_to_deck()
                         G.consumeables:emplace(card)
                     end
@@ -225,7 +226,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local lucky_count = 0
@@ -256,7 +257,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.end_of_round and not context.other_card and not context.blueprint then
             if pseudorandom('wheel_fate') < G.GAME.probabilities.normal / card.ability.extra then
@@ -283,7 +284,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         local top_cards = {}
         if G.deck and G.deck.cards then
@@ -310,21 +311,34 @@ SMODS.Joker({
 -- 733. Profecia (Prophecy)
 SMODS.Joker({
     key = 'j_luck_and_probability_prophecy',
+    config = { extra = { x_mult = 4, hand = "High Card" } },
     rarity = 2,
     atlas = 'j_luck_and_probability_prophecy',
     pos = { x = 0, y = 0 },
     cost = 7,
     unlocked = true,
-    discovered = true,
+    discovered = false,
+    loc_vars = function(self, info_queue, card)
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
+        return { vars = { extra.x_mult, localize(extra.hand, 'poker_hands') } }
+    end,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
-             if G.GAME.round_resets.ante >= 8 then
-                 local card = create_card('Joker', G.jokers, nil, 0.99, nil, nil, nil, 'prop')
-                 card:set_edition({negative = true})
-                 card:add_to_deck()
-                 G.jokers:emplace(card)
-                 return { message = "Fulfillment!", colour = G.C.PURPLE }
-             end
+            local hands = {}
+            for k, v in pairs(G.GAME.hands) do
+                if v.visible then table.insert(hands, k) end
+            end
+            if #hands > 0 then
+                card.ability.extra.hand = pseudorandom_element(hands, pseudoseed('prophecy'))
+            end
+        end
+        if context.joker_main then
+            if context.scoring_name == card.ability.extra.hand then
+                return {
+                    message = localize{type='variable',key='a_xmult',vars={card.ability.extra.x_mult}},
+                    Xmult_mod = card.ability.extra.x_mult
+                }
+            end
         end
     end
 })
@@ -337,7 +351,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.odyssey_blind_luck = (G.GAME.odyssey_blind_luck or 0) + 1
     end,
@@ -359,7 +373,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             if pseudorandom('chance') < G.GAME.probabilities.normal / card.ability.extra.odds then
@@ -383,7 +397,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.odyssey_serendipity = (G.GAME.odyssey_serendipity or 0) + 1
     end,
@@ -405,7 +419,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             if pseudorandom('miracle') < G.GAME.probabilities.normal / card.ability.extra then
@@ -432,7 +446,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if context.other_card.config.center == G.P_CENTERS.m_lucky then

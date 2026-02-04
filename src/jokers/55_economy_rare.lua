@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_the_great_depression',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 1, lost = 0 } },
     rarity = 3,
     cost = 8,
@@ -40,7 +40,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_midas',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 8,
     atlas = 'j_economy_midas',
@@ -67,7 +67,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_philosophers_stone',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 8,
     atlas = 'j_economy_philosophers_stone',
@@ -95,7 +95,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_money_printer',
-    discovered = true,
+    discovered = false,
     config = { extra = { chance = 3 } },
     rarity = 3,
     cost = 8,
@@ -129,7 +129,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_central_bank',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 8,
     atlas = 'j_economy_central_bank',
@@ -151,7 +151,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_mercenary',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 5, cost = 1 } },
     rarity = 3,
     cost = 8,
@@ -183,7 +183,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_make_it_rain',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 8,
     atlas = 'j_economy_make_it_rain',
@@ -209,7 +209,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_blood_diamond',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 50 } },
     rarity = 3,
     cost = 8,
@@ -241,7 +241,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_fools_gold',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 50 } },
     rarity = 3,
     cost = 8,
@@ -273,7 +273,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_utopia',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 8,
     atlas = 'j_economy_utopia',

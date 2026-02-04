@@ -2,7 +2,7 @@
 
 -- Hair Trigger (J901)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_hair_trigger',
     config = { extra = { mult = 2 } },
@@ -25,7 +25,7 @@ SMODS.Joker({
 
 -- Heavy Trigger (J902)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_heavy_trigger',
     config = { extra = { mult = 15 } },
@@ -47,7 +47,7 @@ SMODS.Joker({
 
 -- Conditional (J903)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_conditional',
     config = { extra = { mult = 10 } },
@@ -69,7 +69,7 @@ SMODS.Joker({
 
 -- If (J904)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_if',
     config = { extra = { mult = 20 } },
@@ -91,7 +91,7 @@ SMODS.Joker({
 
 -- Else (J905)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_else',
     config = { extra = { mult = 5 } },
@@ -113,7 +113,7 @@ SMODS.Joker({
 
 -- While (J906)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_while',
     config = { extra = { chips = 10 } },
@@ -135,7 +135,7 @@ SMODS.Joker({
 
 -- For Loop (J907)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_for_loop',
     config = { extra = { mult = 2 } },
@@ -158,7 +158,7 @@ SMODS.Joker({
 
 -- Switch (J908)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_switch',
     config = { extra = { mult = 10, chips = 50, money = 2 } },
@@ -198,7 +198,7 @@ SMODS.Joker({
 
 -- Break (J909)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_break',
     rarity = 1,
@@ -220,7 +220,7 @@ SMODS.Joker({
 
 -- Continue (J910)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_continue',
     rarity = 1,
@@ -243,7 +243,7 @@ SMODS.Joker({
 
 -- Return (J911)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_return',
     rarity = 1,
@@ -272,7 +272,7 @@ SMODS.Joker({
 
 -- Print (J912)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_print',
     config = { extra = { mult = 10 } },
@@ -295,7 +295,7 @@ SMODS.Joker({
 
 -- Input (J913)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_input',
     rarity = 1,
@@ -317,7 +317,7 @@ SMODS.Joker({
 
 -- Output (J914)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_output',
     config = { extra = { money = 5 } },
@@ -337,7 +337,7 @@ SMODS.Joker({
 
 -- Variable (J915)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_variable',
     config = { extra = { mult = 0 } },
@@ -366,7 +366,7 @@ SMODS.Joker({
 
 -- Constant (J916)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_constant',
     config = { extra = { mult = 10 } },
@@ -388,7 +388,7 @@ SMODS.Joker({
 
 -- Function (J917)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_function',
     rarity = 1,
@@ -415,7 +415,7 @@ SMODS.Joker({
 
 -- Class (J918)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_class',
     config = { extra = { mult = 4 } },
@@ -439,7 +439,7 @@ SMODS.Joker({
 
 -- Object (J919)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_object',
     rarity = 1,
@@ -465,7 +465,7 @@ SMODS.Joker({
 
 -- Array (J920)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_array',
     config = { extra = { mult = 5 } },

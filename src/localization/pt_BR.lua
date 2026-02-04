@@ -599,7 +599,7 @@ return {
  j_odyssey_j_chaos_butterfly_effect = {
  name = "Efeito Borboleta",
  text = {
- "A {C:attention}primeira carta jogada{} define{}", "o naipe de todas as outras", "para pontuação"
+ "A {C:attention}primeira carta jogada{} converte", "todas as cartas na sua mão", "para o seu naipe"
  }
  },
  
@@ -1334,7 +1334,7 @@ return {
  j_odyssey_j_corruption_noxious_spores = {
  name = "Esporos Nocivos",
  text = {
- "{C:mult}+#1#{} Multi{}", "Cartas jogadas tornam-se", "{C:attention}Pedra{}"
+ "{C:mult}+#1#{} Multi{}", "Cartas jogadas tornam-se", "{C:attention}Cartas de Esmeralda{}"
  }
  },
  
@@ -3075,9 +3075,9 @@ return {
  },
  
  j_odyssey_j_glitch_zero_day = {
- name = "Zero Day",
+ name = "Dia Zero",
  text = {
- "{X:mult,C:white} X#1# {} Multi na{}", "primeira mão do", "{C:attention}primeiro Aposta{}"
+ "{X:mult,C:white} X#1# {} Multi na{}", "primeira mão da", "{C:attention}primeira Aposta{}"
  }
  },
  
@@ -3574,7 +3574,7 @@ return {
  j_odyssey_j_luck_and_probability_four_leaf_clover = {
  name = "Trevo de Quatro Folhas",
  text = {
- "Aumenta probabilidades em {C:attention}10%{} (aditivo){}"
+ "Adiciona {C:attention}+1{} ao numerador", "de todas as {C:green}probabilidades{}"
  }
  },
  
@@ -3682,7 +3682,7 @@ return {
  j_odyssey_j_luck_and_probability_prophecy = {
  name = "Profecia",
  text = {
- "Se prever a mão vencedora, ganha {X:mult,C:white} X2 Multi{}"
+ "Mão prevista: {C:attention}#2#{}", "Concede {X:mult,C:white} X#1# {} Multi se a", "mão jogada for a prevista"
  }
  },
  
@@ -4060,7 +4060,7 @@ return {
  j_odyssey_j_paradox_value_inversion = {
  name = "Inversão de Valor",
  text = {
- "Cartas de {C:attention}Realeza{} dão {}{C:chips}#1#Fichas,{}", "{C:attention}Ases{} dão {}{C:chips}+#2#{} Fichas{}"
+ "Cartas de {C:attention}Realeza{} dão {C:chips}#1#{} Fichas,", "{C:attention}Ases{} dão {C:chips}+#2#{} Fichas"
  }
  },
  
@@ -4591,7 +4591,7 @@ return {
  j_odyssey_j_professions_futurist = {
  name = "Futurista",
  text = {
- "{C:attention}+15 {}{C:mult}Multi.{}", "Prevê o próximo Boss Blind."
+ "{C:mult}+15{} Multi. Dobra todos os níveis", "ganhos para as {C:attention}mãos de pôquer{}"
  }
  },
  
@@ -5431,7 +5431,7 @@ return {
  j_odyssey_j_social_developer = {
  name = "Desenvolvedor",
  text = {
- "{C:chips}+50 Fichas. Revela{}", "{C:attention}hitboxes ocultas{} na tela{}"
+ "{C:chips}+50{} Fichas. Ao final da rodada", "'Depura' seu baralho: remove a carta", "de menor valor e cria uma", "{C:attention}Carta de Patch{} (Aprimorada, Edição e Selo)"
  }
  },
  
@@ -6390,7 +6390,7 @@ return {
  j_odyssey_j_transformations_costume = {
  name = "Fantasia",
  text = {
- "{C:mult}+10 Multi. Muda a arte das cartas{}", "para o tema do Joker"
+ "{C:mult}+#1# Multi{}. Ao jogar uma mão, converte", "a primeira carta em uma {C:attention}Carta Aprimorada{} aleatória"
  }
  },
  
@@ -6481,7 +6481,7 @@ return {
  j_odyssey_j_transformations_jekyll_hyde = {
  name = "Jekyll & Hyde",
  text = {
- "Alterna entre {X:mult,C:white} X0.5 Multi e {}{X:mult,C:white} X4 Multi{}", "a cada mão jogada"
+ "Alterna entre {X:mult,C:white} X0.5 {} e {X:mult,C:white} X4 {} Multi", "a cada mão jogada (No momento: {X:mult,C:white} X#1# {})"
  }
  },
  
@@ -7285,8 +7285,7 @@ return {
  c_odyssey_tarot_39 = {
  name = "O Caos",
  text = {
- "Randomiza sua mão."
- 
+ "Randomiza Rank e Naipe", "de todas as cartas na mão"
  }
  },
  
@@ -7452,8 +7451,7 @@ return {
  c_odyssey_tarot_58 = {
  name = "A Guerra",
  text = {
- "Destrói todas as figuras na mão", "e ganha dinheiro."
- 
+ "Destrói todas as {C:attention}Figuras{} na mão", "e ganha {C:money}$2{} por carta destruída."
  }
  },
  
@@ -7652,7 +7650,7 @@ return {
  c_odyssey_tarot_80 = {
  name = "O Guerreiro",
  text = {
- "+100 Fichas nesta rodada."
+ "Adiciona {C:chips}+100{} de bônus permanente", "a até {C:attention}2{} cartas selecionadas."
  }
  },
  

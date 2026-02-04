@@ -2,7 +2,7 @@
 
 -- Turing Complete (J949)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_turing_complete',
     rarity = 4,
@@ -44,7 +44,7 @@ SMODS.Joker({
 
 -- Tech Singularity (J950)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_tech_singularity',
     rarity = 4,

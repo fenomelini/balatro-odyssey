@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_time_lord',
-    discovered = true,
+    discovered = false,
     config = { extra = { hands = 1, discards = 1, slots = 1 } },
     rarity = 3,
     cost = 10,
@@ -37,7 +37,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_the_world',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 2 } },
     rarity = 3,
     cost = 10,
@@ -58,7 +58,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_aeon',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 1 } },
     rarity = 3,
     cost = 10,
@@ -93,7 +93,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_kairos',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 5 } },
     rarity = 3,
     cost = 10,
@@ -114,7 +114,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_chronos',
-    discovered = true,
+    discovered = false,
     config = { extra = { dollars_per_hand = 2 } },
     rarity = 3,
     cost = 10,
@@ -139,7 +139,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_ouroboros',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 10,
     atlas = 'j_time_ouroboros',
@@ -161,7 +161,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_reverse_entropy',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 10,
     atlas = 'j_time_reverse_entropy',
@@ -183,7 +183,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_big_crunch',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 10, hand_size = -7 } },
     rarity = 3,
     cost = 10,
@@ -210,7 +210,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_big_bang',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult_minus = 2, hand_size = 5 } },
     rarity = 3,
     cost = 10,
@@ -237,7 +237,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_sacred_timeline',
-    discovered = true,
+    discovered = false,
     rarity = 3,
     cost = 10,
     atlas = 'j_time_sacred_timeline',

@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local gold_count = 0
@@ -40,7 +40,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local steel_count = 0
@@ -67,7 +67,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local stone_count = 0
@@ -94,7 +94,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local glass_count = 0
@@ -125,7 +125,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.before and context.scoring_name == "High Card" and not context.blueprint then
             level_up_hand(card, context.scoring_name, nil, 1)
@@ -146,7 +146,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.after and not context.blueprint and not context.repetition and not context.other_card then
@@ -170,7 +170,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.hands_played == 0 then
             return {
@@ -191,7 +191,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 7,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.GAME.round_resets.hands = G.GAME.round_resets.hands - 1; ease_hands_played(-1) end
     end,
@@ -218,7 +218,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.discard and #context.full_hand == 5 and not context.blueprint then
             local suit = context.full_hand[1].base.suit
@@ -242,7 +242,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.discard and #context.full_hand >= 5 and not context.blueprint then
              local ranks = {}
@@ -283,7 +283,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.discard and not context.blueprint and context.other_card.config.center == G.P_CENTERS.m_odyssey_plastic then
             ease_dollars(card.ability.extra)
@@ -302,7 +302,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.discard and not context.blueprint and context.other_card.config.center == G.P_CENTERS.m_odyssey_platinum then
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.gain
@@ -331,7 +331,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.discard and not context.blueprint and context.other_card.config.center == G.P_CENTERS.m_odyssey_ceramic then
             if pseudorandom('glass_discard') < G.GAME.probabilities.normal / card.ability.extra then
@@ -361,7 +361,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -381,7 +381,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.after and not context.blueprint and not card.ability.used_this_round then
             card.ability.used_this_round = true
@@ -411,7 +411,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.round_resets.hands = G.GAME.round_resets.hands + 2
         G.GAME.round_resets.discards = G.GAME.round_resets.discards - 2
@@ -439,7 +439,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.discard and not context.blueprint then
             card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.mult
@@ -467,7 +467,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then
             G.play.config.card_limit = card.ability.extra

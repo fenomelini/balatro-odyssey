@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_machine',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_machine',
@@ -31,7 +31,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_back_to_the_future',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 3 } },
     rarity = 2,
     cost = 6,
@@ -64,7 +64,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_doppler_effect',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 5 } },
     rarity = 2,
     cost = 6,
@@ -100,7 +100,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_relativity',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 100, xmult = 1.5, threshold = 5 } },
     rarity = 2,
     cost = 6,
@@ -141,17 +141,34 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_wormhole',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_wormhole',
     pos = { x = 0, y = 0 },
     blueprint_compat = true,
-    add_to_deck = function(self, card) G.GAME.odyssey_wormhole_active = (G.GAME.odyssey_wormhole_active or 0) + 1 end,
-    remove_from_deck = function(self, card) G.GAME.odyssey_wormhole_active = (G.GAME.odyssey_wormhole_active or 0) - 1 end,
-    loc_vars = function(self, info_queue, card) return { vars = {} } end,
     calculate = function(self, card, context)
-        -- Auto-generated functional stub
+        if context.setting_blind and not context.blueprint then
+            if G.GAME.blind.name == 'Small Blind' then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        -- Give rewards (money)
+                        ease_dollars(G.GAME.blind.dollars)
+                        
+                        -- Skip logic: use the skip_blind function to ensure all events trigger correctly
+                        G.FUNCS.skip_blind({UIBox = {get_UIE_by_ID = function() return nil end}})
+                        
+                        -- Force transition if needed
+                        G.STATE = G.STATES.NEW_ROUND
+                        return true
+                    end
+                }))
+                return {
+                    message = "Warped!",
+                    colour = G.C.FILTER
+                }
+            end
+        end
     end
 })
 
@@ -159,7 +176,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_skip',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_skip',
@@ -184,7 +201,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_freeze',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_freeze',
@@ -210,7 +227,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_loop',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_loop',
@@ -233,7 +250,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_grandfather_paradox',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_grandfather_paradox',
@@ -248,7 +265,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_precognition',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_precognition',
@@ -270,7 +287,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_deja_vu',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 2 } },
     rarity = 2,
     cost = 6,
@@ -303,7 +320,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_eternity',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_eternity',
@@ -323,7 +340,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_ephemeral',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 50, rounds = 3 } },
     rarity = 2,
     cost = 6,
@@ -366,7 +383,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_chronokinesis',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_chronokinesis',
@@ -388,7 +405,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_synchronicity',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 3 } },
     rarity = 2,
     cost = 6,
@@ -426,7 +443,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_anachronism',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_time_anachronism',
@@ -448,7 +465,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_lost_time',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 100 } },
     rarity = 2,
     cost = 6,
@@ -476,7 +493,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_time_end_times',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 4 } },
     rarity = 2,
     cost = 6,

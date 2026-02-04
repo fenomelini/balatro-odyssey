@@ -2,7 +2,7 @@
 
 -- Enlightenment (J989)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_enlightenment',
     config = { extra = { x_mult = 4 } },
@@ -29,7 +29,7 @@ SMODS.Joker({
 
 -- Ascension (J990)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_ascension',
     config = { extra = { x_mult = 5 } },
@@ -51,7 +51,7 @@ SMODS.Joker({
 
 -- Transcendence (J991)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_transcendence',
     config = { extra = { x_mult = 6 } },
@@ -77,7 +77,7 @@ SMODS.Joker({
 
 -- Divinity (J992)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_divinity',
     config = { extra = { x_mult = 7 } },
@@ -99,7 +99,7 @@ SMODS.Joker({
 
 -- Omniscience (J993)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_omniscience',
     config = { extra = { x_mult = 3 } },
@@ -124,7 +124,7 @@ SMODS.Joker({
 
 -- Omnipotence (J994)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_omnipotence',
     config = { extra = { x_mult = 10, hand_size = -2 } },
@@ -152,7 +152,7 @@ SMODS.Joker({
 
 -- Omnipresence (J995)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_omnipresence',
     rarity = 3,
@@ -175,7 +175,7 @@ SMODS.Joker({
 
 -- Eternity (J996)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_eternity',
     config = { extra = { x_mult = 3 } },
@@ -202,7 +202,7 @@ SMODS.Joker({
 
 -- Infinity (J997)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_infinity',
     rarity = 3,
@@ -227,7 +227,7 @@ SMODS.Joker({
 
 -- Absolute (J998)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_absolute',
     config = { extra = { min_mult = 1000, x_mult = 2 } },

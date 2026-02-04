@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_invisible_hand',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_economy_invisible_hand',
@@ -31,7 +31,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_economic_bubble',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 5, threshold = 50 } },
     rarity = 2,
     cost = 6,
@@ -74,7 +74,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_cryptocurrency',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_economy_cryptocurrency',
@@ -93,7 +93,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_income_tax',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 3, tax = 0.2 } },
     rarity = 2,
     cost = 6,
@@ -125,7 +125,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_money_laundering',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_economy_money_laundering',
@@ -154,7 +154,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_bribery',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_economy_bribery',
@@ -172,7 +172,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_hedge_fund',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_economy_hedge_fund',
@@ -196,7 +196,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_monopoly',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 10 } },
     rarity = 2,
     cost = 6,
@@ -235,7 +235,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_recession',
-    discovered = true,
+    discovered = false,
     config = { extra = { xmult = 4 } },
     rarity = 2,
     cost = 6,
@@ -263,7 +263,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_stimulus_package',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 10, threshold = 10 } },
     rarity = 2,
     cost = 6,
@@ -294,7 +294,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_lottery',
-    discovered = true,
+    discovered = false,
     config = { extra = { chance = 100, money = 100 } },
     rarity = 2,
     cost = 6,
@@ -325,7 +325,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_insurance',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 20 } },
     rarity = 2,
     cost = 6,
@@ -350,7 +350,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_retirement',
-    discovered = true,
+    discovered = false,
     config = { extra = { gain = 1 } },
     rarity = 2,
     cost = 6,
@@ -380,7 +380,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_venture_capital',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_economy_venture_capital',
@@ -411,7 +411,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_credit_card_2',
-    discovered = true,
+    discovered = false,
     config = { extra = 20 },
     rarity = 2,
     cost = 6,
@@ -430,7 +430,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_compound_interest',
-    discovered = true,
+    discovered = false,
     rarity = 2,
     cost = 6,
     atlas = 'j_economy_compound_interest',
@@ -451,7 +451,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_day_trader',
-    discovered = true,
+    discovered = false,
     config = { extra = 2 },
     rarity = 2,
     cost = 6,
@@ -470,7 +470,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_economy_oil_tycoon',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 1 } },
     rarity = 2,
     cost = 6,

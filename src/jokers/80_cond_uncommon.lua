@@ -2,7 +2,7 @@
 
 -- Boolean (J921)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_boolean',
     config = { extra = { x_mult_true = 2, x_mult_false = 0.5 } },
@@ -27,7 +27,7 @@ SMODS.Joker({
 
 -- Integer (J922)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_integer',
     rarity = 2,
@@ -50,7 +50,7 @@ SMODS.Joker({
 
 -- Float (J923)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_float',
     rarity = 2,
@@ -71,7 +71,7 @@ SMODS.Joker({
 
 -- String (J924)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_string',
     config = { extra = { mult = 10 } },
@@ -83,7 +83,12 @@ SMODS.Joker({
     loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).mult } } end,
     calculate = function(self, card, context)
         if context.joker_main then
-            local msgs = {"YOU CAN DO IT", "STAY FOCUSED", "BIG BLIND AHEAD", "LUA IS BEST"}
+            local msgs = {
+                "YOU CAN DO IT", "STAY FOCUSED", "BIG BLIND AHEAD", "LUA IS BEST",
+                "BELIEVE IN THE HEART OF THE CARDS", "JUST ONE MORE ROUND", "VIVE LA BALATRO",
+                "CHIPS ARE LIFE", "MULT IS LOVE", "JACKS ARE FRIENDS", "KEEP CALM AND DISCARD",
+                "EVERY DECK HAS A STORY", "ANOTHER ONE", "LET'S GOOOOO", "CRITICAL HIT!"
+            }
             local msg = msgs[math.random(#msgs)]
             return {
                 mult_mod = card.ability.extra.mult,
@@ -96,7 +101,7 @@ SMODS.Joker({
 
 -- Char (J925)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_char',
     rarity = 2,
@@ -120,7 +125,7 @@ SMODS.Joker({
 
 -- Null (J926)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_null',
     rarity = 2,
@@ -135,7 +140,7 @@ SMODS.Joker({
 
 -- Undefined (J927)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_undefined',
     rarity = 2,
@@ -156,7 +161,7 @@ SMODS.Joker({
 
 -- NaN (J928)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_nan',
     config = { extra = { mult = 11 } },
@@ -179,7 +184,7 @@ SMODS.Joker({
 
 -- Infinity (J929)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_infinity',
     rarity = 2,
@@ -200,7 +205,7 @@ SMODS.Joker({
 
 -- Exception (J930)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_exception',
     config = { extra = { money = 10 } },
@@ -224,7 +229,7 @@ SMODS.Joker({
 
 -- Try Catch (J931)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_try_catch',
     config = { extra = { money = 5 } },
@@ -253,7 +258,7 @@ SMODS.Joker({
 
 -- Async (J932)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_async',
     rarity = 2,
@@ -273,7 +278,7 @@ SMODS.Joker({
 
 -- Await (J933)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_await',
     rarity = 2,
@@ -293,7 +298,7 @@ SMODS.Joker({
 
 -- Promise (J934)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_promise',
     config = { extra = { rounds = 3, x_mult = 3 } },
@@ -325,7 +330,7 @@ SMODS.Joker({
 
 -- Callback (J935)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_callback',
     rarity = 2,
@@ -345,7 +350,7 @@ SMODS.Joker({
 
 -- Recursion (J936)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_recursion',
     rarity = 2,
@@ -370,7 +375,7 @@ SMODS.Joker({
 
 -- Stack (J937)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_stack',
     config = { extra = { mult = 0 } },
@@ -399,7 +404,7 @@ SMODS.Joker({
 
 -- Heap (J938)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_cond_heap',
     config = { extra = { money = 1 } },

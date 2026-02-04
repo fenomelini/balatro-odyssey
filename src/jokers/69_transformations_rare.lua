@@ -4,7 +4,7 @@
 
 -- J789 Metamorphosis
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_metamorphosis',
     config = {},
@@ -40,7 +40,7 @@ SMODS.Joker({
 
 -- J790 Transcendence
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_transcendence',
     config = {},
@@ -56,7 +56,7 @@ SMODS.Joker({
 
 -- J791 Ascension
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_ascension',
     config = {},
@@ -72,7 +72,7 @@ SMODS.Joker({
 
 -- J792 Apotheosis
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_apotheosis',
     config = {},
@@ -88,7 +88,7 @@ SMODS.Joker({
 
 -- J793 Singularity
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_singularity',
     config = {},
@@ -104,7 +104,7 @@ SMODS.Joker({
 
 -- J794 Big Bang
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_big_bang',
     config = {},
@@ -120,7 +120,7 @@ SMODS.Joker({
 
 -- J795 Reincarnation
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_reincarnation',
     config = { extra = { x_mult = 1.2 } },
@@ -136,7 +136,7 @@ SMODS.Joker({
 
 -- J796 Evolution Final
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_final_evolution',
     config = { extra = { x_mult = 5 } },
@@ -152,7 +152,7 @@ SMODS.Joker({
 
 -- J797 Perfect Form
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_perfect_form',
     config = { extra = { x_mult = 4, odyssey_immune = true } },
@@ -172,7 +172,7 @@ SMODS.Joker({
 
 -- J798 Primal Chaos
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_primal_chaos',
     config = { extra = { x_mult = 5 } },

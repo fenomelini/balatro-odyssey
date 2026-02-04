@@ -1,7 +1,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_king_of_kings',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 5 } },
     rarity = 4,
     cost = 20,
@@ -34,7 +34,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_god_of_war',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 5, scaling = 1 } },
     rarity = 4,
     cost = 20,

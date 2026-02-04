@@ -399,7 +399,7 @@ local spectral_logic = {
     [68] = function(card, area, copier) -- Jobs
         if G.hand.highlighted[1] then
             local c = G.hand.highlighted[1]
-            local new_card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'jobs')
+            local new_card = create_card('Default', G.deck, nil, nil, nil, nil, nil, 'jobs')
             c:set_base(new_card.config.center)
             new_card:remove()
         end
@@ -528,7 +528,7 @@ for _, s in ipairs(spectrals) do
         atlas = s.id <= 100 and ("spectral_" .. s.id) or nil,
         pos = { x = 0, y = 0 },
         cost = 4,
-        discovered = true,
+        discovered = false,
         can_use = function(self, card)
             return true
         end,

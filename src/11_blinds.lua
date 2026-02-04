@@ -122,7 +122,7 @@ for _, b in ipairs(blinds) do
         mult = blind_multipliers[b.id] or 4,
         vars = {},
         boss_colour = G.C.BLACK,
-        discovered = true
+        discovered = false
     }
     
     config.boss = { min = 9, max = 99 }

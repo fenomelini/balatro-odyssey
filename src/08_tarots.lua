@@ -3,6 +3,7 @@ local tarot_max = {
     [4] = 2, [6] = 2, [7] = 1, [8] = 1, [9] = 1, [12] = 2, [13] = 2, [14] = 2,
     [16] = 1, [17] = 1, [18] = 3, [19] = 3, [20] = 3, [22] = 3, [25] = 3, [26] = 2, [27] = 3,
     [35] = 2, [36] = 2, [37] = 1, [38] = 1, [44] = 1, [45] = 1, [59] = 3, [69] = 1,
+    [80] = 2,
     [84] = 1, [85] = 1, [86] = 1, [87] = 1, [88] = 1, [89] = 1, [90] = 1, [91] = 1, [92] = 1, [93] = 1, [94] = 1, [95] = 1, [96] = 1,
     [97] = 1, [98] = 1, [99] = 1, [100] = 1
 }
@@ -21,7 +22,7 @@ for _, t in ipairs(tarots) do
         atlas = "tarot_" .. t.id,
         pos = { x = 0, y = 0 },
         cost = 3,
-        discovered = true,
+        discovered = false,
         can_use = function(self, card)
             local id = card.ability.extra
             local max_h = tarot_max[id] or 0
@@ -283,7 +284,14 @@ for _, t in ipairs(tarots) do
                     end
                 end
             elseif id == 39 then -- Chaos
-                G.hand:shuffle()
+                for i = 1, #G.hand.cards do
+                    local suits = {'S', 'H', 'D', 'C'}
+                    local ranks = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'}
+                    local s = pseudorandom_element(suits, pseudoseed('chaos_s'))
+                    local r = pseudorandom_element(ranks, pseudoseed('chaos_r'))
+                    G.hand.cards[i]:set_base(G.P_CARDS[s..'_'..r])
+                    G.hand.cards[i]:juice_up()
+                end
             elseif id == 40 then -- Order
                 G.hand:sort()
                 for i = 1, #G.hand.cards do
@@ -515,8 +523,11 @@ for _, t in ipairs(tarots) do
                 for k, v in ipairs(G.hand.cards) do v.debuff = false end
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_active_ex'), colour = G.C.FILTER})
             elseif id == 80 then -- Warrior
-                G.GAME.warrior_chips = (G.GAME.warrior_chips or 0) + 100
-                card_eval_status_text(card, 'extra', nil, nil, nil, {message = "+100 Fichas", colour = G.C.CHIPS})
+                for i=1, math.min(#highlighted, 2) do
+                    highlighted[i].ability.perma_bonus = (highlighted[i].ability.perma_bonus or 0) + 100
+                    highlighted[i]:juice_up()
+                    card_eval_status_text(highlighted[i], 'extra', nil, nil, nil, {message = "+100 Fichas", colour = G.C.CHIPS})
+                end
             elseif id == 81 then -- Magician II
                 G.GAME.magician_mult = (G.GAME.magician_mult or 0) + 20
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = "+20 Multi", colour = G.C.MULT})

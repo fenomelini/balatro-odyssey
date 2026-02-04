@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_fire_spirit',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     atlas = 'j_elemental_fire_spirit',
@@ -34,7 +34,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_water_spirit',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     atlas = 'j_elemental_water_spirit',
@@ -62,7 +62,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_earth_spirit',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     atlas = 'j_elemental_earth_spirit',
@@ -90,7 +90,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_air_spirit',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     atlas = 'j_elemental_air_spirit',
@@ -118,7 +118,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_elemental_fusion',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 3 } },
     rarity = 2,
     atlas = 'j_elemental_elemental_fusion',
@@ -153,7 +153,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_steam',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 15 } },
     rarity = 2,
     atlas = 'j_elemental_steam',
@@ -185,7 +185,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_lava',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 15 } },
     rarity = 2,
     atlas = 'j_elemental_lava',
@@ -217,7 +217,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_sandstorm',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 15 } },
     rarity = 2,
     atlas = 'j_elemental_sandstorm',
@@ -249,7 +249,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_storm',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 15 } },
     rarity = 2,
     atlas = 'j_elemental_storm',
@@ -281,7 +281,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_element_master',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 10 } },
     rarity = 2,
     atlas = 'j_elemental_element_master',
@@ -309,7 +309,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_prism',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     atlas = 'j_elemental_prism',
@@ -335,7 +335,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_aether',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 50 } },
     rarity = 2,
     atlas = 'j_elemental_aether',
@@ -361,7 +361,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_plasma',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 1.5 } },
     rarity = 2,
     atlas = 'j_elemental_plasma',
@@ -387,7 +387,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_geode',
-    discovered = true,
+    discovered = false,
     config = { extra = { odds = 3, dollars = 5, mult = 20 } },
     rarity = 2,
     atlas = 'j_elemental_geode',
@@ -424,7 +424,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_thunderbolt',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 3 } },
     rarity = 2,
     atlas = 'j_elemental_thunderbolt',
@@ -458,7 +458,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_blizzard',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 2,
     atlas = 'j_elemental_blizzard',
@@ -487,7 +487,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_fire_meteor',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 100, mult = 10 } },
     rarity = 2,
     atlas = 'j_elemental_fire_meteor',
@@ -515,7 +515,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_garden',
-    discovered = true,
+    discovered = false,
     config = { extra = { bonus = 1 } },
     rarity = 2,
     atlas = 'j_elemental_garden',

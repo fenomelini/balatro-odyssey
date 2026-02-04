@@ -4,7 +4,7 @@
 
 -- 337. Failure's Success
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_failures_success',
     config = { extra = { dollars = 10 } },
@@ -36,7 +36,7 @@ SMODS.Joker({
 
 -- 338. Order of Chaos
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_order_of_chaos',
     config = { extra = { x_mult = 1.5 } },
@@ -73,7 +73,7 @@ SMODS.Joker({
 
 -- 339. All or Nothing
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_all_or_nothing',
     config = { extra = { high_x_mult = 4, low_x_mult = 0.5, odds = 2 } },
@@ -111,7 +111,7 @@ SMODS.Joker({
 
 -- 340. Zeno's Paradox
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_zenos_paradox',
     config = { extra = { x_mult = 8 } },
@@ -150,7 +150,7 @@ SMODS.Joker({
 
 -- 341. Alive and Dead Cat
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_alive_and_dead_cat',
     config = { extra = { x_mult = 5 } },
@@ -182,7 +182,7 @@ SMODS.Joker({
 
 -- 342. Beginning of the End
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_beginning_of_the_end',
     config = { extra = { x_mult = 3 } },
@@ -212,7 +212,7 @@ SMODS.Joker({
 
 -- 343. Square Circle
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_square_circle',
     config = { extra = {} },
@@ -230,7 +230,7 @@ SMODS.Joker({
 
 -- 344. Hot Cold
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_hot_cold',
     config = { extra = {} },
@@ -248,7 +248,7 @@ SMODS.Joker({
 
 -- 345. Past Future
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_past_future',
     config = { extra = { x_mult = 3 } },
@@ -280,7 +280,7 @@ SMODS.Joker({
 
 -- 346. False Truth
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_false_truth',
     config = { extra = { mult = 20 } },
@@ -311,7 +311,7 @@ SMODS.Joker({
 
 -- 347. Mortal Immortal
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_mortal_immortal',
     config = { extra = {} },
@@ -335,7 +335,7 @@ SMODS.Joker({
 
 -- 348. Unlucky Luck
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_unlucky_luck',
     config = { extra = { mult = 20 } },
@@ -368,7 +368,7 @@ SMODS.Joker({
 
 -- 349. Shrinking Growth
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_shrinking_growth',
     config = { extra = { mult = 50, loss = 2 } },
@@ -407,7 +407,7 @@ SMODS.Joker({
 
 -- 350. Polarity Reversal
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_polarity_reversal',
     config = { extra = { mult = 15, chips = 50 } },

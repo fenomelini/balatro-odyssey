@@ -1,7 +1,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_barbarian_king',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     cost = 7,
@@ -37,7 +37,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_fairy_queen',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     cost = 7,
@@ -73,7 +73,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_archmage',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult_per_club = 10 } },
     rarity = 2,
     cost = 7,
@@ -108,7 +108,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_grandmaster',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 1.5 } },
     rarity = 2,
     cost = 7,
@@ -137,7 +137,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_assassin',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     cost = 7,
@@ -171,7 +171,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_berserker',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 50, discards = 1 } },
     rarity = 2,
     cost = 7,
@@ -206,7 +206,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_shaman',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 2,
     cost = 7,
@@ -232,7 +232,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_knight',
-    discovered = true,
+    discovered = false,
     config = { extra = { chips = 0, chip_gain = 50 } },
     rarity = 2,
     cost = 7,
@@ -268,7 +268,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_ninja',
-    discovered = true,
+    discovered = false,
     config = { extra = { odds = 4 } },
     rarity = 2,
     cost = 7,
@@ -307,7 +307,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_samurai',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 3 } },
     rarity = 2,
     cost = 7,
@@ -334,7 +334,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_viking',
-    discovered = true,
+    discovered = false,
     config = { extra = { money_per_card = 1 } },
     rarity = 2,
     cost = 7,
@@ -362,7 +362,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_pirate',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 3 } },
     rarity = 2,
     cost = 7,
@@ -390,7 +390,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_gladiator',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult_per_card = 10 } },
     rarity = 2,
     cost = 7,
@@ -420,7 +420,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_musketeer',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 2 } },
     rarity = 2,
     cost = 7,
@@ -447,7 +447,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_legionnaire',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 3 } },
     rarity = 2,
     cost = 7,
@@ -474,7 +474,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_emperor',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 2,
     cost = 7,
@@ -504,7 +504,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_high_priestess',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 2,
     cost = 7,
@@ -534,7 +534,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_the_hermit',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 2,
     cost = 7,

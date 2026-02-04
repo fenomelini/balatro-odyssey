@@ -4,7 +4,7 @@
 
 -- J751 Chameleon
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_chameleon',
     config = {},
@@ -20,7 +20,7 @@ SMODS.Joker({
 
 -- J752 Mimic
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_mimic',
     config = {},
@@ -36,7 +36,7 @@ SMODS.Joker({
 
 -- J753 Shapeshifter
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_shapeshifter',
     config = { extra = { mult = 10, suit = 'Hearts' } },
@@ -68,7 +68,7 @@ SMODS.Joker({
 
 -- J754 Doppelganger
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_doppelganger',
     config = { extra = { chips = 20 } },
@@ -105,7 +105,7 @@ SMODS.Joker({
 
 -- J755 Magic Mirror
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_magic_mirror',
     config = {},
@@ -122,7 +122,7 @@ SMODS.Joker({
 
 -- J756 Prism
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_prism',
     config = {},
@@ -141,7 +141,7 @@ SMODS.Joker({
 
 -- J757 Catalyst
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_catalyst',
     config = {},
@@ -160,7 +160,7 @@ SMODS.Joker({
 
 -- J758 Evolution
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_evolution',
     config = {},
@@ -198,7 +198,7 @@ SMODS.Joker({
 
 -- J759 Devolution
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_devolution',
     config = { extra = { mult = 20 } },
@@ -240,7 +240,7 @@ SMODS.Joker({
 
 -- J760 Transmuter
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_transmuter',
     config = {},
@@ -261,7 +261,7 @@ SMODS.Joker({
 
 -- J761 Converter
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_converter',
     config = {},
@@ -282,7 +282,7 @@ SMODS.Joker({
 
 -- J762 Basic Alchemy
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_basic_alchemy',
     config = {},
@@ -303,7 +303,7 @@ SMODS.Joker({
 
 -- J763 Polymorph
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_polymorph',
     config = {},
@@ -325,7 +325,7 @@ SMODS.Joker({
 
 -- J764 Mask
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_mask',
     config = {},
@@ -342,7 +342,7 @@ SMODS.Joker({
 
 -- J765 Disguise
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_disguise',
     config = {},
@@ -359,7 +359,7 @@ SMODS.Joker({
 
 -- J766 Costume
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_costume',
     config = { extra = { mult = 10 } },
@@ -368,11 +368,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     loc_vars = function(self, info_queue, card)
-
-        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
-
-        return { vars = { extra.mult } }
-
+        return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).mult } }
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -381,12 +377,29 @@ SMODS.Joker({
                 message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } }
             }
         end
+        if context.before and not context.blueprint then
+            local enhancements = {
+                'm_odyssey_wood', 'm_odyssey_plastic', 'm_odyssey_rubber', 'm_odyssey_shadow',
+                'm_odyssey_ceramic', 'm_odyssey_cloth', 'm_odyssey_paper', 'm_odyssey_light',
+                'm_odyssey_diamond', 'm_odyssey_ruby', 'm_odyssey_emerald', 'm_odyssey_plant',
+                'm_odyssey_holy', 'm_odyssey_undead', 'm_odyssey_cursed', 'm_odyssey_magic'
+            }
+            if context.scoring_hand and #context.scoring_hand > 0 then
+                local target = context.scoring_hand[1]
+                local enh = enhancements[pseudorandom(pseudoseed('costume'), 1, #enhancements)]
+                target:set_ability(G.P_CENTERS[enh], nil, true)
+                return {
+                    message = localize('k_upgrade_ex'),
+                    card = target
+                }
+            end
+        end
     end
 })
 
 -- J767 Makeup
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_makeup',
     config = {},
@@ -403,7 +416,7 @@ SMODS.Joker({
 
 -- J768 Wig
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_wig',
     config = {},
@@ -420,7 +433,7 @@ SMODS.Joker({
 
 -- J769 Fake Beard
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_fake_beard',
     config = {},
@@ -437,7 +450,7 @@ SMODS.Joker({
 
 -- J770 Shadow
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_transformations_shadow',
     config = {},

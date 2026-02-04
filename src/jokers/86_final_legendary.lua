@@ -2,7 +2,7 @@
 
 -- The Creator (J999)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_the_creator',
     config = { extra = { x_mult = 100 } },
@@ -30,7 +30,7 @@ SMODS.Joker({
 
 -- Odyssey (J1000)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_odyssey',
     rarity = 4,

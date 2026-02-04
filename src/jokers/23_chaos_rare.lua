@@ -1,7 +1,7 @@
 -- 231. Agent of Chaos
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_agent_of_chaos',
     config = { extra = { x_mult = 3 } },
     rarity = 3,
@@ -43,7 +43,7 @@ SMODS.Joker({
 -- 232. Improbability Drive
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_improbability_drive',
     config = { extra = { odds = 100, dollars = 100 } },
     rarity = 3,
@@ -77,7 +77,7 @@ SMODS.Joker({
 -- 233. Chance Nexus
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_chance_nexus',
     loc_txt = {
         name = "Chance Nexus",
@@ -111,7 +111,7 @@ SMODS.Joker({
 -- 234. Primal Form
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_primal_form',
     config = {},
     rarity = 3,
@@ -144,7 +144,7 @@ SMODS.Joker({
 -- 235. Maximum Entropy
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_maximum_entropy',
     config = { extra = { x_mult = 4 } },
     rarity = 3,
@@ -186,7 +186,7 @@ SMODS.Joker({
 -- 236. Heart of Chaos
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_heart_of_chaos',
     config = { extra = { copy_target = nil } },
     rarity = 3,
@@ -230,7 +230,7 @@ SMODS.Joker({
 -- 237. Warp Storm
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_warp_storm',
     config = { extra = { mult_per_suit = 10 } },
     rarity = 3,
@@ -271,7 +271,7 @@ SMODS.Joker({
 -- 238. The Great Filter
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_the_great_filter',
     config = { extra = { x_mult = 1 } },
     rarity = 3,

@@ -245,7 +245,7 @@ SMODS.Back({
         G.E_MANAGER:add_event(Event({
             func = function()
                 for i = 1, 52 do
-                    local card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'double')
+                    local card = create_card('Default', G.deck, nil, nil, nil, nil, nil, 'double')
                     card:add_to_deck()
                     G.deck:emplace(card)
                     table.insert(G.playing_cards, card)

@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then
@@ -38,7 +38,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then
@@ -65,7 +65,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.after and not context.blueprint then
@@ -93,7 +93,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.discard and G.GAME.current_round.discards_left <= 0 then
@@ -117,7 +117,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.joker_main and #context.full_hand == 5 then
@@ -140,7 +140,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.joker_main and #context.full_hand <= 2 then
@@ -163,7 +163,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then
@@ -190,7 +190,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.discard and not context.other_card then
@@ -216,7 +216,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
@@ -249,7 +249,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -272,7 +272,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
@@ -303,7 +303,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint then
             G.E_MANAGER:add_event(Event({ func = function()
@@ -336,7 +336,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.after and G.GAME.current_round.hands_left == 0 and not card.ability.extra_hand_given then
              G.GAME.current_round.hands_left = G.GAME.current_round.hands_left + 1
@@ -359,7 +359,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.discard and not context.other_card then
             if #context.full_hand == 1 then
@@ -390,7 +390,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.discards_used == 0 then
             return { x_mult = card.ability.extra }
@@ -408,7 +408,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main and G.GAME.current_round.discards_left == 0 then
             return { chip_mod = card.ability.extra }
@@ -426,7 +426,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local hand_count = #G.hand.cards
@@ -445,7 +445,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             return { mult_mod = G.GAME.current_round.discards_left * card.ability.extra }
@@ -463,7 +463,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 5,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.discards end
     end,
@@ -485,7 +485,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.play.config.card_limit = G.play.config.card_limit + 1 end
     end,

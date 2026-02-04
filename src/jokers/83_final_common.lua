@@ -2,7 +2,7 @@
 
 -- The End (J951)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_the_end',
     config = { extra = { mult = 20, x_mult = 4 } },
@@ -31,7 +31,7 @@ SMODS.Joker({
 
 -- The Beginning (J952)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_the_beginning',
     config = { extra = { mult = 20, chips = 100 } },
@@ -54,7 +54,7 @@ SMODS.Joker({
 
 -- The Middle (J953)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_the_middle',
     config = { extra = { x_mult = 2 } },
@@ -76,7 +76,7 @@ SMODS.Joker({
 
 -- Prologue (J954)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_prologue',
     config = { extra = { mult = 10, last_ante = -1 } },
@@ -107,7 +107,7 @@ SMODS.Joker({
 
 -- Epilogue (J955)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_epilogue',
     config = { extra = { mult = 10 } },
@@ -142,7 +142,7 @@ SMODS.Joker({
 
 -- Chapter 1 (J956)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_chapter1',
     config = { extra = { mult_per_hand = 5 } },
@@ -169,7 +169,7 @@ SMODS.Joker({
 
 -- Chapter 2 (J957)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_chapter2',
     config = { extra = { mult_per_discard = 5 } },
@@ -196,7 +196,7 @@ SMODS.Joker({
 
 -- Chapter 3 (J958)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_chapter3',
     config = { extra = { mult_per_card = 5 } },
@@ -218,7 +218,7 @@ SMODS.Joker({
 
 -- Climax (J959)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_climax',
     config = { extra = { x_mult = 3 } },
@@ -248,7 +248,7 @@ SMODS.Joker({
 
 -- Plot Twist (J960)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_plot_twist',
     config = { extra = { mult = 20 } },
@@ -278,7 +278,7 @@ SMODS.Joker({
 
 -- Hero (J961)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_hero',
     config = { extra = { x_mult = 3 } },
@@ -300,7 +300,7 @@ SMODS.Joker({
 
 -- Villain (J962)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_villain',
     config = { extra = { x_mult = 2 } },
@@ -330,7 +330,7 @@ SMODS.Joker({
 
 -- Sidekick (J963)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_sidekick',
     config = { extra = { mult = 10 } },
@@ -358,7 +358,7 @@ SMODS.Joker({
 
 -- Mentor (J964)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_mentor',
     config = { extra = { mult = 5 } },
@@ -392,7 +392,7 @@ SMODS.Joker({
 
 -- Rival (J965)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_rival',
     config = { extra = { x_mult = 2 } },
@@ -414,7 +414,7 @@ SMODS.Joker({
 
 -- Love (J966)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_love',
     config = { extra = { x_mult = 1.5 } },
@@ -438,7 +438,7 @@ SMODS.Joker({
 
 -- Hate (J967)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_hate',
     config = { extra = { x_mult = 1.5 } },
@@ -462,7 +462,7 @@ SMODS.Joker({
 
 -- Peace (J968)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_peace',
     config = { extra = { x_mult = 2 } },
@@ -484,7 +484,7 @@ SMODS.Joker({
 
 -- War (J969)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_war',
     config = { extra = { mult = 0, mult_per_dest = 2 } },
@@ -507,7 +507,7 @@ SMODS.Joker({
 
 -- Death (J970)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_final_death',
     config = { extra = { x_mult = 2 } },

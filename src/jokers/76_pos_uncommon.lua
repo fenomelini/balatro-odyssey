@@ -4,7 +4,7 @@
 
 -- J871 Battle Formation
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_battle_formation',
     config = { extra = { mult = 15, chips = 50 } },
@@ -33,7 +33,7 @@ SMODS.Joker({
 
 -- J872 Frontline
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_frontline',
     config = { extra = { x_mult = 2 } },
@@ -57,7 +57,7 @@ SMODS.Joker({
 
 -- J873 Backline
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_backline',
     config = { extra = { chips = 100 } },
@@ -81,7 +81,7 @@ SMODS.Joker({
 
 -- J874 Flank
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_flank',
     config = { extra = { x_mult = 2 } },
@@ -103,7 +103,7 @@ SMODS.Joker({
 
 -- J875 Siege
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_siege',
     config = { extra = { mult = 50 } },
@@ -125,7 +125,7 @@ SMODS.Joker({
 
 -- J876 Isolation
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_isolation',
     config = { extra = { x_mult = 2.5 } },
@@ -152,7 +152,7 @@ SMODS.Joker({
 
 -- J877 Clumping
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_clumping',
     config = { extra = { mult = 30 } },
@@ -174,7 +174,7 @@ SMODS.Joker({
 
 -- J878 Musical Chairs
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_musical_chairs',
     config = { extra = { mult = 15 } },
@@ -203,7 +203,7 @@ SMODS.Joker({
 
 -- J879 Carousel
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_carousel',
     config = { extra = { mult = 10 } },
@@ -242,7 +242,7 @@ SMODS.Joker({
 
 -- J880 Rook
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_rook',
     config = { extra = { mult = 25 } },
@@ -288,7 +288,7 @@ SMODS.Joker({
 
 -- J881 Bishop
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_bishop',
     config = { extra = { x_mult = 2 } },
@@ -320,7 +320,7 @@ SMODS.Joker({
 
 -- J882 Knight
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_knight',
     config = { extra = { mult = 20 } },
@@ -348,7 +348,7 @@ SMODS.Joker({
 
 -- J883 King
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_king',
     config = { extra = { x_mult = 2.5 } },
@@ -383,7 +383,7 @@ SMODS.Joker({
 
 -- J884 Queen
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_queen',
     config = { extra = { x_mult = 3 } },
@@ -411,7 +411,7 @@ SMODS.Joker({
 
 -- J885 Pawn
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_pawn',
     config = { extra = { x_mult = 3 } },
@@ -444,7 +444,7 @@ SMODS.Joker({
 
 -- J886 Castling
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_castling',
     config = { extra = { mult = 20 } },
@@ -472,7 +472,7 @@ SMODS.Joker({
 
 -- J887 Check
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_check',
     config = { extra = { x_mult = 3 } },
@@ -503,7 +503,7 @@ SMODS.Joker({
 
 -- J888 Checkmate
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_checkmate',
     config = { extra = { x_mult = 10 } },

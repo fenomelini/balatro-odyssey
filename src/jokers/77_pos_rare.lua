@@ -4,7 +4,7 @@
 
 -- J889 Pentagram
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_pentagram',
     config = { extra = { x_mult = 6.66 } },
@@ -33,7 +33,7 @@ SMODS.Joker({
 
 -- J890 Alignment
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_alignment',
     config = { extra = { x_mult = 4 } },
@@ -69,7 +69,7 @@ SMODS.Joker({
 
 -- J891 Disorder
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_disorder',
     config = { extra = { x_mult = 4 } },
@@ -107,7 +107,7 @@ SMODS.Joker({
 
 -- J892 Symmetry
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_symmetry',
     config = { extra = { x_mult = 3 } },
@@ -145,7 +145,7 @@ SMODS.Joker({
 
 -- J893 Positional Chaos
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_positional_chaos',
     config = { extra = { mult = 40 } },
@@ -174,7 +174,7 @@ SMODS.Joker({
 
 -- J894 Black Hole
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_black_hole',
     config = { extra = { x_mult = 4 } },
@@ -207,7 +207,7 @@ SMODS.Joker({
 
 -- J895 Supernova
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_supernova',
     config = { extra = { x_mult = 3 } },
@@ -240,7 +240,7 @@ SMODS.Joker({
 
 -- J896 Galaxy
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_galaxy',
     config = { extra = { x_mult_mod = 1.2 } },
@@ -268,7 +268,7 @@ SMODS.Joker({
 
 -- J897 Universe
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_universe',
     config = { extra = { slots = 4 } },
@@ -297,7 +297,7 @@ SMODS.Joker({
 
 -- J898 Multiverse
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_pos_multiverse',
     config = { extra = { x_mult = 2 } },

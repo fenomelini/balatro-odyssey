@@ -4,7 +4,7 @@
 
 -- 321. Menos é Mais (Less is More)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_less_is_more',
     atlas = 'j_paradox_less_is_more',
@@ -34,7 +34,7 @@ SMODS.Joker({
 
 -- 322. Fraco é Forte (Weak is Strong)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_weak_is_strong',
     atlas = 'j_paradox_weak_is_strong',
@@ -66,7 +66,7 @@ SMODS.Joker({
 
 -- 323. Perder para Ganhar (Lose to Win)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_lose_to_win',
     atlas = 'j_paradox_lose_to_win',
@@ -97,7 +97,7 @@ SMODS.Joker({
 
 -- 324. Descarte Útil (Useful Discard)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_useful_discard',
     atlas = 'j_paradox_useful_discard',
@@ -142,7 +142,7 @@ SMODS.Joker({
 
 -- 325. Mão Torta (Crooked Hand)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_crooked_hand',
     atlas = 'j_paradox_crooked_hand',
@@ -175,7 +175,7 @@ SMODS.Joker({
 
 -- 326. Flush Reverso (Reverse Flush)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_reverse_flush',
     atlas = 'j_paradox_reverse_flush',
@@ -216,7 +216,7 @@ SMODS.Joker({
 
 -- 327. Par Ímpar (Odd Pair)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_odd_pair',
     atlas = 'j_paradox_odd_pair',
@@ -258,7 +258,7 @@ SMODS.Joker({
 
 -- 328. Full House Vazio (Empty Full House)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_empty_full_house',
     atlas = 'j_paradox_empty_full_house',
@@ -288,7 +288,7 @@ SMODS.Joker({
 
 -- 329. High Low (High Low)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_high_low',
     atlas = 'j_paradox_high_low',
@@ -327,7 +327,7 @@ SMODS.Joker({
 
 -- 330. Cego que Vê (Seeing Blind)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_seeing_blind',
     atlas = 'j_paradox_seeing_blind',
@@ -357,7 +357,7 @@ SMODS.Joker({
 
 -- 331. Pobre Rico (Rich Poor)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_rich_poor',
     atlas = 'j_paradox_rich_poor',
@@ -389,7 +389,7 @@ SMODS.Joker({
 
 -- 332. Lento Rápido (Slow Fast)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_slow_fast',
     atlas = 'j_paradox_slow_fast',
@@ -419,7 +419,7 @@ SMODS.Joker({
 
 -- 333. Joker Pacifista (Pacifist Joker)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_pacifist_joker',
     atlas = 'j_paradox_pacifist_joker',
@@ -456,7 +456,7 @@ SMODS.Joker({
 
 -- 334. Paradoxo do Mentiroso (Liar's Paradox)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_liars_paradox',
     atlas = 'j_paradox_liars_paradox',
@@ -486,7 +486,7 @@ SMODS.Joker({
 
 -- 335. Inversão de Valor (Value Inversion)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_value_inversion',
     atlas = 'j_paradox_value_inversion',
@@ -522,7 +522,7 @@ SMODS.Joker({
 
 -- 336. Silêncio Ruidoso (Loud Silence)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_paradox_loud_silence',
     atlas = 'j_paradox_loud_silence',

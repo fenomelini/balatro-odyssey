@@ -10,7 +10,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 12,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.GAME.probabilities.normal = G.GAME.probabilities.normal + 10 end
     end,
@@ -31,7 +31,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.GAME.probabilities.normal = G.GAME.probabilities.normal + 2 end
     end,
@@ -53,7 +53,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 12,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.odyssey_force_success = (G.GAME.odyssey_force_success or 0) + 1
     end,
@@ -75,7 +75,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 9,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             if pseudorandom('improb') < G.GAME.probabilities.normal / card.ability.extra.odds then
@@ -106,7 +106,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.end_of_round and not context.other_card and not context.blueprint then
             if pseudorandom('entropy') < G.GAME.probabilities.normal / card.ability.extra.odds then
@@ -127,7 +127,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 15,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.odyssey_glass_protection = (G.GAME.odyssey_glass_protection or 0) + 1
         G.GAME.odyssey_force_success = (G.GAME.odyssey_force_success or 0) + 1
@@ -150,7 +150,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 12,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
@@ -174,7 +174,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
             for k, v in ipairs(context.scoring_hand) do
@@ -195,7 +195,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 9,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local count = 0
@@ -225,7 +225,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 21,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local sevens = 0
@@ -254,7 +254,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.GAME.round_resets.reroll_cost = 0 end
     end,
@@ -281,7 +281,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         G.GAME.odyssey_force_success = (G.GAME.odyssey_force_success or 0) + 1
     end,

@@ -149,7 +149,7 @@ SMODS.current_mod.calculate = function(self, context)
     
     -- Per-hand scoring buffs
     if context.joker_main then
-        local chips = G.GAME.warrior_chips or 0
+        local chips = 0
         local mult = G.GAME.magician_mult or 0
         local x_mult = G.GAME.rogue_x_mult or 1
         
@@ -205,7 +205,6 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.odyssey_drake_active = nil
         
         -- Reset Tarot buffs
-        G.GAME.warrior_chips = 0
         G.GAME.magician_mult = 0
         G.GAME.rogue_x_mult = 1
         G.GAME.bard_retrigger = 0
@@ -232,7 +231,7 @@ function BalatroOdyssey.reveal_all_content()
     -- Mark discovered in individual centers
     for k, v in pairs(G.P_CENTERS) do
         if is_odyssey_key(k) then
-            v.discovered = true
+            v.discovered = false
             v.unlocked = true
             v.alerted = true
         end
@@ -241,7 +240,7 @@ function BalatroOdyssey.reveal_all_content()
     -- Mark discovered in Blinds
     for k, v in pairs(G.P_BLINDS) do
         if is_odyssey_key(k) then
-            v.discovered = true
+            v.discovered = false
             v.unlocked = true
         end
     end
@@ -257,14 +256,14 @@ function BalatroOdyssey.reveal_all_content()
         for k, v in pairs(G.P_CENTERS) do
             if is_odyssey_key(k) then
                 profile.meta.unlocked[k] = true
-                profile.meta.discovered[k] = true
-                profile.meta.alerted[k] = true
+                profile.meta.discovered[k] = false
+                profile.meta.alerted[k] = false
             end
         end
         for k, v in pairs(G.P_BLINDS) do
             if is_odyssey_key(k) then
                 profile.meta.unlocked[k] = true
-                profile.meta.discovered[k] = true
+                profile.meta.discovered[k] = false
             end
         end
     end

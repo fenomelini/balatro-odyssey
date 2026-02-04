@@ -4,7 +4,7 @@
 
 -- J801 Audience
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_audience',
     config = { extra = { mult_per = 4 } },
@@ -35,7 +35,7 @@ SMODS.Joker({
 
 -- J802 Critic
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_critic',
     config = { extra = { mult = 10 } },
@@ -66,7 +66,7 @@ SMODS.Joker({
 
 -- J803 Fan
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_fan',
     config = { extra = { mult = 5 } },
@@ -97,7 +97,7 @@ SMODS.Joker({
 
 -- J804 Hater
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_hater',
     config = { extra = { mult = 20 } },
@@ -128,7 +128,7 @@ SMODS.Joker({
 
 -- J805 Streamer (Simulated. $1 per blind entered)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_streamer',
     config = { extra = { dollars = 2 } },
@@ -158,7 +158,7 @@ SMODS.Joker({
 
 -- J806 Chat
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_chat',
     config = { extra = { chips = 10 } },
@@ -191,7 +191,7 @@ SMODS.Joker({
 -- J807 Moderator (Prevents playing if < 2 discards left? No, "prevents bad hands")
 -- Let's say: High Card is disabled.
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_moderator',
     config = { extra = { mult = 15 } },
@@ -219,7 +219,7 @@ SMODS.Joker({
 
 -- J808 Troll
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_troll',
     config = { extra = { mult = 30, chance = 10 } },
@@ -258,7 +258,7 @@ SMODS.Joker({
 
 -- J809 Lurker
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_lurker',
     config = { extra = { rounds = 0, req = 10, x_mult = 3 } },
@@ -292,7 +292,7 @@ SMODS.Joker({
 
 -- J810 Subscriber
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_subscriber',
     config = { extra = { rounds = 0, dollars = 5, every = 4 } },
@@ -324,7 +324,7 @@ SMODS.Joker({
 
 -- J811 Sponsor
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_sponsor',
     config = { extra = { dollars = 10 } },
@@ -356,7 +356,7 @@ SMODS.Joker({
 
 -- J812 Ad (Simpler: $5 end of round, blocks view of played hand score)
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_ad',
     config = { extra = { dollars = 5 } },
@@ -388,7 +388,7 @@ SMODS.Joker({
 
 -- J813 Clickbait
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_clickbait',
     config = { extra = { mult = 10 } },
@@ -416,7 +416,7 @@ SMODS.Joker({
 
 -- J814 Viral
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_viral',
     config = { extra = { dollars = 10, threshold = 10000 } },
@@ -447,7 +447,7 @@ SMODS.Joker({
 
 -- J815 Meme
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_meme',
     config = { extra = { chips = 69 } },
@@ -484,7 +484,7 @@ SMODS.Joker({
 
 -- J816 Emoji
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_emoji',
     config = { extra = { mult = 10 } },
@@ -513,7 +513,7 @@ SMODS.Joker({
 
 -- J817 Hashtag
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_hashtag',
     config = { extra = { mult = 15 } },
@@ -542,7 +542,7 @@ SMODS.Joker({
 
 -- J818 Trending
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_trending',
     config = { extra = { x_mult = 1.5 } },
@@ -582,7 +582,7 @@ SMODS.Joker({
 
 -- J819 Canceled
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_canceled',
     config = { extra = { face_card = 'King' } },
@@ -608,7 +608,7 @@ SMODS.Joker({
 
 -- J820 Influencer
 SMODS.Joker({
-    discovered = true,
+    discovered = false,
     unlocked = true,
     key = 'j_social_influencer',
     config = { extra = { mult_per = 2 } },

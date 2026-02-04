@@ -528,22 +528,34 @@ G.FUNCS.end_round = function()
         G.E_MANAGER:add_event(Event({
             func = function()
                 for k, v in ipairs(G.hand.cards) do
-                    -- Check if not Ace (or 2 depending on logic). Let's say 2 is lowest.
                     if v.base.id > 2 then
                         local new_id = v.base.id - 1
-                        -- Update card visual/value
-                        local new_code = G.P_CARDS[string.sub(v.base.suit, 1, 1) .. '_' .. (G.id_def[new_id] or new_id)]
-                        -- This P_CARDS lookup is tricky without utility.
-                        -- Use internal helper if available or manually change base.
-                        -- SMODS usually provides easy ways?
-                        -- Trying manual base update approach
-                         v.base.id = new_id
-                         v.base.value = G.id_def[new_id] -- This might be a string like '2', 'K'
-                         v:set_sprites(nil, v.config.card)
+                        local rank_name = G.id_def[new_id] or tostring(new_id)
+                        if new_id == 10 then rank_name = 'T' end
+                        local suit_prefix = string.sub(v.base.suit, 1, 1)
+                        v:set_base(G.P_CARDS[suit_prefix .. '_' .. rank_name])
                     end
                 end
                 play_sound('timpani')
                 card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('k_decay_ex')})
+                return true
+            end
+        }))
+    end
+
+    -- Curie Spectral (53): All cards in deck randomize rank every round
+    if G.GAME.odyssey_curie_active then
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local ranks = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'}
+                for k, v in ipairs(G.playing_cards) do
+                    if not v.config.center.no_rank then -- Only for standard cards
+                        local suit_prefix = string.sub(v.base.suit, 1, 1)
+                        local new_rank = ranks[pseudorandom(pseudoseed('curie')..v.base.id..G.GAME.round_resets.ante..k, 1, 13)]
+                        v:set_base(G.P_CARDS[suit_prefix .. '_' .. new_rank])
+                    end
+                end
+                play_sound('card1')
                 return true
             end
         }))
@@ -559,8 +571,14 @@ G.FUNCS.skip_blind = function(e)
     
     if deck_key == 'wormhole' then
         -- Add Double Tag
-        add_tag(Tag('tag_double'))
-        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('k_double_tag'), colour = G.C.ATTENTION})
+        G.E_MANAGER:add_event(Event({
+            func = (function()
+                add_tag(Tag('tag_double'))
+                play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+                play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+                return true
+            end)
+        }))
     end
 
     old_skip_blind(e)

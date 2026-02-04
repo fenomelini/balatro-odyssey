@@ -1,7 +1,7 @@
 -- 241. Visual Bug
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_visual_bug',
     config = { extra = { mult = 10 } },
     rarity = 1,
@@ -46,7 +46,7 @@ SMODS.Joker({
 -- 242. Syntax Error
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_syntax_error',
     config = { extra = { chips = 50, money = 2 } },
     rarity = 1,
@@ -85,7 +85,7 @@ SMODS.Joker({
 -- 243. Lag
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_lag',
     config = { extra = { mult = 20, active = false } },
     rarity = 1,
@@ -125,7 +125,7 @@ SMODS.Joker({
 -- 244. Dead Pixel
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_dead_pixel',
     config = { extra = { mult = 15 } },
     rarity = 1,
@@ -171,7 +171,7 @@ SMODS.Joker({
 -- 245. Money Glitch
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_money_glitch',
     config = { extra = { odds = 10, money = 5 } },
     rarity = 1,
@@ -205,7 +205,7 @@ SMODS.Joker({
 -- 246. Overflow
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_overflow',
     config = { extra = { threshold = 100, mult = 10 } },
     rarity = 1,
@@ -239,7 +239,7 @@ SMODS.Joker({
 -- 247. Underflow
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_underflow',
     config = { extra = { threshold = 20, mult = 30 } },
     rarity = 1,
@@ -273,7 +273,7 @@ SMODS.Joker({
 -- 248. Clipping
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_clipping',
     config = { extra = {} },
     rarity = 1,
@@ -313,7 +313,7 @@ SMODS.Joker({
 -- 249. Corrupted
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_corrupted',
     config = { extra = { mult = 15 } },
     rarity = 1,
@@ -355,7 +355,7 @@ SMODS.Joker({
 -- 250. MissingNo
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_missingno',
     config = { extra = { min = 1, max = 3 } },
     rarity = 1,
@@ -380,7 +380,7 @@ SMODS.Joker({
 -- 251. Blue Screen
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_blue_screen',
     config = { extra = { money = 4 } },
     rarity = 1,
@@ -422,7 +422,7 @@ SMODS.Joker({
 -- 252. Error 404
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_error_404',
     config = { extra = { chips = 40, mult = 40 } },
     rarity = 1,
@@ -462,7 +462,7 @@ SMODS.Joker({
 -- 253. Infinite Loop
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_infinite_loop',
     loc_txt = {
         name = "Infinite Loop",
@@ -507,7 +507,7 @@ SMODS.Joker({
 -- 254. Stack Overflow
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_stack_overflow',
     loc_txt = {
         name = "Stack Overflow",
@@ -547,7 +547,7 @@ SMODS.Joker({
 -- 255. Memory Leak
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_memory_leak',
     loc_txt = {
         name = "Memory Leak",
@@ -591,7 +591,7 @@ SMODS.Joker({
 -- 256. Patch
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_glitch_patch',
     loc_txt = {
         name = "Patch",

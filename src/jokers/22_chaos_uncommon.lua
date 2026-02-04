@@ -1,7 +1,7 @@
 -- 217. Chaos Theory
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_theory',
     config = { extra = { x_mult = 2 } },
     rarity = 2,
@@ -44,7 +44,7 @@ SMODS.Joker({
 -- 218. Butterfly Effect
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_butterfly_effect',
     config = {},
     rarity = 2,
@@ -59,23 +59,25 @@ SMODS.Joker({
             local first_card = context.scoring_hand[1]
             if first_card then
                 local target_suit = first_card.base.suit
-                card.ability.extra_original_suits = {}
-                for i = 2, #context.scoring_hand do
+                for i = 1, #G.hand.cards do
+                    local c = G.hand.cards[i]
+                    if c ~= first_card then
+                        c:change_suit(target_suit)
+                        c:juice_up()
+                    end
+                end
+                for i = 1, #context.scoring_hand do
                    local c = context.scoring_hand[i]
-                   card.ability.extra_original_suits[c] = c.base.suit
-                   c:change_suit(target_suit)
+                   if c ~= first_card then
+                       c:change_suit(target_suit)
+                       c:juice_up()
+                   end
                 end
                 return {
-                    message = localize('k_active_ex'),
+                    message = "Transform!",
                     card = card
                 }
             end
-        end
-        if context.after and not context.blueprint and card.ability.extra_original_suits then
-            for c, original_suit in pairs(card.ability.extra_original_suits) do
-                c:change_suit(original_suit)
-            end
-            card.ability.extra_original_suits = nil
         end
     end
 })
@@ -83,7 +85,7 @@ SMODS.Joker({
 -- 219. Pandemonium
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_pandemonium',
     config = { extra = { repetitions = 3 } },
     rarity = 2,
@@ -119,7 +121,7 @@ SMODS.Joker({
 -- 220. Discord
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_discord',
     config = { extra = { mult = 30 } },
     rarity = 2,
@@ -163,7 +165,7 @@ SMODS.Joker({
 -- 221. Anarchy
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_anarchy',
     config = { extra = { min = 0.5, max = 3 } },
     rarity = 2,
@@ -197,7 +199,7 @@ SMODS.Joker({
 -- 222. Mana Vortex
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_mana_vortex',
     loc_txt = {
         name = "Mana Vortex",
@@ -255,7 +257,7 @@ SMODS.Joker({
 -- 223. Transmutation
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_transmutation',
     loc_txt = {
         name = "Transmutation",
@@ -294,7 +296,7 @@ SMODS.Joker({
 -- 224. Unstable Alchemy
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_unstable_alchemy',
     loc_txt = {
         name = "Unstable Alchemy",
@@ -352,7 +354,7 @@ SMODS.Joker({
 -- 225. Chain Reaction
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_chain_reaction',
     loc_txt = {
         name = "Chain Reaction",
@@ -396,7 +398,7 @@ SMODS.Joker({
 -- 226. Will-o'-the-Wisp
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_will_o_the_wisp',
     loc_txt = {
         name = "Will-o'-the-Wisp",
@@ -439,7 +441,7 @@ SMODS.Joker({
 -- 227. Pandora's Box
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_pandoras_box',
     loc_txt = {
         name = "Pandora's Box",
@@ -485,7 +487,7 @@ SMODS.Joker({
 -- 228. Bad Omen
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_bad_omen',
     config = { extra = { x_mult = 3, odds = 4, severe_x_mult = 0.5 } },
     rarity = 2,
@@ -524,7 +526,7 @@ SMODS.Joker({
 -- 229. Leap of Faith
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_leap_of_faith',
     config = { extra = { x_mult = 3 } },
     rarity = 2,
@@ -558,7 +560,7 @@ SMODS.Joker({
 -- 230. Dissonance
 SMODS.Joker({
     unlocked = true,
-    discovered = true,
+    discovered = false,
     key = 'j_chaos_dissonance',
     loc_txt = {
         name = "Dissonance",

@@ -40,6 +40,18 @@ function Card:get_cost()
     return cost
 end
 
+local old_set_cost = Card.set_cost
+function Card:set_cost()
+    old_set_cost(self)
+    -- Pawn Shop: Consumables sell for $5
+    if G.GAME and G.GAME.odyssey_pawn_shop_active and G.GAME.odyssey_pawn_shop_active > 0 then
+        if self.ability.set == 'Tarot' or self.ability.set == 'Planet' or self.ability.set == 'Spectral' then
+            self.sell_cost = 5
+            self.sell_cost_label = self.facing == 'back' and '?' or self.sell_cost
+        end
+    end
+end
+
 -- 4. Safety Fixes (Lovely/Injector Stability)
 local old_ebcb = ease_background_colour_blind
 function ease_background_colour_blind(state, blindname)
@@ -86,6 +98,22 @@ function Card:get_chip_mult()
     if self.debuff then return 0 end
     if self.ability.set == 'Joker' then return 0 end
     return mult + (self.ability.perma_mult or 0)
+end
+
+local old_level_up_hand = level_up_hand
+function level_up_hand(card, hand, instant, amount)
+    local amt = amount or 1
+    -- Futurist: Double level up amount
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config.center.key == 'j_odyssey_j_professions_futurist' and not j.debuff then
+                amt = amt * 2
+                j:juice_up()
+                break
+            end
+        end
+    end
+    old_level_up_hand(card, hand, instant, amt)
 end
 
 local old_generate_UIBox_ability_table = Card.generate_UIBox_ability_table

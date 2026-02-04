@@ -1,7 +1,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_council_of_kings',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 4, count_needed = 4, rank = 13 } },
     rarity = 3,
     cost = 9,
@@ -36,7 +36,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_harem',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 4, count_needed = 4, rank = 12 } },
     rarity = 3,
     cost = 9,
@@ -71,7 +71,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_brotherhood',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 4, count_needed = 4, rank = 11 } },
     rarity = 3,
     cost = 9,
@@ -106,7 +106,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_mage_circle',
-    discovered = true,
+    discovered = false,
     config = { extra = { consumable_slots = 1 } },
     rarity = 3,
     cost = 9,
@@ -134,7 +134,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_thieves_guild',
-    discovered = true,
+    discovered = false,
     config = { extra = { money = 1 } },
     rarity = 3,
     cost = 9,
@@ -162,7 +162,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_holy_order',
-    discovered = true,
+    discovered = false,
     config = { extra = { mult = 20 } },
     rarity = 3,
     cost = 9,
@@ -198,7 +198,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_shadow_army',
-    discovered = true,
+    discovered = false,
     config = { extra = {} },
     rarity = 3,
     cost = 9,
@@ -238,7 +238,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_champion',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 3, permanent_gain = 0.5 } },
     rarity = 3,
     cost = 9,
@@ -272,7 +272,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_dark_lord',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 5 } },
     rarity = 3,
     cost = 9,
@@ -312,7 +312,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_hero',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 5, hands_needed = 1 } },
     rarity = 3,
     cost = 9,

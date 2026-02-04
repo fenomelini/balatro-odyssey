@@ -11,7 +11,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 9,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local current_xmult = 1 + (card.ability.extra.played * card.ability.extra.xmult_gain)
@@ -40,7 +40,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 9,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
             local highest_card = nil
@@ -73,7 +73,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.repetition and not context.repetition_only then
             local has_king = false
@@ -100,7 +100,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local has_queen = false
@@ -130,7 +130,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 8,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main then
             local has_jack = false
@@ -159,7 +159,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 9,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
             local has_ace = false
@@ -190,7 +190,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.after and not context.blueprint then
             local cards_to_return = {}
@@ -225,7 +225,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 10,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         -- We'll handle this in 03_vanilla_override.lua for the discard button press
     end,
@@ -240,7 +240,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main and context.scoring_name == "Royal Flush" then
             G.E_MANAGER:add_event(Event({
@@ -269,7 +269,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 15,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     calculate = function(self, card, context)
         if context.joker_main and #context.scoring_hand == 1 and context.scoring_name == "High Card" then
             return {
@@ -290,7 +290,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then
             G.hand.config.card_limit = G.hand.config.card_limit + 3
@@ -324,7 +324,7 @@ SMODS.Joker({
     pos = { x = 0, y = 0 },
     cost = 20,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     add_to_deck = function(self, card, from_debuff)
         if G.GAME then G.hand.config.card_limit = G.hand.config.card_limit - 2 end
     end,

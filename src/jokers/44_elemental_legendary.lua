@@ -6,7 +6,7 @@
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_avatar',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 4 } },
     rarity = 4,
     atlas = 'j_elemental_avatar',
@@ -33,7 +33,7 @@ SMODS.Joker({
 SMODS.Joker({
     unlocked = true,
     key = 'j_elemental_cataclysm',
-    discovered = true,
+    discovered = false,
     config = { extra = { x_mult = 10 } },
     rarity = 4,
     atlas = 'j_elemental_cataclysm',
