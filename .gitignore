@@ -38,7 +38,6 @@ tests/reports/
 
 # Private/Game Files
 balatro_game/
-docs/
 assets/raw/
 .env
 .env.example
