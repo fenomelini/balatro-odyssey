@@ -52,3 +52,4 @@ process_joker_sprites.py
 process_tarot_assets.py
 process_vouchers.py
 test_runner.py
+*_reference.md

@@ -10,14 +10,17 @@ Diferente dos Tarôs, os Espectrais raramente aparecem em Pacotes de Arcanos, se
 
 Os 100 Espectrais de Odyssey são organizados por seus impactos na "física" da partida:
 
-### 1. 💥 Eventos Cósmicos (IDs 1-11)
+### 1. 💥 Eventos Cósmicos
 Representam os fenômenos mais destrutivos e energéticos do universo.
 *   **Foco:** Destruição de mão/Curingas em troca de Edições Negativas ou Policromáticas.
-*   **Destaque:** **Antimatéria** (Torna um Curinga Negativo) e **Buraco Negro** (Destrói a mão para ganhar Tamanho de Mão permanente).
+*   **Exemplos:**
+    ![Antimatéria](../assets/spectrals/10.png) ![Buraco Negro](../assets/spectrals/02.png) ![Supernova](../assets/spectrals/01.png)
 
-### 2. ⚛️ Leis da Física e Teoria (IDs 12-29)
+### 2. ⚛️ Leis da Física e Teoria
 Alteram as regras básicas de como o jogo processa informações e cálculos.
 *   **Foco:** Buffs permanentes de XMult, fusão de Curingas e reinício de Antes.
+*   **Exemplos:**
+    ![Singularidade](../assets/spectrals/21.png) ![Big Bang](../assets/spectrals/22.png) ![Paradoxo](../assets/spectrals/20.png)
 *   **Destaque:** **Zero Absoluto** (X5 Mult permanente, mas impede modificações futuras no deck) e **Singularidade** (Funde dois Curingas em um só).
 
 ### 3. 🔭 O Observatório e Probabilidade (IDs 30-39)
