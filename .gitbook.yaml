@@ -1,8 +1,0 @@
-root: ./docs
-ignore:
-  - "**/*_guide.md"
-  - "**/steamodded_mechanics_overview.md"
-  - "**/image_generation_guide.md"
-  - "**/sprite_guide.md"
-  - "**/spectral_generation_guide.md"
-  - "**/*_reference.md"
