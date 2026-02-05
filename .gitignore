@@ -3,6 +3,7 @@ BalatroOdyssey.lua
 *.zip
 
 # Python
+.venv/
 __pycache__/
 *.py[cod]
 *$py.class
@@ -38,13 +39,16 @@ tests/reports/
 
 # Private/Game Files
 balatro_game/
+logs/
 assets/raw/
 .env
 .env.example
 ACTION_PLAN.md
+.github/
 .github/copilot-instructions.md
 
 # Build Scripts & Tools
+dev_tools/
 build_and_package.py
 check_nesting_verbose.py
 process_assets.py
@@ -54,6 +58,7 @@ process_vouchers.py
 test_runner.py
 
 # Balatro Odyssey Docs - Hide References & Guides from site
+docs/
 *_reference.md
 **/*_guide.md
 **/steamodded_mechanics_overview.md
