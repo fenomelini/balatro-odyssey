@@ -52,4 +52,11 @@ process_joker_sprites.py
 process_tarot_assets.py
 process_vouchers.py
 test_runner.py
+
+# Balatro Odyssey Docs - Hide References & Guides from site
 *_reference.md
+**/*_guide.md
+**/steamodded_mechanics_overview.md
+**/image_generation_guide.md
+**/sprite_guide.md
+**/spectral_generation_guide.md
