@@ -357,7 +357,7 @@ SMODS.Joker({
     unlocked = true,
     discovered = false,
     key = 'j_glitch_missingno',
-    config = { extra = { min = 1, max = 3 } },
+    config = { extra = { min = 1, max = 3, current = 1 } },
     rarity = 1,
     atlas = 'j_glitch_missingno',
     pos = { x = 0, y = 0 },
@@ -365,12 +365,18 @@ SMODS.Joker({
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.current or 1 } }
+    end,
     calculate = function(self, card, context)
+        if context.before and not context.blueprint then
+            card.ability.extra.current = card.ability.extra.min + (pseudorandom('missingno') * (card.ability.extra.max - card.ability.extra.min))
+            card.ability.extra.current = math.floor(card.ability.extra.current * 100) / 100
+        end
         if context.joker_main then
-            local xmult = card.ability.extra.min + (pseudorandom('missingno') * (card.ability.extra.max - card.ability.extra.min))
             return {
-                message = localize{ type = 'variable', key = 'a_xmult', vars = { string.format("%.2f", xmult) } },
-                Xmult_mod = xmult,
+                message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current } },
+                x_mult = card.ability.extra.current,
                 colour = G.C.MULT
             }
         end

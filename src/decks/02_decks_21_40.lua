@@ -245,7 +245,7 @@ SMODS.Back({
         G.E_MANAGER:add_event(Event({
             func = function()
                 for i = 1, 52 do
-                    local card = create_card('Default', G.deck, nil, nil, nil, nil, nil, 'double')
+                    local card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'double')
                     card:add_to_deck()
                     G.deck:emplace(card)
                     table.insert(G.playing_cards, card)
@@ -350,7 +350,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_mime', 'envy_deck')
+                local card = create_card('Joker', G.jokers, nil, 0, nil, nil, 'j_odyssey_j_transformations_mimic', 'envy_deck')
                 card:add_to_deck()
                 G.jokers:emplace(card)
                 return true

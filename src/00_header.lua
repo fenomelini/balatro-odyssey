@@ -1,20 +1,79 @@
 -- Balatro Odyssey
 -- A mod adding 1000 unique Jokers
 -- Author: fenomelini
--- Version: 0.1.3-alpha
+-- Version: 0.1.4-alpha
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
 ----------------------------------------------
 
 -- Initialize the mod
-SMODS.current_mod.config = SMODS.current_mod.config or {}
-SMODS.current_mod.prefix = 'odyssey'
+local mod = SMODS.current_mod
+mod.config = mod.config or {}
+mod.prefix = 'odyssey'
 
--- Global Mod Table
+-- Global Mod Table for access from Lovely/Injector
 BalatroOdyssey = {}
+BalatroOdyssey.config = mod.config
 
-----------------------------------------------
+-- Default config
+if mod.config.hide_vanilla == nil then
+    mod.config.hide_vanilla = true
+end
+
+-- Mod Settings Tab
+mod.config_tab = function()
+    return {
+        n = G.UIT.ROOT,
+        config = { align = "cm", padding = 0.2, colour = G.C.BLACK, r = 0.1, minw = 8, minh = 6 },
+        nodes = {
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.1 },
+                nodes = {
+                    {
+                        n = G.UIT.T,
+                        config = { text = localize('odyssey_config_title'), scale = 0.7, colour = G.C.GOLD, shadow = true }
+                    }
+                }
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.2 },
+                nodes = {
+                    create_toggle({
+                        label = localize('odyssey_config_hide_vanilla'),
+                        active_colour = G.C.BLUE,
+                        w = 0,
+                        ref_table = mod.config,
+                        ref_value = 'hide_vanilla'
+                    })
+                }
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.1 },
+                nodes = {
+                    {
+                        n = G.UIT.T,
+                        config = { text = localize('odyssey_config_hide_vanilla_desc'), scale = 0.35, colour = G.C.UI.TEXT_LIGHT }
+                    }
+                }
+            },
+            {
+                n = G.UIT.R,
+                config = { align = "cm", padding = 0.1 },
+                nodes = {
+                    {
+                        n = G.UIT.T,
+                        config = { text = localize('odyssey_config_restart_warning'), scale = 0.4, colour = G.C.RED, shadow = true }
+                    }
+                }
+            }
+        }
+    }
+end
+
 -- Odyssey Run Initialization
 ----------------------------------------------
 -- Hook into game start run event
@@ -54,6 +113,14 @@ function Game:start_run(args)
     G.GAME.reveal_skip_rewards = G.GAME.reveal_skip_rewards or false
     G.GAME.odyssey_prev_round_1_hand = G.GAME.odyssey_prev_round_1_hand or false
     
+    -- Odyssey Shop Slots
+    G.GAME.shop_extra_joker_slots = G.GAME.shop_extra_joker_slots or 0
+    G.GAME.shop_extra_booster_slots = G.GAME.shop_extra_booster_slots or 0
+    G.GAME.shop_extra_voucher_slots = G.GAME.shop_extra_voucher_slots or 0
+    G.GAME.shop_extra_tarot_slots = G.GAME.shop_extra_tarot_slots or 0
+    G.GAME.shop_extra_planet_slots = G.GAME.shop_extra_planet_slots or 0
+    G.GAME.shop_extra_spectral_slots = G.GAME.shop_extra_spectral_slots or 0
+
     -- Tarot Temp Buffs
     G.GAME.warrior_chips = G.GAME.warrior_chips or 0
     G.GAME.magician_mult = G.GAME.magician_mult or 0

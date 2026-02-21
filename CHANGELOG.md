@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4-alpha] - 2026-02-21
+
+### Fixed
+- **Double Deck**: Fixed a crash when starting a run with the Double Deck. The deck now correctly generates 104 cards without crashing.
+- **Total Conversion Toggle**: Completely overhauled the "Hide Vanilla Content" setting. The logic was moved from early `lovely` injector patches (which failed to read the config state) to a robust Lua hook (`BalatroOdyssey.apply_config()`) that runs safely at the end of the game's initialization. The setting now reliably toggles vanilla content on/off after a restart.
+- **MissingNo (Joker 250)**: Fixed logic for random value calculation and state persistence during rounds.
+- **The Pilgrim (Tarot 78)**: Reimplemented the expansion mechanic to correctly trigger random Tag generation upon use.
+- **Platinum Enhancement**: Corrected sprite mapping (`pos = { x = 0, y = 4 }`) for proper visual rendering.
+- **Merchant & Thief Tarots**: Resolved crash when used outside the shop context by adding safety checks for `G.shop` and `G.shop_jokers`.
+- **Event Horizon & Custom Decks**: Fixed recurring crash where `juice_up` was called on a nil `selected_back` during round-end or discard events.
+- **Startup Stability**: Fixed a critical startup crash by adding `if SMODS.Mods['BalatroOdyssey']` safety checks to all `lovely.toml` regex patches.
+- **Mod Settings Menu**: Fixed crash in the "CONFIG" tab caused by `SMODS.current_mod` being nil post-initialization. Now using a persistent local mod reference.
+
+### Technical
+- Transitioned all `lovely.toml` patches to use `[patches.regex]` for improved resilience across game versions.
+- Enforced `v.omit` checks in `self.P_CENTER_POOLS['Joker']` to prevent vanilla leakage into menus.
+- Incremented version to `0.1.4-alpha`.
+
 ## [0.1.3-alpha] - 2026-02-03
 
 ### Added

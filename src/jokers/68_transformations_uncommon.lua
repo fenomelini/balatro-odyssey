@@ -92,7 +92,7 @@ SMODS.Joker({
             if #context.full_hand >= 2 then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local new_card = create_card('Default', G.hand, nil, nil, nil, nil, nil, 'frank')
+                        local new_card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'dark_phoenix')
                         new_card:add_to_deck()
                         G.hand:emplace(new_card)
                         return true
@@ -132,7 +132,7 @@ SMODS.Joker({
                 -- Let's just create a random card in hand as a "returned" one
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local new_card = create_card('Default', G.hand, nil, nil, nil, nil, nil, 'zombie')
+                        local new_card = create_card('Base', G.hand, nil, nil, nil, nil, nil, 'zombie')
                         new_card:add_to_deck()
                         G.hand:emplace(new_card)
                         return true
@@ -306,7 +306,7 @@ SMODS.Joker({
                     delay = 0.1,
                     func = function()
                         v:start_dissolve()
-                        local new_card = create_card('Default', G.deck, nil, nil, nil, nil, nil, 'dark_phoenix')
+                        local new_card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'dark_phoenix')
                         new_card:set_ability(G.P_CENTERS.m_odyssey_platinum)
                         new_card:add_to_deck()
                         G.deck:emplace(new_card)

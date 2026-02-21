@@ -303,8 +303,8 @@ Card.start_dissolve = function(self, dissolve_colours, silent, dissolve_time_fac
     if deck_key == 'event_horizon' then
         G.GAME.selected_back.effect.config.extra = G.GAME.selected_back.effect.config.extra or {}
         G.GAME.selected_back.effect.config.extra.mult = (G.GAME.selected_back.effect.config.extra.mult or 0) + 0.5
-        -- Visual feedback?
-        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize{type='variable', key='a_mult', vars={0.5}}})
+        -- Visual feedback on the card being dissolved
+        card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable', key='a_mult', vars={0.5}}})
     end
 
     old_start_dissolve(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
@@ -321,24 +321,23 @@ G.FUNCS.play_cards = function(e)
     -- 41. Wrath (Ira): Hand gives $1
     if deck_key == 'wrath' then
         ease_dollars(1)
-        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('$')..'1', colour = G.C.MONEY})
+        -- No card_eval_status_text here, ease_dollars already shows feedback on money HUD
     end
 
     -- 65. Volcanic: +$5 per hand
     if deck_key == 'volcanic' then
         ease_dollars(5)
-        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('$')..'5', colour = G.C.MONEY})
+        -- No card_eval_status_text here, ease_dollars already shows feedback on money HUD
     end
     
     -- 64. Frozen: Debuff first hand
     if deck_key == 'frozen' and G.GAME.current_round.hands_played == 0 then
-        -- This hook runs on play_cards. Cards are in G.play.cards or passed in event?
-        -- G.play.cards should be populated.
-        -- We debuff them.
         for k, v in ipairs(G.play.cards) do
             v:set_debuff(true)
         end
-        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('k_frozen_ex')})
+        if G.play.cards[1] then
+            card_eval_status_text(G.play.cards[1], 'extra', nil, nil, nil, {message = localize('k_frozen_ex')})
+        end
     end
 
     old_play_cards(e)
@@ -360,10 +359,12 @@ G.FUNCS.draw_from_play_to_discard = function(e)
             G.GAME.selected_back.effect.config.extra.stored_score = to_store
             
             -- Visual feedback
-            card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {
-                message = localize{type='variable', key='a_chips', vars={to_store}},
-                colour = G.C.CHIPS
-            })
+            if G.play.cards[1] then
+                card_eval_status_text(G.play.cards[1], 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_chips', vars={to_store}},
+                    colour = G.C.CHIPS
+                })
+            end
         end
     end
     
@@ -398,7 +399,7 @@ G.FUNCS.draw_from_play_to_discard = function(e)
                         card:add_to_deck()
                         G.deck:emplace(card)
                         card:start_materialize()
-                        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('k_duplicated_ex')})
+                        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_duplicated_ex')})
                         return true
                     end
                 }))
@@ -437,10 +438,12 @@ G.FUNCS.draw_from_play_to_discard = function(e)
             
             G.GAME.selected_back.effect.config.extra.mult = (G.GAME.selected_back.effect.config.extra.mult or 0) + total_gain
             
-            card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {
-                message = localize{type='variable', key='a_mult', vars={total_gain}},
-                colour = G.C.MULT
-            })
+            if G.play.cards[1] then
+                card_eval_status_text(G.play.cards[1], 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_mult', vars={total_gain}},
+                    colour = G.C.MULT
+                })
+            end
 
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
@@ -495,7 +498,11 @@ G.FUNCS.end_round = function()
             G.E_MANAGER:add_event(Event({
                 func = function()
                     play_sound('tarot1')
-                    card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = "SUPERNOVA!", colour = G.C.RED})
+                    if G.jokers and G.jokers.cards[1] then
+                        card_eval_status_text(G.jokers.cards[1], 'extra', nil, nil, nil, {message = "SUPERNOVA!", colour = G.C.RED})
+                    elseif G.hand and G.hand.cards[1] then
+                        card_eval_status_text(G.hand.cards[1], 'extra', nil, nil, nil, {message = "SUPERNOVA!", colour = G.C.RED})
+                    end
                     return true
                 end
             }))
@@ -505,7 +512,7 @@ G.FUNCS.end_round = function()
     -- Deck 37: Avareza (Greed) - Gain $10 fixed
     if deck_key == 'avareza' then
         ease_dollars(10)
-        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('$')..'10', colour = G.C.MONEY})
+        -- No card_eval_status_text here, consistent with others
     end
 
     -- 58. Mutant: Suits change every round
@@ -517,10 +524,12 @@ G.FUNCS.end_round = function()
                     local new_suit = suits[pseudorandom(pseudoseed('mutant')..v.base.id, 1, 4)]
                     v:change_suit(new_suit)
                 end
+                if G.hand and G.hand.cards[1] then
+                    card_eval_status_text(G.hand.cards[1], 'extra', nil, nil, nil, {message = localize('k_mutant_ex')})
+                end
                 return true
             end
         }))
-        card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('k_mutant_ex')})
     end
 
     -- 62. Radioactive: Rank Decay
@@ -534,10 +543,10 @@ G.FUNCS.end_round = function()
                         if new_id == 10 then rank_name = 'T' end
                         local suit_prefix = string.sub(v.base.suit, 1, 1)
                         v:set_base(G.P_CARDS[suit_prefix .. '_' .. rank_name])
+                        card_eval_status_text(v, 'extra', nil, nil, nil, {message = localize('k_decay_ex')})
                     end
                 end
                 play_sound('timpani')
-                card_eval_status_text(G.GAME.selected_back, 'extra', nil, nil, nil, {message = localize('k_decay_ex')})
                 return true
             end
         }))

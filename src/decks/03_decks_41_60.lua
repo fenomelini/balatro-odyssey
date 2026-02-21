@@ -162,7 +162,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                local card = create_card('Joker', G.jokers, true, 4, nil, nil, 'j_final_odyssey', 'odyssey_deck')
+                local card = create_card('Joker', G.jokers, true, 4, nil, nil, 'j_odyssey_j_final_odyssey', 'odyssey_deck')
                 card:add_to_deck()
                 G.jokers:emplace(card)
                 return true

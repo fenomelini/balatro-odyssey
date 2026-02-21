@@ -102,6 +102,65 @@ function pseudorandom(seed, min, max)
     return old_pseudorandom(seed, min, max)
 end
 
+-- Vanilla Omission implementation
+function BalatroOdyssey.apply_config()
+    local config = BalatroOdyssey.config
+    local hide_vanilla = (config and config.hide_vanilla ~= false)
+
+    -- If we want to hide vanilla:
+    if hide_vanilla then
+        -- 1. Mark vanilla centers as omit
+        if G.P_CENTERS then
+            for k, v in pairs(G.P_CENTERS) do
+                if v.set and not string.find(string.lower(k), "odyssey") then
+                    local to_replace = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Back = true, Edition = true}
+                    if to_replace[v.set] then
+                        v.omit = true
+                    end
+                end
+            end
+        end
+        
+        -- 2. Clean vanilla from pools
+        if G.P_CENTER_POOLS then
+            local replace_sets = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Back = true, Tarot_Planet = true, Consumeables = true}
+            for pool_name, pool in pairs(G.P_CENTER_POOLS) do
+                if replace_sets[pool_name] then
+                    for i = #pool, 1, -1 do
+                        if pool[i].key and not string.find(string.lower(pool[i].key), "odyssey") then
+                            table.remove(pool, i)
+                        end
+                    end
+                end
+            end
+        end
+        
+        -- 3. Clean rarity pools
+        if G.P_JOKER_RARITY_POOLS then
+            for r = 1, 4 do
+                local r_pool = G.P_JOKER_RARITY_POOLS[r]
+                if r_pool then
+                    for i = #r_pool, 1, -1 do
+                        if r_pool[i].key and not string.find(string.lower(r_pool[i].key), "odyssey") then
+                            table.remove(r_pool, i)
+                        end
+                    end
+                end
+            end
+        end
+    else
+        -- IF WE WANT TO SHOW VANILLA:
+        -- Ensure they are NOT omitted (though we can't easily rebuild pools without restart)
+        if G.P_CENTERS then
+            for k, v in pairs(G.P_CENTERS) do
+                if v.set and not string.find(string.lower(k), "odyssey") then
+                    v.omit = nil
+                end
+            end
+        end
+    end
+end
+
 -- ODYSSEY CUSTOM: Robust n-of-a-kind helper for custom hands
 function get_n_of_a_kind(hand, n)
     local ranks = {}

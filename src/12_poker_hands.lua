@@ -658,25 +658,24 @@ SMODS.PokerHand({
     end
 })
 
--- ID 59: Ultimate Flush (All 4 suits represented, 8+ cards)
+-- ID 59: Ultimate Flush (All 4 suits represented, 10+ cards)
 SMODS.PokerHand({
     key = 'ultimate_flush',
-    chips = 208,
-    mult = 21,
-    l_chips = 187,
-    l_mult = 17,
+    chips = 350,
+    mult = 35,
+    l_chips = 220,
+    l_mult = 22,
     example = {
-        { 'S_2', true }, { 'S_3', true }, { 'H_4', true }, { 'H_5', true }, { 'D_6', true }, { 'D_7', true }, { 'C_8', true }, { 'C_9', true }
+        { 'S_2', true }, { 'S_3', true }, { 'H_4', true }, { 'H_5', true }, { 'D_6', true }, { 'D_7', true }, { 'C_8', true }, { 'C_9', true }, { 'S_T', true }, { 'H_J', true }
     },
     evaluate = function(parts, hand)
-        if #hand < 8 then return end
+        if #hand < 10 then return end
         local suits = {}
         for i = 1, #hand do suits[hand[i].base.suit] = true end
         local count = 0
         for _ in pairs(suits) do count = count + 1 end
         if count == 4 then
-            -- Also need 8 cards of same suit? No, "Ultimate Flush" usually means representation of all or something.
-            -- Let's make it 8 cards and all 4 suits.
+            -- Requirement increased to 10 cards to prevent over-triggering when selecting all cards (default 8)
             return {hand}
         end
     end

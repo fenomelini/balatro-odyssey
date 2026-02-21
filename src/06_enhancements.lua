@@ -543,8 +543,8 @@ SMODS.Enhancement({
 -- Effect: +100 Chips
 SMODS.Enhancement({
     key = 'platinum',
-    atlas = 'v_platinum',
-    pos = { x = 0, y = 0 },
+    atlas = 'enhancements',
+    pos = { x = 0, y = 4 },
     config = { extra = { chips = 100 } },
     loc_txt = {
         name = 'Carta de Platina',

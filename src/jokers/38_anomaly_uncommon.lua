@@ -296,7 +296,7 @@ local jokers = {
                 G.E_MANAGER:add_event(Event({
                     func = function() 
                         for i=1, 3 do
-                            local _card = create_card('Default', G.pack_cards, nil, nil, true, true, nil, 'memdump')
+                            local _card = create_card('Base', G.pack_cards, nil, nil, true, true, nil, 'memdump')
                             _card:add_to_deck()
                             G.hand:emplace(_card)
                         end

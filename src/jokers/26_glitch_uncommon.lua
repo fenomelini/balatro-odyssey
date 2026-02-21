@@ -223,7 +223,7 @@ local local_jokers = {
             if context.setting_blind and not context.blueprint then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local _card = create_card('Default', G.hand, nil, nil, nil, nil, 'm_odyssey_emerald', 'odyssey_source_code')
+                        local _card = create_card('Base', G.hand, nil, nil, nil, nil, 'm_odyssey_emerald', 'odyssey_source_code')
                         _card:add_to_deck()
                         G.deck.config.card_limit = G.deck.config.card_limit + 1
                         table.insert(G.playing_cards, _card)

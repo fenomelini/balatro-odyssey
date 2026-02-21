@@ -42,17 +42,23 @@ for _, t in ipairs(tarots) do
                 return G.GAME.last_destroyed_joker ~= nil
             elseif id == 61 then -- Death II (Joker)
                 return G.jokers.highlighted and #G.jokers.highlighted == 1
-            elseif id == 68 then -- Thief (Shop)
+            elseif id == 78 then -- Pilgrim
+                return G.GAME and G.GAME.tags and #G.GAME.tags > 0
+            elseif id == 67 or id == 68 then -- Merchant / Thief (Shop)
                 if not (G.shop_jokers and G.shop_jokers.cards and #G.shop_jokers.cards > 0) then return false end
-                for k, v in ipairs(G.shop_jokers.cards) do
-                    local is_joker = (v.ability.set == 'Joker' or not v.ability.set)
-                    local is_consumeable = (v.ability.set == 'Tarot' or v.ability.set == 'Planet' or v.ability.set == 'Spectral')
-                    if (is_joker and #G.jokers.cards < G.jokers.config.card_limit) or
-                       (is_consumeable and #G.consumeables.cards < G.consumeables.config.card_limit) then
-                        return true
+                -- Thief extra checks (must have space for the cards)
+                if id == 68 then
+                    for k, v in ipairs(G.shop_jokers.cards) do
+                        local is_joker = (v.ability.set == 'Joker' or not v.ability.set)
+                        local is_consumeable = (v.ability.set == 'Tarot' or v.ability.set == 'Planet' or v.ability.set == 'Spectral')
+                        if (is_joker and #G.jokers.cards < G.jokers.config.card_limit) or
+                           (is_consumeable and #G.consumeables.cards < G.consumeables.config.card_limit) then
+                            return true
+                        end
                     end
+                    return false
                 end
-                return false
+                return true
             elseif id == 47 or id == 48 or id == 46 or id == 32 or id == 21 or id == 66 then -- Joker Tarots
                 return #G.jokers.cards < G.jokers.config.card_limit or card.area == G.jokers
             elseif id == 71 or id == 52 or id == 3 or id == 5 then -- Consumable Tarots
@@ -516,8 +522,10 @@ for _, t in ipairs(tarots) do
                 }))
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_active_ex'), colour = G.C.FILTER})
             elseif id == 78 then -- Pilgrim
-                local tag = Tag(pseudorandom_element(G.P_TAGS, pseudoseed('pilgrim')).key)
-                add_tag(tag)
+                if #G.GAME.tags > 0 then
+                    G.GAME.tags[#G.GAME.tags]:remove()
+                end
+                add_tag(Tag(pseudorandom_element(G.P_TAGS, pseudoseed('pilgrim')).key))
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_active_ex'), colour = G.C.FILTER})
             elseif id == 79 then -- Monk
                 for k, v in ipairs(G.hand.cards) do v.debuff = false end

@@ -264,7 +264,7 @@ SMODS.Joker({
             if #destroyed_cards > 0 then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local new_card = create_card('Default', G.hand, nil, nil, nil, nil, 'm_odyssey_emerald', 'nuclear_fusion')
+                        local new_card = create_card('Base', G.hand, nil, nil, nil, nil, 'm_odyssey_emerald', 'nuclear_fusion')
                         new_card:add_to_deck()
                         G.hand:emplace(new_card)
                         return true

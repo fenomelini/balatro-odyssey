@@ -2944,7 +2944,9 @@ return {
  j_odyssey_j_glitch_missingno = {
  name = "MissingNo",
  text = {
- "{X:mult,C:white} X? Multi{}", "(Muda a cada mão,", "entre {X:mult,C:white} X1 Multi e {}{X:mult,C:white} X3 Multi){}"
+ "Ganha um bônus aleatório entre {X:mult,C:white} X1 {} e {X:mult,C:white} X3 {} Multi.{}",
+ "O valor muda a cada mão jogada.{}",
+ "{C:inactive}(No momento: {X:mult,C:white} X#1# {C:inactive} Multi){}"
  }
  },
  
@@ -12532,6 +12534,10 @@ return {
   },
   dictionary = {
       k_shuffled = "Embaralhado!",
+      odyssey_config_hide_vanilla = "Conversão Total (Apenas Odyssey)",
+      odyssey_config_hide_vanilla_desc = "OFF: Jogue com Odyssey + Baunilha. ON: Jogue APENAS com conteúdo Odyssey.",
+      odyssey_config_restart_warning = "REQUER REINÍCIO PARA APLICAR!",
+      odyssey_config_title = "Configurações do Balatro Odyssey"
   }
  }
 }

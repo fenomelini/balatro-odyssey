@@ -2944,7 +2944,9 @@ return {
  j_odyssey_j_glitch_missingno = {
  name = "MissingNo",
  text = {
- "{X:mult,C:white} X? {} Mult{}", "(Changes every hand,", "between {X:mult,C:white} X1 {} Mult and {}{X:mult,C:white} X3 {} Mult){}"
+ "Gain a random bonus between {X:mult,C:white} X1 {} and {X:mult,C:white} X3 {} Mult.{}",
+ "The value changes every hand played.{}",
+ "{C:inactive}(Currently: {X:mult,C:white} X#1# {C:inactive} Mult){}"
  }
  },
  
@@ -12404,6 +12406,10 @@ return {
   },
   dictionary = {
       k_shuffled = "Shuffled!",
+      odyssey_config_hide_vanilla = "Total Conversion (Odyssey Only)",
+      odyssey_config_hide_vanilla_desc = "OFF: Play with Odyssey + Vanilla content. ON: Play ONLY with Odyssey content.",
+      odyssey_config_restart_warning = "REQUIRES GAME RESTART TO APPLY!",
+      odyssey_config_title = "Balatro Odyssey Settings"
   }
  }
 }
