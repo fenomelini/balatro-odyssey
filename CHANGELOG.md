@@ -4,9 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.4-alpha] - 2026-02-21
 
+### Added
+- **Total Conversion Toggle**: Added a new setting in the mod's configuration menu that allows players to choose whether to hide or show vanilla content (Jokers, Tarots, Planets, etc.). This requires a game restart to take effect.
+
 ### Fixed
 - **Double Deck**: Fixed a crash when starting a run with the Double Deck. The deck now correctly generates 104 cards.
-- **Total Conversion Toggle**: The "Hide Vanilla Content" setting now reliably toggles vanilla content on/off after a restart.
 - **MissingNo (Joker 250)**: Fixed logic for random value calculation and state persistence during rounds.
 - **The Pilgrim (Tarot 78)**: Reimplemented the expansion mechanic to correctly trigger random Tag generation upon use.
 - **Platinum Enhancement**: Corrected visual rendering of the enhancement.
