@@ -12246,6 +12246,14 @@ return {
  },
  
  },
+ Other = {
+         e_negative_playing_card = {
+             name = "Negative",
+             text = {
+                 "{C:attention}+#1#{} Hand Size"
+             }
+         },
+ },
  },
  misc = {
  poker_hands = {

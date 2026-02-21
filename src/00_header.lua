@@ -109,6 +109,8 @@ function Game:start_run(args)
     G.GAME.interest_mult = G.GAME.interest_mult or 1
     G.GAME.odyssey_pawn_shop_active = G.GAME.odyssey_pawn_shop_active or 0
     G.GAME.odyssey_curie_active = G.GAME.odyssey_curie_active or false
+    G.GAME.odyssey_webb_active = G.GAME.odyssey_webb_active or false
+    G.GAME.odyssey_hubble_active = G.GAME.odyssey_hubble_active or false
     G.GAME.reveal_future_blinds = G.GAME.reveal_future_blinds or 0
     G.GAME.reveal_skip_rewards = G.GAME.reveal_skip_rewards or false
     G.GAME.odyssey_prev_round_1_hand = G.GAME.odyssey_prev_round_1_hand or false

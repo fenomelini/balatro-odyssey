@@ -8,14 +8,18 @@ All notable changes to this project will be documented in this file.
 - **Total Conversion Toggle**: Added a new setting in the mod's configuration menu that allows players to choose whether to hide or show vanilla content (Jokers, Tarots, Planets, etc.). This requires a game restart to take effect.
 
 ### Fixed
+- **Webb & Hubble (Spectrals)**: Corrected logic for negative card transformation and hand size bonuses.
+- **Negative Cards UI**: Fixed hand size display in localization (changed "+nil" to "+1").
+- **Collection Menu**: Disabled the auto-reveal of all cards to restore standard progression.
+- **Platinum Enhancement**: Resolved the "red block" visual bug by providing a dedicated high-resolution sprite.
 - **Double Deck**: Fixed a crash when starting a run with the Double Deck. The deck now correctly generates 104 cards.
 - **MissingNo (Joker 250)**: Fixed logic for random value calculation and state persistence during rounds.
-- **The Pilgrim (Tarot 78)**: Reimplemented the expansion mechanic to correctly trigger random Tag generation upon use.
-- **Platinum Enhancement**: Corrected visual rendering of the enhancement.
 - **Merchant & Thief Tarots**: Resolved crash when used outside the shop context.
 - **Event Horizon & Custom Decks**: Fixed recurring crash during round-end or discard events.
 - **Startup Stability**: Fixed a critical startup crash that could occur if the mod was disabled.
 - **Mod Settings Menu**: Fixed crash in the "CONFIG" tab.
+- **Total Conversion - Vanilla Enhancements**: Fixed a bug where vanilla enhancements (Wood, Plastic, etc.) were still appearing in the Collection menu and game pools when "Total Conversion" was enabled.
+- **Total Conversion - Stability**: Ensured Decks and Editions are correctly exempted from the vanilla omission filter to maintain project architectural standards and game stability.
 
 ## [0.1.3-alpha] - 2026-02-03
 

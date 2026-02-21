@@ -113,7 +113,7 @@ function BalatroOdyssey.apply_config()
         if G.P_CENTERS then
             for k, v in pairs(G.P_CENTERS) do
                 if v.set and not string.find(string.lower(k), "odyssey") then
-                    local to_replace = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Back = true, Edition = true}
+                    local to_replace = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Enhanced = true}
                     if to_replace[v.set] then
                         v.omit = true
                     end
@@ -123,7 +123,7 @@ function BalatroOdyssey.apply_config()
         
         -- 2. Clean vanilla from pools
         if G.P_CENTER_POOLS then
-            local replace_sets = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Back = true, Tarot_Planet = true, Consumeables = true}
+            local replace_sets = {Joker = true, Tarot = true, Planet = true, Spectral = true, Voucher = true, Enhanced = true, Tarot_Planet = true, Consumeables = true}
             for pool_name, pool in pairs(G.P_CENTER_POOLS) do
                 if replace_sets[pool_name] then
                     for i = #pool, 1, -1 do

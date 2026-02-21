@@ -533,6 +533,7 @@ SMODS.Atlas({ key = 'j_corruption_the_entity', path = 'odyssey_j_corruption_the_
 
 -- Enhancements Atlas
 SMODS.Atlas({ key = 'enhancements', path = 'odyssey_enhancements.png', px = 71, py = 95 })
+SMODS.Atlas({ key = 'm_platinum', path = 'odyssey_m_platinum.png', px = 71, py = 95 })
 
 -- Deck Atlases (1-40)
 SMODS.Atlas({ key = 'b_holographic', path = 'odyssey_d_holographic.png', px = 71, py = 95 })

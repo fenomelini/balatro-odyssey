@@ -10,8 +10,8 @@ if BalatroOdyssey.disable_vanilla_decks then
     BalatroOdyssey.disable_vanilla_decks()
 end
 
--- Revelar todo o conteúdo do Odyssey no menu Coleções
-BalatroOdyssey.reveal_all_content()
+-- Conteúdo do Odyssey segue as regras padrão de descoberta (bloqueado até ser encontrado)
+-- BalatroOdyssey.reveal_all_content()
 
 --------------------------------------------------------------------------------
 -- PONTUAÇÃO E LIMITES (EXPAND PLAY LIMIT)

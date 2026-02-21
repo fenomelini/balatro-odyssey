@@ -329,6 +329,12 @@ local spectral_logic = {
     [35] = function(card, area, copier) -- Drake
         G.GAME.odyssey_drake_active = true
     end,
+    [36] = function(card, area, copier) -- Hubble
+        G.GAME.odyssey_hubble_active = true
+    end,
+    [37] = function(card, area, copier) -- Webb
+        G.GAME.odyssey_webb_active = true
+    end,
     [38] = function(card, area, copier) -- Kepler
         for k, v in pairs(G.GAME.hands) do
             if v.level > 1 then

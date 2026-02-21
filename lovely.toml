@@ -14,7 +14,12 @@ payload = '''
             return { vars = { self.config.extra } }
         end
     elseif k == 'e_negative' then
-        v.loc_vars = function(self, info_queue, card) return { vars = {} } end
+        v.loc_vars = function(self, info_queue, card)
+            if (card and card.ability and card.ability.set == 'Base') or (card and card.config and card.config.center and card.config.center.set == 'Base') then
+                return { vars = { 1 }, key = 'e_negative_playing_card' }
+            end
+            return { vars = { 1 } }
+        end
     end
 '''
 match_indent = true
@@ -121,4 +126,32 @@ target = "functions/UI_definitions.lua"
 pattern = "{card_limit = 2, type = 'shop', highlight_limit = 1, card_w = 1.27*G.CARD_W})"
 position = "at"
 payload = "{card_limit = 2 + (G.GAME.shop_extra_booster_slots or 0), type = 'shop', highlight_limit = 1, card_w = 1.27*G.CARD_W})"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "function create_UIBox_blind_popup(blind, discovered, vars)"
+position = "after"
+payload = "if G.GAME and G.GAME.odyssey_webb_active then discovered = true end"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "table.sort(G.playing_cards, function (a, b) return a:get_nominal('suit') > b:get_nominal('suit') end )"
+position = "at"
+payload = '''
+  if G.GAME and G.GAME.odyssey_hubble_active then
+      local order = {}
+      for k, v in ipairs(G.deck.cards) do order[v] = k end
+      table.sort(G.playing_cards, function (a, b) 
+          local order_a = order[a] or 999
+          local order_b = order[b] or 999
+          return order_a < order_b 
+      end)
+  else
+      table.sort(G.playing_cards, function (a, b) return a:get_nominal('suit') > b:get_nominal('suit') end )
+  end
+'''
 match_indent = true
