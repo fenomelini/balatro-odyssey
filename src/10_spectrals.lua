@@ -506,6 +506,7 @@ local spectral_logic = {
             G.consumeables.config.card_limit = G.consumeables.config.card_limit + 2
         end
     end,
+    [59] = function(card, area, copier) -- Edison
         local card = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'edison')
         card:add_to_deck()
         G.jokers:emplace(card)
