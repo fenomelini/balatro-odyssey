@@ -359,9 +359,6 @@ for _, t in ipairs(tarots) do
                 end
             elseif id == 40 then -- Order
                 G.hand:sort()
-                for i = 1, #G.hand.cards do
-                    G.hand.cards[i].ability.perma_bonus = (G.hand.cards[i].ability.perma_bonus or 0) + 10
-                end
             elseif id == 41 then -- Balance
                 ease_dollars(25 - G.GAME.dollars)
             elseif id == 42 then -- Infinity
