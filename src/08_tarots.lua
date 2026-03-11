@@ -479,26 +479,34 @@ for _, t in ipairs(tarots) do
                     _joker:start_dissolve()
                 end
             elseif id == 62 then -- King
+                local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, "S_K", "king")
+                    local suit = pseudorandom_element(suits, pseudoseed('king_suit_'..i))
+                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_K", "king")
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
             elseif id == 63 then -- Queen
+                local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, "H_Q", "queen")
+                    local suit = pseudorandom_element(suits, pseudoseed('queen_suit_'..i))
+                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_Q", "queen")
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
             elseif id == 64 then -- Jack
+                local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, "D_J", "jack")
+                    local suit = pseudorandom_element(suits, pseudoseed('jack_suit_'..i))
+                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_J", "jack")
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
             elseif id == 65 then -- Ace
+                local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, "C_A", "ace")
+                    local suit = pseudorandom_element(suits, pseudoseed('ace_suit_'..i))
+                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_A", "ace")
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
