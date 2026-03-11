@@ -332,6 +332,7 @@ local spectral_logic = {
         G.GAME.odyssey_heisenberg_active = true
         ease_dollars(30)
     end,
+    [33] = function(card, area, copier) -- Pauli
         local ranks = {}
         local has_pair = false
         for i=1, #G.hand.cards do
