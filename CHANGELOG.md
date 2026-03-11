@@ -4,9 +4,82 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.6-alpha] - 2026-03-11
 
+### Added
+
+#### Spectrals — 38 Cards Now Actually Work
+
+A full review of all 100 Spectral cards revealed that 30 of them were completely absent from the game and 8 others existed on paper but did absolutely nothing when used. All 38 have now been fully implemented. Here's what each one does:
+
+- **Big Bang**: Resets your hands and discards back to where they started this round, and permanently grants X2 Mult.
+- **Cordas**: Permanently reduces your hand size by 2, but upgrades every poker hand type by 1 level as compensation.
+- **Heisenberg**: Hides the score requirement of the current blind and immediately hands you $30.
+- **Drake**: From this point on, whenever you play a hand that beats the current blind score, you score with X2 Mult.
+- **Galileu**: Immediately adds 2 random Tarot cards to your consumable area.
+- **Newton**: Each unscored card you play this round adds +1 to your available hand count.
+- **Hawking**: Immediately adds 2 random Spectral cards to your consumable area.
+- **Tyson**: Levels up every poker hand type by 1.
+- **Kaku**: Levels up every poker hand type by 2 and permanently raises your hand size by 2.
+- **Penrose**: Each card you play has a 25% chance to score one extra time.
+- **Gödel**: Doubles the score requirement of the current blind, but grants X3 Mult for the rest of this round.
+- **Turing**: Immediately spawns a random Joker and gives you $20.
+- **Feynman**: Every Joker you currently own permanently gains +10 Mult.
+- **Bohr**: From now on, every time you draw cards your hand order is randomly shuffled.
+- **Curie**: At the end of every future round, all cards in your deck permanently change to a random rank.
+- **Darwin**: Every time a card contributes to scoring, it permanently gains +1 Chip.
+- **Mendel**: Every card in your deck immediately gains a random Edition (Foil, Holographic, Polychrome, or Negative).
+- **Tesla**: Every consumable you use now has a 50% chance of not being consumed.
+- **Marconi**: Cards that share a rank with another card in the same hand score one additional time.
+- **Wright**: All playing cards in your deck permanently become immune to Boss Blind debuffs.
+- **Babbage**: Your very next hand scores with X5 Mult.
+- **Lovelace**: Permanently sorts all cards in your deck from lowest to highest rank.
+- **Hopper**: Each scoring card has a 10% chance to trigger X100 Mult.
+- **Berners-Lee**: Every Joker you currently own permanently gains +5 Mult.
+- **Gates**: The top 5 cards of your deck are permanently flipped face-up so you can see what's coming.
+- **Musk**: Levels up all Flush variants (Flush, Straight Flush, Royal Flush, Flush Five, Flush House) by 5.
+- **Nakamoto**: After every hand you play, your money randomly changes by ±50%.
+- **Collins**: Immediately duplicates every consumable currently in your hand area.
+- **Laika**: All Jokers you currently own receive the Eternal sticker and can never be sold or destroyed.
+- **Ham**: All Jokers you currently own permanently gain +100 Chips.
+- **Leonov**: Highlight up to 2 cards before using this — they will be kept in your hand at the start of the next round.
+- **Hadfield**: All Jokers you currently own score with X2 Mult for the very next hand.
+- **Kelly**: Every card in your deck receives a random Seal.
+- **Cristoforetti**: Every hand you play this round permanently adds +5 Mult.
+- **Peake**: All Spade cards in your deck become Ruby-enhanced cards.
+- **Vostok**: Levels up Flush and Flush Five by 3.
+- **Mercury**: Levels up Straight and Straight Flush by 3.
+- **Gemini**: Levels up Two Pair and Pair by 3.
+
 ### Fixed
-- **Shop Slot Expansion — Completely Non-Functional**: The `shop_extra_joker_slots` tracking variable was written by multiple systems but never read anywhere in the codebase. As a result, no shop slot expansion ever took effect. Fixed by replacing all usages with direct calls to `change_shop_size(N)`, the correct game API that actually resizes the shop UI and populates new slots. Affected: Baralho Vácuo deck (`apply`) and 10 vouchers: `Cloning`, `Replicator`, `Library`, `Archives`, `Deep Space Obs`, `Planetarium`, `Laboratory`, `Research Center`, `Card`, and `Deck`.
-- **Matter & Energy Tarots — Floating Cards in Shop**: Using Tarots 30 (Matter) and 31 (Energy) from the shop caused newly created Emerald/Plastic cards to appear floating in front of the shop UI. These tarots call `G.hand:emplace()` to add cards directly into the hand area, which requires the hand to be visible on screen. Fixed by restricting their use to the three valid play states (`SELECTING_HAND`, `HAND_PLAYED`, `DRAW_TO_HAND`) where the hand area is rendered and `emplace` positions correctly.
+
+#### Spectrals
+
+- **Singularidade (#21)**: When used with only 2 Jokers, it was destroying the same Joker twice instead of destroying the first and second Jokers separately. The second Joker now correctly disappears.
+- **Two crash bugs**: After implementing the spectrals above, two cards (Pauli and Edison) had their entries accidentally broken during editing, causing the game to crash at startup. Both have been restored, and a full syntax check confirmed all 100 spectral entries are valid.
+
+#### Tarots
+
+- **O Criador (#75)**: When used, the generated Legendary Joker was landing in the consumable slot instead of the Joker slot, making it completely inaccessible and leaving an empty ghost card behind. It now correctly appears in your Joker area.
+- **Rei / Rainha / Valete / Ás (Tarôs #62–65)**: These tarots were supposed to create a card of the stated rank with a *random* suit, but every single generated card always had the exact same fixed suit. The suit is now properly randomized.
+- **A Ordem (#40)**: In addition to its intended effect, it was incorrectly granting all hand cards a permanent +10 Chip bonus that was never part of its design. This unintended bonus has been removed.
+- **O Ferreiro (#90)**: Was applying the Paper enhancement (tears when discarded) instead of the Rubber enhancement (rebound effects) it is supposed to grant. The correct enhancement is now applied.
+- **Matéria (#30) & Energia (#31)**: Using these cards from the shop caused the newly created Emerald/Plastic cards to appear floating in front of the shop UI rather than entering the hand properly. These tarots now correctly require you to be in an active round — when your hand is visible on screen — before they can be used.
+
+#### Decks
+
+- **Multiple Decks — Silent Broken Mechanics**: Two core game triggers that several deck effects depended on were calling internal functions that don't actually exist, meaning those effects quietly never ran at all. This was silently breaking the **Supernova**, **Avareza**, **Mutant**, and **Radioactive** decks, among others. The correct triggers are now in place and all affected mechanics work.
+- **Baralho Fúria**: Was incorrectly granting a free extra discard every round due to a configuration error. Discards now correctly cost $1 per card used as intended.
+- **Cego Caótico II**: Was accidentally awarding X2 Mult bonus to the player (making it *easier* than a normal blind). It now correctly applies its difficulty as designed.
+- **Cego Ordenado II**: Was accidentally applying X0.5 Mult penalty to the player (making it *harder* than intended). Fixed.
+- **Baralho Griffin**: The mechanic that automatically skips the Small Blind was silently not working. Fixed.
+- **Baralho Mercenário**: Selling a Joker was not granting the promised +$5 bonus. It now correctly pays out on every sale.
+- **Baralho Fênix**: The resurrection mechanic — which is supposed to save you the first time you fail a blind — was completely broken and never triggered. It now correctly activates on blind failure.
+- **Baralho da Odisseia (#50)**: Was not correctly spawning a random Legendary Joker at run start. Fixed.
+- **Baralho Unicórnio (#94)**: Was not correctly spawning a random Legendary Joker at run start. Fixed.
+
+#### Shop & Vouchers
+
+- **Baralho Vácuo**: The deck description promises shops with 6 card slots, but shops were always showing only the default 2. The effect that was supposed to expand the shop was written but never actually applied to the game. Shops now correctly show 6 card slots when playing with this deck.
+- **10 Vouchers with extra shop slots** (Clonagem, Replicador, Biblioteca, Arquivos, Observatório Espacial, Planetário, Laboratório, Centro de Pesquisa, Carta, Baralho): All ten of these vouchers promised to add extra card slots to the shop, but redeeming them did absolutely nothing — the shop size never changed. Fixed across all ten: each voucher now immediately expands the shop when redeemed.
 
 ## [0.1.5-alpha] - 2026-03-10
 
