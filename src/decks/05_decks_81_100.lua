@@ -72,6 +72,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
+                -- Excalibur = give the "Odyssey" legendary (the most iconic one)
                 local card = create_card('Joker', G.jokers, true, 4, nil, nil, 'j_odyssey_j_final_odyssey', 'arthur_deck')
                 card:add_to_deck()
                 G.jokers:emplace(card)
@@ -146,7 +147,27 @@ SMODS.Back({
     key = 'unicorn',
     atlas = 'b_unicorn',
     pos = { x = 0, y = 0 },
-    config = {}
+    config = {},
+    apply = function(self)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                -- Pick a random legendary (rarity 4) joker
+                local legendaries = {}
+                for k, v in pairs(G.P_CENTERS) do
+                    if v.set == 'Joker' and v.rarity == 4 then
+                        legendaries[#legendaries+1] = k
+                    end
+                end
+                local chosen = pseudorandom_element(legendaries, pseudoseed('unicorn_deck_start'))
+                if chosen then
+                    local card = create_card('Joker', G.jokers, true, 4, nil, nil, chosen, 'unicorn_deck')
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                end
+                return true
+            end
+        }))
+    end
 })
 
 -- 95. Baralho Baralho Kraken

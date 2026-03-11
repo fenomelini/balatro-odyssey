@@ -193,22 +193,31 @@ Card.calculate_joker = function(self, context)
         })
     end
     
-    -- 82. Chaotic II: X2 Score (Boss effect doubled is harder).
-    if deck_key == 'chaotic_ii' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={2}},
-            Xmult_mod = 2,
-            colour = G.C.MULT
-        })
-    end
+    -- 82. Chaotic II: Boss effects doubled + X2 blind requirement (handled in get_blind_amount)
+    -- (No scoring bonus for player - this is a challenge deck)
     
-    -- 83. Ordered II: 0.5x Score.
-    if deck_key == 'ordered_ii' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={0.5}},
-            Xmult_mod = 0.5,
-            colour = G.C.MULT
-        })
+    -- 83. Ordered II: Boss blinds have no effect + 0.5x blind requirement (handled in get_blind_amount)
+    -- (No scoring penalty - the easier blinds ARE the player benefit)
+
+    -- 90. Phoenix: Resurrect on game over (once per run)
+    -- Fires on end_of_round context with game_over=true, on the first joker only
+    if deck_key == 'phoenix' and context.end_of_round and context.game_over
+        and not G.GAME.odyssey_phoenix_used then
+        if G.jokers and G.jokers.cards and G.jokers.cards[1] and self == G.jokers.cards[1] then
+            G.GAME.odyssey_phoenix_used = true
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.5,
+                func = function()
+                    -- Reset to the start of this ante (keep jokers, money, deck)
+                    G.GAME.chips = 0
+                    G.GAME.round_resets.blind_states = {Small = 'Select', Big = 'Upcoming', Boss = 'Upcoming'}
+                    G.GAME.blind_on_deck = 'Small'
+                    return true
+                end
+            }))
+            return { saved = true, message = localize('k_saved_ex') or 'Renascida!', colour = G.C.RED }
+        end
     end
 
     -- 89. Dragon: X10 Mult
@@ -331,9 +340,9 @@ Card.start_dissolve = function(self, dissolve_colours, silent, dissolve_time_fac
     old_start_dissolve(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
 end
 
--- 2.1 Hook play_cards to capture score before hand (For Timeline Deck)
-local old_play_cards = G.FUNCS.play_cards
-G.FUNCS.play_cards = function(e)
+-- 2.1 Hook play_cards_from_highlighted to capture score before hand (For Timeline Deck)
+local old_play_cards = G.FUNCS.play_cards_from_highlighted
+G.FUNCS.play_cards_from_highlighted = function(e)
     local deck_key = get_deck_key()
     if deck_key == 'timeline' then
         G.GAME.odyssey_temp_chips = G.GAME.chips
@@ -505,9 +514,9 @@ G.FUNCS.draw_from_play_to_discard = function(e)
     old_draw_from_play_to_discard(e)
 end
 
--- 3. Game:update (For Supernova check? Or end_of_round)
-local old_end_round = G.FUNCS.end_round
-G.FUNCS.end_round = function()
+-- 3. end_round hook (For Supernova, Avareza, Mutant, Radioactive, etc.)
+local old_end_round = end_round
+end_round = function()
     local deck_key = get_deck_key()
 
     -- Deck 9: Supernova (Money > 50 -> Reset to 0, X3 Mult)
@@ -687,6 +696,16 @@ function get_blind_amount(ante)
     if deck_key == 'unlucky' then
         amount = amount * 0.25
     end
+
+    -- 82. Chaotic II: Blinds require X2 score
+    if deck_key == 'chaotic_ii' then
+        amount = amount * 2
+    end
+
+    -- 83. Ordered II: Blinds require only 0.5x score
+    if deck_key == 'ordered_ii' then
+        amount = amount * 0.5
+    end
     
     return amount
 end
@@ -722,14 +741,7 @@ end
 -- 'deck_key' is local to function scopes above, so this would crash if run.
 -- Unless... they were meant to be inside hook 1?
 
--- REFACTORED: Moving the stranded logic into the main calculate_joker hook.
-
--- (See below for actual insertion)
--- =========================================================================
-                colour = G.C.MULT
-
--- (Ended dangling code removal)
-
+-- REFACTORED: All deck logic is inside the Card.calculate_joker hook above.
 
 -- 12. Card:can_sell_card (For Kraken)
 local old_can_sell_card = Card.can_sell_card
@@ -781,4 +793,49 @@ Card.set_ability = function(self, center, initial, delay_sprites)
             end
         end
     end
+end
+
+-- 16. G.FUNCS.discard_cards_from_highlighted (For Wrath: discards cost $1)
+local old_discard_cards = G.FUNCS.discard_cards_from_highlighted
+G.FUNCS.discard_cards_from_highlighted = function(e, hook)
+    if get_deck_key() == 'wrath' and G.GAME.modifiers and G.GAME.modifiers.discard_cost then
+        local cost = G.GAME.modifiers.discard_cost
+        if (G.GAME.dollars - G.GAME.bankrupt_at) < cost then
+            G.ROOM.jiggle = (G.ROOM.jiggle or 0) + 1
+            play_sound('cancel')
+            return
+        end
+        ease_dollars(-cost)
+    end
+    old_discard_cards(e, hook)
+end
+
+-- 17. reset_blinds (For Griffin: auto-skip Small Blinds)
+local old_reset_blinds = reset_blinds
+reset_blinds = function()
+    old_reset_blinds()
+    if get_deck_key() == 'griffin' then
+        -- Auto-skip the Small Blind: set it as skipped and advance to Big
+        G.GAME.round_resets.blind_states['Small'] = 'Skipped'
+        G.GAME.round_resets.blind_states['Big'] = 'Select'
+        G.GAME.blind_on_deck = 'Big'
+        G.GAME.skips = (G.GAME.skips or 0) + 1
+    end
+end
+
+-- 18. Card:sell_card (For Mercenary: earn $5 per joker sold)
+local old_sell_card = Card.sell_card
+Card.sell_card = function(self, selling_to_shop)
+    if get_deck_key() == 'mercenary' and self.ability and self.ability.set == 'Joker' then
+        -- Give $5 bonus on top of normal sell value
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                ease_dollars(5)
+                card_eval_status_text(self, 'extra', nil, nil, nil,
+                    { message = localize{type='variable', key='a_dollars', vars={5}}, colour = G.C.MONEY })
+                return true
+            end
+        }))
+    end
+    old_sell_card(self, selling_to_shop)
 end

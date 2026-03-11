@@ -5,7 +5,7 @@ SMODS.Back({
     key = 'wrath',
     atlas = 'b_wrath',
     pos = { x = 0, y = 0 },
-    config = { discards = 1 },
+    config = {},
     apply = function(self)
         G.GAME.modifiers.discard_cost = 1
     end
@@ -162,9 +162,19 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                local card = create_card('Joker', G.jokers, true, 4, nil, nil, 'j_odyssey_j_final_odyssey', 'odyssey_deck')
-                card:add_to_deck()
-                G.jokers:emplace(card)
+                -- Pick a random legendary (rarity 4) joker
+                local legendaries = {}
+                for k, v in pairs(G.P_CENTERS) do
+                    if v.set == 'Joker' and v.rarity == 4 then
+                        legendaries[#legendaries+1] = k
+                    end
+                end
+                local chosen = pseudorandom_element(legendaries, pseudoseed('odyssey_deck_start'))
+                if chosen then
+                    local card = create_card('Joker', G.jokers, true, 4, nil, nil, chosen, 'odyssey_deck')
+                    card:add_to_deck()
+                    G.jokers:emplace(card)
+                end
                 return true
             end
         }))
