@@ -163,7 +163,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.GAME.shop_extra_joker_slots = 4
+                change_shop_size(4)
                 return true
             end
         }))

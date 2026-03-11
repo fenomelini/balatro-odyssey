@@ -116,7 +116,6 @@ function Game:start_run(args)
     G.GAME.odyssey_prev_round_1_hand = G.GAME.odyssey_prev_round_1_hand or false
     
     -- Odyssey Shop Slots
-    G.GAME.shop_extra_joker_slots = G.GAME.shop_extra_joker_slots or 0
     G.GAME.shop_extra_booster_slots = G.GAME.shop_extra_booster_slots or 0
     G.GAME.shop_extra_voucher_slots = G.GAME.shop_extra_voucher_slots or 0
     G.GAME.shop_extra_tarot_slots = G.GAME.shop_extra_tarot_slots or 0

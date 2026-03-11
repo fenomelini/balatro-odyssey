@@ -510,7 +510,7 @@ SMODS.Voucher{
     atlas = 'v_cloning',
     cost = 10,
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 1
+        change_shop_size(1)
     end
 }
 
@@ -523,7 +523,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_cloning' },
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 1
+        change_shop_size(1)
     end
 }
 
@@ -642,7 +642,7 @@ SMODS.Voucher{
     atlas = 'v_library',
     cost = 10,
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 1
+        change_shop_size(1)
         G.GAME.shop_tarot_count = (G.GAME.shop_tarot_count or 0) + 1
     end
 }
@@ -656,7 +656,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_library' },
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 2
+        change_shop_size(2)
         G.GAME.shop_tarot_count = (G.GAME.shop_tarot_count or 0) + 2
     end
 }
@@ -670,7 +670,7 @@ SMODS.Voucher{
     atlas = 'v_deep_space_obs',
     cost = 10,
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 1
+        change_shop_size(1)
         G.GAME.shop_planet_count = (G.GAME.shop_planet_count or 0) + 1
     end
 }
@@ -684,7 +684,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_deep_space_obs' },
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 2
+        change_shop_size(2)
         G.GAME.shop_planet_count = (G.GAME.shop_planet_count or 0) + 2
     end
 }
@@ -698,7 +698,7 @@ SMODS.Voucher{
     atlas = 'v_laboratory',
     cost = 10,
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 1
+        change_shop_size(1)
         G.GAME.shop_spectral_count = (G.GAME.shop_spectral_count or 0) + 1
     end
 }
@@ -712,7 +712,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_laboratory' },
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 2
+        change_shop_size(2)
         G.GAME.shop_spectral_count = (G.GAME.shop_spectral_count or 0) + 2
     end
 }
@@ -1688,7 +1688,7 @@ SMODS.Voucher{
     atlas = 'v_card',
     cost = 10,
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 1
+        change_shop_size(1)
     end
 }
 
@@ -1701,7 +1701,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_card_v' },
     redeem = function(self)
-        G.GAME.shop_extra_joker_slots = (G.GAME.shop_extra_joker_slots or 0) + 2
+        change_shop_size(2)
     end
 }
 
