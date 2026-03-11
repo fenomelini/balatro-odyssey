@@ -79,7 +79,7 @@ for _, t in ipairs(tarots) do
                 [37] = "m_odyssey_shadow", [38] = "m_odyssey_light",
                 [84] = "m_odyssey_plant", [85] = "m_odyssey_holy", [86] = "m_odyssey_undead",
                 [87] = "m_odyssey_cursed", [88] = "m_odyssey_magic", [89] = "m_odyssey_diamond",
-                [90] = "m_odyssey_paper", [91] = "m_odyssey_ceramic", [92] = "m_odyssey_platinum", [93] = "m_odyssey_wood",
+                [90] = "m_odyssey_rubber", [91] = "m_odyssey_ceramic", [92] = "m_odyssey_platinum", [93] = "m_odyssey_wood",
                 [94] = "m_odyssey_cloth", [95] = "m_odyssey_ruby", [96] = "m_odyssey_emerald"
             }
             if mapping[id] then
@@ -623,7 +623,7 @@ for _, t in ipairs(tarots) do
                 local enhancements = {
                     [84] = "m_odyssey_plant", [85] = "m_odyssey_holy", [86] = "m_odyssey_undead",
                     [87] = "m_odyssey_cursed", [88] = "m_odyssey_magic", [89] = "m_odyssey_diamond",
-                    [90] = "m_odyssey_paper", [91] = "m_odyssey_ceramic", [92] = "m_odyssey_platinum", [93] = "m_odyssey_wood",
+                    [90] = "m_odyssey_rubber", [91] = "m_odyssey_ceramic", [92] = "m_odyssey_platinum", [93] = "m_odyssey_wood",
                     [94] = "m_odyssey_cloth", [95] = "m_odyssey_ruby", [96] = "m_odyssey_emerald"
                 }
                 local max_h = tarot_max[id] or 1
