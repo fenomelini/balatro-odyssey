@@ -53,33 +53,33 @@ A full review of all 100 Spectral cards revealed that 30 of them were completely
 
 #### Spectrals
 
-- **Singularidade (#21)**: When used with only 2 Jokers, it was destroying the same Joker twice instead of destroying the first and second Jokers separately. The second Joker now correctly disappears.
+- **Singularity (#21)**: When used with only 2 Jokers, it was destroying the same Joker twice instead of destroying the first and second Jokers separately. The second Joker now correctly disappears.
 - **Two crash bugs**: After implementing the spectrals above, two cards (Pauli and Edison) had their entries accidentally broken during editing, causing the game to crash at startup. Both have been restored, and a full syntax check confirmed all 100 spectral entries are valid.
 
 #### Tarots
 
-- **O Criador (#75)**: When used, the generated Legendary Joker was landing in the consumable slot instead of the Joker slot, making it completely inaccessible and leaving an empty ghost card behind. It now correctly appears in your Joker area.
-- **Rei / Rainha / Valete / Ás (Tarôs #62–65)**: These tarots were supposed to create a card of the stated rank with a *random* suit, but every single generated card always had the exact same fixed suit. The suit is now properly randomized.
-- **A Ordem (#40)**: In addition to its intended effect, it was incorrectly granting all hand cards a permanent +10 Chip bonus that was never part of its design. This unintended bonus has been removed.
-- **O Ferreiro (#90)**: Was applying the Paper enhancement (tears when discarded) instead of the Rubber enhancement (rebound effects) it is supposed to grant. The correct enhancement is now applied.
-- **Matéria (#30) & Energia (#31)**: Using these cards from the shop caused the newly created Emerald/Plastic cards to appear floating in front of the shop UI rather than entering the hand properly. These tarots now correctly require you to be in an active round — when your hand is visible on screen — before they can be used.
+- **The Creator (#75)**: When used, the generated Legendary Joker was landing in the consumable slot instead of the Joker slot, making it completely inaccessible and leaving an empty ghost card behind. It now correctly appears in your Joker area.
+- **King / Queen / Jack / Ace (Tarots #62–65)**: These tarots were supposed to create a card of the stated rank with a *random* suit, but every single generated card always had the exact same fixed suit. The suit is now properly randomized.
+- **The Order (#40)**: In addition to its intended effect, it was incorrectly granting all hand cards a permanent +10 Chip bonus that was never part of its design. This unintended bonus has been removed.
+- **The Blacksmith (#90)**: Was applying the Paper enhancement (tears when discarded) instead of the Rubber enhancement (rebound effects) it is supposed to grant. The correct enhancement is now applied.
+- **Matter (#30) & Energy (#31)**: Using these cards from the shop caused the newly created Emerald/Plastic cards to appear floating in front of the shop UI rather than entering the hand properly. These tarots now correctly require you to be in an active round — when your hand is visible on screen — before they can be used.
 
 #### Decks
 
-- **Multiple Decks — Silent Broken Mechanics**: Two core game triggers that several deck effects depended on were calling internal functions that don't actually exist, meaning those effects quietly never ran at all. This was silently breaking the **Supernova**, **Avareza**, **Mutant**, and **Radioactive** decks, among others. The correct triggers are now in place and all affected mechanics work.
-- **Baralho Fúria**: Was incorrectly granting a free extra discard every round due to a configuration error. Discards now correctly cost $1 per card used as intended.
-- **Cego Caótico II**: Was accidentally awarding X2 Mult bonus to the player (making it *easier* than a normal blind). It now correctly applies its difficulty as designed.
-- **Cego Ordenado II**: Was accidentally applying X0.5 Mult penalty to the player (making it *harder* than intended). Fixed.
-- **Baralho Griffin**: The mechanic that automatically skips the Small Blind was silently not working. Fixed.
-- **Baralho Mercenário**: Selling a Joker was not granting the promised +$5 bonus. It now correctly pays out on every sale.
-- **Baralho Fênix**: The resurrection mechanic — which is supposed to save you the first time you fail a blind — was completely broken and never triggered. It now correctly activates on blind failure.
-- **Baralho da Odisseia (#50)**: Was not correctly spawning a random Legendary Joker at run start. Fixed.
-- **Baralho Unicórnio (#94)**: Was not correctly spawning a random Legendary Joker at run start. Fixed.
+- **Multiple Decks — Silent Broken Mechanics**: Two core game triggers that several deck effects depended on were calling internal functions that don't actually exist, meaning those effects quietly never ran at all. This was silently breaking the **Supernova**, **Greed**, **Mutant**, and **Radioactive** decks, among others. The correct triggers are now in place and all affected mechanics work.
+- **Wrath Deck**: Was incorrectly granting a free extra discard every round due to a configuration error. Discards now correctly cost $1 per card used as intended.
+- **Chaotic Blind II**: Was accidentally awarding X2 Mult bonus to the player (making it *easier* than a normal blind). It now correctly applies its difficulty as designed.
+- **Ordered Blind II**: Was accidentally applying X0.5 Mult penalty to the player (making it *harder* than intended). Fixed.
+- **Griffin Deck**: The mechanic that automatically skips the Small Blind was silently not working. Fixed.
+- **Mercenary Deck**: Selling a Joker was not granting the promised +$5 bonus. It now correctly pays out on every sale.
+- **Phoenix Deck**: The resurrection mechanic — which is supposed to save you the first time you fail a blind — was completely broken and never triggered. It now correctly activates on blind failure.
+- **Odyssey Deck (#50)**: Was not correctly spawning a random Legendary Joker at run start. Fixed.
+- **Unicorn Deck (#94)**: Was not correctly spawning a random Legendary Joker at run start. Fixed.
 
 #### Shop & Vouchers
 
-- **Baralho Vácuo**: The deck description promises shops with 6 card slots, but shops were always showing only the default 2. The effect that was supposed to expand the shop was written but never actually applied to the game. Shops now correctly show 6 card slots when playing with this deck.
-- **10 Vouchers with extra shop slots** (Clonagem, Replicador, Biblioteca, Arquivos, Observatório Espacial, Planetário, Laboratório, Centro de Pesquisa, Carta, Baralho): All ten of these vouchers promised to add extra card slots to the shop, but redeeming them did absolutely nothing — the shop size never changed. Fixed across all ten: each voucher now immediately expands the shop when redeemed.
+- **Vacuum Deck**: The deck description promises shops with 6 card slots, but shops were always showing only the default 2. The effect that was supposed to expand the shop was written but never actually applied to the game. Shops now correctly show 6 card slots when playing with this deck.
+- **10 Vouchers with extra shop slots** (Cloning, Replicator, Library, Archives, Deep Space Observatory, Planetarium, Laboratory, Research Center, Card, Deck): All ten of these vouchers promised to add extra card slots to the shop, but redeeming them did absolutely nothing — the shop size never changed. Fixed across all ten: each voucher now immediately expands the shop when redeemed.
 
 ## [0.1.5-alpha] - 2026-03-10
 
