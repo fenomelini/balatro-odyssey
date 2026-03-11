@@ -417,6 +417,10 @@ local spectral_logic = {
             G.jokers:emplace(card)
         end
     end,
+    [72] = function(card, area, copier) -- Zuckerberg
+        G.GAME.odyssey_zuckerberg_active = true
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = "Rede Social!", colour = G.C.FILTER})
+    end,
     [74] = function(card, area, copier) -- Vitalik
         G.GAME.odyssey_vitalik_active = true
     end,

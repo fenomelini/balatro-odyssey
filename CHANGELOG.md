@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5-alpha] - 2026-03-10
+
+### Added
+- **Tarot Flip Animations**: Tarots now play a satisfying card-flip animation when used.
+- **Zuckerberg (Spectral 72) — Full Implementation**: Using this spectral card now permanently activates a "Social Network" effect. Each Joker gains **+3 Mult** for every active Joker directly adjacent to it.
+- **Deflation Joker — Shop Price Reduction**: The shop discount mechanic now actually works. Every round you hold this Joker, all shop prices drop by $1 (minimum $1 per item), accumulating over time.
+- **Gnome Deck — New Mechanic**: Replaced an unachievable concept with a real and thematic one. The deck now starts every run with **+3 hand size** and **+1 Joker slot**.
+- **Einstein (Spectral 41) — Full Implementation**: Using this spectral now actually converts chips to Mult for the next hand played. The total chips of all scoring cards are added as flat +Mult (one-time effect, consumed after the hand).
+- **Pasteur (Spectral 56) — Debuff Immunity**: Using Pasteur now correctly marks cards as **permanently immune to debuffs**. Previously, the immunity flag was set but never enforced — debuffs still applied normally.
+- **Rank Shift Joker — Full Implementation**: The joker was setting a flag but never doing anything with it. The chip swap mechanic now works correctly: **Aces score 2 chips** and **2s score 11 chips** while this Joker is held.
+
+### Changed
+- **Wig Joker**: Redesigned from a broken "Kings count as Queens" concept to a working mechanic: grants **+5 Mult for each King scored** in the current hand.
+- **The Mind Tarot**: Redesigned from the pointless "sort deck by rank" effect to something impactful: gives every card currently in your hand a **permanent +10 Chips bonus**.
+- **The Time Tarot**: The **+1 Hand** bonus is now permanent, applying to all future rounds — not just the current blind.
+- **The Creator Deck**: Description updated from the vague "Creative Mode" to accurately explain the mechanic: starts the run with the Legendary Joker **The Creator**.
+- **Relativity Joker**: Description now clearly shows the speed threshold and rewards — playing fast (under 5s) gives **+100 Chips**; playing slow (over 5s) gives **X1.5 Mult**.
+- **Luck Manipulator Joker**: Description corrected to match the actual effect: **doubles all luck probabilities** (e.g., a 1-in-4 chance becomes 2-in-4). The old description "1 in X → 1 in X-1" was wrong.
+- **Zuckerberg (Spectral 72) — Description**: Updated to clearly state **+3 Mult per adjacent active Joker**, replacing the vague original wording.
+- **Seasons Joker — Description**: Description was vague ("changes bonus suit each round"). Now clearly states the actual bonus: **+20 Chips and +5 Mult** for all cards of the current suit, and which suit is currently active.
+- **Einstein (Spectral 41) — Description**: Fixed typos in both PT and EN descriptions.
+
+### Fixed
+- **Nebula Deck**: The deck was marking the Telescope voucher as "used" but never actually applying its effect (doubled Planet card rate in packs). Fixed: the effect is now correctly applied at the start of every run.
+- **Gravitational Deck**: The "first card played triggers twice" mechanic was not working. The deck was comparing against the wrong card position, which could be a non-scoring kicker card. Fixed: now correctly targets the **first scoring card** in the played hand.
+- **Event Horizon Deck**: The permanent +0.5 Mult gained from destroying cards was accumulating correctly but **never appearing in the score** — there was no code to actually apply it. Fixed: the accumulated Mult is now applied to every hand scored.
+- **Quasar Deck**: Three bugs fixed: (1) An erroneous "skip the first Small Blind" behaviour that was never part of the deck's design was removed. (2) The **+20 Base Mult** was never visible in the scoreboard because it was tied to Joker quantity. Fixed: the +20 Mult is now added permanently to all hand types at run start. (3) The "no interest" flag is now correctly applied.
+- **Supernova Deck**: Three bugs fixed: (1) Description formatting — the red background style was covering the entire phrase instead of just "X3" due to a misplaced closing tag. Fixed. (2) XMult was starting at X4 on the first trigger instead of X3 due to an off-by-one error. Fixed. (3) The accumulated XMult was never applied to scoring — a missing code block. Fixed.
+- **Rage Quit Joker**: The save mechanic was completely non-functional — it set a flag that was never read. It now correctly triggers when you **fail a blind**, resets your money to $0, and saves you from losing the run (once per run).
+- **The Mind Tarot — Usability**: The tarot could be activated with no cards in hand, doing nothing. It now correctly requires at least **1 card in hand** before it can be used.
+- **Deflation Joker — English Description**: Fixed a "Chips Chips" word duplication typo and corrected the color formatting of the money value.
+- **Paper Enhancement — Portuguese Description**: Fixed a typo — "quebrar" (break) corrected to "rasgar" (tear).
+
 ## [0.1.4-alpha] - 2026-02-21
 
 ### Added

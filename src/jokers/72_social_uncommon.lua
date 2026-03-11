@@ -342,8 +342,14 @@ SMODS.Joker({
     cost = 8,
     blueprint_compat = false,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
-            G.GAME.odyssey_rage_quit_active = true
+        -- Rescue the player once per run when they fail a blind
+        if context.end_of_round and context.game_over and not G.GAME.odyssey_rage_quit_used and not context.blueprint then
+            G.GAME.odyssey_rage_quit_used = true
+            G.GAME.dollars = 0
+            G.GAME.chips = 0
+            G.GAME.current_round.hands_left = G.GAME.round_resets.hands
+            G.GAME.current_round.discards_left = G.GAME.round_resets.discards
+            return { saved = true, message = "RAGE QUIT!", colour = G.C.RED }
         end
     end
 })

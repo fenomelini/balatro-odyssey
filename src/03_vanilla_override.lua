@@ -27,7 +27,13 @@ local old_get_cost = Card.get_cost
 function Card:get_cost()
     local cost = old_get_cost(self)
     if G.GAME.odyssey_astronomer_planets_free and self.ability.set == 'Planet' then return 0 end
-    
+
+    -- Deflation: reduce shop prices over time (min $1)
+    local discount = G.GAME.odyssey_deflation_discount or 0
+    if discount > 0 then
+        cost = math.max(1, cost - discount)
+    end
+
     -- Odyssey Coupon Joker (j_economy_coupon)
     if G.jokers and G.jokers.cards then
         for _, j in ipairs(G.jokers.cards) do
@@ -98,6 +104,33 @@ function Card:get_chip_mult()
     if self.debuff then return 0 end
     if self.ability.set == 'Joker' then return 0 end
     return mult + (self.ability.perma_mult or 0)
+end
+
+-- 8. Joker 365: Rank Shift (Aces <-> 2s chip values)
+local old_get_chip_bonus = Card.get_chip_bonus
+function Card:get_chip_bonus()
+    local bonus = old_get_chip_bonus(self)
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_rank_shift then
+        if not self.debuff and self.ability.effect ~= 'Stone Card' then
+            if self.base.id == 14 then
+                -- Ace counts as 2: nominal 11 → 2
+                return 2 + self.ability.bonus + (self.ability.perma_bonus or 0)
+            elseif self.base.id == 2 then
+                -- 2 counts as Ace: nominal 2 → 11
+                return 11 + self.ability.bonus + (self.ability.perma_bonus or 0)
+            end
+        end
+    end
+    return bonus
+end
+
+-- 9. Pasteur Spectral: Permanent debuff immunity (perma_debuff_immune flag)
+local old_set_debuff = Card.set_debuff
+function Card:set_debuff(should_debuff)
+    if should_debuff and self.ability and self.ability.perma_debuff_immune then
+        return -- Card is immune to Boss Blind debuffs (Pasteur spectral)
+    end
+    return old_set_debuff(self, should_debuff)
 end
 
 local old_level_up_hand = level_up_hand

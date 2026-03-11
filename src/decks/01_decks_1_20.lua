@@ -4,7 +4,16 @@ SMODS.Back({
     key = "nebula_deck",
     atlas = "b_nebula",
     pos = { x = 0, y = 0 },
-    config = { vouchers = {'v_odyssey_telescope'} },
+    config = {},
+    apply = function(self, back)
+        -- Mark telescope as used and apply its redeem effect (doubles planet_rate)
+        G.GAME.used_vouchers['v_odyssey_telescope'] = true
+        G.GAME.starting_voucher_count = (G.GAME.starting_voucher_count or 0) + 1
+        local telescope = G.P_CENTERS['v_odyssey_telescope']
+        if telescope and telescope.redeem then
+            telescope:redeem()
+        end
+    end,
 })
 
 -- 2. Baralho de Prótons
@@ -108,13 +117,13 @@ SMODS.Back({
     atlas = "b_quasar",
     pos = { x = 0, y = 0 },
     config = { odyssey_quasar = true, no_interest = true },
-    apply = function(self)
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                G.GAME.round_resets.blind_states.Small = 'Skipped' -- Example logic, actually handled in game hooks
-                return true
+    apply = function(self, back)
+        -- Permanently add +20 to the base mult of all hands
+        if G.GAME and G.GAME.hands then
+            for k, v in pairs(G.GAME.hands) do
+                v.mult = v.mult + 20
             end
-        }))
+        end
     end
 })
 

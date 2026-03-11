@@ -1852,7 +1852,7 @@ return {
  j_odyssey_j_economy_deflation = {
  name = "Deflation",
  text = {
- "Gain {C:attention}+50 {}{C:chips}Chips{} Chips{}.{}", "Shop prices decrease by $1 every round (min $1)."
+ "Gain {C:chips}+#1# Chips{}.{}", "Shop prices decrease by {C:money}$#2#{} every round (min {C:money}$1{})."
  }
  },
  
@@ -3653,7 +3653,8 @@ return {
  j_odyssey_j_luck_and_probability_luck_manipulator = {
  name = "Luck Manipulator",
  text = {
- "All '1 in X' probabilities become '1 in X-1'"
+ "Doubles all",
+ "{C:green}luck{} probabilities."
  }
  },
  
@@ -6224,7 +6225,7 @@ return {
  j_odyssey_j_time_relativity = {
  name = "Relativity",
  text = {
- "Faster play gives {C:chips}+Chips{} Chips, {}", "slower play gives {X:mult,C:white} XMult {} Mult{}"
+ "Playing in {C:attention}under #3#s{} gives {C:chips}+#1# Chips{},", "over {C:attention}#3#s{} gives {X:mult,C:white} X#2# {} Mult"
  }
  },
  
@@ -6252,7 +6253,9 @@ return {
  j_odyssey_j_time_seasons = {
  name = "Seasons",
  text = {
- "Changes bonus suit every round.", "Currently: {V:1}#1#{}"
+ "Cards of suit {V:1}#1#{} give",
+ "{C:chips}+20{} Chips and {C:mult}+5{} Mult.",
+ "Changes suit every round."
  }
  },
  
@@ -6658,7 +6661,8 @@ return {
  j_odyssey_j_transformations_wig = {
  name = "Wig",
  text = {
- "{C:attention}Kings{} count as {}{C:attention}Queens{}"
+ "Each scored {C:attention}King{}",
+ "gives {C:mult}+#1# Mult{}."
  }
  },
  
@@ -7247,8 +7251,8 @@ return {
  c_odyssey_tarot_34 = {
  name = "The Mind",
  text = {
- "Sorts your deck."
- 
+ "Gives all cards in hand",
+ "a permanent {C:chips}+10 Chips{} bonus."
  }
  },
  
@@ -8809,10 +8813,9 @@ return {
  c_odyssey_spectral_41 = {
  name = "Einstein",
  text = {
- "Applies the theory of",
- "relativity: Converts",
- "{C:chips}Chips{} Chips to{}",
- "{C:mult}Mult{} Mult on the next hand.{}"
+ "Applies the theory of relativity:",
+ "Converts {C:chips}Chips{} to",
+ "{C:mult}Mult{} on the next hand."
  }
  },
  
@@ -9127,10 +9130,10 @@ return {
  c_odyssey_spectral_72 = {
  name = "Zuckerberg",
  text = {
- "Creates a {C:attention}Social{}",
- "Network{} between your Jokers:",
- "They gain Mult for each nearby",
- "friend."
+ "Creates a {C:attention}Social Network{}",
+ "between your Jokers. Each Joker",
+ "gains {C:mult}+3 Mult{} per adjacent",
+ "non-debuffed Joker."
  }
  },
  
@@ -11518,17 +11521,18 @@ return {
  },
 
  ["b_odyssey_gnome"] = {
-  name = "Gnomo Deck",
+  name = "Gnome Deck",
   text = {
-   "Cartas minúsculas (ocupam 0.5",
-   "slots)."
+   "Start with {C:attention}+3{} hand size",
+   "and {C:attention}+1{} Joker slot."
   }
  },
 
  ["b_odyssey_the_creator"] = {
-  name = "O Criador Deck",
+  name = "The Creator Deck",
   text = {
-   "**Modo Criativo**"
+   "Start with the Legendary Joker",
+   "{C:attention}The Creator{}."
   }
  },
 

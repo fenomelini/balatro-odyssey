@@ -2,6 +2,10 @@
 BalatroOdyssey.lua
 *.zip
 
+# Editor/AI session files
+chat.json
+copilot_exports/
+
 # Python
 .venv/
 __pycache__/
@@ -46,6 +50,9 @@ assets/raw/
 ACTION_PLAN.md
 .github/
 .github/copilot-instructions.md
+
+# Documentação Interna
+documentation/
 
 # Build Scripts & Tools
 dev_tools/

@@ -177,6 +177,53 @@ SMODS.Joker({
     end
 })
 
+-- 61. Paradoxo Temporal
+SMODS.Joker({
+    key = 'j_quantum_time_paradox',
+    atlas = 'j_quantum_time_paradox',
+    config = { extra = { x_mult = 2, last_mult = 0, last_chips = 0 } },
+    rarity = 2,
+    pos = { x = 0, y = 0 },
+    cost = 8,
+    unlocked = true,
+    discovered = false,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    
+    loc_vars = function(self, info_queue, card)
+
+    
+        local extra = ( (card and card.ability and card.ability.extra) or self.config.extra )
+
+    
+        return { vars = { extra.x_mult, extra.last_mult, extra.last_chips } }
+
+    
+    end,
+    
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local bonus_mult = card.ability.extra.last_mult
+            local bonus_chips = card.ability.extra.last_chips
+            
+            -- Armazena os valores da mão atual para a próxima
+            card.ability.extra.last_mult = G.mult
+            card.ability.extra.last_chips = G.hand_chips
+            
+            if bonus_mult > 0 or bonus_chips > 0 then
+                return {
+                    message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
+                    Xmult_mod = card.ability.extra.x_mult,
+                    mult_mod = bonus_mult,
+                    chip_mod = bonus_chips,
+                    colour = G.C.MULT
+                }
+            end
+        end
+    end
+})
+
 -- 62. Déjà Vu
 SMODS.Joker({
     key = 'j_quantum_deja_vu',

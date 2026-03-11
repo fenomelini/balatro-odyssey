@@ -3653,7 +3653,8 @@ return {
  j_odyssey_j_luck_and_probability_luck_manipulator = {
  name = "Manipulador de Sorte",
  text = {
- "Todas as probabilidades '1 em X' tornam-se '1 em X-1'"
+ "Duplica todas as probabilidades",
+ "de {C:green}sorte{}."
  }
  },
  
@@ -6224,7 +6225,7 @@ return {
  j_odyssey_j_time_relativity = {
  name = "Relatividade",
  text = {
- "Jogar rápido dá {C:chips}+Fichas, {}", "jogar devagar dá {X:mult,C:white} XMulti{}"
+ "Jogar em {C:attention}menos de #3#s{} dá {C:chips}+#1# Fichas{},", "jogar em {C:attention}mais de #3#s{} dá {X:mult,C:white} X#2# {} Multi"
  }
  },
  
@@ -6252,7 +6253,9 @@ return {
  j_odyssey_j_time_seasons = {
  name = "Estações",
  text = {
- "Muda o naipe bônus a cada rodada.", "Atual: {V:1}#1#{}"
+ "Cartas do naipe {V:1}#1#{} concedem",
+ "{C:chips}+20{} Fichas e {C:mult}+5{} Multi.",
+ "Muda o naipe a cada rodada."
  }
  },
  
@@ -6658,7 +6661,8 @@ return {
  j_odyssey_j_transformations_wig = {
  name = "Peruca",
  text = {
- "{C:attention}Reis{} contam como {}{C:attention}Rainhas{}"
+ "Cada {C:attention}Rei{} pontuado",
+ "concede {C:mult}+#1# Multi{}."
  }
  },
  
@@ -7247,8 +7251,8 @@ return {
  c_odyssey_tarot_34 = {
  name = "A Mente",
  text = {
- "Ordena seu baralho."
- 
+ "Dá {C:chips}+10 Fichas{} permanentes",
+ "a todas as cartas na mão."
  }
  },
  
@@ -8815,8 +8819,8 @@ return {
  name = "Einstein",
  text = {
  "Aplica a teoria da relatividade:",
- "Converte {C:chips}Fichas em{}",
- "{C:mult}Multi ina próxima mão.{}"
+ "Converte {C:chips}Fichas{} em",
+ "{C:mult}Multi{} na próxima mão."
  }
  },
  
@@ -9137,10 +9141,10 @@ return {
  c_odyssey_spectral_72 = {
  name = "Zuckerberg",
  text = {
- "Cria uma {C:attention}Rede{}",
- "Social{} entre seus Curingas:",
- "Eles ganham Multi para cada amigo",
- "próximo."
+ "Cria uma {C:attention}Rede Social{}",
+ "entre seus Curingas. Cada Curinga",
+ "ganha {C:mult}+3 Multi{} por Curinga",
+ "adjacente não suprimido."
  }
  },
  
@@ -10841,7 +10845,7 @@ return {
  m_odyssey_paper = {
  name = "Papel",
  text = {
- "{C:chips}+30 Fichas{}, mas tem chance de", "{C:green}1 em 6{} de quebrar ao pontuar"
+ "{C:chips}+30 Fichas{}, mas tem chance de", "{C:green}1 em 6{} de rasgar ao pontuar"
  }
  },
  m_odyssey_plastic = {
@@ -11160,7 +11164,7 @@ return {
  b_odyssey_supernova_deck = {
  name = "Baralho Supernova",
  text = {
- "Se o dinheiro exceder {C:money}$50{} , {}", "ele reseta para {C:money}$0{} , mas você{}", "ganha {X:mult,C:white} X3 Multi permanentemente{}"
+ "Se o dinheiro exceder {C:money}$50{} ,", "ele reseta para {C:money}$0{} , mas você", "ganha {X:mult,C:white} X3 {} Multi permanentemente"
  }
  },
  
@@ -11648,15 +11652,16 @@ return {
  ["b_odyssey_gnome"] = {
   name = "Baralho Gnomo",
   text = {
-   "Cartas minúsculas (ocupam 0.5",
-   "slots)."
+   "Começa com {C:attention}+3{} slots de mão",
+   "e {C:attention}+1{} slot de Curinga."
   }
  },
 
  ["b_odyssey_the_creator"] = {
   name = "Baralho O Criador",
   text = {
-   "**Modo Criativo**"
+   "Começa com o Curinga Lendário",
+   "{C:attention}O Criador{}."
   }
  },
 

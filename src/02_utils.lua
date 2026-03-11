@@ -79,6 +79,39 @@ function is_unique_joker(card)
     return duplicates == 0
 end
 
+-- Helper: Flip animation for tarot card modifications on playing cards.
+-- cards: pre-sliced array of playing cards to animate.
+-- effect_fn(cards): called between flip-down and flip-up; receives the cards array.
+function tarot_flip_cards(cards, effect_fn)
+    local n = #cards
+    if n == 0 then return end
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+        play_sound('tarot1'); return true
+    end}))
+    for i = 1, n do
+        local c = cards[i]
+        local p = 1.15 - (i - 0.999) / (n - 0.998) * 0.3
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.15, func = function()
+            c:flip(); play_sound('card1', p); c:juice_up(0.3, 0.3); return true
+        end}))
+    end
+    delay(0.2)
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
+        effect_fn(cards); return true
+    end}))
+    for i = 1, n do
+        local c = cards[i]
+        local p = 0.85 + (i - 0.999) / (n - 0.998) * 0.3
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.15, func = function()
+            c:flip(); play_sound('tarot2', p, 0.6); c:juice_up(0.3, 0.3); return true
+        end}))
+    end
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
+        G.hand:unhighlight_all(); return true
+    end}))
+    delay(0.5)
+end
+
 -- Helper: Utility function for localization
 function create_loc_text(key, name, text)
     return {
@@ -211,6 +244,19 @@ SMODS.current_mod.calculate = function(self, context)
         local chips = 0
         local mult = G.GAME.magician_mult or 0
         local x_mult = G.GAME.rogue_x_mult or 1
+
+        -- Spectral: Einstein (41) - Convert chip score to mult for one hand
+        if G.GAME.odyssey_einstein_active then
+            G.GAME.odyssey_einstein_active = nil -- Consume
+            local einstein_chips = 0
+            if context.scoring_name and G.GAME.hands[context.scoring_name] then
+                einstein_chips = einstein_chips + (G.GAME.hands[context.scoring_name].chips or 0)
+            end
+            for _, c in ipairs(context.scoring_hand or {}) do
+                einstein_chips = einstein_chips + (c:get_chip_bonus() or 0)
+            end
+            mult = mult + einstein_chips
+        end
         
         -- Spectral: Supernova (1), Zero Absoluto (14), Planck (15)
         x_mult = x_mult * (G.GAME.odyssey_spectral_1_xmult or 1)
@@ -226,6 +272,17 @@ SMODS.current_mod.calculate = function(self, context)
         -- Spectral: Yang (94) X1.5 for 5-card hands
         if G.GAME.odyssey_yang_active and #context.full_hand == 5 then
             x_mult = x_mult * 1.5
+        end
+
+        -- Spectral: Zuckerberg (72) - Social Network: +3 Mult per adjacent active Joker
+        if G.GAME.odyssey_zuckerberg_active and G.jokers and G.jokers.cards then
+            local jokers = G.jokers.cards
+            for i = 1, #jokers do
+                if not jokers[i].debuff then
+                    if i > 1 and not jokers[i-1].debuff then mult = mult + 3 end
+                    if i < #jokers and not jokers[i+1].debuff then mult = mult + 3 end
+                end
+            end
         end
 
         if chips > 0 or mult > 0 or x_mult > 1 then
@@ -262,6 +319,11 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.odyssey_newton_active = nil
         G.GAME.odyssey_einstein_active = nil
         G.GAME.odyssey_drake_active = nil
+
+        -- Deflation: accumulate shop price discount
+        if (G.GAME.odyssey_deflation_active or 0) > 0 then
+            G.GAME.odyssey_deflation_discount = (G.GAME.odyssey_deflation_discount or 0) + 1
+        end
         
         -- Reset Tarot buffs
         G.GAME.magician_mult = 0

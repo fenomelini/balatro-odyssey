@@ -51,14 +51,20 @@ Card.calculate_joker = function(self, context)
     -- Deck 6: Gravitational (Moved to Card:calculate_seal)
     -- Logic removed from here to avoid multiple triggers and dependency on jokers
 
-    -- Deck 10: Quasar (+20 Mult Base)
-    if deck_key == 'quasar' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_mult', vars={20}},
-            mult_mod = 20,
-            colour = G.C.MULT
-        })
+    -- Deck 9: Supernova (Apply accumulated Xmult from triggered explosions)
+    -- Guard: only fires on the first joker to prevent N-jokers=N*xmult over-triggering
+    if deck_key == 'supernova_deck' and context.joker_main then
+        local xmult = (G.GAME.selected_back.effect.config.extra or {}).xmult or 0
+        if xmult > 0 and G.jokers and G.jokers.cards and G.jokers.cards[1] and self == G.jokers.cards[1] then
+            return merge_effect(ret, {
+                message = localize{type='variable', key='a_xmult', vars={xmult}},
+                Xmult_mod = xmult,
+                colour = G.C.MULT
+            })
+        end
     end
+
+    -- Deck 10: Quasar (+20 Mult Base) - now applied permanently via apply() at run start, no scoring hook needed
 
     -- Deck 35: Ascensao (Ascension) - Hands X2
     if deck_key == 'ascensao' and context.joker_main then
@@ -254,6 +260,21 @@ Card.calculate_joker = function(self, context)
              return merge_effect(ret, {
                 message = localize{type='variable', key='a_xmult', vars={2}},
                 Xmult_mod = 2,
+                colour = G.C.MULT
+            })
+        end
+    end
+
+    -- 7. Event Horizon: Apply accumulated Mult from destroyed cards
+    if deck_key == 'event_horizon' and context.joker_main then
+        local mult = 0
+        if G.GAME.selected_back.effect.config.extra then
+            mult = G.GAME.selected_back.effect.config.extra.mult or 0
+        end
+        if mult > 0 then
+            return merge_effect(ret, {
+                message = localize{type='variable', key='a_mult', vars={mult}},
+                mult_mod = mult,
                 colour = G.C.MULT
             })
         end
@@ -494,7 +515,7 @@ G.FUNCS.end_round = function()
         if G.GAME.dollars > 50 then
             G.GAME.dollars = 0
             G.GAME.selected_back.effect.config.extra = G.GAME.selected_back.effect.config.extra or {}
-            G.GAME.selected_back.effect.config.extra.xmult = (G.GAME.selected_back.effect.config.extra.xmult or 1) + 3
+            G.GAME.selected_back.effect.config.extra.xmult = (G.GAME.selected_back.effect.config.extra.xmult or 0) + 3
             G.E_MANAGER:add_event(Event({
                 func = function()
                     play_sound('tarot1')
@@ -677,9 +698,9 @@ Card.calculate_seal = function(self, context)
     
     local deck_key = get_deck_key()
     
-    -- Deck 6: Gravitational (Retrigger first played card)
+    -- Deck 6: Gravitational (Retrigger first scoring card)
     if deck_key == 'gravitational' and context.repetition and context.cardarea == G.play then
-        if self == G.play.cards[1] then
+        if context.scoring_hand and self == context.scoring_hand[1] then
             if type(ret) ~= 'table' then ret = {} end
             ret.repetitions = (ret.repetitions or 0) + 1
             ret.message = localize('k_again_ex')

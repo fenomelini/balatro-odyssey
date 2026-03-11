@@ -36,7 +36,9 @@ for _, t in ipairs(tarots) do
             end
 
             -- Special condition Tarots
-            if id == 1 then -- Fool
+            if id == 34 then -- Mind: requires cards in hand
+                return #G.hand.cards > 0
+            elseif id == 1 then -- Fool
                 return G.GAME.last_consumeable and G.GAME.last_consumeable.set ~= 'Spectral'
             elseif id == 60 then -- Life
                 return G.GAME.last_destroyed_joker ~= nil
@@ -113,9 +115,11 @@ for _, t in ipairs(tarots) do
                     G.consumeables:emplace(_card)
                 end
             elseif id == 4 then -- Empress
-                for i=1, math.min(#highlighted, 2) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_ruby)
-                end
+                local cs4 = {}
+                for i=1, math.min(#highlighted, 2) do cs4[#cs4+1] = highlighted[i] end
+                tarot_flip_cards(cs4, function(cs)
+                    for _, c in ipairs(cs) do c:set_ability(G.P_CENTERS.m_odyssey_ruby) end
+                end)
             elseif id == 5 then -- Emperor
                 for i=1, 2 do
                     local _card = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil, "emperor")
@@ -123,21 +127,29 @@ for _, t in ipairs(tarots) do
                     G.consumeables:emplace(_card)
                 end
             elseif id == 6 then -- Hierophant
-                for i=1, math.min(#highlighted, 2) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_emerald)
-                end
+                local cs6 = {}
+                for i=1, math.min(#highlighted, 2) do cs6[#cs6+1] = highlighted[i] end
+                tarot_flip_cards(cs6, function(cs)
+                    for _, c in ipairs(cs) do c:set_ability(G.P_CENTERS.m_odyssey_emerald) end
+                end)
             elseif id == 7 then -- Lovers
-                for i=1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_cloth)
-                end
+                local cs7 = {}
+                for i=1, math.min(#highlighted, 1) do cs7[#cs7+1] = highlighted[i] end
+                tarot_flip_cards(cs7, function(cs)
+                    for _, c in ipairs(cs) do c:set_ability(G.P_CENTERS.m_odyssey_cloth) end
+                end)
             elseif id == 8 then -- Chariot
-                for i=1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_rubber)
-                end
+                local cs8 = {}
+                for i=1, math.min(#highlighted, 1) do cs8[#cs8+1] = highlighted[i] end
+                tarot_flip_cards(cs8, function(cs)
+                    for _, c in ipairs(cs) do c:set_ability(G.P_CENTERS.m_odyssey_rubber) end
+                end)
             elseif id == 9 then -- Justice
-                for i=1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_ceramic)
-                end
+                local cs9 = {}
+                for i=1, math.min(#highlighted, 1) do cs9[#cs9+1] = highlighted[i] end
+                tarot_flip_cards(cs9, function(cs)
+                    for _, c in ipairs(cs) do c:set_ability(G.P_CENTERS.m_odyssey_ceramic) end
+                end)
             elseif id == 10 then -- Hermit
                 ease_dollars(math.min(G.GAME.dollars, 20))
             elseif id == 11 then -- Wheel of Fortune
@@ -158,27 +170,33 @@ for _, t in ipairs(tarots) do
                     card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_nope_ex'), colour = G.C.DARK_EDITION})
                 end
             elseif id == 12 then -- Strength
-                for i=1, math.min(#highlighted, 2) do
-                    local _card = highlighted[i]
-                    local suit_prefix = string.sub(_card.base.suit, 1, 1)..'_'
-                    local rank_suffix = _card.base.id == 14 and 2 or math.min(_card.base.id+1, 14)
-                    if rank_suffix < 10 then rank_suffix = tostring(rank_suffix)
-                    elseif rank_suffix == 10 then rank_suffix = 'T'
-                    elseif rank_suffix == 11 then rank_suffix = 'J'
-                    elseif rank_suffix == 12 then rank_suffix = 'Q'
-                    elseif rank_suffix == 13 then rank_suffix = 'K'
-                    elseif rank_suffix == 14 then rank_suffix = 'A'
+                local cs12 = {}
+                for i=1, math.min(#highlighted, 2) do cs12[#cs12+1] = highlighted[i] end
+                tarot_flip_cards(cs12, function(cs)
+                    for _, c in ipairs(cs) do
+                        local suit_prefix = string.sub(c.base.suit, 1, 1)..'_'
+                        local rank_suffix = c.base.id == 14 and 2 or math.min(c.base.id+1, 14)
+                        if rank_suffix < 10 then rank_suffix = tostring(rank_suffix)
+                        elseif rank_suffix == 10 then rank_suffix = 'T'
+                        elseif rank_suffix == 11 then rank_suffix = 'J'
+                        elseif rank_suffix == 12 then rank_suffix = 'Q'
+                        elseif rank_suffix == 13 then rank_suffix = 'K'
+                        elseif rank_suffix == 14 then rank_suffix = 'A'
+                        end
+                        c:set_base(G.P_CARDS[suit_prefix..rank_suffix])
                     end
-                    _card:set_base(G.P_CARDS[suit_prefix..rank_suffix])
-                end
+                end)
             elseif id == 13 then -- Hanged Man
                 for i=1, math.min(#highlighted, 2) do
                     highlighted[i]:start_dissolve()
                 end
             elseif id == 14 then -- Death
                 if #highlighted == 2 then
-                    highlighted[2]:set_base(highlighted[1].config.card)
-                    highlighted[2]:set_ability(highlighted[1].config.center)
+                    local cs14 = { highlighted[1], highlighted[2] }
+                    tarot_flip_cards(cs14, function(cs)
+                        cs[2]:set_base(cs[1].config.card)
+                        cs[2]:set_ability(cs[1].config.center)
+                    end)
                 end
             elseif id == 15 then -- Temperance
                 local total = 0
@@ -187,33 +205,45 @@ for _, t in ipairs(tarots) do
                 end
                 ease_dollars(math.min(total, 50))
             elseif id == 16 then -- Devil
-                for i=1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_diamond)
-                end
+                local cs16 = {}
+                for i=1, math.min(#highlighted, 1) do cs16[#cs16+1] = highlighted[i] end
+                tarot_flip_cards(cs16, function(cs)
+                    for _, c in ipairs(cs) do c:set_ability(G.P_CENTERS.m_odyssey_diamond) end
+                end)
             elseif id == 17 then -- Tower
-                for i=1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_platinum)
-                end
+                local cs17 = {}
+                for i=1, math.min(#highlighted, 1) do cs17[#cs17+1] = highlighted[i] end
+                tarot_flip_cards(cs17, function(cs)
+                    for _, c in ipairs(cs) do c:set_ability(G.P_CENTERS.m_odyssey_platinum) end
+                end)
             elseif id == 18 then -- Star
-                for i=1, math.min(#highlighted, 3) do
-                    highlighted[i]:change_suit('Diamonds')
-                end
+                local cs18 = {}
+                for i=1, math.min(#highlighted, 3) do cs18[#cs18+1] = highlighted[i] end
+                tarot_flip_cards(cs18, function(cs)
+                    for _, c in ipairs(cs) do c:change_suit('Diamonds') end
+                end)
             elseif id == 19 then -- Moon
-                for i=1, math.min(#highlighted, 3) do
-                    highlighted[i]:change_suit('Clubs')
-                end
+                local cs19 = {}
+                for i=1, math.min(#highlighted, 3) do cs19[#cs19+1] = highlighted[i] end
+                tarot_flip_cards(cs19, function(cs)
+                    for _, c in ipairs(cs) do c:change_suit('Clubs') end
+                end)
             elseif id == 20 then -- Sun
-                for i=1, math.min(#highlighted, 3) do
-                    highlighted[i]:change_suit('Hearts')
-                end
+                local cs20 = {}
+                for i=1, math.min(#highlighted, 3) do cs20[#cs20+1] = highlighted[i] end
+                tarot_flip_cards(cs20, function(cs)
+                    for _, c in ipairs(cs) do c:change_suit('Hearts') end
+                end)
             elseif id == 21 then -- Judgement
                 local _card = create_card("Joker", G.jokers, nil, nil, nil, nil, nil, "judgement")
                 _card:add_to_deck()
                 G.jokers:emplace(_card)
             elseif id == 22 then -- World
-                for i=1, math.min(#highlighted, 3) do
-                    highlighted[i]:change_suit('Spades')
-                end
+                local cs22 = {}
+                for i=1, math.min(#highlighted, 3) do cs22[#cs22+1] = highlighted[i] end
+                tarot_flip_cards(cs22, function(cs)
+                    for _, c in ipairs(cs) do c:change_suit('Spades') end
+                end)
             elseif id == 23 then -- Aeon (Reset Ante)
                 ease_ante(-1)
             elseif id == 24 then -- Universe (All Planets)
@@ -229,18 +259,27 @@ for _, t in ipairs(tarots) do
                 ease_dollars(10)
             elseif id == 26 then -- Singularity
                 if #highlighted == 2 then
-                    highlighted[2]:set_base(highlighted[1].config.card)
-                    highlighted[2]:set_ability(highlighted[1].config.center)
-                    highlighted[1]:start_dissolve()
+                    local cs26 = { highlighted[1], highlighted[2] }
+                    tarot_flip_cards(cs26, function(cs)
+                        cs[2]:set_base(cs[1].config.card)
+                        cs[2]:set_ability(cs[1].config.center)
+                        cs[1]:start_dissolve()
+                    end)
                 end
             elseif id == 27 then -- Quantum
-                for i=1, math.min(#highlighted, 3) do
-                    local suits = {'S', 'H', 'C', 'D'}
-                    local ranks = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'}
-                    highlighted[i]:set_base(G.P_CARDS[pseudorandom_element(suits, pseudoseed('quantum')).. '_' .. pseudorandom_element(ranks, pseudoseed('quantum'))])
-                end
+                local cs27 = {}
+                for i=1, math.min(#highlighted, 3) do cs27[#cs27+1] = highlighted[i] end
+                tarot_flip_cards(cs27, function(cs)
+                    for _, c in ipairs(cs) do
+                        local suits = {'S', 'H', 'C', 'D'}
+                        local ranks = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'}
+                        c:set_base(G.P_CARDS[pseudorandom_element(suits, pseudoseed('quantum')).. '_' .. pseudorandom_element(ranks, pseudoseed('quantum'))])
+                    end
+                end)
             elseif id == 28 then -- Time
+                G.GAME.starting_params.hands = (G.GAME.starting_params.hands or 4) + 1
                 G.GAME.round_resets.hands = G.GAME.round_resets.hands + 1
+                card_eval_status_text(card, 'extra', nil, nil, nil, {message = "+1 Mão", colour = G.C.BLUE})
             elseif id == 29 then -- Space
                 G.hand:change_size(1)
             elseif id == 30 then -- Matter
@@ -263,32 +302,52 @@ for _, t in ipairs(tarots) do
                 local _card = create_card("Spectral", G.consumeables, nil, nil, nil, nil, nil, "spirit")
                 _card:add_to_deck()
                 G.consumeables:emplace(_card)
-            elseif id == 34 then -- Mind (Sort Deck)
-                table.sort(G.deck.cards, function(a, b) return a.base.value < b.base.value end)
+            elseif id == 34 then -- Mind: give all hand cards +10 permanent Chips
+                local hand_cards = {}
+                for i = 1, #G.hand.cards do hand_cards[#hand_cards+1] = G.hand.cards[i] end
+                tarot_flip_cards(hand_cards, function(cs)
+                    for _, c in ipairs(cs) do
+                        c.ability.perma_bonus = (c.ability.perma_bonus or 0) + 10
+                        c:juice_up()
+                        card_eval_status_text(c, 'extra', nil, nil, nil, {message = "+10 Fichas", colour = G.C.CHIPS})
+                    end
+                end)
             elseif id == 35 then -- Body
-                for i=1, math.min(#highlighted, 2) do
-                    highlighted[i].ability.perma_bonus = (highlighted[i].ability.perma_bonus or 0) + 50
-                    highlighted[i]:juice_up()
-                    card_eval_status_text(highlighted[i], 'extra', nil, nil, nil, {message = "+50 Fichas", colour = G.C.CHIPS})
-                end
+                local cs35 = {}
+                for i=1, math.min(#highlighted, 2) do cs35[#cs35+1] = highlighted[i] end
+                tarot_flip_cards(cs35, function(cs)
+                    for _, c in ipairs(cs) do
+                        c.ability.perma_bonus = (c.ability.perma_bonus or 0) + 50
+                        c:juice_up()
+                        card_eval_status_text(c, 'extra', nil, nil, nil, {message = "+50 Fichas", colour = G.C.CHIPS})
+                    end
+                end)
             elseif id == 36 then -- Heart
-                for i=1, math.min(#highlighted, 2) do
-                    highlighted[i].ability.perma_mult = (highlighted[i].ability.perma_mult or 0) + 10
-                    highlighted[i]:juice_up()
-                    card_eval_status_text(highlighted[i], 'extra', nil, nil, nil, {message = "+10 Mult", colour = G.C.MULT})
-                end
+                local cs36 = {}
+                for i=1, math.min(#highlighted, 2) do cs36[#cs36+1] = highlighted[i] end
+                tarot_flip_cards(cs36, function(cs)
+                    for _, c in ipairs(cs) do
+                        c.ability.perma_mult = (c.ability.perma_mult or 0) + 10
+                        c:juice_up()
+                        card_eval_status_text(c, 'extra', nil, nil, nil, {message = "+10 Mult", colour = G.C.MULT})
+                    end
+                end)
             elseif id == 37 then -- Shadow
-                for i=1, math.min(#highlighted, 1) do
-                    if G.P_CENTERS.m_odyssey_shadow then
-                        highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_shadow)
+                local cs37 = {}
+                for i=1, math.min(#highlighted, 1) do cs37[#cs37+1] = highlighted[i] end
+                tarot_flip_cards(cs37, function(cs)
+                    for _, c in ipairs(cs) do
+                        if G.P_CENTERS.m_odyssey_shadow then c:set_ability(G.P_CENTERS.m_odyssey_shadow) end
                     end
-                end
+                end)
             elseif id == 38 then -- Light
-                for i=1, math.min(#highlighted, 1) do
-                    if G.P_CENTERS.m_odyssey_light then
-                        highlighted[i]:set_ability(G.P_CENTERS.m_odyssey_light)
+                local cs38 = {}
+                for i=1, math.min(#highlighted, 1) do cs38[#cs38+1] = highlighted[i] end
+                tarot_flip_cards(cs38, function(cs)
+                    for _, c in ipairs(cs) do
+                        if G.P_CENTERS.m_odyssey_light then c:set_ability(G.P_CENTERS.m_odyssey_light) end
                     end
-                end
+                end)
             elseif id == 39 then -- Chaos
                 for i = 1, #G.hand.cards do
                     local suits = {'S', 'H', 'D', 'C'}
@@ -323,8 +382,11 @@ for _, t in ipairs(tarots) do
                     ease_dollars(20)
                 end
             elseif id == 44 then -- One
-                for i = 1, math.min(#highlighted, 1) do
-                    highlighted[i]:set_base(G.P_CARDS[string.sub(highlighted[i].base.suit, 1, 1)..'_A'])
+                if #highlighted >= 1 then
+                    local cs44 = { highlighted[1] }
+                    tarot_flip_cards(cs44, function(cs)
+                        cs[1]:set_base(G.P_CARDS[string.sub(cs[1].base.suit, 1, 1)..'_A'])
+                    end)
                 end
             elseif id == 45 then -- Many
                 if #highlighted == 1 then
@@ -398,11 +460,15 @@ for _, t in ipairs(tarots) do
                 end
                 ease_dollars(count * 2)
             elseif id == 59 then -- Peace
-                local suits = {Spades=0, Hearts=0, Clubs=0, Diamonds=0}
-                for k, v in ipairs(G.deck.cards) do suits[v.base.suit] = suits[v.base.suit] + 1 end
+                local suits59 = {Spades=0, Hearts=0, Clubs=0, Diamonds=0}
+                for k, v in ipairs(G.deck.cards) do suits59[v.base.suit] = suits59[v.base.suit] + 1 end
                 local max_suit = 'Spades'
-                for k, v in pairs(suits) do if v > suits[max_suit] then max_suit = k end end
-                for i=1, math.min(#highlighted, 3) do highlighted[i]:change_suit(max_suit) end
+                for k, v in pairs(suits59) do if v > suits59[max_suit] then max_suit = k end end
+                local cs59 = {}
+                for i=1, math.min(#highlighted, 3) do cs59[#cs59+1] = highlighted[i] end
+                tarot_flip_cards(cs59, function(cs)
+                    for _, c in ipairs(cs) do c:change_suit(max_suit) end
+                end)
             elseif id == 60 then -- Life
                 if G.GAME.last_destroyed_joker then
                     local _card = copy_card(G.P_CENTERS[G.GAME.last_destroyed_joker], nil, nil, nil)
@@ -469,8 +535,12 @@ for _, t in ipairs(tarots) do
                     _card:juice_up()
                 end
             elseif id == 69 then -- Guardian
-                if #highlighted == 1 then
-                    highlighted[1].ability.eternal = true
+                if #highlighted >= 1 then
+                    local cs69 = { highlighted[1] }
+                    tarot_flip_cards(cs69, function(cs)
+                        cs[1].ability.eternal = true
+                        cs[1]:juice_up(0.5, 0.3)
+                    end)
                 end
             elseif id == 70 then -- Sage
                 level_up_hand(card, pseudorandom_element(G.GAME.hands, pseudoseed('sage')), nil, 1)
@@ -531,11 +601,15 @@ for _, t in ipairs(tarots) do
                 for k, v in ipairs(G.hand.cards) do v.debuff = false end
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_active_ex'), colour = G.C.FILTER})
             elseif id == 80 then -- Warrior
-                for i=1, math.min(#highlighted, 2) do
-                    highlighted[i].ability.perma_bonus = (highlighted[i].ability.perma_bonus or 0) + 100
-                    highlighted[i]:juice_up()
-                    card_eval_status_text(highlighted[i], 'extra', nil, nil, nil, {message = "+100 Fichas", colour = G.C.CHIPS})
-                end
+                local cs80 = {}
+                for i=1, math.min(#highlighted, 2) do cs80[#cs80+1] = highlighted[i] end
+                tarot_flip_cards(cs80, function(cs)
+                    for _, c in ipairs(cs) do
+                        c.ability.perma_bonus = (c.ability.perma_bonus or 0) + 100
+                        c:juice_up()
+                        card_eval_status_text(c, 'extra', nil, nil, nil, {message = "+100 Fichas", colour = G.C.CHIPS})
+                    end
+                end)
             elseif id == 81 then -- Magician II
                 G.GAME.magician_mult = (G.GAME.magician_mult or 0) + 20
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = "+20 Multi", colour = G.C.MULT})
@@ -553,11 +627,14 @@ for _, t in ipairs(tarots) do
                     [94] = "m_odyssey_cloth", [95] = "m_odyssey_ruby", [96] = "m_odyssey_emerald"
                 }
                 local max_h = tarot_max[id] or 1
-                for i=1, math.min(#highlighted, max_h) do
-                    if G.P_CENTERS[enhancements[id]] then
-                        highlighted[i]:set_ability(G.P_CENTERS[enhancements[id]])
+                local cs84 = {}
+                for i=1, math.min(#highlighted, max_h) do cs84[#cs84+1] = highlighted[i] end
+                local enh_key = enhancements[id]
+                tarot_flip_cards(cs84, function(cs)
+                    for _, c in ipairs(cs) do
+                        if G.P_CENTERS[enh_key] then c:set_ability(G.P_CENTERS[enh_key]) end
                     end
-                end
+                end)
             elseif id == 97 then -- Duplicator
                 if #highlighted == 1 then
                     local _card = copy_card(highlighted[1], nil, nil, nil)
@@ -570,16 +647,22 @@ for _, t in ipairs(tarots) do
                     highlighted[i]:start_dissolve()
                 end
             elseif id == 99 then -- Transformer
-                if #highlighted == 1 then
-                    local suits = {'S', 'H', 'C', 'D'}
-                    local ranks = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'}
-                    highlighted[1]:set_base(G.P_CARDS[pseudorandom_element(suits, pseudoseed('trans_s')).. '_' .. pseudorandom_element(ranks, pseudoseed('trans_r'))])
-                    card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_active_ex'), colour = G.C.FILTER})
+                if #highlighted >= 1 then
+                    local cs99 = { highlighted[1] }
+                    tarot_flip_cards(cs99, function(cs)
+                        local suits = {'S', 'H', 'C', 'D'}
+                        local ranks = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'}
+                        cs[1]:set_base(G.P_CARDS[pseudorandom_element(suits, pseudoseed('trans_s')).. '_' .. pseudorandom_element(ranks, pseudoseed('trans_r'))])
+                        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_active_ex'), colour = G.C.FILTER})
+                    end)
                 end
             elseif id == 100 then -- Enhancer
-                if #highlighted == 1 then
-                    local enhancements = {"m_odyssey_ruby", "m_odyssey_emerald", "m_odyssey_cloth", "m_odyssey_ceramic", "m_odyssey_rubber", "m_odyssey_platinum", "m_odyssey_diamond", "m_odyssey_wood", "m_odyssey_plant", "m_odyssey_holy", "m_odyssey_undead", "m_odyssey_cursed", "m_odyssey_magic"}
-                    highlighted[1]:set_ability(G.P_CENTERS[pseudorandom_element(enhancements, pseudoseed('enhancer'))])
+                if #highlighted >= 1 then
+                    local cs100 = { highlighted[1] }
+                    tarot_flip_cards(cs100, function(cs)
+                        local enhancements = {"m_odyssey_ruby", "m_odyssey_emerald", "m_odyssey_cloth", "m_odyssey_ceramic", "m_odyssey_rubber", "m_odyssey_platinum", "m_odyssey_diamond", "m_odyssey_wood", "m_odyssey_plant", "m_odyssey_holy", "m_odyssey_undead", "m_odyssey_cursed", "m_odyssey_magic"}
+                        cs[1]:set_ability(G.P_CENTERS[pseudorandom_element(enhancements, pseudoseed('enhancer'))])
+                    end)
                 end
             end
         end

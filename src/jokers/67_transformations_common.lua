@@ -419,15 +419,31 @@ SMODS.Joker({
     discovered = false,
     unlocked = true,
     key = 'j_transformations_wig',
-    config = {},
+    config = { extra = { mult = 5 } },
     rarity = 1,
     atlas = 'j_transformations_wig',
     pos = { x = 0, y = 0 },
     cost = 4,
-    -- Implementation: Kings count as Queens (vanilla_override)
-    loc_vars = function(self, info_queue, card) return { vars = {} } end,
+    blueprint_compat = true,
+    eternal_compat = true,
+    loc_vars = function(self, info_queue, card)
+        local extra = (card and card.ability and card.ability.extra) or self.config.extra
+        return { vars = { extra.mult } }
+    end,
     calculate = function(self, card, context)
-        -- Auto-generated functional stub
+        if context.joker_main then
+            local count = 0
+            for _, c in ipairs(context.scoring_hand) do
+                if c.base.id == 13 then count = count + 1 end
+            end
+            if count > 0 then
+                return {
+                    mult_mod = count * card.ability.extra.mult,
+                    message = localize { type = 'variable', key = 'a_mult', vars = { count * card.ability.extra.mult } },
+                    colour = G.C.MULT
+                }
+            end
+        end
     end
 })
 

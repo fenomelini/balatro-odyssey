@@ -186,7 +186,7 @@ SMODS.Back({
     key = 'gnome',
     atlas = 'b_gnome',
     pos = { x = 0, y = 0 },
-    config = {}
+    config = { hand_size = 3, joker_slot = 1 }
 })
 
 -- 100. Baralho Baralho O Criador
