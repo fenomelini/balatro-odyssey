@@ -8540,10 +8540,9 @@ return {
  c_odyssey_spectral_100 = {
  name = "Gemini",
  text = {
- "The Gemini Ship: Ensures you",
- "always start the round with a",
- "{C:attention}Two Pair{} hand{}",
- "available."
+ "Levels up {C:attention}Pair{} and",
+ "{C:attention}Two Pair{} by",
+ "{C:attention}3{}."
  }
  },
  
@@ -8634,7 +8633,10 @@ return {
  c_odyssey_spectral_22 = {
  name = "Big Bang",
  text = {
- "Restart the run from Ante 1, but", "keep all current Jokers and hand", "levels."
+ "Restores your {C:blue}Hands{} and {C:red}Discards{}",
+ "to this round's maximum and",
+ "permanently grants",
+ "{X:mult,C:white} X2 {} Mult."
  }
  },
  
@@ -8680,10 +8682,9 @@ return {
  c_odyssey_spectral_28 = {
  name = "Strings",
  text = {
- "Connects card ranks (neighboring",
- "ranks count as sequence with gap",
- "of 1), but {C:attention}-2{}",
- "Hand Size."
+ "{C:attention}-2{} Hand Size and",
+ "levels up {C:attention}all hands{}",
+ "by {C:attention}1{}."
  }
  },
  
@@ -8727,9 +8728,9 @@ return {
  c_odyssey_spectral_32 = {
  name = "Heisenberg",
  text = {
- "Hides the required Blind score,",
- "but reveals all items in the",
- "next {C:attention}Shop{}.{}"
+ "Gain {C:money}$30{} and hide the",
+ "required {C:attention}Blind{}",
+ "score this round."
  }
  },
  
@@ -8755,7 +8756,9 @@ return {
  c_odyssey_spectral_35 = {
  name = "Drake",
  text = {
- "Shows {C:green}'GUARANTEED WIN'{} if", "your current hand is enough", "to beat the {C:attention}Blind{}."
+ "While active, each hand played",
+ "grants {X:mult,C:white} X2 {} Mult",
+ "this round."
  }
  },
  
@@ -8788,9 +8791,8 @@ return {
  c_odyssey_spectral_39 = {
  name = "Galileo",
  text = {
- "{C:attention}Doubles{} the{}",
- "effect of all {C:tarot}Tarot{}",
- "cards used this round."
+ "Creates {C:attention}2{} random",
+ "{C:tarot}Tarot{} cards immediately."
  }
  },
  
@@ -8805,8 +8807,7 @@ return {
  name = "Newton",
  text = {
  "Played cards that do not score",
- "are {C:red}discarded{} and grant{}",
- "{C:blue}+1 Hand{}.{}"
+ "grant {C:blue}+1 Hand{} each."
  }
  },
  
@@ -8822,9 +8823,9 @@ return {
  c_odyssey_spectral_42 = {
  name = "Hawking",
  text = {
- "{C:spectral}Black Holes{} appear{}",
- "much more frequently in the",
- "Shop."
+ "Creates {C:attention}2{} random",
+ "{C:spectral}Spectral{} cards",
+ "immediately."
  }
  },
  
@@ -8841,19 +8842,17 @@ return {
  c_odyssey_spectral_44 = {
  name = "Tyson",
  text = {
- "Permanently removes the planet",
- "{C:planet}Pluto{} from the game{}",
- "and increases the level of all",
- "other hands."
+ "Levels up {C:attention}all poker",
+ "hands{} by {C:attention}1{}."
  }
  },
  
  c_odyssey_spectral_45 = {
  name = "Kaku",
  text = {
- "Applies the {C:attention}String{}",
- "Theory Deck{} effect",
- "permanently."
+ "Levels up {C:attention}all hands{}",
+ "by {C:attention}2{} and grants",
+ "{C:attention}+2{} Hand Size."
  }
  },
  
@@ -8869,29 +8868,28 @@ return {
  c_odyssey_spectral_47 = {
  name = "Penrose",
  text = {
- "Played cards have a",
- "{C:green}25%{} chance to return{}",
- "to your hand instead of being",
- "discarded."
+ "Each played card has a",
+ "{C:green}25%{} chance to be",
+ "retriggered."
  }
  },
  
  c_odyssey_spectral_48 = {
  name = "Godel",
  text = {
- "Makes the next Blind",
- "{C:red}impossible{} to win{}",
- "normally, but grants a",
- "{C:gold}massive reward{}.{}"
+ "Doubles the required",
+ "{C:attention}Blind{} score, but",
+ "permanently grants",
+ "{X:mult,C:white} X3 {} Mult."
  }
  },
  
  c_odyssey_spectral_49 = {
  name = "Turing",
  text = {
- "An {C:attention}AI{} plays the{}",
- "next round for you, choosing the",
- "best possible hands."
+ "Creates a random",
+ "{C:attention}Joker{} and grants",
+ "{C:money}+$20{}."
  }
  },
  
@@ -8915,18 +8913,17 @@ return {
  c_odyssey_spectral_51 = {
  name = "Feynman",
  text = {
- "Explains the joke: Your",
- "{C:attention}Jokers{} gain{}",
- "{C:mult}+10{} Mult if you laugh.{}"
+ "All your {C:attention}Jokers{}",
+ "permanently gain",
+ "{C:mult}+10 Mult{}."
  }
  },
  
  c_odyssey_spectral_52 = {
  name = "Bohr",
  text = {
- "Cards in the deck start to",
- "{C:attention}orbit{} (constantly{}",
- "change positions in your hand)."
+ "Randomly shuffles the cards",
+ "in your current hand."
  }
  },
  
@@ -8942,19 +8939,19 @@ return {
  c_odyssey_spectral_54 = {
  name = "Darwin",
  text = {
- "Your cards {C:attention}evolve{}",
- "(increase Rank) every time they",
- "score."
+ "Each scored card grants",
+ "{C:chips}+1 Chip{} per play."
  }
  },
  
  c_odyssey_spectral_55 = {
  name = "Mendel",
  text = {
- "Cards created by other cards",
- "inherit",
- "{C:dark_edition}Editions{} and{}",
- "{C:attention}Enhancements{}.{}"
+ "All deck cards gain a random",
+ "{C:dark_edition}Edition{}",
+ "({C:dark_edition}Foil{},",
+ "{C:dark_edition}Holo{}, or",
+ "{C:dark_edition}Polychrome{})."
  }
  },
  
@@ -8979,9 +8976,8 @@ return {
  c_odyssey_spectral_58 = {
  name = "Tesla",
  text = {
- "Grants unlimited",
- "{C:attention}Energy{} to all{}",
- "your items that use charges."
+ "Permanently grants",
+ "{C:attention}+2{} consumable slots."
  }
  },
  
@@ -9016,19 +9012,18 @@ return {
  c_odyssey_spectral_61 = {
  name = "Marconi",
  text = {
- "Your cards transmit",
- "{C:attention}Signals{} (matching{}",
- "cards in the deck score",
- "together)."
+ "Cards sharing a {C:attention}Rank{}",
+ "with another scored card are",
+ "retriggered."
  }
  },
  
  c_odyssey_spectral_62 = {
  name = "Wright",
  text = {
- "Your cards can {C:blue}fly{}",
- "(unaffected by negative effects",
- "that occur on discard)."
+ "All deck cards become",
+ "{C:green}Immune{} to {C:red}Debuff{}",
+ "effects from Boss Blinds."
  }
  },
  
@@ -9045,19 +9040,17 @@ return {
  c_odyssey_spectral_64 = {
  name = "Babbage",
  text = {
- "Performs complex",
- "{C:attention}calculations{}:{}",
- "Ensures the next hand scores as",
- "much as possible."
+ "Grants {X:mult,C:white} X5 {} Mult on",
+ "the next hand played."
  }
  },
  
  c_odyssey_spectral_65 = {
  name = "Lovelace",
  text = {
- "Applies {C:attention}Algorithm{}",
- "logic to your deck: Cards are",
- "drawn in the ideal order."
+ "Sorts all deck cards by",
+ "{C:attention}Rank{}",
+ "(lowest to highest)."
  }
  },
  
@@ -9073,9 +9066,9 @@ return {
  c_odyssey_spectral_67 = {
  name = "Berners-Lee",
  text = {
- "Connects all your",
- "{C:attention}Jokers{}: They now{}",
- "share and sum their effects."
+ "All your {C:attention}Jokers{}",
+ "permanently gain",
+ "{C:mult}+5 Mult{}."
  }
  },
  
@@ -9111,10 +9104,9 @@ return {
  c_odyssey_spectral_70 = {
  name = "Musk",
  text = {
- "Launches a rocket to",
- "{C:attention}Mars{}: Massively{}",
- "increases the level of the Flush",
- "hand."
+ "Levels up all",
+ "{C:attention}5 Flush variants{}",
+ "by {C:attention}5{}."
  }
  },
  
@@ -9177,10 +9169,8 @@ return {
  c_odyssey_spectral_77 = {
  name = "Collins",
  text = {
- "Keeps you in",
- "{C:attention}Orbit{}: Your{}",
- "consumables have a 50% chance of",
- "not being spent."
+ "Duplicates all your current",
+ "{C:spectral}Consumables{}."
  }
  },
  
@@ -9215,17 +9205,17 @@ return {
  c_odyssey_spectral_80 = {
  name = "Laika",
  text = {
- "Tribute to Laika: Your Animal",
- "Jokers become",
- "{C:attention}Eternal{}.{}"
+ "All your {C:attention}Jokers{}",
+ "become {C:attention}Eternal{}."
  }
  },
  
  c_odyssey_spectral_81 = {
  name = "Ham",
  text = {
- "Tribute to Ham: Your primate",
- "Jokers gain {C:chips}+100 Chips{} permanently.{}"
+ "All your {C:attention}Jokers{}",
+ "permanently gain",
+ "{C:chips}+100 Chips{}."
  }
  },
  
@@ -9270,20 +9260,16 @@ return {
  c_odyssey_spectral_86 = {
  name = "Hadfield",
  text = {
- "Sings in space: Your",
- "{C:attention}Musical Jokers{}",
- "gain {X:mult,C:white} X2 {} Mult{}",
- "Mult."
+ "Grants {X:mult,C:white} X2 {} Mult on",
+ "the next hand played."
  }
  },
  
  c_odyssey_spectral_87 = {
  name = "Kelly",
  text = {
- "Gemini Study: Doubles the",
- "effects of all",
- "{C:attention}Seals{} in your{}",
- "deck."
+ "Adds a random {C:attention}Seal{}",
+ "to every card in your deck."
  }
  },
  
@@ -9299,8 +9285,8 @@ return {
  c_odyssey_spectral_89 = {
  name = "Cristoforetti",
  text = {
- "First coffee in space: Your",
- "poker hands gain {C:mult}+5 Mult{} if played quickly.{}"
+ "Gain {C:mult}+5 Mult{} stacking",
+ "per hand played this round."
  }
  },
  
@@ -9326,8 +9312,8 @@ return {
  name = "Peake",
  text = {
  "UK perspective: Converts all",
- "Spade cards into",
- "{C:attention}Face Cards{}.{}"
+ "{C:spades}Spade{} cards into",
+ "{C:attention}Ruby Cards{}."
  }
  },
  
@@ -9391,20 +9377,18 @@ return {
  c_odyssey_spectral_98 = {
  name = "Vostok",
  text = {
- "The Vostok Ship: Ensures you",
- "always start the round with a",
- "{C:attention}Flush{} hand{}",
- "available."
+ "Levels up {C:attention}Flush{} and",
+ "{C:attention}Flush Five{} by",
+ "{C:attention}3{}."
  }
  },
  
  c_odyssey_spectral_99 = {
  name = "Mercury",
  text = {
- "The Mercury Ship: Ensures you",
- "always start the round with a",
- "{C:attention}Straight{} hand{}",
- "available."
+ "Levels up {C:attention}Straight{} and",
+ "{C:attention}Straight Flush{} by",
+ "{C:attention}3{}."
  }
  },
  

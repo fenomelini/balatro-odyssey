@@ -8540,10 +8540,9 @@ return {
  c_odyssey_spectral_100 = {
  name = "Gemini",
  text = {
- "A Nave Gemini: Garante que você",
- "sempre comece a rodada com a mão",
- "{C:attention}Dois Pares{}",
- "disponível."
+ "Aumenta o nível de",
+ "{C:attention}Par{} e {C:attention}Dois Pares{}",
+ "em {C:attention}3{}."
  }
  },
  
@@ -8634,7 +8633,9 @@ return {
  c_odyssey_spectral_22 = {
  name = "Big Bang",
  text = {
- "Reinicia a partida do Aposta 1,", "mas mantém todos os Curingas e", "níveis de mãos atuais."
+ "Restaura suas {C:blue}Mãos{} e {C:red}Descartes{}",
+ "ao máximo desta rodada e concede",
+ "{X:mult,C:white} X2 Multi{} permanentemente."
  }
  },
  
@@ -8680,11 +8681,9 @@ return {
  c_odyssey_spectral_28 = {
  name = "Cordas",
  text = {
- "Conecta os ranks das cartas",
- "(ranks vizinhos contam como",
- "sequência com lacuna de 1), mas",
- "{C:attention}-2{} de Tamanho de{}",
- "Mão."
+ "{C:attention}-2{} de Tamanho de Mão e",
+ "aumenta o nível de",
+ "{C:attention}todas as mãos{} em {C:attention}1{}."
  }
  },
  
@@ -8729,9 +8728,9 @@ return {
  c_odyssey_spectral_32 = {
  name = "Heisenberg",
  text = {
- "Oculta a pontuação necessária do",
- "Blind, mas revela todos os itens",
- "da próxima {C:attention}Loja{}.{}"
+ "Ganha {C:money}$30{} e oculta a",
+ "pontuação necessária do",
+ "{C:attention}Blind{} nesta rodada."
  }
  },
  
@@ -8757,7 +8756,9 @@ return {
  c_odyssey_spectral_35 = {
  name = "Drake",
  text = {
- "Mostra {C:green}'VITÓRIA GARANTIDA'{} se", "a sua mão atual for suficiente", "para vencer o {C:attention}Blind{}."
+ "Enquanto ativo, cada mão jogada",
+ "concede {X:mult,C:white} X2 Multi{}",
+ "nesta rodada."
  }
  },
  
@@ -8792,10 +8793,9 @@ return {
  c_odyssey_spectral_39 = {
  name = "Galileu",
  text = {
- "{C:attention}Dobra{} o efeito de{}",
- "todas as cartas de",
- "{C:tarot}Tarô{} usadas nesta{}",
- "rodada."
+ "Cria {C:attention}2{} cartas de",
+ "{C:tarot}Tarô{} aleatórias",
+ "imediatamente."
  }
  },
  
@@ -8810,8 +8810,7 @@ return {
  name = "Newton",
  text = {
  "Cartas jogadas que não pontuarem",
- "são {C:red}descartadas{} e{}",
- "concedem {C:blue}+1 Mão{}.{}"
+ "concedem {C:blue}+1 Mão{} cada."
  }
  },
  
@@ -8827,9 +8826,9 @@ return {
  c_odyssey_spectral_42 = {
  name = "Hawking",
  text = {
- "{C:spectral}Buracos Negros{}",
- "aparecem com muito mais",
- "frequência na Loja."
+ "Cria {C:attention}2{} cartas",
+ "{C:spectral}Espectrais{} aleatórias",
+ "imediatamente."
  }
  },
  
@@ -8846,19 +8845,19 @@ return {
  c_odyssey_spectral_44 = {
  name = "Tyson",
  text = {
- "Remove permanentemente o planeta",
- "{C:planet}Plutão{} do jogo e{}",
- "aumenta o nível de todas as",
- "outras mãos."
+ "Aumenta o nível de",
+ "{C:attention}todas as mãos{} de",
+ "poker em {C:attention}1{}."
  }
  },
  
  c_odyssey_spectral_45 = {
  name = "Kaku",
  text = {
- "Aplica o efeito do",
- "{C:attention}Baralho Teoria das{}",
- "Cordas{} permanentemente."
+ "Aumenta o nível de",
+ "{C:attention}todas as mãos{} em",
+ "{C:attention}2{} e concede",
+ "{C:attention}+2{} de Tamanho de Mão."
  }
  },
  
@@ -8874,31 +8873,27 @@ return {
  c_odyssey_spectral_47 = {
  name = "Penrose",
  text = {
- "Cartas jogadas têm",
- "{C:green}25%{} de chance de{}",
- "voltar para a sua mão em vez de",
- "serem descartadas."
+ "Cada carta jogada tem",
+ "{C:green}25%{} de chance de ser",
+ "contabilizada {C:attention}2 vezes{}."
  }
  },
  
  c_odyssey_spectral_48 = {
  name = "Godel",
  text = {
- "Torna o próximo Blind",
- "{C:red}impossível{} de ser{}",
- "vencido normalmente, mas concede",
- "uma {C:gold}recompensa{}",
- "massiva{}."
+ "Dobra a pontuação necessária do",
+ "{C:attention}Blind{} atual e concede",
+ "{X:mult,C:white} X3 Multi{}",
+ "permanentemente."
  }
  },
  
  c_odyssey_spectral_49 = {
  name = "Turing",
  text = {
- "Uma {C:attention}IA{} joga a{}",
- "próxima rodada por você,",
- "escolhendo as melhores mãos",
- "possíveis."
+ "Cria um {C:attention}Curinga{}",
+ "aleatório e concede {C:money}+$20{}."
  }
  },
  
@@ -8922,18 +8917,17 @@ return {
  c_odyssey_spectral_51 = {
  name = "Feynman",
  text = {
- "Explica a piada: Seus",
- "{C:attention}Curingas{} ganham{}",
- "{C:mult}+10 Multi se você rir.{}"
+ "Todos os seus {C:attention}Curingas{}",
+ "recebem {C:mult}+10 Multi{}",
+ "permanentemente."
  }
  },
  
  c_odyssey_spectral_52 = {
  name = "Bohr",
  text = {
- "As cartas no baralho começam a",
- "{C:attention}orbitar{} (mudam de{}",
- "posição constantemente na mão)."
+ "Embaralha aleatoriamente as",
+ "cartas na sua mão atual."
  }
  },
  
@@ -8949,18 +8943,18 @@ return {
  c_odyssey_spectral_54 = {
  name = "Darwin",
  text = {
- "Suas cartas",
- "{C:attention}evoluem{} (aumentam{}",
- "o Rank) cada vez que pontuam."
+ "Cada carta que pontua concede",
+ "{C:chips}+1 Ficha{} por jogada."
  }
  },
  
  c_odyssey_spectral_55 = {
  name = "Mendel",
  text = {
- "Cartas criadas por outras cartas",
- "herdam {C:dark_edition}Edições{}",
- "e {C:attention}Aprimoramentos{}.{}"
+ "Todas as cartas do baralho",
+ "recebem uma {C:dark_edition}Edição{} aleatória",
+ "({C:dark_edition}Foil{}, {C:dark_edition}Holo{}",
+ "ou {C:dark_edition}Policromática{})."
  }
  },
  
@@ -8985,9 +8979,8 @@ return {
  c_odyssey_spectral_58 = {
  name = "Tesla",
  text = {
- "Concede {C:attention}Energia{}",
- "ilimitada para todos os seus",
- "itens que utilizam cargas."
+ "Concede {C:attention}+2{} espaços de",
+ "consumíveis permanentemente."
  }
  },
  
@@ -9023,20 +9016,19 @@ return {
  c_odyssey_spectral_61 = {
  name = "Marconi",
  text = {
- "Suas cartas transmitem",
- "{C:attention}Sinais{} (cartas{}",
- "iguais no baralho pontuam",
- "juntas)."
+ "Cartas com o mesmo {C:attention}Rank{}",
+ "de outra carta pontuada são",
+ "retrigadas."
  }
  },
  
  c_odyssey_spectral_62 = {
  name = "Wright",
  text = {
- "Suas cartas podem {C:blue}voar{}",
- "(não são afetadas por efeitos",
- "negativos que ocorrem no",
- "descarte)."
+ "Todas as cartas do baralho",
+ "tornam-se {C:green}Imunes{} a",
+ "efeitos de {C:red}Debuff{} de",
+ "Boss Blinds."
  }
  },
  
@@ -9054,19 +9046,17 @@ return {
  c_odyssey_spectral_64 = {
  name = "Babbage",
  text = {
- "Realiza {C:attention}cálculos{}",
- "complexos: Garante que a próxima",
- "mão pontue o máximo possível."
+ "Concede {X:mult,C:white} X5 Multi{} na",
+ "próxima mão jogada."
  }
  },
  
  c_odyssey_spectral_65 = {
  name = "Lovelace",
  text = {
- "Aplica uma lógica de",
- "{C:attention}Algoritmo{} ao seu{}",
- "baralho: Cartas são compradas na",
- "ordem ideal."
+ "Organiza todas as cartas do",
+ "baralho por {C:attention}Rank{}",
+ "(do menor ao maior)."
  }
  },
  
@@ -9083,10 +9073,9 @@ return {
  c_odyssey_spectral_67 = {
  name = "Berners-Lee",
  text = {
- "Conecta todos os seus",
- "{C:attention}Curingas{}: Eles{}",
- "passam a compartilhar e somar",
- "seus efeitos."
+ "Todos os seus {C:attention}Curingas{}",
+ "recebem {C:mult}+5 Multi{}",
+ "permanentemente."
  }
  },
  
@@ -9122,10 +9111,9 @@ return {
  c_odyssey_spectral_70 = {
  name = "Musk",
  text = {
- "Lança um foguete para",
- "{C:attention}Marte{}: Aumenta{}",
- "massivamente o nível da mão",
- "Flush."
+ "Aumenta o nível das",
+ "{C:attention}5 variações de Flush{}",
+ "em {C:attention}5{}."
  }
  },
  
@@ -9188,10 +9176,8 @@ return {
  c_odyssey_spectral_77 = {
  name = "Collins",
  text = {
- "Mantém você em",
- "{C:attention}Órbita{}: Seus{}",
- "consumíveis têm 50% de chance de",
- "não serem gastos."
+ "Duplica todos os seus",
+ "{C:spectral}Consumíveis{} atuais."
  }
  },
  
@@ -9229,17 +9215,17 @@ return {
  c_odyssey_spectral_80 = {
  name = "Laika",
  text = {
- "Homenagem à Laika: Seus Curingas",
- "de Animais tornam-se",
- "{C:attention}Eternos{}.{}"
+ "Todos os seus {C:attention}Curingas{}",
+ "tornam-se {C:attention}Eternos{}."
  }
  },
  
  c_odyssey_spectral_81 = {
  name = "Ham",
  text = {
- "Homenagem ao Ham: Seus Curingas",
- "de primatas ganham {C:chips}+100 Fichas{} permanentemente.{}"
+ "Todos os seus {C:attention}Curingas{}",
+ "recebem {C:chips}+100 Fichas{}",
+ "permanentemente."
  }
  },
  
@@ -9286,18 +9272,16 @@ return {
  c_odyssey_spectral_86 = {
  name = "Hadfield",
  text = {
- "Canta no espaço: Seus",
- "{C:attention}Curingas Musicais{}",
- "ganham {X:mult,C:white} X2 Multi.{}"
+ "Concede {X:mult,C:white} X2 Multi{} na",
+ "próxima mão jogada."
  }
  },
  
  c_odyssey_spectral_87 = {
  name = "Kelly",
  text = {
- "Estudo de Gêmeos: Duplica os",
- "efeitos de todos os",
- "{C:attention}Selos{} no seu{}",
+ "Adiciona um {C:attention}Selo{}",
+ "aleatório a cada carta do",
  "baralho."
  }
  },
@@ -9315,8 +9299,8 @@ return {
  c_odyssey_spectral_89 = {
  name = "Cristoforetti",
  text = {
- "Primeiro café no espaço: Suas",
- "mãos de poker ganham {C:mult}+5 Multi{} se jogadas rapidamente.{}"
+ "{C:mult}+5 Multi{} acumulado por",
+ "cada mão jogada nesta rodada."
  }
  },
  
@@ -9345,8 +9329,8 @@ return {
  text = {
  "Perspectiva do Reino Unido:",
  "Transforma todas as cartas de",
- "Espadas em {C:attention}Cartas{}",
- "de Realeza{}."
+ "{C:spades}Espadas{} em",
+ "{C:attention}Cartas de Rubi{}."
  }
  },
  
@@ -9413,19 +9397,19 @@ return {
  c_odyssey_spectral_98 = {
  name = "Vostok",
  text = {
- "A Nave Vostok: Garante que você",
- "sempre comece a rodada com a mão",
- "{C:attention}Flush{} disponível.{}"
+ "Aumenta o nível de",
+ "{C:attention}Flush{} e {C:attention}Flush Five{}",
+ "em {C:attention}3{}."
  }
  },
  
  c_odyssey_spectral_99 = {
  name = "Mercury",
  text = {
- "A Nave Mercury: Garante que você",
- "sempre comece a rodada com a mão",
- "{C:attention}Sequência{}",
- "disponível."
+ "Aumenta o nível de",
+ "{C:attention}Sequência{} e",
+ "{C:attention}Straight Flush{}",
+ "em {C:attention}3{}."
  }
  },
  

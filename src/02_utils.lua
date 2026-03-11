@@ -285,6 +285,39 @@ SMODS.current_mod.calculate = function(self, context)
             end
         end
 
+        -- Spectral: Darwin (54) +1 chip per scored card
+        if G.GAME.odyssey_darwin_active then
+            chips = chips + #(context.scoring_hand or {})
+        end
+
+        -- Spectral: Babbage (64) X5 next hand (consume)
+        if G.GAME.odyssey_babbage_xmult then
+            x_mult = x_mult * G.GAME.odyssey_babbage_xmult
+            G.GAME.odyssey_babbage_xmult = nil
+        end
+
+        -- Spectral: Hadfield (86) X2 next hand (consume)
+        if G.GAME.odyssey_hadfield_xmult then
+            x_mult = x_mult * G.GAME.odyssey_hadfield_xmult
+            G.GAME.odyssey_hadfield_xmult = nil
+        end
+
+        -- Spectral: Hopper (66) 10% chance X100
+        if G.GAME.odyssey_hopper_active and pseudorandom('hopper') < 0.1 then
+            x_mult = x_mult * 100
+        end
+
+        -- Spectral: Drake (35) X2 each hand this round
+        if G.GAME.odyssey_drake_active then
+            x_mult = x_mult * 2
+        end
+
+        -- Spectral: Cristoforetti (89) +5 stacking Mult per hand this round
+        if G.GAME.odyssey_cristoforetti_active then
+            G.GAME.odyssey_cristoforetti_stacks = (G.GAME.odyssey_cristoforetti_stacks or 0) + 5
+            mult = mult + G.GAME.odyssey_cristoforetti_stacks
+        end
+
         if chips > 0 or mult > 0 or x_mult > 1 then
             return {
                 message = "Odyssey!",
@@ -301,8 +334,34 @@ SMODS.current_mod.calculate = function(self, context)
         ease_dollars(#G.jokers.cards)
     end
 
+    -- Spectral: Newton (40) +1 hand per unscored card played
+    if context.after and G.GAME.odyssey_newton_active and context.full_hand and context.scoring_hand then
+        local unscored = #context.full_hand - #context.scoring_hand
+        if unscored > 0 then ease_hands_played(unscored) end
+    end
+
+    -- Spectral: Nakamoto (73) ±50% money each hand
+    if context.after and G.GAME.odyssey_nakamoto_active and (G.GAME.dollars or 0) > 0 then
+        local delta = math.floor(G.GAME.dollars * 0.5)
+        local sign = pseudorandom('nakamoto') > 0.5 and 1 or -1
+        ease_dollars(delta * sign)
+    end
+
     -- Bard Retrigger
     if context.repetition and context.cardarea == G.play then
+        -- Spectral: Penrose (47) 25% chance retrigger per scored card
+        if G.GAME.odyssey_penrose_active and pseudorandom('penrose') < 0.25 then
+            return { message = "Penrose!", repetitions = 1, card = context.other_card }
+        end
+        -- Spectral: Marconi (61) retrigger cards sharing rank with another scored card
+        if G.GAME.odyssey_marconi_active and context.other_card then
+            local card_rank = context.other_card.base.value
+            for _, c in ipairs(context.scoring_hand or {}) do
+                if c ~= context.other_card and c.base.value == card_rank then
+                    return { message = "Sinal!", repetitions = 1, card = context.other_card }
+                end
+            end
+        end
         if G.GAME.bard_retrigger and G.GAME.bard_retrigger > 0 then
             return {
                 message = "Bard!",
@@ -319,6 +378,22 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.odyssey_newton_active = nil
         G.GAME.odyssey_einstein_active = nil
         G.GAME.odyssey_drake_active = nil
+
+        -- Spectral: Curie (53) randomize ranks of all deck cards
+        if G.GAME.odyssey_curie_active then
+            local ranks = {'2','3','4','5','6','7','8','9','T','J','Q','K','A'}
+            for i=1, #G.playing_cards do
+                local nr = pseudorandom_element(ranks, pseudoseed('curie_eor'..i))
+                local sp = G.playing_cards[i].base.suit:sub(1,1)
+                if G.P_CARDS[sp..'_'..nr] then
+                    G.playing_cards[i]:set_base(G.P_CARDS[sp..'_'..nr])
+                end
+            end
+        end
+
+        -- Reset per-round stacking effects
+        G.GAME.odyssey_cristoforetti_stacks = 0
+        G.GAME.odyssey_heisenberg_active = nil
 
         -- Deflation: accumulate shop price discount
         if (G.GAME.odyssey_deflation_active or 0) > 0 then

@@ -247,11 +247,12 @@ local spectral_logic = {
     end,
     [21] = function(card, area, copier) -- Singularidade
         if #G.jokers.cards >= 2 then
-            for i=1, 2 do G.jokers.cards[1]:start_dissolve() end
-            local card = create_card('Joker', G.jokers, nil, 3, nil, nil, nil, 'sing')
-            card:set_edition({negative = true}, true)
-            card:add_to_deck()
-            G.jokers:emplace(card)
+            G.jokers.cards[1]:start_dissolve()
+            G.jokers.cards[2]:start_dissolve()
+            local new_joker = create_card('Joker', G.jokers, nil, 3, nil, nil, nil, 'sing')
+            new_joker:set_edition({negative = true}, true)
+            new_joker:add_to_deck()
+            G.jokers:emplace(new_joker)
         end
     end,
     [23] = function(card, area, copier) -- Salto
@@ -310,7 +311,27 @@ local spectral_logic = {
             ease_dollars(-G.GAME.dollars)
         end
     end,
-    [33] = function(card, area, copier) -- Pauli
+    [22] = function(card, area, copier) -- Big Bang
+        -- Reset hands/discards to starting values for this round + permanent X2 Mult
+        local hands_reset = G.GAME.round_resets.hands
+        local discards_reset = G.GAME.round_resets.discards
+        ease_hands_played(hands_reset - G.GAME.current_round.hands_left)
+        ease_discard(discards_reset - G.GAME.current_round.discards_left)
+        G.GAME.odyssey_spectral_1_xmult = (G.GAME.odyssey_spectral_1_xmult or 1) * 2
+    end,
+    [28] = function(card, area, copier) -- Cordas
+        -- -2 hand size + level up all hands by 1
+        G.GAME.starting_params.hand_size = (G.GAME.starting_params.hand_size or 8) - 2
+        G.hand:change_size(-2)
+        for k, v in pairs(G.GAME.hands) do
+            update_hand_stats(k, {level = 1})
+        end
+    end,
+    [32] = function(card, area, copier) -- Heisenberg
+        -- Hide blind score this round + gain $30
+        G.GAME.odyssey_heisenberg_active = true
+        ease_dollars(30)
+    end,
         local ranks = {}
         local has_pair = false
         for i=1, #G.hand.cards do
@@ -327,6 +348,7 @@ local spectral_logic = {
         G.jokers:emplace(card)
     end,
     [35] = function(card, area, copier) -- Drake
+        -- X2 Mult if hand played beats the blind (consumed per-hand by hook)
         G.GAME.odyssey_drake_active = true
     end,
     [36] = function(card, area, copier) -- Hubble
@@ -343,13 +365,31 @@ local spectral_logic = {
         end
     end,
     [39] = function(card, area, copier) -- Galileu
-        G.GAME.odyssey_galileo_active = true
+        -- Create 2 random Tarots immediately
+        for i=1, 2 do
+            if #G.consumeables.cards < G.consumeables.config.card_limit then
+                local new_card = create_card('Tarot', G.consumeables, nil, nil, nil, nil, nil, 'galileu'..i)
+                new_card:add_to_deck()
+                G.consumeables:emplace(new_card)
+            end
+        end
     end,
     [40] = function(card, area, copier) -- Newton
+        -- +1 hand counter when unscored cards are played (hook in 02_utils.lua)
         G.GAME.odyssey_newton_active = true
     end,
     [41] = function(card, area, copier) -- Einstein
         G.GAME.odyssey_einstein_active = true
+    end,
+    [42] = function(card, area, copier) -- Hawking
+        -- Create 2 random Spectrals in consumable area
+        for i=1, 2 do
+            if #G.consumeables.cards < G.consumeables.config.card_limit then
+                local new_card = create_card('Spectral', G.consumeables, nil, nil, nil, nil, nil, 'hawking'..i)
+                new_card:add_to_deck()
+                G.consumeables:emplace(new_card)
+            end
+        end
     end,
     [43] = function(card, area, copier) -- Sagan
         local count = 0
@@ -360,10 +400,42 @@ local spectral_logic = {
         end
         ease_dollars(count)
     end,
+    [44] = function(card, area, copier) -- Tyson
+        -- Level up all hands by 1
+        for k, v in pairs(G.GAME.hands) do
+            update_hand_stats(k, {level = 1})
+        end
+    end,
+    [45] = function(card, area, copier) -- Kaku
+        -- Level up all hands by 2 + +2 hand size
+        for k, v in pairs(G.GAME.hands) do
+            update_hand_stats(k, {level = 2})
+        end
+        G.GAME.starting_params.hand_size = (G.GAME.starting_params.hand_size or 8) + 2
+        G.hand:change_size(2)
+    end,
     [46] = function(card, area, copier) -- Greene
         local card = create_card('Joker', G.jokers, nil, 0.9, nil, nil, nil, 'greene')
         card:add_to_deck()
         G.jokers:emplace(card)
+    end,
+    [47] = function(card, area, copier) -- Penrose
+        -- 25% chance played cards retrigger once (hook in 02_utils.lua)
+        G.GAME.odyssey_penrose_active = true
+    end,
+    [48] = function(card, area, copier) -- Godel
+        -- Double blind req this round + X3 Mult as reward
+        G.GAME.chips_target = G.GAME.chips_target * 2
+        G.GAME.odyssey_spectral_1_xmult = (G.GAME.odyssey_spectral_1_xmult or 1) * 3
+    end,
+    [49] = function(card, area, copier) -- Turing
+        -- Create random Joker + gain $20
+        if #G.jokers.cards < G.jokers.config.card_limit then
+            local new_joker = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'turing')
+            new_joker:add_to_deck()
+            G.jokers:emplace(new_joker)
+        end
+        ease_dollars(20)
     end,
     [50] = function(card, area, copier) -- Oppenheimer
         for i=1, 5 do
@@ -373,11 +445,50 @@ local spectral_logic = {
         end
         G.GAME.odyssey_spectral_50_next_xmult = 10
     end,
+    [51] = function(card, area, copier) -- Feynman
+        -- All current Jokers gain +10 base Mult permanently
+        for i=1, #G.jokers.cards do
+            local j = G.jokers.cards[i]
+            if j.ability and j.ability.mult ~= nil then
+                j.ability.mult = j.ability.mult + 10
+            elseif j.ability then
+                j.ability.extra_mult = (j.ability.extra_mult or 0) + 10
+            end
+        end
+        G.GAME.odyssey_feynman_bonus = (G.GAME.odyssey_feynman_bonus or 0) + 10
+    end,
+    [52] = function(card, area, copier) -- Bohr
+        -- Shuffle hand card order
+        if G.hand and G.hand.cards and #G.hand.cards > 1 then
+            local cards = {}
+            for i=1, #G.hand.cards do cards[#cards+1] = G.hand.cards[i] end
+            -- Fisher-Yates shuffle
+            for i = #cards, 2, -1 do
+                local j = math.floor(pseudorandom('bohr_'..i) * i) + 1
+                cards[i], cards[j] = cards[j], cards[i]
+            end
+            -- Reorder cards in the area
+            for i = 1, #cards do
+                G.hand.cards[i] = cards[i]
+            end
+            G.hand:reorder()
+        end
+    end,
     [53] = function(card, area, copier) -- Curie
+        -- Randomize all deck card ranks at end of each round
         G.GAME.odyssey_curie_active = true
     end,
     [54] = function(card, area, copier) -- Darwin
+        -- Each scored card gains +1 permanent chip (hook in 02_utils.lua)
         G.GAME.odyssey_darwin_active = true
+    end,
+    [55] = function(card, area, copier) -- Mendel
+        -- All deck cards gain a random edition
+        local editions = {'foil', 'holo', 'polychrome'}
+        for i=1, #G.playing_cards do
+            local ed_key = editions[math.floor(pseudorandom('mendel_'..i) * #editions) + 1]
+            G.playing_cards[i]:set_edition({[ed_key] = true}, true)
+        end
     end,
     [56] = function(card, area, copier) -- Pasteur
         for i=1, #G.playing_cards do
@@ -389,7 +500,12 @@ local spectral_logic = {
             G.playing_cards[i].debuff = false
         end
     end,
-    [59] = function(card, area, copier) -- Edison
+    [58] = function(card, area, copier) -- Tesla
+        -- +2 consumable slots permanently
+        if G.consumeables and G.consumeables.config then
+            G.consumeables.config.card_limit = G.consumeables.config.card_limit + 2
+        end
+    end,
         local card = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'edison')
         card:add_to_deck()
         G.jokers:emplace(card)
@@ -399,8 +515,47 @@ local spectral_logic = {
         card:add_to_deck()
         G.consumeables:emplace(card)
     end,
+    [61] = function(card, area, copier) -- Marconi
+        -- Cards of same rank retrigger once (hook in 02_utils.lua)
+        G.GAME.odyssey_marconi_active = true
+    end,
+    [62] = function(card, area, copier) -- Wright
+        -- All playing cards become immune to Boss Blind debuffs
+        for i=1, #G.playing_cards do
+            G.playing_cards[i].ability.perma_debuff_immune = true
+        end
+    end,
     [63] = function(card, area, copier) -- Ford
          G.SETTINGS.GAMESPEED = 10
+    end,
+    [64] = function(card, area, copier) -- Babbage
+        -- Next hand played gains X5 Mult
+        G.GAME.odyssey_babbage_xmult = 5
+    end,
+    [65] = function(card, area, copier) -- Lovelace
+        -- Sort deck by rank permanently
+        if G.playing_cards and #G.playing_cards > 1 then
+            local rank_order = {['2']=2,['3']=3,['4']=4,['5']=5,['6']=6,['7']=7,['8']=8,['9']=9,['T']=10,['J']=11,['Q']=12,['K']=13,['A']=14}
+            table.sort(G.playing_cards, function(a, b)
+                local ra = rank_order[a.base.value] or 0
+                local rb = rank_order[b.base.value] or 0
+                return ra < rb
+            end)
+        end
+    end,
+    [66] = function(card, area, copier) -- Hopper
+        -- 10% chance any hand scores X100 (persistent flag, hook in 02_utils.lua)
+        G.GAME.odyssey_hopper_active = true
+    end,
+    [67] = function(card, area, copier) -- Berners-Lee
+        -- All current Jokers gain +5 base Mult permanently
+        for i=1, #G.jokers.cards do
+            local j = G.jokers.cards[i]
+            if j.ability and j.ability.mult ~= nil then
+                j.ability.mult = j.ability.mult + 5
+            end
+        end
+        G.GAME.odyssey_berners_bonus = (G.GAME.odyssey_berners_bonus or 0) + 5
     end,
     [68] = function(card, area, copier) -- Jobs
         if G.hand.highlighted[1] then
@@ -408,6 +563,28 @@ local spectral_logic = {
             local new_card = create_card('Base', G.deck, nil, nil, nil, nil, nil, 'jobs')
             c:set_base(new_card.config.center)
             new_card:remove()
+        end
+    end,
+    [69] = function(card, area, copier) -- Gates
+        -- Flip top 5 deck cards face-up
+        if G.deck and G.deck.cards then
+            local total = #G.deck.cards
+            for i = total, math.max(1, total - 4), -1 do
+                if G.deck.cards[i] then
+                    G.deck.cards[i].facing = 'front'
+                    G.deck.cards[i].sprite_facing = 'front'
+                    G.deck.cards[i]:juice_up(0.3, 0.3)
+                end
+            end
+        end
+    end,
+    [70] = function(card, area, copier) -- Musk
+        -- Level up all Flush variants by 5
+        local flush_hands = {'Flush', 'Flush House', 'Flush Five', 'Straight Flush', 'Royal Flush'}
+        for _, hand_name in ipairs(flush_hands) do
+            if G.GAME.hands[hand_name] then
+                update_hand_stats(hand_name, {level = 5})
+            end
         end
     end,
     [71] = function(card, area, copier) -- Bezos
@@ -420,6 +597,10 @@ local spectral_logic = {
     [72] = function(card, area, copier) -- Zuckerberg
         G.GAME.odyssey_zuckerberg_active = true
         card_eval_status_text(card, 'extra', nil, nil, nil, {message = "Rede Social!", colour = G.C.FILTER})
+    end,
+    [73] = function(card, area, copier) -- Nakamoto
+        -- Money fluctuates ±50% each hand played (hook in 02_utils.lua)
+        G.GAME.odyssey_nakamoto_active = true
     end,
     [74] = function(card, area, copier) -- Vitalik
         G.GAME.odyssey_vitalik_active = true
@@ -440,6 +621,20 @@ local spectral_logic = {
             G.jokers:emplace(copy)
         end
     end,
+    [77] = function(card, area, copier) -- Collins
+        -- Duplicate all current consumables in hand
+        local to_dupe = {}
+        for i=1, #G.consumeables.cards do
+            to_dupe[#to_dupe+1] = G.consumeables.cards[i]
+        end
+        for i=1, #to_dupe do
+            if #G.consumeables.cards < G.consumeables.config.card_limit then
+                local copy = copy_card(to_dupe[i])
+                copy:add_to_deck()
+                G.consumeables:emplace(copy)
+            end
+        end
+    end,
     [78] = function(card, area, copier) -- Gagarin
         local card = create_card('Voucher', G.shop_vouchers, nil, nil, nil, nil, nil, 'gagarin')
         card:apply_to_run()
@@ -450,6 +645,22 @@ local spectral_logic = {
                 G.playing_cards[i]:set_edition({polychrome = true}, true)
             end
         end
+    end,
+    [80] = function(card, area, copier) -- Laika
+        -- All current Jokers become Eternal
+        for i=1, #G.jokers.cards do
+            G.jokers.cards[i]:set_eternal(true)
+        end
+    end,
+    [81] = function(card, area, copier) -- Ham
+        -- All current Jokers gain +100 Chips permanently
+        for i=1, #G.jokers.cards do
+            local j = G.jokers.cards[i]
+            if j.ability then
+                j.ability.extra_chips = (j.ability.extra_chips or 0) + 100
+            end
+        end
+        G.GAME.odyssey_ham_bonus = (G.GAME.odyssey_ham_bonus or 0) + 100
     end,
     [82] = function(card, area, copier) -- Shepard
         if #G.playing_cards > 0 then
@@ -469,9 +680,32 @@ local spectral_logic = {
         end
         ease_dollars(100)
     end,
+    [84] = function(card, area, copier) -- Leonov
+        -- Keep 2 highlighted cards in hand next round
+        local kept = 0
+        for i=1, #G.hand.highlighted do
+            if kept < 2 then
+                G.hand.highlighted[i].odyssey_keep_next_round = true
+                kept = kept + 1
+            end
+        end
+        G.GAME.odyssey_leonov_keep_count = kept
+    end,
     [85] = function(card, area, copier) -- Ride
         add_tag(Tag('tag_coupon'))
         add_tag(Tag('tag_investment'))
+    end,
+    [86] = function(card, area, copier) -- Hadfield
+        -- All Jokers gain X2 Mult for next hand played
+        G.GAME.odyssey_hadfield_xmult = 2
+    end,
+    [87] = function(card, area, copier) -- Kelly
+        -- Add a random Seal to all deck cards
+        local seals = {'Gold', 'Red', 'Blue', 'Purple'}
+        for i=1, #G.playing_cards do
+            local seal = seals[math.floor(pseudorandom('kelly_'..i) * #seals) + 1]
+            G.playing_cards[i]:set_seal(seal)
+        end
     end,
     [88] = function(card, area, copier) -- Pesquet
         for i=1, #G.playing_cards do
@@ -480,10 +714,22 @@ local spectral_logic = {
             end
         end
     end,
+    [89] = function(card, area, copier) -- Cristoforetti
+        -- +5 Mult stacking per hand played this round (hook in 02_utils.lua)
+        G.GAME.odyssey_cristoforetti_active = true
+        G.GAME.odyssey_cristoforetti_stacks = 0
+    end,
     [90] = function(card, area, copier) -- Gerst
         for i=1, #G.playing_cards do
             if G.playing_cards[i].base.suit == 'Clubs' then
                 G.playing_cards[i]:set_ability(G.P_CENTERS.m_odyssey_rubber, nil)
+            end
+        end
+    end,
+    [91] = function(card, area, copier) -- Peake
+        for i=1, #G.playing_cards do
+            if G.playing_cards[i].base.suit == 'Spades' then
+                G.playing_cards[i]:set_ability(G.P_CENTERS.m_odyssey_ruby, nil)
             end
         end
     end,
@@ -521,13 +767,16 @@ local spectral_logic = {
         ease_dollars(15)
     end,
     [98] = function(card, area, copier) -- Vostok
-        G.GAME.odyssey_vostok_active = true
+        update_hand_stats('Flush', {level = 3})
+        if G.GAME.hands['Flush Five'] then update_hand_stats('Flush Five', {level = 3}) end
     end,
     [99] = function(card, area, copier) -- Mercury
-        G.GAME.odyssey_mercury_vessel_active = true
+        update_hand_stats('Straight', {level = 3})
+        if G.GAME.hands['Straight Flush'] then update_hand_stats('Straight Flush', {level = 3}) end
     end,
     [100] = function(card, area, copier) -- Gemini
-        G.GAME.odyssey_gemini_active = true
+        update_hand_stats('Two Pair', {level = 3})
+        update_hand_stats('Pair', {level = 3})
     end,
 }
 
