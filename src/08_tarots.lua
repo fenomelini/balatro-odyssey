@@ -36,7 +36,9 @@ for _, t in ipairs(tarots) do
             end
 
             -- Special condition Tarots
-            if id == 34 then -- Mind: requires cards in hand
+            if id == 30 or id == 31 then -- Matter / Energy: adds cards to hand, only valid during play
+                return G.STATE == G.STATES.HAND_PLAYED or G.STATE == G.STATES.DRAW_TO_HAND or G.STATE == G.STATES.SELECTING_HAND
+            elseif id == 34 then -- Mind: requires cards in hand
                 return #G.hand.cards > 0
             elseif id == 1 then -- Fool
                 return G.GAME.last_consumeable and G.GAME.last_consumeable.set ~= 'Spectral'
