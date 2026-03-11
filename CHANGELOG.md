@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6-alpha] - 2026-03-11
+
+### Fixed
+- **Shop Slot Expansion — Completely Non-Functional**: The `shop_extra_joker_slots` tracking variable was written by multiple systems but never read anywhere in the codebase. As a result, no shop slot expansion ever took effect. Fixed by replacing all usages with direct calls to `change_shop_size(N)`, the correct game API that actually resizes the shop UI and populates new slots. Affected: Baralho Vácuo deck (`apply`) and 10 vouchers: `Cloning`, `Replicator`, `Library`, `Archives`, `Deep Space Obs`, `Planetarium`, `Laboratory`, `Research Center`, `Card`, and `Deck`.
+- **Matter & Energy Tarots — Floating Cards in Shop**: Using Tarots 30 (Matter) and 31 (Energy) from the shop caused newly created Emerald/Plastic cards to appear floating in front of the shop UI. These tarots call `G.hand:emplace()` to add cards directly into the hand area, which requires the hand to be visible on screen. Fixed by restricting their use to the three valid play states (`SELECTING_HAND`, `HAND_PLAYED`, `DRAW_TO_HAND`) where the hand area is rendered and `emplace` positions correctly.
+
 ## [0.1.5-alpha] - 2026-03-10
 
 ### Added
