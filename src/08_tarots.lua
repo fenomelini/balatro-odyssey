@@ -65,6 +65,8 @@ for _, t in ipairs(tarots) do
                 return #G.jokers.cards < G.jokers.config.card_limit or card.area == G.jokers
             elseif id == 71 or id == 52 or id == 3 or id == 5 then -- Consumable Tarots
                 return #G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables
+            elseif id == 75 then -- Creator (can create Joker OR consumable)
+                return #G.jokers.cards < G.jokers.config.card_limit or #G.consumeables.cards < G.consumeables.config.card_limit
             end
 
             -- Instant Tarots
@@ -566,9 +568,11 @@ for _, t in ipairs(tarots) do
                 ease_dollars(20)
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = "-1 Tam. Mão, +$20", colour = G.C.GOLD})
             elseif id == 75 then -- Creator
-                local _card = create_card(pseudorandom_element({'Tarot', 'Planet', 'Spectral', 'Joker'}, pseudoseed('creator')), G.consumeables, nil, nil, nil, nil, nil, 'creator')
+                local card_type = pseudorandom_element({'Tarot', 'Planet', 'Spectral', 'Joker'}, pseudoseed('creator'))
+                local target_area = card_type == 'Joker' and G.jokers or G.consumeables
+                local _card = create_card(card_type, target_area, nil, nil, nil, nil, nil, 'creator')
                 _card:add_to_deck()
-                G.consumeables:emplace(_card)
+                target_area:emplace(_card)
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_active_ex'), colour = G.C.FILTER})
             elseif id == 76 then -- Observer
                 -- Revela o Boss: Na prática do mod, troca o boss atual por um novo
