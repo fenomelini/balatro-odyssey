@@ -599,6 +599,7 @@ for _, t in ipairs(tarots) do
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = "+1 Tam. Mão", colour = G.C.BLUE})
             elseif id == 73 then -- Builder
                 G.GAME.round_resets.discards = G.GAME.round_resets.discards + 1
+                ease_discard(1)
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = "+1 Descarte", colour = G.C.RED})
             elseif id == 74 then -- Destroyer
                 G.hand:change_size(-1)
