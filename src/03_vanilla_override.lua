@@ -168,3 +168,35 @@ function create_card(_type, area, legendary, _rarity, skip_materialize, soulable
     return old_create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
 end
 
+-- Magician / Illusionist Voucher: hooks for Tarot card usage
+local old_use_consumeable = Card.use_consumeable
+function Card:use_consumeable(area, copier)
+    -- Capture state before original runs (card may be destroyed after)
+    local is_tarot = self.config and self.config.center and self.config.center.set == 'Tarot'
+    local center_key = self.config and self.config.center_key
+    local is_second_use = self.ability and self.ability.odyssey_second_use
+
+    old_use_consumeable(self, area, copier)
+
+    if not is_tarot or copier then return end
+
+    -- Magician Voucher: give $1 per tarot used
+    local reward = G.GAME and G.GAME.face_card_tarot_reward or 0
+    if reward > 0 then
+        ease_dollars(reward)
+    end
+
+    -- Illusionist Voucher: re-add tarot to consumables for a second use
+    if G.GAME and G.GAME.tarot_double_use and not is_second_use and center_key then
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, func = function()
+            if G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit then
+                local new_card = create_card('Tarot', G.consumeables, nil, nil, nil, nil, center_key)
+                new_card.ability.odyssey_second_use = true
+                new_card:add_to_deck()
+                G.consumeables:emplace(new_card)
+            end
+            return true
+        end}))
+    end
+end
+

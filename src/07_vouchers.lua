@@ -974,7 +974,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_magician' },
     redeem = function(self)
-        G.GAME.face_card_tarot_reward = (G.GAME.face_card_tarot_reward or 0) + 1
+        G.GAME.tarot_double_use = true
     end
 }
 

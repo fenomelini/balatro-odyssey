@@ -9920,8 +9920,8 @@ return {
  v_odyssey_magician = {
  name = "Mago",
  text = {
- "Cartas de {C:tarot}Tarô{} dão bônus{}",
- "de dinheiro"
+ "Usar uma carta de {C:tarot}Tarô{}",
+ "dá {C:money}$1{} após o uso"
  }
  },
  v_odyssey_illusionist = {
