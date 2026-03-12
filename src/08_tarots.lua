@@ -539,9 +539,17 @@ for _, t in ipairs(tarots) do
                 if #pool > 0 then
                     local _card = pseudorandom_element(pool, pseudoseed('thief'))
                     local area = (_card.ability.set == 'Joker' or not _card.ability.set) and G.jokers or G.consumeables
-                    _card:add_to_deck()
-                    area:emplace(_card)
-                    _card:juice_up()
+                    G.E_MANAGER:add_event(Event({trigger = 'immediate', func = function()
+                        _card.area:remove_card(_card)
+                        if _card.children.price then _card.children.price:remove() end
+                        _card.children.price = nil
+                        if _card.children.buy_button then _card.children.buy_button:remove() end
+                        _card.children.buy_button = nil
+                        _card:add_to_deck()
+                        area:emplace(_card)
+                        _card:juice_up()
+                        return true
+                    end}))
                 end
             elseif id == 69 then -- Guardian
                 if #highlighted >= 1 then
