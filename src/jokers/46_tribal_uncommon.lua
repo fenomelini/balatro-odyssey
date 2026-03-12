@@ -218,8 +218,8 @@ SMODS.Joker({
             G.GAME.current_round.odyssey_shaman_activated = true
             local suits = {'Spades', 'Hearts', 'Clubs', 'Diamonds'}
             local new_suit = pseudorandom_element(suits, pseudoseed('shaman'))
-            for i = 1, #G.hand.cards do
-                G.hand.cards[i]:change_suit(new_suit)
+            for i = 1, #G.play.cards do
+                G.play.cards[i]:change_suit(new_suit)
             end
             return {
                 message = localize('k_suit'),
