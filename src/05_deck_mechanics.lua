@@ -84,20 +84,7 @@ Card.calculate_joker = function(self, context)
         })
     end
 
-    -- Deck 18: Timeline (Add % of previous score)
-    if deck_key == 'timeline' and context.joker_main then
-        local stored = 0
-        if G.GAME.selected_back.effect.config.extra and G.GAME.selected_back.effect.config.extra.stored_score then
-            stored = G.GAME.selected_back.effect.config.extra.stored_score
-        end
-        if stored > 0 then
-             return merge_effect(ret, {
-                message = localize{type='variable', key='a_chips', vars={stored}},
-                chip_mod = stored,
-                colour = G.C.CHIPS
-            })
-        end
-    end
+    -- Deck 18: Timeline bonus is applied post-scoring in draw_from_play_to_discard hook
 
     ------------------------------------------------------------------------
     -- NEW BARALHOS (41-100) IMPLEMENTATION (Merges)
@@ -350,19 +337,30 @@ G.FUNCS.draw_from_play_to_discard = function(e)
     local deck_key = get_deck_key()
     
     if deck_key == 'timeline' then
+        -- Compute this hand's score before any modification
         local current_chips = G.GAME.chips
         local previous_chips = G.GAME.odyssey_temp_chips or 0
         local hand_score = current_chips - previous_chips
-        
+
+        -- Get previously stored bonus (10% of last hand), to apply NOW
+        local stored = 0
+        if G.GAME.selected_back and G.GAME.selected_back.effect and
+           G.GAME.selected_back.effect.config and G.GAME.selected_back.effect.config.extra then
+            stored = G.GAME.selected_back.effect.config.extra.stored_score or 0
+        end
+
+        -- Save 10% of this hand's score for NEXT hand
         if hand_score > 0 then
-            local to_store = math.floor(hand_score * 0.1)
             G.GAME.selected_back.effect.config.extra = G.GAME.selected_back.effect.config.extra or {}
-            G.GAME.selected_back.effect.config.extra.stored_score = to_store
-            
-            -- Visual feedback
+            G.GAME.selected_back.effect.config.extra.stored_score = math.floor(hand_score * 0.1)
+        end
+
+        -- Apply previously stored bonus (flat, post-scoring addition)
+        if stored > 0 then
+            ease_chips(stored)
             if G.play.cards[1] then
                 card_eval_status_text(G.play.cards[1], 'extra', nil, nil, nil, {
-                    message = localize{type='variable', key='a_chips', vars={to_store}},
+                    message = localize{type='variable', key='a_chips', vars={stored}},
                     colour = G.C.CHIPS
                 })
             end
