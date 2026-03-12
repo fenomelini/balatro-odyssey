@@ -9847,7 +9847,7 @@ return {
  name = "Mechanic",
  text = {
  "{C:attention}Enhanced cards{}",
- "appear more često"
+ "appear more often"
  }
  },
  v_odyssey_engineer = {
