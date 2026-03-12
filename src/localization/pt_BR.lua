@@ -6970,7 +6970,8 @@ return {
  j_odyssey_j_tribal_seer = {
  name = "Vidente",
  text = {
- "Mostra o naipe da próxima", "carta do baralho.", "{C:attention}+5 {}{C:mult}Multi{}.{}"
+ "{C:mult}+#1#{} Multi{}",
+ "Próximo naipe: {C:attention}#2#{}"
  }
  },
  

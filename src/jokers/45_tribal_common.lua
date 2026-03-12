@@ -650,7 +650,7 @@ SMODS.Joker({
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
         local next_card = (G.deck and G.deck.cards) and G.deck.cards[#G.deck.cards] or nil
-        local next_suit = next_card and next_card.base.suit or 'None'
+        local next_suit = next_card and localize(next_card.base.suit, 'suits_singular') or '?'
         return { vars = { ( (card and card.ability and card.ability.extra) or self.config.extra ).mult, next_suit } }
     end,
     calculate = function(self, card, context)

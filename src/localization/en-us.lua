@@ -6970,7 +6970,8 @@ return {
  j_odyssey_j_tribal_seer = {
  name = "Seer",
  text = {
- "Shows the suit of the next card in deck.", "{C:attention}+5 {}{C:mult}Mult{} Mult{}.{}"
+ "{C:mult}+#1#{} Mult{}",
+ "Next card suit: {C:attention}#2#{}"
  }
  },
  
