@@ -158,3 +158,13 @@ function Card:generate_UIBox_ability_table()
     return res
 end
 
+-- Mechanic Voucher: force Enhanced type for playing cards generated in the shop/packs
+local old_create_card = create_card
+function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
+    if G.GAME and G.GAME.odyssey_mechanic_active and _type == 'Base'
+        and area and (area == G.shop_jokers or area == G.pack_cards) then
+        _type = 'Enhanced'
+    end
+    return old_create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
+end
+

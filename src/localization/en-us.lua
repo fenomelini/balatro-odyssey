@@ -9853,8 +9853,8 @@ return {
  v_odyssey_engineer = {
  name = "Engineer",
  text = {
- "{C:attention}Jokers{} come with{}",
- "{C:attention}Editions{} more often{}"
+ "{C:attention}Jokers{} come with",
+ "{C:attention}Editions{} more often"
  }
  },
  v_odyssey_artist = {

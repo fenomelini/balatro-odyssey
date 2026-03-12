@@ -882,7 +882,8 @@ SMODS.Voucher{
     atlas = 'v_mechanic',
     cost = 10,
     redeem = function(self)
-        G.GAME.consumeable_usage_money = (G.GAME.consumeable_usage_money or 0) + 1
+        G.GAME.playing_card_rate = (G.GAME.playing_card_rate or 0) + 1
+        G.GAME.odyssey_mechanic_active = true
     end
 }
 
@@ -895,7 +896,7 @@ SMODS.Voucher{
     cost = 10,
     requires = { 'v_odyssey_mechanic' },
     redeem = function(self)
-        G.GAME.consumeable_usage_money = (G.GAME.consumeable_usage_money or 0) + 1
+        G.GAME.edition_rate = (G.GAME.edition_rate or 1) * 2
     end
 }
 
