@@ -6,13 +6,40 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
+#### Jokers
+
+- **Basilisk**: Description was incorrectly listing the wrong card type. Now correctly references Emerald cards in both languages.
+- **Seer**: The next card's suit was not being shown in the description as promised. The suit now displays correctly. Mult formatting was also wrong and has been corrected.
+- **Shaman**: Was permanently enhancing cards that stayed in hand instead of only the cards actually played. Now only affects the cards you play.
+- **Syntax Error**: Two values — Chips and Money — were completely missing from the description, showing blank spaces. Both now display correctly.
+- **The Sage (#70)**: Using this Joker was crashing the game. Fixed.
+
 #### Tarots
 
+- **The Thief (#11)**: When stealing a card from the shop, the card was being added to your inventory without being removed from the shop, leaving a ghost copy behind. It is now correctly removed from the shop when taken.
+- **The Soul (#12)**: Was creating common or uncommon Jokers instead of the Legendary Joker it is supposed to produce. Now correctly gives a Legendary Joker.
+- **King / Queen / Jack / Ace (#13)**: Were always creating cards with the same fixed suit instead of a random one. The suit is now properly randomized each time.
+- **The Fool & Fool II (#15 / #27)**: These cards could never be used — they were looking for a field that doesn't exist in the game. Both now work correctly.
+- **Builder (#21)**: Was granting the extra discard only at the start of the next round instead of immediately in the current round. Now grants the discard right away.
+- **The Lie (#22)**: Cards were not actually being hidden — they were just staying face-up. Cards now correctly flip face-down. The money shown in the description was also missing its yellow color formatting.
 - **The Dream (#52) & The Nightmare (#53)**: When used, these cards were creating base game Tarot/Spectral cards (such as "The High Priestess") instead of Odyssey-exclusive ones. Both cards now always produce a random Odyssey card of the correct type. Descriptions updated in both languages to clarify the effect.
 - **The Order (#40)**: Two bugs fixed. (1) The promised +10 permanent Chip bonus to all cards in hand was never actually happening — the card was only rearranging the hand visually without granting any bonus. It now correctly sorts the hand by Suit and gives every card in hand a permanent +10 Chips bonus. (2) The English description had the wrong name ("Order" instead of "The Order") and showed the Portuguese word "Fichas" instead of "Chips".
 
+#### Planets
+
+- **Kepler / Kepler-452b (#23)**: The level-up animation was playing once for each poker hand in the game, causing a long freeze. It now plays a single animation and instantly levels up all hands at once.
+
+#### Vouchers
+
+- **Magician**: Was not granting the $1 reward when a Tarot was used. Now correctly pays out each time. The Illusionist (its upgrade) was also not adding the Tarot back for a second use — this has been fixed.
+- **Shadow**: The debuff immunity granted by this voucher was not being respected. Cards were still being debuffed by Boss Blinds as normal. Now works correctly.
+- **Mechanic & Engineer**: Both vouchers existed in the game but did absolutely nothing when redeemed. Their intended effects are now fully implemented.
+- **Mechanic** (description): Fixed a text typo in the English description.
+
 #### Decks
 
+- **O Caos (Chaos Blind)**: The "suits change randomly after each discard" mechanic was completely missing — the blind existed but did nothing special. Suit randomization now triggers correctly after every discard.
+- **Order Deck**: Two bugs fixed. (1) The deck was never actually sorting the cards — the sort was never being called. The deck now correctly starts each round in order from lowest to highest rank so you draw 2s first. (2) The X2 Mult bonus for playing cards in order was firing multiple times (once per Joker owned) instead of once per hand, meaning with 5 Jokers it was giving X64 Mult. Now correctly fires once per hand.
 - **Timeline Deck**: The "10% of previous hand score added to current hand" bonus was completely non-functional — it never triggered during play. The bonus now correctly applies at the end of every hand, regardless of how many Jokers you have. The timing was also fixed: the bonus from the previous hand is now applied to the current hand, and 10% of the current hand is saved for the next one, as intended.
 - **Leviathan Deck**: The English version of the deck was showing its name and description in Portuguese. Corrected to display proper English text.
 
