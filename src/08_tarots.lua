@@ -370,8 +370,20 @@ for _, t in ipairs(tarots) do
                     G.hand.cards[i]:set_base(G.P_CARDS[s..'_'..r])
                     G.hand.cards[i]:juice_up()
                 end
-            elseif id == 40 then -- Order
-                G.hand:sort()
+            elseif id == 40 then -- Order: sort hand by suit and give all hand cards +10 chips permanently
+                G.hand:sort('suit asc')
+                local hand_cards = {}
+                for i = 1, #G.hand.cards do hand_cards[#hand_cards+1] = G.hand.cards[i] end
+                tarot_flip_cards(hand_cards, function(cs)
+                    for _, c in ipairs(cs) do
+                        c.ability.perma_bonus = (c.ability.perma_bonus or 0) + 10
+                        c:juice_up()
+                        card_eval_status_text(c, 'extra', nil, nil, nil, {
+                            message = localize{type='variable', key='a_chips', vars={10}},
+                            colour = G.C.CHIPS
+                        })
+                    end
+                end)
             elseif id == 41 then -- Balance
                 ease_dollars(25 - G.GAME.dollars)
             elseif id == 42 then -- Infinity

@@ -7306,9 +7306,10 @@ return {
  },
  
  c_odyssey_tarot_40 = {
- name = "Order",
+ name = "The Order",
  text = {
- "Rearranges your hand. All cards", "in hand gain {C:chips}+10 Fichas{} permanently"
+ "Sorts your hand by {C:attention}Suit{}.",
+ "All cards in hand gain {C:chips}+10 Chips{} permanently."
  }
  },
  
