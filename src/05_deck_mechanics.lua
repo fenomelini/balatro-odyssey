@@ -84,35 +84,6 @@ Card.calculate_joker = function(self, context)
         })
     end
 
-    -- Deck 16: Order (Bonus for playing in order)
-    if deck_key == 'order' and context.joker_main then
-        -- Check if played cards are in rank order (ascending or descending)
-        local ordered = true
-        if #context.scoring_hand > 1 then
-            local ascending = true
-            local descending = true
-            for i = 1, #context.scoring_hand - 1 do
-                if context.scoring_hand[i].base.id >= context.scoring_hand[i+1].base.id then
-                    ascending = false
-                end
-                if context.scoring_hand[i].base.id <= context.scoring_hand[i+1].base.id then
-                    descending = false
-                end
-            end
-            ordered = ascending or descending
-        else
-            ordered = false
-        end
-
-        if ordered then
-             return merge_effect(ret, {
-                message = localize{type='variable', key='a_xmult', vars={2}},
-                Xmult_mod = 2,
-                colour = G.C.MULT
-            })
-        end
-    end
-
     -- Deck 18: Timeline (Add % of previous score)
     if deck_key == 'timeline' and context.joker_main then
         local stored = 0
@@ -856,4 +827,52 @@ Card.sell_card = function(self, selling_to_shop)
         }))
     end
     old_sell_card(self, selling_to_shop)
+end
+
+-- 19. CardArea:shuffle (For Order Deck: sort by rank instead of randomizing)
+local old_shuffle = CardArea.shuffle
+CardArea.shuffle = function(self, _seed)
+    if self == G.deck and get_deck_key() == 'order' then
+        -- Sort descending so lowest-rank cards (2s) are at the end and drawn first
+        table.sort(self.cards, function(a, b) return a.base.id > b.base.id end)
+        self:set_ranks()
+    else
+        old_shuffle(self, _seed)
+    end
+end
+
+-- 20. Blind:modify_hand (For Order Deck: X2 Mult when play cards are in rank order)
+local old_modify_hand = Blind.modify_hand
+Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
+    local ret_mult, ret_chips, triggered = old_modify_hand(self, cards, poker_hands, text, mult, hand_chips)
+
+    if get_deck_key() == 'order' and cards and #cards > 1 then
+        -- Sort a copy by screen X position (same order the evaluator uses)
+        local sorted = {}
+        for k, v in ipairs(cards) do sorted[k] = v end
+        table.sort(sorted, function(a, b) return (a.T and a.T.x or 0) < (b.T and b.T.x or 0) end)
+
+        local ascending = true
+        local descending = true
+        for i = 1, #sorted - 1 do
+            if sorted[i].base.id >= sorted[i+1].base.id then ascending = false end
+            if sorted[i].base.id <= sorted[i+1].base.id then descending = false end
+        end
+
+        if ascending or descending then
+            ret_mult = ret_mult * 2
+            -- Show X2 floating text on first play card
+            if sorted[1] then
+                G.E_MANAGER:add_event(Event({ func = function()
+                    card_eval_status_text(sorted[1], 'extra', nil, nil, nil, {
+                        message = localize{type='variable', key='a_xmult', vars={2}},
+                        colour = G.C.MULT
+                    })
+                    return true
+                end}))
+            end
+        end
+    end
+
+    return ret_mult, ret_chips, triggered
 end

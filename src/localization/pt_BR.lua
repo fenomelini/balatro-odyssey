@@ -11060,7 +11060,9 @@ return {
  b_odyssey_order = {
  name = "Baralho da Ordem",
  text = {
- "O baralho inicial é", "{C:attention}perfeitamente ordenado{}", "Mãos jogadas em ordem dão bônus"
+ "Baralho inicial {C:attention}perfeitamente ordenado{}",
+ "Jogue cartas em ordem de classe para dar",
+ "{X:mult,C:white} X2 {} Multi"
  }
  },
  

@@ -10931,7 +10931,9 @@ return {
  b_odyssey_order = {
  name = "Order Deck",
  text = {
- "Starting deck is", "{C:attention}perfectly sorted{}", "Playing hands in order gives bonus"
+ "Starting deck is {C:attention}perfectly sorted{}",
+ "Play cards in rank order to give",
+ "{X:mult,C:white} X2 {} Mult"
  }
  },
  
