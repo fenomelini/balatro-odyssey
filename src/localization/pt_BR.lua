@@ -7029,7 +7029,8 @@ return {
  c_odyssey_tarot_1 = {
  name = "O Louco",
  text = {
- "Cria o último Tarot ou Planeta", "usado nesta rodada."
+ "Cria o último {C:tarot}Tarô{} ou", "{C:planet}Planeta{} usado.",
+ "{C:inactive}(Último: #1#){}"
  
  }
  },
@@ -7576,7 +7577,8 @@ return {
  c_odyssey_tarot_71 = {
  name = "O Louco II",
  text = {
- "Copia uma carta de consumível."
+ "Copia o último {C:tarot}Tarô{} ou", "{C:planet}Planeta{} usado.",
+ "{C:inactive}(Último: #1#){}"
  
  }
  },

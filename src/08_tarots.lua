@@ -41,7 +41,8 @@ for _, t in ipairs(tarots) do
             elseif id == 34 then -- Mind: requires cards in hand
                 return #G.hand.cards > 0
             elseif id == 1 then -- Fool
-                return G.GAME.last_consumeable and G.GAME.last_consumeable.set ~= 'Spectral'
+                return G.GAME.last_tarot_planet and G.GAME.last_tarot_planet ~= 'c_odyssey_tarot_1' and
+                       (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables)
             elseif id == 60 then -- Life
                 return G.GAME.last_destroyed_joker ~= nil
             elseif id == 61 then -- Death II (Joker)
@@ -65,7 +66,10 @@ for _, t in ipairs(tarots) do
                 return true
             elseif id == 47 or id == 48 or id == 46 or id == 32 or id == 21 or id == 66 then -- Joker Tarots
                 return #G.jokers.cards < G.jokers.config.card_limit or card.area == G.jokers
-            elseif id == 71 or id == 52 or id == 3 or id == 5 then -- Consumable Tarots
+            elseif id == 71 then -- Fool II
+                return G.GAME.last_tarot_planet and G.GAME.last_tarot_planet ~= 'c_odyssey_tarot_71' and
+                       (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables)
+            elseif id == 52 or id == 3 or id == 5 then -- Consumable Tarots
                 return #G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables
             elseif id == 75 then -- Creator (can create Joker OR consumable)
                 return #G.jokers.cards < G.jokers.config.card_limit or #G.consumeables.cards < G.consumeables.config.card_limit
@@ -94,6 +98,11 @@ for _, t in ipairs(tarots) do
                 info_queue[#info_queue+1] = G.P_CENTERS.e_holo
                 info_queue[#info_queue+1] = G.P_CENTERS.e_polychrome
             end
+            if id == 1 or id == 71 then
+                local fool_c = G.GAME.last_tarot_planet and G.P_CENTERS[G.GAME.last_tarot_planet]
+                local last_name = fool_c and localize{type = 'name_text', key = fool_c.key, set = fool_c.set} or localize('k_none')
+                return { vars = { last_name } }
+            end
             return { vars = {} }
         end,
         use = function(self, card, area, copier)
@@ -101,8 +110,8 @@ for _, t in ipairs(tarots) do
             local highlighted = G.hand.highlighted
 
             if id == 1 then -- Fool
-                if G.GAME.last_consumeable and G.GAME.last_consumeable.set ~= 'Spectral' then
-                    local _card = create_card(G.GAME.last_consumeable.set, G.consumeables, nil, nil, nil, nil, G.GAME.last_consumeable.key, 'fool')
+                if G.GAME.last_tarot_planet then
+                    local _card = create_card('Tarot_Planet', G.consumeables, nil, nil, nil, nil, G.GAME.last_tarot_planet, 'fool')
                     _card:add_to_deck()
                     G.consumeables:emplace(_card)
                 end
@@ -580,8 +589,8 @@ for _, t in ipairs(tarots) do
                     level_up_hand(card, pseudorandom_element(hand_list, pseudoseed('sage')), nil, 1)
                 end
             elseif id == 71 then -- Fool II
-                if G.GAME.last_consumeable and #G.consumeables.cards < G.consumeables.config.card_limit then
-                    local _card = create_card(G.GAME.last_consumeable.set, G.consumeables, nil, nil, nil, nil, G.GAME.last_consumeable.key, 'fool_ii')
+                if G.GAME.last_tarot_planet and #G.consumeables.cards < G.consumeables.config.card_limit then
+                    local _card = create_card('Tarot_Planet', G.consumeables, nil, nil, nil, nil, G.GAME.last_tarot_planet, 'fool_ii')
                     _card:add_to_deck()
                     G.consumeables:emplace(_card)
                 end

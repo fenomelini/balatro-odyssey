@@ -7029,7 +7029,8 @@ return {
  c_odyssey_tarot_1 = {
  name = "The Fool",
  text = {
- "Creates the last Tarot or Planet", "card used."
+ "Creates the last {C:tarot}Tarot{} or", "{C:planet}Planet{} card used.",
+ "{C:inactive}(Last: #1#){}"
  
  }
  },
@@ -7576,7 +7577,8 @@ return {
  c_odyssey_tarot_71 = {
  name = "The Fool II",
  text = {
- "Copies another consumable card."
+ "Copies the last {C:tarot}Tarot{} or", "{C:planet}Planet{} card used.",
+ "{C:inactive}(Last: #1#){}"
  
  }
  },
