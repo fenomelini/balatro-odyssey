@@ -11485,10 +11485,10 @@ return {
  },
 
  ["b_odyssey_leviathan"] = {
-  name = "Leviatã Deck",
+  name = "Leviathan Deck",
   text = {
-   "Hands de 5 cards dão +1000",
-   "Chips."
+   "5-card hands give {C:chips}+1000{}",
+   "{C:chips}Chips{}."
   }
  },
 
