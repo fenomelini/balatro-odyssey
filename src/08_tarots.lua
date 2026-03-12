@@ -299,7 +299,7 @@ for _, t in ipairs(tarots) do
                     G.hand:emplace(_card)
                 end
             elseif id == 32 then -- Soul
-                local _card = create_card("Joker", G.jokers, nil, 0.9, nil, nil, nil, "soul")
+                local _card = create_card("Joker", G.jokers, true, nil, nil, nil, nil, "soul")
                 _card:add_to_deck()
                 G.jokers:emplace(_card)
             elseif id == 33 then -- Spirit
