@@ -7411,16 +7411,14 @@ return {
  c_odyssey_tarot_52 = {
  name = "O Sonho",
  text = {
- "Cria uma carta de Sonho."
- 
+ "Cria uma {C:tarot}Carta de Tarô{} aleatória."
  }
  },
  
  c_odyssey_tarot_53 = {
  name = "O Pesadelo",
  text = {
- "Cria uma carta de Pesadelo."
- 
+ "Cria uma {C:spectral}Carta Espectral{} aleatória."
  }
  },
  

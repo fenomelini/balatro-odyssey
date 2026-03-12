@@ -436,14 +436,38 @@ for _, t in ipairs(tarots) do
                     end}))
                 end
                 ease_dollars(5)
-            elseif id == 52 then -- Dream
-                local _card = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil, "dream")
-                _card:add_to_deck()
-                G.consumeables:emplace(_card)
-            elseif id == 53 then -- Nightmare
-                local _card = create_card("Spectral", G.consumeables, nil, nil, nil, nil, nil, "nightmare")
-                _card:add_to_deck()
-                G.consumeables:emplace(_card)
+            elseif id == 52 then -- Dream: creates a random Odyssey Tarot
+                local odyssey_tarots = {}
+                if G.P_CENTERS then
+                    for k, v in pairs(G.P_CENTERS) do
+                        if v.set == 'Tarot' and string.find(k, 'odyssey') then
+                            odyssey_tarots[#odyssey_tarots + 1] = k
+                        end
+                    end
+                end
+                table.sort(odyssey_tarots) -- deterministic order
+                local picked = odyssey_tarots[math.ceil(pseudorandom(pseudoseed('dream_tarot'..G.GAME.round_resets.ante)) * #odyssey_tarots)]
+                if picked then
+                    local _card = create_card("Tarot", G.consumeables, nil, nil, nil, nil, picked)
+                    _card:add_to_deck()
+                    G.consumeables:emplace(_card)
+                end
+            elseif id == 53 then -- Nightmare: creates a random Odyssey Spectral
+                local odyssey_spectrals = {}
+                if G.P_CENTERS then
+                    for k, v in pairs(G.P_CENTERS) do
+                        if v.set == 'Spectral' and string.find(k, 'odyssey') then
+                            odyssey_spectrals[#odyssey_spectrals + 1] = k
+                        end
+                    end
+                end
+                table.sort(odyssey_spectrals)
+                local picked = odyssey_spectrals[math.ceil(pseudorandom(pseudoseed('nightmare_spectral'..G.GAME.round_resets.ante)) * #odyssey_spectrals)]
+                if picked then
+                    local _card = create_card("Spectral", G.consumeables, nil, nil, nil, nil, picked)
+                    _card:add_to_deck()
+                    G.consumeables:emplace(_card)
+                end
             elseif id == 54 then -- Hope
                 ease_ante(1)
             elseif id == 55 then -- Despair

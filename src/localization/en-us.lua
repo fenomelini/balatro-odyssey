@@ -7411,16 +7411,14 @@ return {
  c_odyssey_tarot_52 = {
  name = "The Dream",
  text = {
- "Creates a Dream card."
- 
+ "Creates a random {C:tarot}Tarot{} card."
  }
  },
  
  c_odyssey_tarot_53 = {
  name = "The Nightmare",
  text = {
- "Creates a Nightmare card."
- 
+ "Creates a random {C:spectral}Spectral{} card."
  }
  },
  
