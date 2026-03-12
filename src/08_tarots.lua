@@ -552,7 +552,13 @@ for _, t in ipairs(tarots) do
                     end)
                 end
             elseif id == 70 then -- Sage
-                level_up_hand(card, pseudorandom_element(G.GAME.hands, pseudoseed('sage')), nil, 1)
+                local hand_list = {}
+                for k, v in pairs(G.GAME.hands) do
+                    if v.visible then table.insert(hand_list, k) end
+                end
+                if #hand_list > 0 then
+                    level_up_hand(card, pseudorandom_element(hand_list, pseudoseed('sage')), nil, 1)
+                end
             elseif id == 71 then -- Fool II
                 if G.GAME.last_consumeable and #G.consumeables.cards < G.consumeables.config.card_limit then
                     local _card = create_card(G.GAME.last_consumeable.set, G.consumeables, nil, nil, nil, nil, G.GAME.last_consumeable.key, 'fool_ii')
