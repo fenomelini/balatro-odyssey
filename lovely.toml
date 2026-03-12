@@ -93,6 +93,13 @@ payload = "{card_limit = G.GAME.shop.joker_max + (G.GAME.shop_extra_joker_slots 
 [[patches]]
 [patches.regex]
 target = "functions/state_events.lua"
+pattern = "if scoring_hand\\[i\\]\\.debuff then"
+position = "at"
+payload = "if scoring_hand[i].debuff and not (G.GAME and G.GAME.shadow_debuff_override) then"
+
+[[patches]]
+[patches.regex]
+target = "functions/state_events.lua"
 pattern = "card_eval_status_text\\(G\\.jokers\\.cards\\[i\\],\\s*'jokers',\\s*nil,\\s*percent,\\s*nil,\\s*effects\\.jokers\\)"
 position = "after"
 payload = '''
