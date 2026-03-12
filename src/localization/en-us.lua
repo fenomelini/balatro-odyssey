@@ -3037,7 +3037,7 @@ return {
  j_odyssey_j_glitch_syntax_error = {
  name = "Syntax Error",
  text = {
- "{C:chips}+50{} Chips.{}", "Gain {C:money}{} if played hand{}", "is {C:attention}High Card{}"
+ "{C:chips}+#1#{} Chips.{}", "Gain {C:money}$#2#{} if played hand{}", "is {C:attention}High Card{}"
  }
  },
  

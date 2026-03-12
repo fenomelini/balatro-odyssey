@@ -3037,7 +3037,7 @@ return {
  j_odyssey_j_glitch_syntax_error = {
  name = "Erro de Sintaxe",
  text = {
- "{C:chips}+50 Fichas.{}", "Ganhe {C:money}{} se jogar{}", "uma {C:attention}Carta Alta{}"
+ "{C:chips}+#1#{} Fichas.{}", "Ganhe {C:money}$#2#{} se jogar{}", "uma {C:attention}Carta Alta{}"
  }
  },
  
