@@ -8,13 +8,13 @@ All notable changes to this project will be documented in this file.
 
 #### Tarots
 
-- **The Dream (#52) & The Nightmare (#53)**: When used, these cards were creating vanilla Tarot/Spectral cards (such as "The High Priestess") instead of Odyssey-exclusive ones. The root cause was `create_card` being called with `key_append` (which only seeds the RNG without filtering the pool), rather than `forced_key`. Both cards now iterate `G.P_CENTERS`, filter to Odyssey-only entries of the correct set, and use `forced_key` to guarantee the result is always an Odyssey card — regardless of the `hide_vanilla` setting. Descriptions updated in both languages to clarify: "Creates a random Tarot/Spectral card."
-- **The Order (#40)**: Two bugs fixed. (1) The +10 permanent Chip bonus was completely missing from the code — only a plain `G.hand:sort()` was called with no animation or bonus logic. The tarot now correctly sorts the hand by Suit and gives every card in hand a permanent +10 Chips bonus with visual feedback. (2) The English description had the wrong name ("Order" instead of "The Order") and used the Portuguese word "Fichas" instead of "Chips".
+- **The Dream (#52) & The Nightmare (#53)**: When used, these cards were creating base game Tarot/Spectral cards (such as "The High Priestess") instead of Odyssey-exclusive ones. Both cards now always produce a random Odyssey card of the correct type. Descriptions updated in both languages to clarify the effect.
+- **The Order (#40)**: Two bugs fixed. (1) The promised +10 permanent Chip bonus to all cards in hand was never actually happening — the card was only rearranging the hand visually without granting any bonus. It now correctly sorts the hand by Suit and gives every card in hand a permanent +10 Chips bonus. (2) The English description had the wrong name ("Order" instead of "The Order") and showed the Portuguese word "Fichas" instead of "Chips".
 
 #### Decks
 
-- **Timeline Deck**: The "10% of previous hand score is added to the current hand" bonus was gated behind `context.joker_main`, which only fires when iterating actual Joker cards — meaning with zero Jokers the effect never triggered. The bonus is now applied directly via `ease_chips` at the end of each hand (post-scoring), guaranteeing it works regardless of Joker count. Additionally, the old logic only saved the bonus for "next hand" but never applied the previously saved bonus — both phases (save 10% of current hand, apply saved bonus from previous hand) now execute correctly in sequence.
-- **Leviathan Deck**: The English localization entry (`en-us.lua`) displayed Portuguese text — the deck name was "Leviatã Deck" and the description read "Hands de 5 cards dão +1000 Chips." Corrected to "Leviathan Deck" with proper English text and `{C:chips}` formatting.
+- **Timeline Deck**: The "10% of previous hand score added to current hand" bonus was completely non-functional — it never triggered during play. The bonus now correctly applies at the end of every hand, regardless of how many Jokers you have. The timing was also fixed: the bonus from the previous hand is now applied to the current hand, and 10% of the current hand is saved for the next one, as intended.
+- **Leviathan Deck**: The English version of the deck was showing its name and description in Portuguese. Corrected to display proper English text.
 
 ---
 
