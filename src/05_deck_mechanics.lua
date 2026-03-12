@@ -808,6 +808,24 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
         ease_dollars(-cost)
     end
     old_discard_cards(e, hook)
+
+    -- O Caos (blind_40): randomize hand card suits after each discard
+    if G.GAME and G.GAME.blind and not G.GAME.blind.disabled
+        and G.GAME.blind.name == 'O Caos' then
+        G.E_MANAGER:add_event(Event({ trigger = 'after', delay = 0.3, func = function()
+            local suits = {'Hearts', 'Diamonds', 'Clubs', 'Spades'}
+            for k, card in ipairs(G.hand.cards) do
+                if card and card.base and card.base.suit and card.base.value then
+                    local idx = math.ceil(pseudorandom(pseudoseed('chaos'..k)) * 4)
+                    card:change_suit(suits[idx])
+                    card:juice_up(0.1, 0.1)
+                end
+            end
+            G.GAME.blind.triggered = true
+            G.GAME.blind:juice_up()
+            return true
+        end}))
+    end
 end
 
 -- 17. reset_blinds (For Griffin: auto-skip Small Blinds)
