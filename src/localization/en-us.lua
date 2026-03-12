@@ -6346,7 +6346,7 @@ return {
  j_odyssey_j_transformations_basilisk = {
  name = "Basilisk",
  text = {
- "Turns played cards into {C:attention}Stone{}", "after scoring"
+ "Turns played cards into {C:attention}Emerald{}", "cards after scoring"
  }
  },
  

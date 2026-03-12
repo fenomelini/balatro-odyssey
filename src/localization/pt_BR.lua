@@ -6346,7 +6346,7 @@ return {
  j_odyssey_j_transformations_basilisk = {
  name = "Basilisco",
  text = {
- "Transforma cartas jogadas em {C:attention}Pedra{}", "após a pontuação"
+ "Transforma cartas jogadas em", "{C:attention}Esmeralda{} após pontuar"
  }
  },
  
