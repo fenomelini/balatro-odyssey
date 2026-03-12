@@ -486,7 +486,10 @@ for _, t in ipairs(tarots) do
                 local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
                     local suit = pseudorandom_element(suits, pseudoseed('king_suit_'..i))
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_K", "king")
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local _card = Card(G.hand.T.x + G.hand.T.w/2, G.hand.T.y, G.CARD_W, G.CARD_H, G.P_CARDS[suit..'_K'], G.P_CENTERS.c_base, {bypass_discovery_center = true, discover = true})
+                    _card.playing_card = G.playing_card
+                    table.insert(G.playing_cards, _card)
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
@@ -494,7 +497,10 @@ for _, t in ipairs(tarots) do
                 local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
                     local suit = pseudorandom_element(suits, pseudoseed('queen_suit_'..i))
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_Q", "queen")
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local _card = Card(G.hand.T.x + G.hand.T.w/2, G.hand.T.y, G.CARD_W, G.CARD_H, G.P_CARDS[suit..'_Q'], G.P_CENTERS.c_base, {bypass_discovery_center = true, discover = true})
+                    _card.playing_card = G.playing_card
+                    table.insert(G.playing_cards, _card)
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
@@ -502,7 +508,10 @@ for _, t in ipairs(tarots) do
                 local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
                     local suit = pseudorandom_element(suits, pseudoseed('jack_suit_'..i))
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_J", "jack")
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local _card = Card(G.hand.T.x + G.hand.T.w/2, G.hand.T.y, G.CARD_W, G.CARD_H, G.P_CARDS[suit..'_J'], G.P_CENTERS.c_base, {bypass_discovery_center = true, discover = true})
+                    _card.playing_card = G.playing_card
+                    table.insert(G.playing_cards, _card)
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
@@ -510,7 +519,10 @@ for _, t in ipairs(tarots) do
                 local suits = {'S', 'H', 'C', 'D'}
                 for i = 1, 2 do
                     local suit = pseudorandom_element(suits, pseudoseed('ace_suit_'..i))
-                    local _card = create_card("Base", G.hand, nil, nil, nil, nil, suit.."_A", "ace")
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local _card = Card(G.hand.T.x + G.hand.T.w/2, G.hand.T.y, G.CARD_W, G.CARD_H, G.P_CARDS[suit..'_A'], G.P_CENTERS.c_base, {bypass_discovery_center = true, discover = true})
+                    _card.playing_card = G.playing_card
+                    table.insert(G.playing_cards, _card)
                     _card:add_to_deck()
                     G.hand:emplace(_card)
                 end
