@@ -7403,7 +7403,7 @@ return {
  c_odyssey_tarot_51 = {
  name = "A Mentira",
  text = {
- "Oculta cartas na mão e ganha $5."
+ "Oculta todas as cartas na mão e ganha {C:money}$5{}."
  
  }
  },

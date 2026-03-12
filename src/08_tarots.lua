@@ -428,7 +428,13 @@ for _, t in ipairs(tarots) do
             elseif id == 50 then -- Truth
                 for k, v in ipairs(G.deck.cards) do v.facing = 'front' end
             elseif id == 51 then -- Lie
-                for k, v in ipairs(G.hand.cards) do v.facing = 'back' end
+                for k, v in ipairs(G.hand.cards) do
+                    local _card = v
+                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05 * k, func = function()
+                        if _card.facing == 'front' then _card:flip() end
+                        return true
+                    end}))
+                end
                 ease_dollars(5)
             elseif id == 52 then -- Dream
                 local _card = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil, "dream")
