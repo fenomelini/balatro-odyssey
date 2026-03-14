@@ -301,7 +301,7 @@ SMODS.Joker({
             end
         end
         if context.before and not context.blueprint then
-            if context.scoring_name == '5 of a Kind' and card.ability.extra.x_mult < 5 then
+            if context.scoring_name == 'Five of a Kind' and card.ability.extra.x_mult < 5 then
                 card.ability.extra.x_mult = 5
                 return {
                     message = localize('k_upgrade_ex'),
