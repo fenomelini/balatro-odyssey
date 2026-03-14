@@ -168,7 +168,7 @@ SMODS.Joker({
 -- 181. Gravidade Zero
 SMODS.Joker({
     key = 'j_celestial_zero_gravity',
-    config = { extra = { x_mult = 3, odyssey_wraparound_straight = true } },
+    config = { extra = { x_mult = 3 } },
     rarity = 2,
     atlas = 'j_celestial_zero_gravity',
     pos = { x = 0, y = 0 },

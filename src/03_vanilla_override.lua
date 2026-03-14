@@ -200,3 +200,62 @@ function Card:use_consumeable(area, copier)
     end
 end
 
+-- Zero Gravity (#181): Wraparound Straight (K-A-2-3-4 and Q-K-A-2-3)
+local old_get_straight = get_straight
+function get_straight(hand)
+    local ret = old_get_straight(hand)
+    if #ret > 0 then return ret end -- already a valid straight, no need to check
+
+    -- Only activate if Zero Gravity joker is present and not debuffed
+    if not (G.jokers and G.jokers.cards) then return ret end
+    local zero_gravity_active = false
+    for _, j in ipairs(G.jokers.cards) do
+        if j.config and j.config.center and
+           j.config.center.key == 'j_odyssey_j_celestial_zero_gravity' and
+           not j.debuff then
+            zero_gravity_active = true
+            break
+        end
+    end
+    if not zero_gravity_active then return ret end
+
+    local four_fingers = next(find_joker('Four Fingers'))
+    local needed = 5 - (four_fingers and 1 or 0)
+    if #hand ~= needed then return ret end
+
+    -- Build rank → cards map (same as vanilla)
+    local IDS = {}
+    for i = 1, #hand do
+        local id = hand[i]:get_id()
+        if id > 1 and id < 15 then
+            IDS[id] = IDS[id] or {}
+            IDS[id][#IDS[id]+1] = hand[i]
+        end
+    end
+
+    -- Wraparound sequences crossing the K(13)→A(14)→2 boundary
+    -- Vanilla already handles: A-2-3-4-5, 10-J-Q-K-A — these are the new cases
+    local sequences = needed == 5
+        and { {13,14,2,3,4}, {12,13,14,2,3} }   -- K-A-2-3-4 and Q-K-A-2-3
+        or  { {13,14,2,3},   {12,13,14,2}   }   -- K-A-2-3 and Q-K-A-2 (Four Fingers)
+
+    for _, seq in ipairs(sequences) do
+        local t = {}
+        local valid = true
+        for _, rank in ipairs(seq) do
+            if IDS[rank] then
+                for _, v in ipairs(IDS[rank]) do t[#t+1] = v end
+            else
+                valid = false
+                break
+            end
+        end
+        if valid then
+            table.insert(ret, t)
+            return ret
+        end
+    end
+
+    return ret
+end
+
