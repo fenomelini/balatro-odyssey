@@ -2,11 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.2.0-alpha] - 2026-03-14
+## [0.1.9-alpha] - 2026-03-14
 
 ### Added
 
 #### Decks
+
+- **Enhancement Decks #25–32 now have custom artwork**: The eight decks based on mod enhancements (Ceramic, Rubber, Platinum, Diamond, Magic, Holy, Ruby, Emerald) were using vanilla Balatro placeholder sprites. Each deck now displays its own unique image.
 
 - **10 Decks fully implemented for the first time** — the following decks had descriptions but no working mechanics. All have been implemented with faithful (or redesigned-where-necessary) mechanics:
   - **Zombie Deck (#55)**: Once per round, the first discarded card automatically returns to hand.
@@ -24,6 +26,10 @@ All notable changes to this project will be documented in this file.
 
 #### Decks
 
+- **42 deck entries in English were displaying Portuguese names and/or text**: A large portion of the deck localization in `en-us` had names in the format "Ira Deck", "Preguiça Deck", "Vulcânico Deck", etc., and descriptions with Portuguese words mixed into English sentences. All 42 entries have been corrected to use proper English names and fully English descriptions. Affected decks: Wrath, Sloth, Pride, Alpha, Omega, Prime, Odyssey, Fractal, Mirror, Ghost, Vampire, Zombie, Cyborg, Mutant, Clone, Radioactive, Frozen, Volcanic, Oceanic, Solar, Lunar, Stellar, Mystic, Tech, Primitive, Arcane, Celestial, Spectral, Standard, Buffoon, Mercenary, Investor, Minimalist II, Maximalist II, Lucky II, King Arthur, Merlin, Phoenix, Chimera, Unicorn, Behemoth, Titan.
+
+- **Odyssey Deck (#50) and Unicorn Deck (#94)**: These two decks spawn a random Legendary Joker as part of their mechanic. They were picking from the full pool of Legendary Jokers — including vanilla ones — which could produce cards that don't exist in this mod and crash the game. They now correctly pick only from Odyssey Legendary Jokers.
+
 - **Sloth Deck (#42)**: `discards` config was set to `-100` instead of `-3`, which could underflow the discard counter. Fixed to `-3`.
 - **Cyborg Deck (#56)**: Automated Jokers were being created with `rarity = nil`, causing a crash. Fixed to use the correct rarity value.
 - **Sloth Deck (#42) and Invisible Deck (#60)**: The X3 / X4 Mult bonuses were placed inside `calculate_joker`, which fires once per Joker in play — meaning the bonus did nothing with 0 Jokers and scaled incorrectly otherwise. Both now correctly apply their multiplier via `Blind:modify_hand`.
@@ -32,24 +38,6 @@ All notable changes to this project will be documented in this file.
 - **Maximalist II (#81)**: `discards` config was set to `-3` instead of `0`, unintentionally giving the player 5 discards (with base 3 + back delta) or crashing. Fixed to `0`.
 - **Dragon Deck (#89)**: Blind score requirement was being multiplied incorrectly. Now correctly applies the 10x multiplier via `get_blind_amount`.
 - **Poverty Deck (#38)**: Interest cap was using the wrong formula and granting too little interest. Fixed.
-
----
-
-## [0.1.9-alpha] - 2026-03-14
-
-### Added
-
-#### Decks
-
-- **Enhancement Decks #25–32 now have custom artwork**: The eight decks based on mod enhancements (Ceramic, Rubber, Platinum, Diamond, Magic, Holy, Ruby, Emerald) were using vanilla Balatro placeholder sprites. Each deck now displays its own unique image.
-
-### Fixed
-
-#### Decks
-
-- **42 deck entries in English were displaying Portuguese names and/or text**: A large portion of the deck localization in `en-us` had names in the format "Ira Deck", "Preguiça Deck", "Vulcânico Deck", etc., and descriptions with Portuguese words mixed into English sentences. All 42 entries have been corrected to use proper English names and fully English descriptions. Affected decks: Wrath, Sloth, Pride, Alpha, Omega, Prime, Odyssey, Fractal, Mirror, Ghost, Vampire, Zombie, Cyborg, Mutant, Clone, Radioactive, Frozen, Volcanic, Oceanic, Solar, Lunar, Stellar, Mystic, Tech, Primitive, Arcane, Celestial, Spectral, Standard, Buffoon, Mercenary, Investor, Minimalist II, Maximalist II, Lucky II, King Arthur, Merlin, Phoenix, Chimera, Unicorn, Behemoth, Titan.
-
-- **Odyssey Deck (#50) and Unicorn Deck (#94)**: These two decks spawn a random Legendary Joker as part of their mechanic. They were picking from the full pool of Legendary Jokers — including vanilla ones — which could produce cards that don't exist in this mod and crash the game. They now correctly pick only from Odyssey Legendary Jokers.
 
 ---
 
