@@ -372,18 +372,20 @@ SMODS.Joker({
 
     end,
     calculate = function(self, card, context)
-        -- Counting triggers is hard, so we estimate based on jokers count if we can't get official count.
-        -- But for now, we'll use a safer proxy: +5 Mult for each Joker you own.
-        -- Actually, let's use the intended mechanic if possible.
+        -- Reset counter at the start of each hand evaluation (once per hand, before jokers score)
+        if context.cardarea == G.jokers and context.before and not context.blueprint then
+            G.GAME.odyssey_chain_activations = 0
+        end
         if context.joker_main then
-            local count = #G.jokers.cards
-            -- Simplified to +5 per Joker for now to avoid crashes with non-existent global counters
-            local mult = count * card.ability.extra.mult_per_trigger
-             return {
-                message = localize{ type = 'variable', key = 'a_mult', vars = { mult } },
-                mult_mod = mult,
-                colour = G.C.MULT
-            }
+            local count = G.GAME.odyssey_chain_activations or 0
+            if count > 0 then
+                local mult = count * card.ability.extra.mult_per_trigger
+                return {
+                    message = localize{ type = 'variable', key = 'a_mult', vars = { mult } },
+                    mult_mod = mult,
+                    colour = G.C.MULT
+                }
+            end
         end
     end
 })

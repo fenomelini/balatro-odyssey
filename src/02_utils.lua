@@ -554,7 +554,15 @@ function Card.calculate_joker(self, context)
     if self.config.center.key and self.config.center.key:find("odyssey") then
         ODYSSEY_LOG.debug(self, context, ret)
     end
-    
+
+    -- Chain Reaction (#225): count activations of OTHER jokers during main scoring
+    if context and context.joker_main and ret ~= nil
+       and self.config and self.config.center
+       and self.config.center.key ~= 'j_odyssey_j_chaos_chain_reaction'
+       and not context.blueprint then
+        G.GAME.odyssey_chain_activations = (G.GAME.odyssey_chain_activations or 0) + 1
+    end
+
     return ret
 end
 
