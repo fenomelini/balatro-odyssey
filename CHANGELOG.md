@@ -26,12 +26,36 @@ All notable changes to this project will be documented in this file.
 
 #### Jokers
 
-- **Crescimento Infinito (#122)**: The joker was supposed to gain X0.05 Mult every time a Blind was beaten, but never scaled. The win detection used `G.GAME.blind.chips_left`, a property that does not exist in the game. Fixed to use the correct `not context.game_over` check.
-- **Melhor Jogada (#136)**: The joker tracks the Mult and Chips from the best hand played each round and applies them on the last hand. It was always storing 1 Mult and 0 Chips as the "best" because it read from `G.mult` and `G.hand_chips`, which are local variables inside the scoring loop and always nil outside it. Fixed to read from `G.GAME.hands[hand_name].mult/chips`.
-- **Aprendizado (#137)**: The joker was supposed to gain +5 Mult permanently whenever a Blind was beaten using more than one hand. Like Crescimento Infinito, win detection relied on `G.GAME.blind.chips_left` (which doesn't exist), so the joker never scaled. Fixed to use `not context.game_over`.
-- **Fusão Dimensional (#151)**: This joker was completely silent — it did nothing when a Two Pair was played. The `calculate` function was an empty stub with a comment claiming the mechanic lived in another file, but that file contained no such implementation. The mechanic (Two Pair scores the chip/mult difference up to Four of a Kind level) is now fully implemented.
-- **Senhor Dimensional (#153)**: The description tooltip crashed the game when hovering over the card in the Collection menu. The `loc_vars` function accessed `card.ability.extra` directly without a nil guard — the game calls `loc_vars` without a physical card in collection/edition contexts. Fixed with the standard nil-safety pattern.
-- **Colapso Dimensional (#156)**: When a Blueprint was adjacent to this joker and a Boss Blind was selected, two jokers were destroyed instead of one. The `setting_blind` block was missing the `not context.blueprint` guard used by every other `setting_blind` hook in the mod. Blueprint would fire the trigger on its own card (setting `active = true` only on Blueprint), then Colapso Dimensional would fire again with its own `active` still `false`. Fixed by adding the guard.
+**Singularity series (#1–40):**
+
+- **Dimensional Isolator (#18)**: Was activating whenever it was placed at the edge of the Joker row — i.e., with only one neighbor. It is designed to activate only when completely isolated with no neighbors on either side. Fixed.
+- **Reverse Big Bang (#40)**: Was dealing X10 Mult instead of the intended X5 Mult. Fixed.
+
+**Quantum series (#41–80):**
+
+- **Schrödinger's Cat (#48)**: Was giving +25 Mult per flip instead of the correct +20 Mult. Fixed.
+- **Time Paradox (#61)**: Tracks your previous hand's score and adds it as a bonus to your next hand. It was always reading zero for both score values, so the bonus was always nothing — and on the second hand played, the game would crash. Fixed.
+- **Infinite Loop (#63) and Chrono Trigger (#67)**: Both jokers count how many times a specific hand type has been played and reward you for it. Both counters were stuck at zero at all times, so the reward never triggered — and playing a hand could crash the game. Fixed.
+- **Dimensional Portal (#71)**: When changing the suit of a card in your hand, it could enter an infinite freeze if the random selection kept returning the suit the card already had. The joker now always picks a different suit immediately. Fixed.
+- **Higher Planes (#79)**: Was randomly giving either X3 Mult or +100 Mult on a coin flip. The correct behavior is always a flat +100 Mult. Fixed.
+- **Hyperspace (#80)**: Was always giving a flat X10 Mult regardless of hand size. The correct behavior is +15 Mult per card scored, up to 5 cards (maximum +75 Mult). Fixed.
+
+**Temporal series (#81–120):**
+
+- **Time Traveler II (#103)**: Tracks your highest Mult and Chips from scoring and uses them as a future bonus. It was always recording 0 for both values, so the boost was always nothing. Fixed.
+- **Stasis (#106)**: Was supposed to grant a bonus hand every time a Blind was beaten. It never triggered. Fixed.
+- **Uncertain Future (#108)**: Same issue as Time Traveler II — always recording 0 for scoring values, so the bonus never activated. Fixed.
+- **Forgotten Past (#117)**: Promises +2 extra hands when equipped. The hands were never actually granted. Fixed.
+- **Eternal Loop (#120)**: Counts how many times a specific hand type has been played and rewards you for it. The counter was always reading as zero due to a mismatched name, so the reward never worked — and playing a hand could crash the game. Fixed.
+
+**Dimensions series (#121–160):**
+
+- **Infinite Growth (#122)**: Was supposed to permanently gain X0.05 Mult each time a Blind was beaten. It never scaled at all. Fixed.
+- **Best Play (#136)**: Tracks the best hand played each round and applies those stats as a bonus on your final hand. It was always recording the minimum possible values, making the final-hand bonus effectively useless. Fixed.
+- **Learning (#137)**: Was supposed to permanently gain +5 Mult whenever a Blind was beaten while using more than one hand. It never triggered. Fixed.
+- **Dimensional Merge (#151)**: Did absolutely nothing when a Two Pair was played — the entire effect was missing. The mechanic (score a bonus based on the gap between Two Pair and Four of a Kind base values) is now fully implemented.
+- **Dimensional Lord (#153)**: Hovering over this card in the Collection menu crashed the game. Fixed.
+- **Dimensional Collapse (#156)**: If a Blueprint was copying this joker when a Boss Blind started, two random Jokers were destroyed instead of one. Fixed.
 
 #### Decks
 
