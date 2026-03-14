@@ -134,17 +134,17 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.joker_main then
             local played_hand = context.scoring_name
-            local max_played = 0
-            local most_played_hand = ''
+            local max_level = 0
+            local top_hand = ''
             
             for k, v in pairs(G.GAME.hands) do
-                if v.played > max_played then
-                    max_played = v.played
-                    most_played_hand = k
+                if v.level > max_level then
+                    max_level = v.level
+                    top_hand = k
                 end
             end
             
-            if played_hand ~= most_played_hand then
+            if played_hand ~= top_hand then
                 return {
                     message = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },
                     mult_mod = card.ability.extra.mult,
