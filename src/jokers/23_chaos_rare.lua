@@ -215,10 +215,12 @@ SMODS.Joker({
             end
         end
         
-        if card.ability.extra.copy_target then
+        if context.joker_main and card.ability.extra.copy_target then
             local other_joker = card.ability.extra.copy_target
-            context.blueprint = true
-            local ret = other_joker:calculate_joker(context)
+            local ctx = {}
+            for k, v in pairs(context) do ctx[k] = v end
+            ctx.blueprint = true
+            local ret = other_joker:calculate_joker(ctx)
             if ret then
                 ret.card = card
                 return ret
