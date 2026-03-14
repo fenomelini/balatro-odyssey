@@ -661,6 +661,14 @@ Card.set_cost = function(self)
        (self.area == G.shop_jokers or self.area == G.shop_vouchers or self.area == G.shop_booster) then
         self.cost = 9999
     end
+end
+
+-- 15. Card:set_ability (For Midas Deck)
+local old_set_ability = Card.set_ability
+Card.set_ability = function(self, center, initial, delay_sprites)
+    old_set_ability(self, center, initial, delay_sprites)
+    if G.GAME.modifiers and G.GAME.modifiers.odyssey_midas then
+        if self.ability.set == 'Joker' then
             if not self.edition then
                 self:set_edition({polychrome = true})
             end
