@@ -108,26 +108,7 @@ Card.calculate_joker = function(self, context)
     -- 83. Ordered II: Boss blinds have no effect + 0.5x blind requirement (handled in get_blind_amount)
     -- (No scoring penalty - the easier blinds ARE the player benefit)
 
-    -- 90. Phoenix: Resurrect on game over (once per run)
-    -- Fires on end_of_round context with game_over=true, on the first joker only
-    if deck_key == 'phoenix' and context.end_of_round and context.game_over
-        and not G.GAME.odyssey_phoenix_used then
-        if G.jokers and G.jokers.cards and G.jokers.cards[1] and self == G.jokers.cards[1] then
-            G.GAME.odyssey_phoenix_used = true
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.5,
-                func = function()
-                    -- Reset to the start of this ante (keep jokers, money, deck)
-                    G.GAME.chips = 0
-                    G.GAME.round_resets.blind_states = {Small = 'Select', Big = 'Upcoming', Boss = 'Upcoming'}
-                    G.GAME.blind_on_deck = 'Small'
-                    return true
-                end
-            }))
-            return { saved = true, message = localize('k_saved_ex') or 'Renascida!', colour = G.C.RED }
-        end
-    end
+    -- 90. Phoenix: moved to end_round hook (requires no jokers to be present)
 
     -- 89. Dragon: X10 Mult + Bosses 10x HP (moved to modify_hand / get_blind_amount)
 
@@ -231,7 +212,8 @@ G.FUNCS.draw_from_play_to_discard = function(e)
 
         -- Apply previously stored bonus (flat, post-scoring addition)
         if stored > 0 then
-            ease_chips(stored)
+            -- ease_chips sets chips to an ABSOLUTE value, not a delta; must pass new total
+            ease_chips(G.GAME.chips + stored)
             if G.play.cards[1] then
                 card_eval_status_text(G.play.cards[1], 'extra', nil, nil, nil, {
                     message = localize{type='variable', key='a_chips', vars={stored}},
@@ -361,6 +343,38 @@ end
 local old_end_round = end_round
 end_round = function()
     local deck_key = get_deck_key()
+
+    -- 90. Phoenix: Save from game over (once per run).
+    -- Must run BEFORE old_end_round() because end_round's game_over check reads
+    -- G.GAME.chips synchronously from inside an async event — setting chips here
+    -- is visible when that event fires later.
+    if deck_key == 'phoenix' and not G.GAME.odyssey_phoenix_used
+        and G.GAME.blind and G.GAME.chips < G.GAME.blind.chips then
+        G.GAME.odyssey_phoenix_used = true
+        G.GAME.chips = G.GAME.blind.chips  -- Synchronously meet threshold → game_over = false
+        G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = function()
+                local ref = (G.jokers and G.jokers.cards and G.jokers.cards[1])
+                         or (G.hand and G.hand.cards and G.hand.cards[1])
+                if ref then
+                    card_eval_status_text(ref, 'extra', nil, nil, nil, {message = localize('k_saved_ex'), colour = G.C.RED})
+                end
+                return true
+            end
+        }))
+        -- After winning, reset to Small Blind of current Ante (keeps jokers, money, deck)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 2.5,
+            func = function()
+                G.GAME.chips = 0
+                G.GAME.round_resets.blind_states = {Small = 'Select', Big = 'Upcoming', Boss = 'Upcoming'}
+                G.GAME.blind_on_deck = 'Small'
+                return true
+            end
+        }))
+    end
 
     -- Deck 9: Supernova (Money > 50 -> Reset to 0, X3 Mult)
     if deck_key == 'supernova_deck' then
