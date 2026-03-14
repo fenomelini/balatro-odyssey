@@ -503,12 +503,14 @@ SMODS.Joker({
                 colour = G.C.MULT
             }
         end
-        if context.discard and not context.blueprint and not context.other_card then
-            card.ability.extra.current_mult = 0
-            return {
-                message = localize('k_reset'),
-                colour = G.C.RED
-            }
+        if context.discard and not context.blueprint then
+            if card.ability.extra.current_mult > 0 then
+                card.ability.extra.current_mult = 0
+                return {
+                    message = localize('k_reset'),
+                    colour = G.C.RED
+                }
+            end
         end
         if context.end_of_round and not context.blueprint and not context.repetition and not context.other_card then
             card.ability.extra.current_mult = 0
