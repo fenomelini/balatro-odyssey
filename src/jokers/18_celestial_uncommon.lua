@@ -158,7 +158,7 @@ SMODS.Joker({
             if context.other_card:get_id() == 8 then
                 return {
                     mult = card.ability.extra.mult,
-                    card = card
+                    card = context.other_card
                 }
             end
         end
@@ -194,7 +194,7 @@ SMODS.Joker({
         if context.joker_main and context.scoring_name == "Straight" then
             return {
                 message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                x_mult = card.ability.extra.x_mult,
+                Xmult_mod = card.ability.extra.x_mult,
                 colour = G.C.MULT
             }
         end
@@ -531,7 +531,7 @@ SMODS.Joker({
     end,
     
     calculate = function(self, card, context)
-        if context.joker_main and G.GAME.current_round.hands_played == 0 then
+        if context.joker_main then
             return {
                 message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
                 Xmult_mod = card.ability.extra.x_mult,

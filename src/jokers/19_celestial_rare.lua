@@ -226,7 +226,7 @@ SMODS.Joker({
     perishable_compat = true,
     
     calculate = function(self, card, context)
-        if context.end_of_round and not context.repetition and not context.other_card then
+        if context.end_of_round and G.GAME.blind.boss and not context.repetition and not context.other_card then
             local gain = math.min(G.GAME.dollars, card.ability.extra.max_gain)
             if gain > 0 then
                 ease_dollars(gain)
