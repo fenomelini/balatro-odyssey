@@ -179,14 +179,7 @@ Card.calculate_joker = function(self, context)
         })
     end
 
-    -- 42. Sloth (Preguiça): X3 Mult
-    if deck_key == 'sloth' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={3}},
-            Xmult_mod = 3,
-            colour = G.C.MULT
-        })
-    end
+    -- 42. Sloth (Preguiça): X3 Mult - moved to Blind:modify_hand to work with 0 jokers
 
     -- 52. Mirror (Espelho): Right to Left (Descending) -> 2x
     if deck_key == 'mirror' and context.joker_main and context.scoring_hand and #context.scoring_hand >= 2 then
@@ -236,14 +229,7 @@ Card.calculate_joker = function(self, context)
         end
     end
 
-    -- 60. Invisible: X4 Mult if blind (checked elsewhere, technically always blind here)
-    if deck_key == 'invisible' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={4}},
-            Xmult_mod = 4,
-            colour = G.C.MULT
-        })
-    end
+    -- 60. Invisible: X4 Mult - moved to Blind:modify_hand to work with 0 jokers
 
     -- 65. Volcanic: +$5 per hand
     if deck_key == 'volcanic' and context.joker_main then
@@ -869,6 +855,36 @@ Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
             G.E_MANAGER:add_event(Event({ func = function()
                 card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
                     message = localize{type='variable', key='a_xmult', vars={0.5}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 42: Sloth (Preguiça) - X3 Mult (works even with 0 jokers)
+    if get_deck_key() == 'sloth' then
+        ret_mult = ret_mult * 3
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={3}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 60: Invisible - X4 Mult (works even with 0 jokers)
+    if get_deck_key() == 'invisible' then
+        ret_mult = ret_mult * 4
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={4}},
                     colour = G.C.MULT
                 })
                 return true

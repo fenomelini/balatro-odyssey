@@ -16,7 +16,7 @@ SMODS.Back({
     key = 'sloth',
     atlas = 'b_sloth',
     pos = { x = 0, y = 0 },
-    config = { discards = -100, hands = -3 }
+    config = { discards = -3, hands = -3 }
 })
 
 -- 43. Baralho Baralho Luxúria
@@ -234,7 +234,7 @@ SMODS.Back({
         G.E_MANAGER:add_event(Event({
             func = function()
                 for i=1, 2 do
-                    local card = create_card('Joker', G.jokers, nil, 0, nil, nil, nil, 'cyborg_deck')
+                    local card = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'cyborg_deck')
                     card:add_to_deck()
                     G.jokers:emplace(card)
                 end
