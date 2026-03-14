@@ -12562,6 +12562,12 @@ return {
  ["odyssey_wrap_around_straight"] = { "Uma Sequência que 'dá a volta' pelo Ás (ex: Q-K-A-2-3)" },
   },
   dictionary = {
+      k_again_ex = "De Novo!",
+      k_decay_ex = "Decaiu!",
+      k_duplicated_ex = "Duplicada!",
+      k_frozen_ex = "Congelada!",
+      k_mutant_ex = "Mutada!",
+      k_saved_ex = "Salva!",
       k_shuffled = "Embaralhado!",
       k_zombie_ex = "Zumbi!",
       odyssey_config_hide_vanilla = "Conversão Total (Apenas Odyssey)",

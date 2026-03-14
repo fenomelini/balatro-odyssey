@@ -12404,6 +12404,12 @@ return {
  ["odyssey_wrap_around_straight"] = { "A Straight that wraps through the Ace (e.g. Q-K-A-2-3)" },
   },
   dictionary = {
+      k_again_ex = "Again!",
+      k_decay_ex = "Decayed!",
+      k_duplicated_ex = "Duplicated!",
+      k_frozen_ex = "Frozen!",
+      k_mutant_ex = "Mutated!",
+      k_saved_ex = "Saved!",
       k_shuffled = "Shuffled!",
       k_zombie_ex = "Zombie!",
       odyssey_config_hide_vanilla = "Total Conversion (Odyssey Only)",

@@ -412,8 +412,14 @@ end_round = function()
                 for k, v in ipairs(G.hand.cards) do
                     if v.base.id > 2 then
                         local new_id = v.base.id - 1
-                        local rank_name = G.id_def[new_id] or tostring(new_id)
-                        if new_id == 10 then rank_name = 'T' end
+                        local rank_name
+                        if new_id < 10 then rank_name = tostring(new_id)
+                        elseif new_id == 10 then rank_name = 'T'
+                        elseif new_id == 11 then rank_name = 'J'
+                        elseif new_id == 12 then rank_name = 'Q'
+                        elseif new_id == 13 then rank_name = 'K'
+                        elseif new_id == 14 then rank_name = 'A'
+                        end
                         local suit_prefix = string.sub(v.base.suit, 1, 1)
                         v:set_base(G.P_CARDS[suit_prefix .. '_' .. rank_name])
                         card_eval_status_text(v, 'extra', nil, nil, nil, {message = localize('k_decay_ex')})
