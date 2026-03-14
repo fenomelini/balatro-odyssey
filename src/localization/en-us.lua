@@ -10801,7 +10801,7 @@ return {
  }
  },
  
- b_odyssey_bonus = {
+ b_odyssey_emerald_deck = {
  name = "Emerald Deck",
  text = {
  "All cards in the", "starting deck are", "enhanced to {C:attention}Emerald{}"
@@ -10860,7 +10860,7 @@ return {
  b_odyssey_laminado = {
  name = "Foil Deck",
  text = {
- "Starts with a random", "{C:dark_edition}Foil{} Joker{}", "(Common Rarity)"
+ "Starts with a random", "{C:dark_edition}Foil{} Joker{}"
  }
  },
  
@@ -10881,7 +10881,7 @@ return {
  b_odyssey_holografico = {
  name = "Holographic Deck",
  text = {
- "Starts with a random", "{C:attention}Holographic{} Joker{}", "(Common Rarity)"
+ "Starts with a random", "{C:attention}Holographic{} Joker{}"
  }
  },
  
@@ -10899,7 +10899,7 @@ return {
  }
  },
  
- b_odyssey_multiplicador = {
+ b_odyssey_ruby_deck = {
  name = "Ruby Deck",
  text = {
  "All cards in the", "starting deck are", "enhanced to {C:attention}Ruby{}"
@@ -10916,7 +10916,7 @@ return {
  b_odyssey_negativo = {
  name = "Negative Deck",
  text = {
- "Starts with a random", "{C:dark_edition}Negative{} Joker{}", "(Common Rarity)"
+ "Starts with a random", "{C:dark_edition}Negative{} Joker{}"
  }
  },
  
@@ -10974,7 +10974,7 @@ return {
  b_odyssey_policromatico = {
  name = "Polychrome Deck",
  text = {
- "Starts with a random", "{C:dark_edition}Polychrome{} Joker{}", "(Common Rarity)"
+ "Starts with a random", "{C:dark_edition}Polychrome{} Joker{}"
  }
  },
  
@@ -10999,14 +10999,14 @@ return {
  }
  },
  
- b_odyssey_selvagem = {
+ b_odyssey_holy_deck = {
  name = "Holy Deck",
  text = {
  "All cards in the", "starting deck are", "enhanced to {C:attention}Holy{}"
  }
  },
  
- b_odyssey_sorte = {
+ b_odyssey_magic_deck = {
  name = "Magic Deck",
  text = {
  "All cards in the", "starting deck are", "enhanced to {C:attention}Magic{}"

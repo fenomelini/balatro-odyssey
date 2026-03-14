@@ -161,7 +161,7 @@ SMODS.Back({
 -- 29. Baralho Mágico
 SMODS.Back({
     name = "Baralho Mágico",
-    key = "sorte",
+    key = "magic_deck",
     atlas = "b_magic",
     pos = { x = 0, y = 0 },
     config = { odyssey_magic_deck = true },
@@ -180,7 +180,7 @@ SMODS.Back({
 -- 30. Baralho Sagrado
 SMODS.Back({
     name = "Baralho Sagrado",
-    key = "selvagem",
+    key = "holy_deck",
     atlas = "b_holy",
     pos = { x = 0, y = 0 },
     config = { odyssey_holy_deck = true },
@@ -199,7 +199,7 @@ SMODS.Back({
 -- 31. Baralho de Rubi
 SMODS.Back({
     name = "Baralho de Rubi",
-    key = "multiplicador",
+    key = "ruby_deck",
     atlas = "b_ruby",
     pos = { x = 0, y = 0 },
     config = { odyssey_ruby_deck = true },
@@ -218,7 +218,7 @@ SMODS.Back({
 -- 32. Baralho de Esmeralda
 SMODS.Back({
     name = "Baralho de Esmeralda",
-    key = "bonus",
+    key = "emerald_deck",
     atlas = "b_emerald",
     pos = { x = 0, y = 0 },
     config = { odyssey_emerald_deck = true },

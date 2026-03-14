@@ -10936,7 +10936,7 @@ return {
  }
  },
  
- b_odyssey_bonus = {
+ b_odyssey_emerald_deck = {
  name = "Baralho de Esmeralda",
  text = {
  "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Esmeralda{}"
@@ -11002,7 +11002,7 @@ return {
  b_odyssey_laminado = {
  name = "Baralho Laminado",
  text = {
- "Começa com um Curinga", "{C:dark_edition}Laminado{} aleatório{}", "(Raridade Comum)"
+ "Começa com um Curinga", "{C:dark_edition}Laminado{} aleatório{}"
  }
  },
  
@@ -11023,7 +11023,7 @@ return {
  b_odyssey_holografico = {
  name = "Baralho Holográfico",
  text = {
- "Começa com um Curinga", "{C:attention}Holográfico{} aleatório{}", "(Raridade Comum)"
+ "Começa com um Curinga", "{C:attention}Holográfico{} aleatório{}"
  }
  },
  
@@ -11041,7 +11041,7 @@ return {
  }
  },
  
- b_odyssey_multiplicador = {
+ b_odyssey_ruby_deck = {
  name = "Baralho de Rubi",
  text = {
  "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Rubi{}"
@@ -11058,7 +11058,7 @@ return {
  b_odyssey_negativo = {
  name = "Baralho Negativo",
  text = {
- "Começa com um Curinga", "{C:dark_edition}Negativo{} aleatório{}", "(Raridade Comum)"
+ "Começa com um Curinga", "{C:dark_edition}Negativo{} aleatório{}"
  }
  },
  
@@ -11123,7 +11123,7 @@ return {
  b_odyssey_policromatico = {
  name = "Baralho Policromático",
  text = {
- "Começa com um Curinga", "{C:dark_edition}Policromático{} aleatório{}", "(Raridade Comum)"
+ "Começa com um Curinga", "{C:dark_edition}Policromático{} aleatório{}"
  }
  },
  
@@ -11148,14 +11148,14 @@ return {
  }
  },
  
- b_odyssey_selvagem = {
+ b_odyssey_holy_deck = {
  name = "Baralho Sagrado",
  text = {
  "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Sagrada{}"
  }
  },
  
- b_odyssey_sorte = {
+ b_odyssey_magic_deck = {
  name = "Baralho Mágico",
  text = {
  "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Mágica{}"
