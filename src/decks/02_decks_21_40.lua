@@ -9,7 +9,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                local card = create_card('Joker', G.jokers, nil, 0, nil, nil, nil, 'holographic_deck')
+                local card = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'holographic_deck')
                 card:set_edition({holo = true}, true)
                 card:add_to_deck()
                 G.jokers:emplace(card)
@@ -30,7 +30,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                local card = create_card('Joker', G.jokers, nil, 0, nil, nil, nil, 'polychrome_deck')
+                local card = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'polychrome_deck')
                 card:set_edition({polychrome = true}, true)
                 card:add_to_deck()
                 G.jokers:emplace(card)
@@ -51,7 +51,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                local card = create_card('Joker', G.jokers, nil, 0, nil, nil, nil, 'foil_deck')
+                local card = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'foil_deck')
                 card:set_edition({foil = true}, true)
                 card:add_to_deck()
                 G.jokers:emplace(card)
@@ -72,7 +72,7 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                local card = create_card('Joker', G.jokers, nil, 0, nil, nil, nil, 'negative_deck')
+                local card = create_card('Joker', G.jokers, nil, nil, nil, nil, nil, 'negative_deck')
                 card:set_edition({negative = true}, true)
                 card:add_to_deck()
                 G.jokers:emplace(card)
