@@ -16,13 +16,19 @@ SMODS.Joker({
     eternal_compat = true,
     perishable_compat = true,
     
-    -- Mecânica implementada em 03_vanilla_override.lua
     calculate = function(self, card, context)
-        if context.joker_main then
-            if context.scoring_name == 'Four of a Kind' then
-                local has_two_pair = false
-                -- Verificar se as cartas marcadas originalmente continham dois pares
-                -- Mas o override já mudou o nome da mão para Four of a Kind.
+        if context.joker_main and context.scoring_name == 'Two Pair' then
+            local tp = G.GAME.hands['Two Pair'] or {}
+            local fk = G.GAME.hands['Four of a Kind'] or {}
+            local mult_bonus = math.max(0, (fk.mult or 0) - (tp.mult or 0))
+            local chip_bonus = math.max(0, (fk.chips or 0) - (tp.chips or 0))
+            if mult_bonus > 0 or chip_bonus > 0 then
+                return {
+                    message = 'Fusão!',
+                    mult_mod = mult_bonus,
+                    chip_mod = chip_bonus,
+                    colour = G.C.PURPLE
+                }
             end
         end
     end
