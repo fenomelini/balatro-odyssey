@@ -59,13 +59,6 @@ SMODS.Joker({
             local first_card = context.scoring_hand[1]
             if first_card then
                 local target_suit = first_card.base.suit
-                for i = 1, #G.hand.cards do
-                    local c = G.hand.cards[i]
-                    if c ~= first_card then
-                        c:change_suit(target_suit)
-                        c:juice_up()
-                    end
-                end
                 for i = 1, #context.scoring_hand do
                    local c = context.scoring_hand[i]
                    if c ~= first_card then
