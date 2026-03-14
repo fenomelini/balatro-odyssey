@@ -123,8 +123,8 @@ SMODS.Joker({
     perishable_compat = true,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
-            for i = 1, #G.hand.cards do
-                local c = G.hand.cards[i]
+            for i = 1, #context.full_hand do
+                local c = context.full_hand[i]
                 c:set_base(G.P_CARDS[c.base.suit..'_A'])
             end
             G.E_MANAGER:add_event(Event({
