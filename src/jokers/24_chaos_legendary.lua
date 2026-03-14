@@ -73,6 +73,14 @@ SMODS.Joker({
                 colour = G.C.MULT
             }
         end
+        if context.end_of_round and context.game_over and not context.other_card then
+            card.ability.extra.x_mult = 2
+            return {
+                message = localize('k_reset'),
+                colour = G.C.RED,
+                card = card
+            }
+        end
         if context.joker_main then
             return {
                 message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
