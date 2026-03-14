@@ -86,7 +86,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Cerâmica",
     key = "ceramic",
-    atlas = "b_glass",
+    atlas = "b_ceramic",
     pos = { x = 0, y = 0 },
     config = { odyssey_ceramic = true },
     apply = function(self)
@@ -105,7 +105,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Borracha",
     key = "rubber",
-    atlas = "b_steel",
+    atlas = "b_rubber",
     pos = { x = 0, y = 0 },
     config = { odyssey_rubber = true },
     apply = function(self)
@@ -124,7 +124,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Platina",
     key = "platinum",
-    atlas = "b_stone",
+    atlas = "b_platinum",
     pos = { x = 0, y = 0 },
     config = { odyssey_platinum = true },
     apply = function(self)
@@ -143,7 +143,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Diamante",
     key = "diamond",
-    atlas = "b_gold",
+    atlas = "b_diamond",
     pos = { x = 0, y = 0 },
     config = { odyssey_diamond = true },
     apply = function(self)
@@ -162,7 +162,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Baralho Mágico",
     key = "sorte",
-    atlas = "b_lucky",
+    atlas = "b_magic",
     pos = { x = 0, y = 0 },
     config = { odyssey_magic_deck = true },
     apply = function(self)
@@ -181,7 +181,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Baralho Sagrado",
     key = "selvagem",
-    atlas = "b_wild",
+    atlas = "b_holy",
     pos = { x = 0, y = 0 },
     config = { odyssey_holy_deck = true },
     apply = function(self)
@@ -200,7 +200,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Baralho de Rubi",
     key = "multiplicador",
-    atlas = "b_mult",
+    atlas = "b_ruby",
     pos = { x = 0, y = 0 },
     config = { odyssey_ruby_deck = true },
     apply = function(self)
@@ -219,7 +219,7 @@ SMODS.Back({
 SMODS.Back({
     name = "Baralho de Esmeralda",
     key = "bonus",
-    atlas = "b_bonus",
+    atlas = "b_emerald",
     pos = { x = 0, y = 0 },
     config = { odyssey_emerald_deck = true },
     apply = function(self)
