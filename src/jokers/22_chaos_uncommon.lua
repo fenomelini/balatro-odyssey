@@ -412,20 +412,24 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.end_of_round and not context.repetition and not context.other_card then
             if G.GAME.blind.boss then
-                 local card_type = pseudorandom_element({'Tarot', 'Planet', 'Spectral'}, pseudorandom('j_chaos_will_o_the_wisp'))
-                 G.E_MANAGER:add_event(Event({
-                    func = function()
-                        local consum = create_card(card_type, G.consumeables, nil, nil, nil, nil, nil, 'j_chaos_will_o_the_wisp')
-                        consum:set_edition('e_negative', true)
-                        consum:add_to_deck()
-                        G.consumeables:emplace(consum)
-                        return true
-                    end
-                }))
-                 return {
-                    message = localize('k_wisp'),
-                    colour = G.C.DARK_EDITION
-                 }
+                if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    local card_type = pseudorandom_element({'Tarot', 'Planet', 'Spectral'}, pseudorandom('j_chaos_will_o_the_wisp'))
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            local consum = create_card(card_type, G.consumeables, nil, nil, nil, nil, nil, 'j_chaos_will_o_the_wisp')
+                            consum:set_edition('e_negative', true)
+                            consum:add_to_deck()
+                            G.consumeables:emplace(consum)
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    return {
+                        message = localize('k_wisp'),
+                        colour = G.C.DARK_EDITION
+                    }
+                end
             end
         end
     end
