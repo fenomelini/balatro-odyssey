@@ -292,7 +292,7 @@ G.FUNCS.draw_from_play_to_discard = function(e)
             delay = 0.1,
             func = function()
                 for i=1, #cards_to_return do
-                    if cards_to_return[i]:is_face_down() then cards_to_return[i]:flip() end
+                    if cards_to_return[i].facing == 'back' then cards_to_return[i]:flip() end
                     draw_card(G.play, G.hand, 90, 'up', nil, cards_to_return[i])
                 end
                 return true
