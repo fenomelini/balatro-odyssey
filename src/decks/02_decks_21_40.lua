@@ -302,7 +302,7 @@ SMODS.Back({
     key = "avareza",
     atlas = "b_avarice",
     pos = { x = 0, y = 0 },
-    config = { odyssey_avarice = true, no_interest = true },
+    config = { odyssey_avarice = true },
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -324,7 +324,7 @@ SMODS.Back({
         G.E_MANAGER:add_event(Event({
             func = function()
                 G.GAME.dollars = 0
-                G.GAME.interest_cap = 10
+                G.GAME.interest_cap = 50  -- max $10 interest (formula: interest_cap/5)
                 return true
             end
         }))

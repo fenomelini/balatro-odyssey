@@ -55,23 +55,8 @@ Card.calculate_joker = function(self, context)
 
     -- Deck 10: Quasar (+20 Mult Base) - applied permanently via apply() at run start, no scoring hook needed
 
-    -- Deck 35: Ascensao (Ascension) - Hands X2
-    if deck_key == 'ascensao' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={2}},
-            Xmult_mod = 2,
-            colour = G.C.MULT
-        })
-    end
-
-    -- Deck 36: Queda (Fall) - Hands X0.5
-    if deck_key == 'queda' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={0.5}},
-            Xmult_mod = 0.5,
-            colour = G.C.MULT
-        })
-    end
+    -- Deck 35: Ascensao (Ascension) - moved to Blind:modify_hand to work even with 0 jokers
+    -- Deck 36: Queda (Fall) - moved to Blind:modify_hand to work even with 0 jokers
 
     -- Deck 18: Timeline bonus is applied post-scoring in draw_from_play_to_discard hook
 
@@ -858,6 +843,36 @@ Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
                     return true
                 end}))
             end
+        end
+    end
+
+    -- Deck 35: Ascensao (Ascension) - X2 Mult (works even with 0 jokers)
+    if get_deck_key() == 'ascensao' then
+        ret_mult = ret_mult * 2
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={2}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 36: Queda (Fall) - X0.5 Mult (works even with 0 jokers)
+    if get_deck_key() == 'queda' then
+        ret_mult = ret_mult * 0.5
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={0.5}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
         end
     end
 
