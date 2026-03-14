@@ -51,20 +51,9 @@ Card.calculate_joker = function(self, context)
     -- Deck 6: Gravitational (Moved to Card:calculate_seal)
     -- Logic removed from here to avoid multiple triggers and dependency on jokers
 
-    -- Deck 9: Supernova (Apply accumulated Xmult from triggered explosions)
-    -- Guard: only fires on the first joker to prevent N-jokers=N*xmult over-triggering
-    if deck_key == 'supernova_deck' and context.joker_main then
-        local xmult = (G.GAME.selected_back.effect.config.extra or {}).xmult or 0
-        if xmult > 0 and G.jokers and G.jokers.cards and G.jokers.cards[1] and self == G.jokers.cards[1] then
-            return merge_effect(ret, {
-                message = localize{type='variable', key='a_xmult', vars={xmult}},
-                Xmult_mod = xmult,
-                colour = G.C.MULT
-            })
-        end
-    end
+    -- Deck 9: Supernova - moved to Blind:modify_hand to work even with 0 jokers
 
-    -- Deck 10: Quasar (+20 Mult Base) - now applied permanently via apply() at run start, no scoring hook needed
+    -- Deck 10: Quasar (+20 Mult Base) - applied permanently via apply() at run start, no scoring hook needed
 
     -- Deck 35: Ascensao (Ascension) - Hands X2
     if deck_key == 'ascensao' and context.joker_main then
@@ -864,6 +853,24 @@ Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
                 G.E_MANAGER:add_event(Event({ func = function()
                     card_eval_status_text(sorted[1], 'extra', nil, nil, nil, {
                         message = localize{type='variable', key='a_xmult', vars={2}},
+                        colour = G.C.MULT
+                    })
+                    return true
+                end}))
+            end
+        end
+    end
+
+    -- Deck 9: Supernova - apply accumulated Xmult (works even with 0 jokers)
+    if get_deck_key() == 'supernova_deck' then
+        local xmult = (G.GAME.selected_back.effect.config.extra or {}).xmult or 0
+        if xmult > 0 then
+            ret_mult = ret_mult * xmult
+            local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+            if ref_card then
+                G.E_MANAGER:add_event(Event({ func = function()
+                    card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                        message = localize{type='variable', key='a_xmult', vars={xmult}},
                         colour = G.C.MULT
                     })
                     return true

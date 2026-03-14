@@ -116,8 +116,10 @@ SMODS.Back({
     key = "quasar",
     atlas = "b_quasar",
     pos = { x = 0, y = 0 },
-    config = { odyssey_quasar = true, no_interest = true },
+    config = { odyssey_quasar = true },
     apply = function(self, back)
+        -- Disable interest via the game's standard modifier
+        G.GAME.modifiers.no_interest = true
         -- Permanently add +20 to the base mult of all hands
         if G.GAME and G.GAME.hands then
             for k, v in pairs(G.GAME.hands) do
