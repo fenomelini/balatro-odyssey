@@ -24,6 +24,15 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
+#### Jokers
+
+- **Crescimento Infinito (#122)**: The joker was supposed to gain X0.05 Mult every time a Blind was beaten, but never scaled. The win detection used `G.GAME.blind.chips_left`, a property that does not exist in the game. Fixed to use the correct `not context.game_over` check.
+- **Melhor Jogada (#136)**: The joker tracks the Mult and Chips from the best hand played each round and applies them on the last hand. It was always storing 1 Mult and 0 Chips as the "best" because it read from `G.mult` and `G.hand_chips`, which are local variables inside the scoring loop and always nil outside it. Fixed to read from `G.GAME.hands[hand_name].mult/chips`.
+- **Aprendizado (#137)**: The joker was supposed to gain +5 Mult permanently whenever a Blind was beaten using more than one hand. Like Crescimento Infinito, win detection relied on `G.GAME.blind.chips_left` (which doesn't exist), so the joker never scaled. Fixed to use `not context.game_over`.
+- **Fusão Dimensional (#151)**: This joker was completely silent — it did nothing when a Two Pair was played. The `calculate` function was an empty stub with a comment claiming the mechanic lived in another file, but that file contained no such implementation. The mechanic (Two Pair scores the chip/mult difference up to Four of a Kind level) is now fully implemented.
+- **Senhor Dimensional (#153)**: The description tooltip crashed the game when hovering over the card in the Collection menu. The `loc_vars` function accessed `card.ability.extra` directly without a nil guard — the game calls `loc_vars` without a physical card in collection/edition contexts. Fixed with the standard nil-safety pattern.
+- **Colapso Dimensional (#156)**: When a Blueprint was adjacent to this joker and a Boss Blind was selected, two jokers were destroyed instead of one. The `setting_blind` block was missing the `not context.blueprint` guard used by every other `setting_blind` hook in the mod. Blueprint would fire the trigger on its own card (setting `active = true` only on Blueprint), then Colapso Dimensional would fire again with its own `active` still `false`. Fixed by adding the guard.
+
 #### Decks
 
 - **42 decks were showing Portuguese names and descriptions in English**: 42 decks had names like "Ira Deck", "Preguiça Deck", "Vulcânico Deck", and descriptions with Portuguese mixed in when playing in English. All 42 now display correct English text. Affected decks: Wrath, Sloth, Pride, Alpha, Omega, Prime, Odyssey, Fractal, Mirror, Ghost, Vampire, Zombie, Cyborg, Mutant, Clone, Radioactive, Frozen, Volcanic, Oceanic, Solar, Lunar, Stellar, Mystic, Tech, Primitive, Arcane, Celestial, Spectral, Standard, Buffoon, Mercenary, Investor, Minimalist II, Maximalist II, Lucky II, King Arthur, Merlin, Phoenix, Chimera, Unicorn, Behemoth, Titan.
