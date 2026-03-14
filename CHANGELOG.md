@@ -65,6 +65,18 @@ All notable changes to this project will be documented in this file.
 - **Big Bang (#191)**: When sold, was supposed to spawn 5 random Common Jokers. The rarity value was invalid, causing the game to create nothing (or crash). Fixed.
 - **Cosmic Inflation (#196)**: Was doubling your money after every Blind won, not just Boss Blinds. Fixed.
 
+**Chaos series (#201–240):**
+
+- **Frenzy (#212)**: Gains +5 Mult every time a hand is played and should reset when the player discards. The reset condition had a guard that was always false during discard events, so the Mult never reset and kept growing forever. Fixed.
+- **Butterfly Effect (#218)**: Supposed to make all played cards score with the suit of the first card in the played hand. Was instead permanently changing the suits of the cards in the player's hand (the ones not being played). Fixed to only affect the played hand.
+- **Discord (#220)**: Gives a bonus when you play a hand that isn't the "highest-level" hand type. Was incorrectly using how many times each hand had been played instead of its Planet level to determine the top hand. Fixed to use hand level.
+- **Transmutation (#223)**: When sold, was supposed to spawn a random Uncommon Joker. The rarity value used was invalid — same class of bug as Big Bang (#191). Nothing appeared when the joker was sold. Fixed.
+- **Will-o'-the-Wisp (#226)**: Creates a Negative consumable when a Boss Blind is defeated. Had no check for whether the consumable slots were full — the card could be added over the limit, causing UI overflow and potential crashes. Fixed.
+- **Primal Form (#234)**: Was supposed to treat all played cards as Aces for one hand. Was transforming the cards in the player's held hand instead of the played cards. Fixed.
+- **Maximum Entropy (#235)**: Destroys a random Joker at the end of each round. Could target and destroy Eternal Jokers, which are supposed to be indestructible. Fixed.
+- **Heart of Chaos (#236)**: Copies the effect of a random Joker to its right. Was updating the shared scoring context object in-place, causing all Jokers evaluated after it to behave as if they were being copied by Blueprint — suppressing things like card creation or consumable rewards. Fixed to pass a local copy of the context.
+- **Crawling Chaos (#240)**: Gains X0.5 Mult every hand and is supposed to reset back to X2 after failing a round. The reset never triggered, so the multiplier grew permanently. Fixed.
+
 #### Decks
 
 - **42 decks were showing Portuguese names and descriptions in English**: 42 decks had names like "Ira Deck", "Preguiça Deck", "Vulcânico Deck", and descriptions with Portuguese mixed in when playing in English. All 42 now display correct English text. Affected decks: Wrath, Sloth, Pride, Alpha, Omega, Prime, Odyssey, Fractal, Mirror, Ghost, Vampire, Zombie, Cyborg, Mutant, Clone, Radioactive, Frozen, Volcanic, Oceanic, Solar, Lunar, Stellar, Mystic, Tech, Primitive, Arcane, Celestial, Spectral, Standard, Buffoon, Mercenary, Investor, Minimalist II, Maximalist II, Lucky II, King Arthur, Merlin, Phoenix, Chimera, Unicorn, Behemoth, Titan.
