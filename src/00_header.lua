@@ -1,7 +1,7 @@
 -- Balatro Odyssey
 -- A mod adding 1000 unique Jokers
 -- Author: fenomelini
--- Version: 0.1.7-alpha
+-- Version: 0.1.8-alpha
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
