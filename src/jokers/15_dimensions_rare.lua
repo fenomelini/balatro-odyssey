@@ -86,11 +86,12 @@ SMODS.Joker({
     perishable_compat = true,
     
     loc_vars = function(self, info_queue, card)
+        local extra = (card and card.ability and card.ability.extra) or self.config.extra
         local empty_slots = 0
         if G.jokers then
             empty_slots = G.jokers.config.card_limit - #G.jokers.cards
         end
-        local current_x_mult = 1 + (empty_slots * card.ability.extra.x_mult_per_slot)
+        local current_x_mult = 1 + (empty_slots * extra.x_mult_per_slot)
         return { vars = { current_x_mult } }
     end,
     
@@ -229,7 +230,7 @@ SMODS.Joker({
         end
 
         -- Trigger on Boss Blind selection
-        if context.setting_blind and not card.ability.extra.active then
+        if context.setting_blind and not card.ability.extra.active and not context.blueprint then
             if G.GAME.blind.boss then
                 local available_jokers = {}
                 for i = 1, #G.jokers.cards do
