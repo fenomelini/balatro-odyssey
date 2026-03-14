@@ -192,8 +192,9 @@ SMODS.Back({
         G.E_MANAGER:add_event(Event({
             func = function()
                 for k, v in pairs(G.playing_cards) do
-                    local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('chaos_suit'))
-                    local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','T','J','Q','K','A'}, pseudoseed('chaos_rank'))
+                    -- Use per-card seed so each card gets a unique random suit/rank
+                    local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('chaos_suit_'..k))
+                    local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','T','J','Q','K','A'}, pseudoseed('chaos_rank_'..k))
                     v:set_base(G.P_CARDS[suit..'_'..rank])
                 end
                 return true
