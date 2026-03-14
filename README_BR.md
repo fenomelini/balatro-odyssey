@@ -247,6 +247,7 @@ balatro-odyssey/
 
 ## 📋 Resumo do Changelog
 
+<!-- CHANGELOG_SUMMARY_START -->
 | Versão | Data | Destaques |
 |---|---|---|
 | [0.1.8-alpha](CHANGELOG.md#0.1.8-alpha) | 13/03/2026 | 17 correções de crash em curingas, 13 correções de localização de baralhos, correções de texto de blinds |
@@ -259,6 +260,7 @@ balatro-odyssey/
 | [0.1.1-alpha](CHANGELOG.md#0.1.1-alpha) | 25/01/2026 | Sistema Gauntlet, condição de vitória no Ante 100, tamanho de mão 10 |
 
 → [Changelog Completo](CHANGELOG.md)
+<!-- CHANGELOG_SUMMARY_END -->
 
 ---
 
