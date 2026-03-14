@@ -171,7 +171,7 @@ SMODS.Joker({
         end
         if context.end_of_round and not context.repetition and not context.other_card then
             local victim = pseudorandom_element(G.jokers.cards, pseudorandom('maximum_entropy'))
-            if victim then
+            if victim and not victim.ability.eternal then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         victim:start_dissolve()
