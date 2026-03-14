@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.8-alpha] - 2026-03-13
+
+### Fixed
+
+#### Startup Crashes
+
+- **17 Jokers caused the game to crash at startup** because their artwork files had mismatched names — the game couldn't find the images it expected and refused to load. All 17 now load correctly:
+  - Beginner's Luck, Pandora's Box *(Chaos)*
+  - Fool's Gold, Philosopher's Stone, Market's Hand *(Economy)*
+  - Devil's Hand, King's Hand, Queen's Hand, Jack's Hand, Ace's Hand *(Hand & Discard)*
+  - Liar's Paradox, Failure's Success, Zeno's Paradox, Fermi's Paradox *(Paradox)*
+  - Celestial Wormhole *(Celestial)*
+  - Post-Apocalypse *(Corruption)*
+  - Apotheosis *(Transformations)*
+
+#### Decks
+
+- **Ceramic Deck, Gold Deck, Steel Deck, Stone Deck**: These four decks had no Portuguese description at all. They now display correct text in both languages.
+- **13 Decks showing Portuguese text in English**: When playing in English, the following decks were displaying their descriptions in Portuguese. All now show correct English text: Alien Deck, Unlucky Deck, Chaotic II Deck, Dragon Deck, Ethereal Deck, Griffin Deck, Hydra Deck, Invisible Deck, Kraken Deck, Lust Deck, Magnetic Deck, Ordered II Deck, King Midas Deck.
+
+#### Blinds
+
+- **The Infinity (Boss #88)** and **The Zero (Boss #89)**: The English version of these two Boss Blinds was displaying the Portuguese words instead of their English equivalents. They now correctly read "Singularity" and "Nullity".
+- **The Blue Screen (Boss #95)**: The Portuguese version was showing the untranslated English acronym "BSOD (Blue Screen of Death)". It now correctly reads "Tela Azul da Morte (BSOD)".
+
+#### Mod Metadata
+
+- **Version number shown in-game**: The mod was always displaying version `0.1.5` in the in-game mod list regardless of the actual release downloaded. The `manifest.json` had never been updated past `0.1.5-alpha`, which is the file the game reads to show the version. Now correctly reads `0.1.7-alpha`.
+
+---
+
 ## [0.1.7-alpha] - 2026-03-12
 
 ### Fixed
@@ -36,9 +67,12 @@ All notable changes to this project will be documented in this file.
 - **Mechanic & Engineer**: Both vouchers existed in the game but did absolutely nothing when redeemed. Their intended effects are now fully implemented.
 - **Mechanic** (description): Fixed a text typo in the English description.
 
+#### Blinds
+
+- **Chaos Blind**: The "suits change randomly after each discard" mechanic was completely missing — the blind existed but did nothing special. Suit randomization now triggers correctly after every discard.
+
 #### Decks
 
-- **O Caos (Chaos Blind)**: The "suits change randomly after each discard" mechanic was completely missing — the blind existed but did nothing special. Suit randomization now triggers correctly after every discard.
 - **Order Deck**: Two bugs fixed. (1) The deck was never actually sorting the cards — the sort was never being called. The deck now correctly starts each round in order from lowest to highest rank so you draw 2s first. (2) The X2 Mult bonus for playing cards in order was firing multiple times (once per Joker owned) instead of once per hand, meaning with 5 Jokers it was giving X64 Mult. Now correctly fires once per hand.
 - **Timeline Deck**: The "10% of previous hand score added to current hand" bonus was completely non-functional — it never triggered during play. The bonus now correctly applies at the end of every hand, regardless of how many Jokers you have. The timing was also fixed: the bonus from the previous hand is now applied to the current hand, and 10% of the current hand is saved for the next one, as intended.
 - **Leviathan Deck**: The English version of the deck was showing its name and description in Portuguese. Corrected to display proper English text.

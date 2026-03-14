@@ -11073,9 +11073,9 @@ return {
  },
 
  ["b_odyssey_lust"] = {
-  name = "Luxúria Deck",
+  name = "Lust Deck",
   text = {
-   "Copas dão X1.2 Mult."
+   "Hearts give X1.2 Mult."
   }
  },
 
@@ -11181,9 +11181,9 @@ return {
  ["b_odyssey_alien"] = {
   name = "Alien Deck",
   text = {
-   "Naipes são substituídos por",
-   "símbolos alienígenas (4 novos",
-   "naipes)."
+   "Suits are replaced by",
+   "alien symbols (4 new",
+   "suits)."
   }
  },
 
@@ -11203,18 +11203,18 @@ return {
  },
 
  ["b_odyssey_invisible"] = {
-  name = "Invisível Deck",
+  name = "Invisible Deck",
   text = {
-   "Cartas são jogadas viradas",
-   "para baixo. X4 Mult."
+   "Cards are played face",
+   "down. X4 Mult."
   }
  },
 
  ["b_odyssey_ethereal"] = {
-  name = "Etéreo Deck",
+  name = "Ethereal Deck",
   text = {
-   "Cartas espectrais aparecem na",
-   "loja normalmente."
+   "Spectral cards appear",
+   "in the shop normally."
   }
  },
 
@@ -11227,11 +11227,10 @@ return {
  },
 
  ["b_odyssey_magnetic"] = {
-  name = "Magnético Deck",
+  name = "Magnetic Deck",
   text = {
-   "Cartas de mesmo rank se",
-   "atraem (sempre compradas",
-   "juntas)."
+   "Cards of same rank attract",
+   "(always bought together)."
   }
  },
 
@@ -11372,18 +11371,18 @@ return {
  },
 
  ["b_odyssey_chaotic_ii"] = {
-  name = "Caótico II Deck",
+  name = "Chaotic II Deck",
   text = {
-   "Boss Blinds têm efeitos",
-   "dobrados. X2 Pontuação."
+   "Boss Blinds have doubled",
+   "effects. X2 Score."
   }
  },
 
  ["b_odyssey_ordered_ii"] = {
-  name = "Ordenado II Deck",
+  name = "Ordered II Deck",
   text = {
-   "Boss Blinds não têm efeito.",
-   "0.5x Pontuação."
+   "Boss Blinds have no effect.",
+   "0.5x Score."
   }
  },
 
@@ -11397,18 +11396,18 @@ return {
  },
 
  ["b_odyssey_unlucky"] = {
-  name = "Azarado Deck",
+  name = "Unlucky Deck",
   text = {
-   "Probabilidades são 1 em 1000.",
-   "Inimigos 0.25x Pontos."
+   "Odds are 1 in 1000.",
+   "Enemies 0.25x Points."
   }
  },
 
  ["b_odyssey_midas"] = {
-  name = "Rei Midas Deck",
+  name = "King Midas Deck",
   text = {
-   "Tudo vira Ouro (Cartas,",
-   "Jokers)."
+   "Everything turns to Gold",
+   "(Cards, Jokers)."
   }
  },
 
@@ -11429,10 +11428,10 @@ return {
  },
 
  ["b_odyssey_dragon"] = {
-  name = "Dragão Deck",
+  name = "Dragon Deck",
   text = {
-   "Bosses têm 10x HP. Você cospe",
-   "fogo (X10 Mult)."
+   "Bosses have 10x HP. You",
+   "breathe fire (X10 Mult)."
   }
  },
 
@@ -11445,11 +11444,11 @@ return {
  },
 
  ["b_odyssey_hydra"] = {
-  name = "Hidra Deck",
+  name = "Hydra Deck",
   text = {
-   "Cortar uma cabeça (Vencer",
-   "Blind) gera 2 novas (Blinds",
-   "extras)."
+   "Cut a head (Win a Blind)",
+   "and grow 2 new ones",
+   "(extra Blinds)."
   }
  },
 
@@ -11462,10 +11461,10 @@ return {
  },
 
  ["b_odyssey_griffin"] = {
-  name = "Grifo Deck",
+  name = "Griffin Deck",
   text = {
-   "Voa sobre Small Blinds (Pula",
-   "automaticamente)."
+   "Flies over Small Blinds",
+   "(Skip automatically)."
   }
  },
 
@@ -11479,9 +11478,8 @@ return {
  ["b_odyssey_kraken"] = {
   name = "Kraken Deck",
   text = {
-   "Tentáculos (Jokers) te",
-   "agarram (Não pode vender",
-   "Jokers)."
+   "Tentacles (Jokers) hold",
+   "you (Cannot sell Jokers)."
   }
  },
 
@@ -12138,14 +12136,14 @@ return {
  bl_odyssey_blind_88 = {
  name = "The Infinity",
  text = {
- "**Singularidade**"
+ "**Singularity**"
  }
  },
  
  bl_odyssey_blind_89 = {
  name = "The Zero",
  text = {
- "**Nulidade**"
+ "**Nullity**"
  }
  },
  

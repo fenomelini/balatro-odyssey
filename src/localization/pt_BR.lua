@@ -10908,6 +10908,13 @@ return {
  }
  },
  
+ b_odyssey_aco = {
+ name = "Baralho de Aço",
+ text = {
+ "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Aço{}"
+ }
+ },
+ 
  b_odyssey_antimatter = {
  name = "Baralho Antimatéria",
  text = {
@@ -10961,6 +10968,13 @@ return {
  name = "Baralho de Diamante",
  text = {
  "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Diamante{}"
+ }
+ },
+ 
+ b_odyssey_dourado = {
+ name = "Baralho Dourado",
+ text = {
+ "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Ouro{}"
  }
  },
  
@@ -11085,6 +11099,13 @@ return {
  }
  },
  
+ b_odyssey_pedra = {
+ name = "Baralho de Pedra",
+ text = {
+ "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Pedra{}"
+ }
+ },
+ 
  b_odyssey_photons = {
  name = "Baralho de Fótons",
  text = {
@@ -11173,6 +11194,13 @@ return {
  name = "Baralho de Cerâmica",
  text = {
  "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Cerâmica{}"
+ }
+ },
+ 
+ b_odyssey_vidro = {
+ name = "Baralho de Vidro",
+ text = {
+ "Todas as cartas do", "baralho inicial são", "aprimoradas para {C:attention}Vidro{}"
  }
  },
  
@@ -12322,7 +12350,7 @@ return {
  bl_odyssey_blind_95 = {
  name = "A Tela Azul",
  text = {
- "BSOD (Blue Screen of Death)."
+ "Tela Azul da Morte (BSOD)."
  }
  },
  
