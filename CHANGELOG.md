@@ -38,11 +38,11 @@ All notable changes to this project will be documented in this file.
 - **Maximalist II (#81)**: `discards` config was set to `-3` instead of `0`, unintentionally giving the player 5 discards (with base 3 + back delta) or crashing. Fixed to `0`.
 - **Dragon Deck (#89)**: Blind score requirement was being multiplied incorrectly. Now correctly applies the 10x multiplier via `get_blind_amount`.
 - **Poverty Deck (#38)**: Interest cap was using the wrong formula and granting too little interest. Fixed.
-- **Radioactive Deck (#62)**: Rank decay was crashing the game on any round where a card's rank changed. The engine call `G.id_def[id]` does not exist in Balatro — replaced with the correct inline rank conversion (matching the Strength Tarot pattern in `card.lua`).
-- **Ghost Deck (#53), Vampire Deck (#54)**: `card:is_face_down()` does not exist in Balatro. The correct check is `card.facing == 'back'`. Fixed.
-- **Timeline Deck (#33)**: The bonus chips from the previous hand were silently resetting the score counter to nearly zero instead of adding to it. `ease_chips(n)` sets `G.GAME.chips` to an **absolute value**, not a delta — the call now correctly passes `G.GAME.chips + stored`.
-- **Phoenix Deck (#90)**: The save-from-game-over mechanic never triggered. It was implemented inside `Card.calculate_joker`, which only runs if the player has at least one Joker in play. With zero Jokers, the game ended normally. Logic moved to the `end_round` hook so it fires regardless of Joker count.
-- **6 deck popup messages** (`k_again_ex`, `k_decay_ex`, `k_duplicated_ex`, `k_frozen_ex`, `k_mutant_ex`, `k_saved_ex`) were missing from both localization files, causing the `"ERROR"` string to appear in floating text during gameplay. All 6 keys added to `pt_BR.lua` and `en-us.lua`.
+- **Radioactive Deck (#62)**: Rank decay was crashing the game mid-round. Fixed.
+- **Ghost Deck (#53), Vampire Deck (#54)**: Face-down card detection was broken, causing incorrect behavior when cards were flipped. Fixed.
+- **Timeline Deck (#33)**: The bonus from the previous hand was never actually being added to your score — it was silently zeroing out the counter instead. The bonus now applies correctly every hand.
+- **Phoenix Deck (#90)**: The once-per-run resurrection never triggered when the player had no Jokers in play. It now works regardless of how many Jokers you have.
+- **6 deck popup messages** were missing from both languages, showing `"ERROR"` in floating text during gameplay. All 6 now display correctly.
 
 ---
 
