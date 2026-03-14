@@ -98,32 +98,9 @@ Card.calculate_joker = function(self, context)
        end
     end
 
-    -- 67. Solar: Red suits only. Flush 2x.
-    if deck_key == 'solar' and context.joker_main and context.scoring_name == 'Flush' then
-        return merge_effect(ret, {
-             message = localize{type='variable', key='a_xmult', vars={2}},
-             Xmult_mod = 2,
-             colour = G.C.MULT
-        })
-    end
-    
-    -- 66. Oceanic: Black suits only. Flush 2x.
-    if deck_key == 'oceanic' and context.joker_main and context.scoring_name == 'Flush' then
-        return merge_effect(ret, {
-             message = localize{type='variable', key='a_xmult', vars={2}},
-             Xmult_mod = 2,
-             colour = G.C.MULT
-        })
-    end
-
-    -- 80. Minimalist II: Hand size 3. X5 Mult.
-    if deck_key == 'minimalist_ii' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={5}},
-            Xmult_mod = 5,
-            colour = G.C.MULT
-        })
-    end
+    -- 67. Solar: Red suits only. Flush 2x. (moved to Blind:modify_hand to work with 0 jokers)
+    -- 66. Oceanic: Black suits only. Flush 2x. (moved to Blind:modify_hand to work with 0 jokers)
+    -- 80. Minimalist II: Hand size 3. X5 Mult. (moved to Blind:modify_hand to work with 0 jokers)
     
     -- 82. Chaotic II: Boss effects doubled + X2 blind requirement (handled in get_blind_amount)
     -- (No scoring bonus for player - this is a challenge deck)
@@ -885,6 +862,51 @@ Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
             G.E_MANAGER:add_event(Event({ func = function()
                 card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
                     message = localize{type='variable', key='a_xmult', vars={4}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 66: Oceanic - X2 Mult on Flush (works even with 0 jokers)
+    if get_deck_key() == 'oceanic' and text == 'Flush' then
+        ret_mult = ret_mult * 2
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={2}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 67: Solar - X2 Mult on Flush (works even with 0 jokers)
+    if get_deck_key() == 'solar' and text == 'Flush' then
+        ret_mult = ret_mult * 2
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={2}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 80: Minimalist II - X5 Mult (works even with 0 jokers)
+    if get_deck_key() == 'minimalist_ii' then
+        ret_mult = ret_mult * 5
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={5}},
                     colour = G.C.MULT
                 })
                 return true
