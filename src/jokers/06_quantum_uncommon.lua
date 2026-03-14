@@ -266,7 +266,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = 'j_quantum_infinite_loop',
     atlas = 'j_quantum_infinite_loop',
-    config = { extra = { mult = 30, count = 0, trigger = 3 } },
+    config = { extra = { mult = 30, played = 0, trigger = 3 } },
     rarity = 2,
     pos = { x = 0, y = 0 },
     cost = 7,
@@ -429,7 +429,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = 'j_quantum_chrono_trigger',
     atlas = 'j_quantum_chrono_trigger',
-    config = { extra = { mult = 100, count = 0, trigger = 5 } },
+    config = { extra = { mult = 100, played = 0, trigger = 5 } },
     rarity = 2,
     pos = { x = 0, y = 0 },
     cost = 6,
