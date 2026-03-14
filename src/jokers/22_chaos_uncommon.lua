@@ -271,7 +271,7 @@ SMODS.Joker({
         if context.selling_self then
              G.E_MANAGER:add_event(Event({
                 func = function()
-                    local joker = create_card('Joker', G.jokers, nil, 0.9, nil, nil, nil, 'j_chaos_transmutation')
+                    local joker = create_card('Joker', G.jokers, nil, 2, nil, nil, nil, 'j_chaos_transmutation')
                     joker:add_to_deck()
                     G.jokers:emplace(joker)
                     joker:start_materialize()
