@@ -72,7 +72,7 @@ SMODS.Joker({
     
     calculate = function(self, card, context)
         if context.end_of_round and not context.repetition and not context.other_card then
-            if G.GAME.blind and G.GAME.blind.chips_left and G.GAME.blind.chips_left <= 0 then
+            if not context.game_over then
                 card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_gain
                 return {
                     message = localize('k_upgrade_ex'),
@@ -672,9 +672,9 @@ SMODS.Joker({
     end,
 
     calculate = function(self, card, context)
-        if context.after and not context.blueprint then
-            local current_mult = G.mult or 1
-            local current_chips = G.hand_chips or 0
+        if context.after and not context.blueprint and context.scoring_name and G.GAME.hands[context.scoring_name] then
+            local current_mult  = G.GAME.hands[context.scoring_name].mult  or 0
+            local current_chips = G.GAME.hands[context.scoring_name].chips or 0
             
             if current_mult > card.ability.extra.best_mult then
                 card.ability.extra.best_mult = current_mult
