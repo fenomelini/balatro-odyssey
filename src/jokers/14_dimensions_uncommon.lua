@@ -30,9 +30,8 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.end_of_round and not context.repetition and not context.other_card then
             local hands_played = G.GAME.current_round.hands_played or 0
-            local won = G.GAME.blind and G.GAME.blind.chips_left and G.GAME.blind.chips_left <= 0
             
-            if hands_played > 1 and won then
+            if hands_played > 1 and not context.game_over then
                 card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
                 return {
                     message = localize('k_upgrade_ex'),
