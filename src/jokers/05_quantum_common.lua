@@ -316,7 +316,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = 'j_quantum_schrodinger',
     atlas = 'j_quantum_schrodinger',
-    config = { extra = { mult = 25, chips = 100, money = 5, odds = 4 } },
+    config = { extra = { mult = 20, chips = 100, money = 5, odds = 4 } },
     rarity = 1,
     pos = { x = 0, y = 0 },
     cost = 6,
