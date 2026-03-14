@@ -156,7 +156,10 @@ SMODS.Back({
     key = 'primitive',
     atlas = 'b_primitive',
     pos = { x = 0, y = 0 },
-    config = {}
+    config = {},
+    apply = function(self)
+        G.GAME.modifiers.odyssey_primitive = true
+    end
 })
 
 -- 73. Baralho Baralho Arcano

@@ -11321,8 +11321,9 @@ return {
  ["b_odyssey_zombie"] = {
   name = "Baralho Zumbi",
   text = {
-   "Pode jogar cartas descartadas",
-   "(uma vez por rodada)."
+   "Uma vez por rodada, a 1ª",
+   "carta descartada retorna",
+   "à mão automaticamente."
   }
  },
 
@@ -11337,9 +11338,8 @@ return {
  ["b_odyssey_alien"] = {
   name = "Baralho Alien",
   text = {
-   "Naipes são substituídos por",
-   "símbolos alienígenas (4 novos",
-   "naipes)."
+   "Naipes iniciais são aleatórios.",
+   "Flush vale {X:mult,C:white} X2 {} Multi."
   }
  },
 
@@ -11369,8 +11369,8 @@ return {
  ["b_odyssey_ethereal"] = {
   name = "Baralho Etéreo",
   text = {
-   "Cartas espectrais aparecem na",
-   "loja normalmente."
+   "No início de cada Aposta,",
+   "recebe {C:spectral}1 carta Espectral{} grátis."
   }
  },
 
@@ -11385,9 +11385,9 @@ return {
  ["b_odyssey_magnetic"] = {
   name = "Baralho Magnético",
   text = {
-   "Cartas de mesmo rank se",
-   "atraem (sempre compradas",
-   "juntas)."
+   "Cartas de mesmo rank ficam",
+   "agrupadas no baralho",
+   "(saem juntas ao comprar)."
   }
  },
 
@@ -11426,8 +11426,9 @@ return {
  ["b_odyssey_lunar"] = {
   name = "Baralho Lunar",
   text = {
-   "Fases da lua afetam pontuação",
-   "(Ciclo de 4 rodadas)."
+   "Ciclo de 4 blinds: Lua Nova",
+   "(1x) → Crescente (1.5x) →",
+   "Lua Cheia (2x) → Minguante (0.5x)."
   }
  },
 
@@ -11458,8 +11459,8 @@ return {
  ["b_odyssey_primitive"] = {
   name = "Baralho Primitivo",
   text = {
-   "Sem lojas. Ganha blind",
-   "rewards dobrados."
+   "Lojas inacessíveis.",
+   "Recompensas de {C:attention}Blind{} valem {C:money}2x{}."
   }
  },
 
@@ -11603,17 +11604,17 @@ return {
  ["b_odyssey_hydra"] = {
   name = "Baralho Hidra",
   text = {
-   "Cortar uma cabeça (Vencer",
-   "Blind) gera 2 novas (Blinds",
-   "extras)."
+   "A cada blind vencido,",
+   "ganhe {C:mult}+2 Multi{} permanente."
   }
  },
 
  ["b_odyssey_chimera"] = {
   name = "Baralho Quimera",
   text = {
-   "Baralho misto de 4 baralhos",
-   "diferentes."
+   "Baralho misto: {C:attention}Borracha{},",
+   "{C:attention}Cerâmica{}, {C:attention}Sagrado{}",
+   "e {C:attention}Mágico{} (13 de cada)."
   }
  },
 
@@ -11659,8 +11660,8 @@ return {
  ["b_odyssey_titan"] = {
   name = "Baralho Titã",
   text = {
-   "Cartas gigantes (ocupam 2",
-   "slots de mão)."
+   "Cartas gigantes (cada uma ocupa",
+   "2 slots). Tamanho de mão: {C:attention}4{}."
   }
  },
 
@@ -12562,6 +12563,7 @@ return {
   },
   dictionary = {
       k_shuffled = "Embaralhado!",
+      k_zombie_ex = "Zumbi!",
       odyssey_config_hide_vanilla = "Conversão Total (Apenas Odyssey)",
       odyssey_config_hide_vanilla_desc = "OFF: Jogue com Odyssey + Baunilha. ON: Jogue APENAS com conteúdo Odyssey.",
       odyssey_config_restart_warning = "REQUER REINÍCIO PARA APLICAR!",

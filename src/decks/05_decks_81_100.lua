@@ -131,7 +131,28 @@ SMODS.Back({
     key = 'chimera',
     atlas = 'b_chimera',
     pos = { x = 0, y = 0 },
-    config = {}
+    config = {},
+    apply = function(self)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                -- Mixed deck: 4 groups of 13 cards with different enhancements
+                local enhancements = {
+                    'm_odyssey_rubber',   -- Borracha: retrigger 1x
+                    'm_odyssey_ceramic',  -- Ceramica: X1.5 Mult
+                    'm_odyssey_holy',     -- Sagrado: +10 Mult +30 Chips
+                    'm_odyssey_magic',    -- Magico: chance de criar Taro
+                }
+                for i, card in ipairs(G.playing_cards) do
+                    local group = math.min(math.floor((i - 1) / 13) + 1, 4)
+                    local center_key = enhancements[group]
+                    if G.P_CENTERS[center_key] then
+                        card:set_ability(G.P_CENTERS[center_key])
+                    end
+                end
+                return true
+            end
+        }))
+    end
 })
 
 -- 93. Baralho Baralho Grifo
@@ -199,7 +220,7 @@ SMODS.Back({
     key = 'titan',
     atlas = 'b_titan',
     pos = { x = 0, y = 0 },
-    config = {}
+    config = { hand_size = -4 }  -- Giant cards: each takes 2 hand slots (8 -> 4 effective)
 })
 
 -- 99. Baralho Baralho Gnomo

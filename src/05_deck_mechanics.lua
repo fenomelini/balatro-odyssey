@@ -443,6 +443,38 @@ end_round = function()
         }))
     end
 
+    -- 78. Mercenary: No blind reward (compensation is $5 per joker sold)
+    if deck_key == 'mercenary' and G.GAME.blind and G.GAME.blind.dollars and G.GAME.blind.dollars > 0 then
+        local deduct = G.GAME.blind.dollars
+        G.E_MANAGER:add_event(Event({ func = function()
+            ease_dollars(-deduct)
+            return true
+        end}))
+    end
+
+    -- 72. Primitive: Double blind reward (no shop accessible)
+    if deck_key == 'primitive' and G.GAME.blind and G.GAME.blind.dollars and G.GAME.blind.dollars > 0 then
+        local bonus = G.GAME.blind.dollars
+        G.E_MANAGER:add_event(Event({ func = function()
+            ease_dollars(bonus)
+            if G.hand and G.hand.cards[1] then
+                card_eval_status_text(G.hand.cards[1], 'extra', nil, nil, nil,
+                    {message = localize{type='variable', key='a_dollars', vars={bonus}}, colour = G.C.MONEY})
+            end
+            return true
+        end}))
+    end
+
+    -- 68. Lunar: Advance moon phase (4-blind cycle)
+    if deck_key == 'lunar' then
+        G.GAME.odyssey_lunar_phase = ((G.GAME.odyssey_lunar_phase or 0) + 1) % 4
+    end
+
+    -- 91. Hydra: +2 Mult per blind beaten
+    if deck_key == 'hydra' then
+        G.GAME.odyssey_hydra_mult = (G.GAME.odyssey_hydra_mult or 0) + 2
+    end
+
     old_end_round()
 end
 
@@ -624,14 +656,11 @@ Card.set_cost = function(self)
        (self.area == G.shop_jokers or self.area == G.shop_vouchers or self.area == G.shop_booster) then
         self.cost = math.floor(self.cost * G.GAME.modifiers.odyssey_shop_price_mult)
     end
-end
-
--- 15. Card:set_ability (For Midas Deck)
-local old_set_ability = Card.set_ability
-Card.set_ability = function(self, center, initial, delay_sprites)
-    old_set_ability(self, center, initial, delay_sprites)
-    if G.GAME.modifiers and G.GAME.modifiers.odyssey_midas then
-        if self.ability.set == 'Joker' then
+    -- 72. Primitive: All shop items inaccessible (no shop)
+    if G.GAME.modifiers and G.GAME.modifiers.odyssey_primitive and self.area and
+       (self.area == G.shop_jokers or self.area == G.shop_vouchers or self.area == G.shop_booster) then
+        self.cost = 9999
+    end
             if not self.edition then
                 self:set_edition({polychrome = true})
             end
@@ -674,6 +703,27 @@ G.FUNCS.discard_cards_from_highlighted = function(e, hook)
             return true
         end}))
     end
+
+    -- 55. Zombie: Once per round, return 1 discarded card to hand
+    if get_deck_key() == 'zombie'
+        and not (G.GAME.current_round and G.GAME.current_round.zombie_used)
+        and G.discard and #G.discard.cards > 0 then
+        G.GAME.current_round.zombie_used = true
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.3,
+            func = function()
+                if G.discard and #G.discard.cards > 0 then
+                    local zombie_card = G.discard.cards[#G.discard.cards]
+                    draw_card(G.discard, G.hand, 90, 'up', false, zombie_card)
+                    card_eval_status_text(zombie_card, 'extra', nil, nil, nil,
+                        {message = localize('k_zombie_ex'), colour = G.C.GREEN})
+                    play_sound('tarot1')
+                end
+                return true
+            end
+        }))
+    end
 end
 
 -- 17. reset_blinds (For Griffin: auto-skip Small Blinds)
@@ -687,17 +737,23 @@ reset_blinds = function()
         G.GAME.blind_on_deck = 'Big'
         G.GAME.skips = (G.GAME.skips or 0) + 1
     end
-end
-
--- 18. Card:sell_card (For Mercenary: earn $5 per joker sold)
-local old_sell_card = Card.sell_card
-Card.sell_card = function(self, selling_to_shop)
-    if get_deck_key() == 'mercenary' and self.ability and self.ability.set == 'Joker' then
-        -- Give $5 bonus on top of normal sell value
+    -- 61. Ethereal: Give 1 free Spectral card at the start of each Ante
+    if get_deck_key() == 'ethereal' then
         G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.5,
             func = function()
-                ease_dollars(5)
-                card_eval_status_text(self, 'extra', nil, nil, nil,
+                if G.consumables and #G.consumables.cards < G.consumables.config.temp_limit then
+                    local card = create_card('Spectral', G.consumables, nil, nil, nil, nil, nil, 'ethereal_deck')
+                    card:add_to_deck()
+                    G.consumables:emplace(card)
+                    card:start_materialize()
+                    play_sound('card1')
+                end
+                return true
+            end
+        }))
+    end
                     { message = localize{type='variable', key='a_dollars', vars={5}}, colour = G.C.MONEY })
                 return true
             end
@@ -713,13 +769,10 @@ CardArea.shuffle = function(self, _seed)
         -- Sort descending so lowest-rank cards (2s) are at the end and drawn first
         table.sort(self.cards, function(a, b) return a.base.id > b.base.id end)
         self:set_ranks()
-    else
-        old_shuffle(self, _seed)
-    end
-end
-
--- 20. Blind:modify_hand (For Order Deck: X2 Mult when play cards are in rank order)
-local old_modify_hand = Blind.modify_hand
+    elseif self == G.deck and get_deck_key() == 'magnetic' then
+        -- Group same-rank cards together (magnetic attraction)
+        table.sort(self.cards, function(a, b) return a.base.id < b.base.id end)
+        self:set_ranks()
 Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
     local ret_mult, ret_chips, triggered = old_modify_hand(self, cards, poker_hands, text, mult, hand_chips)
 
@@ -838,6 +891,59 @@ Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
                 })
                 return true
             end}))
+        end
+    end
+
+    -- Deck 57: Alien - X2 Mult on Flush (alien suits are random, reward the adaptation)
+    if get_deck_key() == 'alien' and text == 'Flush' then
+        ret_mult = ret_mult * 2
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={2}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 68: Lunar - Moon phase multiplier (4-blind cycle: x1, x1.5, x2, x0.5)
+    if get_deck_key() == 'lunar' then
+        local phase = G.GAME.odyssey_lunar_phase or 0
+        local phase_mults = {1, 1.5, 2, 0.5}
+        local pmult = phase_mults[phase + 1]
+        if pmult and pmult ~= 1 then
+            ret_mult = ret_mult * pmult
+            local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+            if ref_card then
+                G.E_MANAGER:add_event(Event({ func = function()
+                    card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                        message = localize{type='variable', key='a_xmult', vars={pmult}},
+                        colour = G.C.MULT
+                    })
+                    return true
+                end}))
+            end
+        end
+    end
+
+    -- Deck 91: Hydra - +Mult accumulated per blind beaten
+    if get_deck_key() == 'hydra' then
+        local bonus = G.GAME.odyssey_hydra_mult or 0
+        if bonus > 0 then
+            ret_mult = ret_mult + bonus
+            local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+            if ref_card then
+                G.E_MANAGER:add_event(Event({ func = function()
+                    card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                        message = localize{type='variable', key='a_mult', vars={bonus}},
+                        colour = G.C.MULT
+                    })
+                    return true
+                end}))
+            end
         end
     end
 

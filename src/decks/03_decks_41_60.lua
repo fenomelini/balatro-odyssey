@@ -249,7 +249,18 @@ SMODS.Back({
     key = 'alien',
     atlas = 'b_alien',
     pos = { x = 0, y = 0 },
-    config = {}
+    config = {},
+    apply = function(self)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local suits = {'Spades', 'Hearts', 'Clubs', 'Diamonds'}
+                for k, v in ipairs(G.playing_cards) do
+                    v:change_suit(suits[pseudorandom(pseudoseed('alien_suit_'..k), 1, 4)])
+                end
+                return true
+            end
+        }))
+    end
 })
 
 -- 58. Baralho Baralho Mutante

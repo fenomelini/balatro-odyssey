@@ -11164,8 +11164,9 @@ return {
  ["b_odyssey_zombie"] = {
   name = "Zombie Deck",
   text = {
-   "Can play discarded cards",
-   "(once per round)."
+   "Once per round, the 1st",
+   "discarded card returns",
+   "to hand automatically."
   }
  },
 
@@ -11180,9 +11181,8 @@ return {
  ["b_odyssey_alien"] = {
   name = "Alien Deck",
   text = {
-   "Suits are replaced by",
-   "alien symbols (4 new",
-   "suits)."
+   "Starting suits are random.",
+   "Flush scores {X:mult,C:white} X2 {} Mult."
   }
  },
 
@@ -11212,8 +11212,8 @@ return {
  ["b_odyssey_ethereal"] = {
   name = "Ethereal Deck",
   text = {
-   "Spectral cards appear",
-   "in the shop normally."
+   "At the start of each Ante,",
+   "receive {C:spectral}1 free Spectral{} card."
   }
  },
 
@@ -11228,8 +11228,9 @@ return {
  ["b_odyssey_magnetic"] = {
   name = "Magnetic Deck",
   text = {
-   "Cards of same rank attract",
-   "(always bought together)."
+   "Cards of same rank are",
+   "grouped in the deck",
+   "(drawn together)."
   }
  },
 
@@ -11268,8 +11269,9 @@ return {
  ["b_odyssey_lunar"] = {
   name = "Lunar Deck",
   text = {
-   "Moon phases affect scoring",
-   "(4-round cycle)."
+   "4-blind cycle: New Moon (1x)",
+   "→ Waxing (1.5x) → Full (2x)",
+   "→ Waning (0.5x)."
   }
  },
 
@@ -11300,8 +11302,8 @@ return {
  ["b_odyssey_primitive"] = {
   name = "Primitive Deck",
   text = {
-   "No shops. Earn double",
-   "Blind rewards."
+   "Shops are inaccessible.",
+   "{C:attention}Blind{} rewards are worth {C:money}2x{}."
   }
  },
 
@@ -11445,17 +11447,17 @@ return {
  ["b_odyssey_hydra"] = {
   name = "Hydra Deck",
   text = {
-   "Cut a head (Win a Blind)",
-   "and grow 2 new ones",
-   "(extra Blinds)."
+   "Each Blind beaten grants",
+   "{C:mult}+2 permanent Mult{}."
   }
  },
 
  ["b_odyssey_chimera"] = {
   name = "Chimera Deck",
   text = {
-   "Mixed deck of 4 different",
-   "decks."
+   "Mixed deck: {C:attention}Rubber{},",
+   "{C:attention}Ceramic{}, {C:attention}Holy{}",
+   "and {C:attention}Magic{} (13 each)."
   }
  },
 
@@ -11500,8 +11502,8 @@ return {
  ["b_odyssey_titan"] = {
   name = "Titan Deck",
   text = {
-   "Giant cards (occupy 2",
-   "hand slots)."
+   "Giant cards (each takes 2",
+   "hand slots). Hand size: {C:attention}4{}."
   }
  },
 
@@ -12403,6 +12405,7 @@ return {
   },
   dictionary = {
       k_shuffled = "Shuffled!",
+      k_zombie_ex = "Zombie!",
       odyssey_config_hide_vanilla = "Total Conversion (Odyssey Only)",
       odyssey_config_hide_vanilla_desc = "OFF: Play with Odyssey + Vanilla content. ON: Play ONLY with Odyssey content.",
       odyssey_config_restart_warning = "REQUIRES GAME RESTART TO APPLY!",
