@@ -162,10 +162,10 @@ SMODS.Back({
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                -- Pick a random legendary (rarity 4) joker
+                -- Pick a random legendary odyssey joker
                 local legendaries = {}
                 for k, v in pairs(G.P_CENTERS) do
-                    if v.set == 'Joker' and v.rarity == 4 then
+                    if v.set == 'Joker' and v.rarity == 4 and string.find(k, 'odyssey') then
                         legendaries[#legendaries+1] = k
                     end
                 end
