@@ -247,6 +247,7 @@ balatro-odyssey/
 
 ## 📋 Changelog Summary
 
+<!-- CHANGELOG_SUMMARY_START -->
 | Version | Date | Highlights |
 |---|---|---|
 | [0.1.8-alpha](CHANGELOG.md#0.1.8-alpha) | 2026-03-13 | 17 joker crash fixes, 13 deck localization fixes, blind text fixes |
@@ -259,6 +260,7 @@ balatro-odyssey/
 | [0.1.1-alpha](CHANGELOG.md#0.1.1.alpha) | 2026-01-25 | Gauntlet system, Ante 100 win condition, hand size 10 |
 
 → [Full Changelog](CHANGELOG.md)
+<!-- CHANGELOG_SUMMARY_END -->
 
 ---
 
