@@ -33,7 +33,7 @@ SMODS.Joker({
             G.E_MANAGER:add_event(Event({
                 func = function()
                     for i = 1, 5 do
-                        local card = create_card('Joker', G.jokers, nil, 0, nil, nil, nil, 'celestial_big_bang')
+                        local card = create_card('Joker', G.jokers, nil, 1, nil, nil, nil, 'celestial_big_bang')
                         card:add_to_deck()
                         G.jokers:emplace(card)
                     end
