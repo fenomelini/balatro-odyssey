@@ -31,13 +31,11 @@ SMODS.Joker({
                     
                     local suits = {'Hearts', 'Diamonds', 'Clubs', 'Spades'}
                     local current_suit = target_card.base.suit
-                    local new_suit = pseudorandom_element(suits, pseudoseed('portal_suit'))
-                    
-                    -- Ensure suit changed
-                    while new_suit == current_suit and #suits > 1 do
-                        new_suit = pseudorandom_element(suits, pseudoseed('portal_suit'))
+                    local other_suits = {}
+                    for _, s in ipairs(suits) do
+                        if s ~= current_suit then table.insert(other_suits, s) end
                     end
-                    
+                    local new_suit = pseudorandom_element(other_suits, pseudoseed('portal_suit'))
                     target_card:set_base(G.P_CARDS[new_suit..'_'..target_card.base.value])
                     
                     card_eval_status_text(card, 'extra', nil, nil, nil, {
