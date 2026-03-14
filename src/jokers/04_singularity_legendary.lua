@@ -44,7 +44,7 @@ SMODS.Joker({
 SMODS.Joker({
     key = 'j_singularity_reverse_big_bang',
     atlas = 'j_singularity_reverse_big_bang',
-    config = { extra = { xmult = 10 } },
+    config = { extra = { xmult = 5 } },
     rarity = 4,
     pos = { x = 0, y = 0 },
     cost = 20,
