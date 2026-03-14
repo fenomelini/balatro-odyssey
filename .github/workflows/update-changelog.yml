@@ -1,0 +1,47 @@
+name: Update Changelog Summary
+
+# Runs automatically whenever CHANGELOG.md is pushed to main.
+# Parses the latest versions and updates the summary table in README.md
+# and README_BR.md between the <!-- CHANGELOG_SUMMARY_START/END --> markers.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'CHANGELOG.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-summary:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Use the default GITHUB_TOKEN — write permission set above
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run update script
+        run: python .github/scripts/update_changelog_summary.py
+
+      - name: Commit updated summaries
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Only commit if something actually changed
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add README.md README_BR.md
+            git commit -m "docs: update changelog summary [skip ci]"
+            git push
+          fi
