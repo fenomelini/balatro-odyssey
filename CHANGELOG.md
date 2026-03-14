@@ -76,6 +76,8 @@ All notable changes to this project will be documented in this file.
 - **Maximum Entropy (#235)**: Destroys a random Joker at the end of each round. Could target and destroy Eternal Jokers, which are supposed to be indestructible. Fixed.
 - **Heart of Chaos (#236)**: Copies the effect of a random Joker to its right. Was updating the shared scoring context object in-place, causing all Jokers evaluated after it to behave as if they were being copied by Blueprint — suppressing things like card creation or consumable rewards. Fixed to pass a local copy of the context.
 - **Crawling Chaos (#240)**: Gains X0.5 Mult every hand and is supposed to reset back to X2 after failing a round. The reset never triggered, so the multiplier grew permanently. Fixed.
+- **Chain Reaction (#225)**: Was supposed to give +5 Mult for each Joker ability that activated during the current hand. Instead, it was using the total number of Jokers owned as a proxy — owning 5 Jokers always gave the same bonus regardless of how many actually fired. Now counts real activations.
+- **The Great Filter (#238)**: Was supposed to permanently unlock X5 Mult the first time you played a Five of a Kind. It never triggered because the hand name check used `'5 of a Kind'` instead of the engine's actual name `'Five of a Kind'`. Fixed.
 
 #### Decks
 
