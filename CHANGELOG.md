@@ -60,7 +60,7 @@ All notable changes to this project will be documented in this file.
 **Celestial series (#161–200):**
 
 - **Rings of Saturn (#180)**: The "+20 Mult" popup was appearing over the Joker card itself instead of over the 8 being scored. Fixed.
-- **Zero Gravity (#181)**: Was supposed to give X3 Mult when playing a Straight. The multiplier was silently ignored due to a wrong internal key. Fixed.
+- **Zero Gravity (#181)**: Was supposed to give X3 Mult when playing a Straight. The multiplier was silently ignored due to a wrong internal key. Fixed. Additionally, the promised wraparound Straight mechanic (K-A-2-3-4 counts as a Straight) was never implemented. Now fully works.
 - **White Dwarf (#190)**: Was only activating on the very first hand of each round instead of every hand. Fixed.
 - **Big Bang (#191)**: When sold, was supposed to spawn 5 random Common Jokers. The rarity value was invalid, causing the game to create nothing (or crash). Fixed.
 - **Cosmic Inflation (#196)**: Was doubling your money after every Blind won, not just Boss Blinds. Fixed.
