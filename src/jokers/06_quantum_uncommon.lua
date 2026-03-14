@@ -204,12 +204,14 @@ SMODS.Joker({
     
     calculate = function(self, card, context)
         if context.joker_main then
-            local bonus_mult = card.ability.extra.last_mult
-            local bonus_chips = card.ability.extra.last_chips
+            local bonus_mult = card.ability.extra.last_mult or 0
+            local bonus_chips = card.ability.extra.last_chips or 0
             
-            -- Armazena os valores da mão atual para a próxima
-            card.ability.extra.last_mult = G.mult
-            card.ability.extra.last_chips = G.hand_chips
+            -- Store CURRENT hand base values to use as bonus NEXT hand
+            if context.scoring_name and G.GAME.hands[context.scoring_name] then
+                card.ability.extra.last_mult = G.GAME.hands[context.scoring_name].mult or 0
+                card.ability.extra.last_chips = G.GAME.hands[context.scoring_name].chips or 0
+            end
             
             if bonus_mult > 0 or bonus_chips > 0 then
                 return {
