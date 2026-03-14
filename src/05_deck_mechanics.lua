@@ -762,6 +762,17 @@ reset_blinds = function()
             end
         }))
     end
+end
+
+-- 18. Card:sell_card (For Mercenary: earn $5 per joker sold)
+local old_sell_card = Card.sell_card
+Card.sell_card = function(self, selling_to_shop)
+    if get_deck_key() == 'mercenary' and self.ability and self.ability.set == 'Joker' then
+        -- Give $5 bonus on top of normal sell value
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                ease_dollars(5)
+                card_eval_status_text(self, 'extra', nil, nil, nil,
                     { message = localize{type='variable', key='a_dollars', vars={5}}, colour = G.C.MONEY })
                 return true
             end
@@ -781,6 +792,13 @@ CardArea.shuffle = function(self, _seed)
         -- Group same-rank cards together (magnetic attraction)
         table.sort(self.cards, function(a, b) return a.base.id < b.base.id end)
         self:set_ranks()
+    else
+        old_shuffle(self, _seed)
+    end
+end
+
+-- 20. Blind:modify_hand (For Order Deck: X2 Mult when play cards are in rank order)
+local old_modify_hand = Blind.modify_hand
 Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
     local ret_mult, ret_chips, triggered = old_modify_hand(self, cards, poker_hands, text, mult, hand_chips)
 
