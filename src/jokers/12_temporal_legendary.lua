@@ -57,7 +57,7 @@ SMODS.Joker({
 -- 120. Loop Eterno
 SMODS.Joker({
     key = 'j_temporal_eternal_loop',
-    config = { extra = { x_mult = 3, count = 0, last_hand = '' } },
+    config = { extra = { x_mult = 3, played = 0, last_hand = '' } },
     rarity = 4,
     atlas = 'j_temporal_eternal_loop',
     pos = { x = 0, y = 0 },
