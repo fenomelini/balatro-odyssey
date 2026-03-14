@@ -277,10 +277,12 @@ SMODS.Joker({
             card.ability.extra.hands_played = (card.ability.extra.hands_played or 0) + 1
         end
         
-        -- Primeira mão: captura valores atuais (Base + Cartas)
+        -- Primeira mão: captura valores base do tipo de mão jogada
         if context.joker_main and card.ability.extra.hands_played == 1 then
-            card.ability.extra.first_hand_mult = (G.mult or 1)
-            card.ability.extra.first_hand_chips = (G.hand_chips or 0)
+            if context.scoring_name and G.GAME.hands[context.scoring_name] then
+                card.ability.extra.first_hand_mult = G.GAME.hands[context.scoring_name].mult or 0
+                card.ability.extra.first_hand_chips = G.GAME.hands[context.scoring_name].chips or 0
+            end
         end
         
         -- Última mão: repete o bônus
@@ -416,12 +418,10 @@ SMODS.Joker({
     end,
     
     calculate = function(self, card, context)
-        if context.end_of_round and not context.repetition and not context.other_card then
-            if G.GAME.blind and G.GAME.blind.chips_left and G.GAME.blind.chips_left <= 0 then
-                if pseudorandom('stasis') < G.GAME.probabilities.normal / card.ability.extra.odds then
-                    card.ability.extra.bonus_next_round = true
-                    card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Estase!', colour = G.C.PURPLE })
-                end
+        if context.end_of_round and not context.repetition and not context.other_card and not context.game_over then
+            if pseudorandom('stasis') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                card.ability.extra.bonus_next_round = true
+                card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Estase!', colour = G.C.PURPLE })
             end
         end
         
@@ -511,10 +511,12 @@ SMODS.Joker({
             card.ability.extra.hands_played = (card.ability.extra.hands_played or 0) + 1
         end
         
-        -- Primeira mão: armazena os valores
+        -- Primeira mão: armazena os valores base do tipo de mão jogada
         if context.joker_main and card.ability.extra.hands_played == 1 then
-            card.ability.extra.stored_mult = (G.mult or 1)
-            card.ability.extra.stored_chips = (G.hand_chips or 0)
+            if context.scoring_name and G.GAME.hands[context.scoring_name] then
+                card.ability.extra.stored_mult = G.GAME.hands[context.scoring_name].mult or 0
+                card.ability.extra.stored_chips = G.GAME.hands[context.scoring_name].chips or 0
+            end
         end
         
         -- Última mão: aplica XMult e bônus guardado
