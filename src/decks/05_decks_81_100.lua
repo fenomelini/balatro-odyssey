@@ -5,7 +5,7 @@ SMODS.Back({
     key = 'maximalist_ii',
     atlas = 'b_maximalist_ii',
     pos = { x = 0, y = 0 },
-    config = { hand_size = 2, discards = -100 }
+    config = { hand_size = 2, discards = -3 }
 })
 
 -- 82. Baralho Baralho Caótico II

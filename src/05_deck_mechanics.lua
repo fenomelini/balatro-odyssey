@@ -129,82 +129,19 @@ Card.calculate_joker = function(self, context)
         end
     end
 
-    -- 89. Dragon: X10 Mult
-    if deck_key == 'dragon' and context.joker_main then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={10}},
-            Xmult_mod = 10,
-            colour = G.C.MULT
-        })
-    end
+    -- 89. Dragon: X10 Mult + Bosses 10x HP (moved to modify_hand / get_blind_amount)
 
-    -- 96. Leviathan: Hand size 5 -> +1000 Chips
-    if deck_key == 'leviathan' and context.joker_main and context.scoring_hand and #context.scoring_hand == 5 then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_chips', vars={1000}},
-            chip_mod = 1000,
-            colour = G.C.CHIPS
-        })
-    end
+    -- 96. Leviathan: 5-card hand +1000 Chips (moved to modify_hand)
 
-    -- 97. Behemoth: Hand size 1 -> X5 Mult
-    if deck_key == 'behemoth' and context.joker_main and context.scoring_hand and #context.scoring_hand == 1 then
-        return merge_effect(ret, {
-            message = localize{type='variable', key='a_xmult', vars={5}},
-            Xmult_mod = 5,
-            colour = G.C.MULT
-        })
-    end
+    -- 97. Behemoth: High Card -> X5 Mult (moved to modify_hand)
 
     -- 42. Sloth (Preguiça): X3 Mult - moved to Blind:modify_hand to work with 0 jokers
 
-    -- 52. Mirror (Espelho): Right to Left (Descending) -> 2x
-    if deck_key == 'mirror' and context.joker_main and context.scoring_hand and #context.scoring_hand >= 2 then
-        local descending = true
-        for i = 1, #context.scoring_hand - 1 do
-            if context.scoring_hand[i].base.id <= context.scoring_hand[i+1].base.id then
-                descending = false
-                break
-            end
-        end
-        if descending then
-             return merge_effect(ret, {
-                message = localize{type='variable', key='a_xmult', vars={2}},
-                Xmult_mod = 2,
-                colour = G.C.MULT
-            })
-        end
-    end
+    -- 52. Mirror (Espelho): Descending -> X2 Mult (moved to modify_hand)
 
-    -- 7. Event Horizon: Apply accumulated Mult from destroyed cards
-    if deck_key == 'event_horizon' and context.joker_main then
-        local mult = 0
-        if G.GAME.selected_back.effect.config.extra then
-            mult = G.GAME.selected_back.effect.config.extra.mult or 0
-        end
-        if mult > 0 then
-            return merge_effect(ret, {
-                message = localize{type='variable', key='a_mult', vars={mult}},
-                mult_mod = mult,
-                colour = G.C.MULT
-            })
-        end
-    end
+    -- 7. Event Horizon: Apply accumulated Mult (moved to modify_hand)
 
-    -- 54. Vampire: Apply accumulated Mult
-    if deck_key == 'vampire' and context.joker_main then
-        local mult = 0
-        if G.GAME.selected_back.effect.config.extra then
-            mult = G.GAME.selected_back.effect.config.extra.mult or 0
-        end
-        if mult > 0 then
-            return merge_effect(ret, {
-                message = localize{type='variable', key='a_mult', vars={mult}},
-                mult_mod = mult,
-                colour = G.C.MULT
-            })
-        end
-    end
+    -- 54. Vampire: Apply accumulated Mult (moved to modify_hand)
 
     -- 60. Invisible: X4 Mult - moved to Blind:modify_hand to work with 0 jokers
 
@@ -613,6 +550,11 @@ function get_blind_amount(ante)
         amount = amount * 0.5
     end
     
+    -- 89. Dragon: All blinds require 10x score (fire-breathing hard mode deck)
+    if deck_key == 'dragon' then
+        amount = amount * 10
+    end
+
     return amount
 end
 
@@ -911,6 +853,108 @@ Blind.modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
                 })
                 return true
             end}))
+        end
+    end
+
+    -- Deck 89: Dragon - X10 Mult (works even with 0 jokers)
+    if get_deck_key() == 'dragon' then
+        ret_mult = ret_mult * 10
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={10}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 96: Leviathan - +1000 Chips when 5 cards played (works even with 0 jokers)
+    if get_deck_key() == 'leviathan' and cards and #cards >= 5 then
+        ret_chips = ret_chips + 1000
+        local ref_card = cards[1] or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_chips', vars={1000}},
+                    colour = G.C.CHIPS
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 97: Behemoth - X5 Mult on High Card hands (works even with 0 jokers)
+    if get_deck_key() == 'behemoth' and text == 'High Card' then
+        ret_mult = ret_mult * 5
+        local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+        if ref_card then
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={5}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 52: Mirror - X2 Mult when played cards are in descending rank order (works even with 0 jokers)
+    if get_deck_key() == 'mirror' and cards and #cards >= 2 then
+        local sorted = {}
+        for k, v in ipairs(cards) do sorted[k] = v end
+        table.sort(sorted, function(a, b) return (a.T and a.T.x or 0) < (b.T and b.T.x or 0) end)
+        local descending = true
+        for i = 1, #sorted - 1 do
+            if sorted[i].base.id <= sorted[i+1].base.id then descending = false; break end
+        end
+        if descending then
+            ret_mult = ret_mult * 2
+            G.E_MANAGER:add_event(Event({ func = function()
+                card_eval_status_text(sorted[1], 'extra', nil, nil, nil, {
+                    message = localize{type='variable', key='a_xmult', vars={2}},
+                    colour = G.C.MULT
+                })
+                return true
+            end}))
+        end
+    end
+
+    -- Deck 7: Event Horizon - Apply accumulated +Mult from destroyed cards (works even with 0 jokers)
+    if get_deck_key() == 'event_horizon' then
+        local extra_mult = (G.GAME.selected_back and G.GAME.selected_back.effect.config.extra or {}).mult or 0
+        if extra_mult > 0 then
+            ret_mult = ret_mult + extra_mult
+            local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+            if ref_card then
+                G.E_MANAGER:add_event(Event({ func = function()
+                    card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                        message = localize{type='variable', key='a_mult', vars={extra_mult}},
+                        colour = G.C.MULT
+                    })
+                    return true
+                end}))
+            end
+        end
+    end
+
+    -- Deck 54: Vampire - Apply accumulated +Mult from drawn cards (works even with 0 jokers)
+    if get_deck_key() == 'vampire' then
+        local extra_mult = (G.GAME.selected_back and G.GAME.selected_back.effect.config.extra or {}).mult or 0
+        if extra_mult > 0 then
+            ret_mult = ret_mult + extra_mult
+            local ref_card = (cards and cards[1]) or (G.hand and G.hand.cards and G.hand.cards[1])
+            if ref_card then
+                G.E_MANAGER:add_event(Event({ func = function()
+                    card_eval_status_text(ref_card, 'extra', nil, nil, nil, {
+                        message = localize{type='variable', key='a_mult', vars={extra_mult}},
+                        colour = G.C.MULT
+                    })
+                    return true
+                end}))
+            end
         end
     end
 
