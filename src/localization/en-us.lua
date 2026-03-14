@@ -11057,15 +11057,15 @@ return {
  
  
  ["b_odyssey_wrath"] = {
-  name = "Ira Deck",
+  name = "Wrath Deck",
   text = {
-   "Discards cost $1. Hands dão",
+   "Discards cost $1. Hands give",
    "$1."
   }
  },
 
  ["b_odyssey_sloth"] = {
-  name = "Preguiça Deck",
+  name = "Sloth Deck",
   text = {
    "1 Hand/round. 0 Discards. X3",
    "Mult."
@@ -11080,21 +11080,21 @@ return {
  },
 
  ["b_odyssey_pride"] = {
-  name = "Orgulho Deck",
+  name = "Pride Deck",
   text = {
-   "Figuras dão +30 Chips."
+   "Face Cards give +30 Chips."
   }
  },
 
  ["b_odyssey_alpha"] = {
-  name = "Alfa Deck",
+  name = "Alpha Deck",
   text = {
    "Only A, 2, 3, 4, 5."
   }
  },
 
  ["b_odyssey_omega"] = {
-  name = "Ômega Deck",
+  name = "Omega Deck",
   text = {
    "Only 10, J, Q, K, A."
   }
@@ -11115,66 +11115,65 @@ return {
  },
 
  ["b_odyssey_prime"] = {
-  name = "Primo Deck",
+  name = "Prime Deck",
   text = {
    "Only 2, 3, 5, 7, J, K."
   }
  },
 
  ["b_odyssey_odyssey"] = {
-  name = "Odisseia Deck",
+  name = "Odyssey Deck",
   text = {
-   "Starts with Lendário 'A",
-   "Odisseia'."
+   "Starts with Legendary 'Odyssey'."
   }
  },
 
  ["b_odyssey_fractal"] = {
   name = "Fractal Deck",
   text = {
-   "Ao jogar 5 cards iguais,",
-   "cria uma cópia no baralho."
+   "Playing 5 identical cards",
+   "creates a copy in the deck."
   }
  },
 
  ["b_odyssey_mirror"] = {
-  name = "Espelho Deck",
+  name = "Mirror Deck",
   text = {
-   "Hands jogadas da direita para",
-   "esquerda score double."
+   "Hands played right to left",
+   "score double."
   }
  },
 
  ["b_odyssey_ghost"] = {
-  name = "Fantasma Deck",
+  name = "Ghost Deck",
   text = {
-   "Cartas jogadas não são",
-   "descartadas (voltam para hand).",
+   "Played cards return to hand",
+   "instead of discarding.",
    "-2 Hands."
   }
  },
 
  ["b_odyssey_vampire"] = {
-  name = "Vampiro Deck",
+  name = "Vampire Deck",
   text = {
-   "Destrói cards jogadas para",
-   "ganhar Mult permanente."
+   "Destroys played cards to",
+   "gain permanent Mult."
   }
  },
 
  ["b_odyssey_zombie"] = {
-  name = "Zumbi Deck",
+  name = "Zombie Deck",
   text = {
-   "Pode jogar cards descartadas",
-   "(uma vez por round)."
+   "Can play discarded cards",
+   "(once per round)."
   }
  },
 
  ["b_odyssey_cyborg"] = {
-  name = "Ciborgue Deck",
+  name = "Cyborg Deck",
   text = {
-   "Starts with 2 Jokers 'Bot'",
-   "(Automatizados)."
+   "Starts with 2 'Bot' Jokers",
+   "(Automated)."
   }
  },
 
@@ -11188,17 +11187,17 @@ return {
  },
 
  ["b_odyssey_mutant"] = {
-  name = "Mutante Deck",
+  name = "Mutant Deck",
   text = {
-   "Naipes mudam a cada round."
+   "Suits change each round."
   }
  },
 
  ["b_odyssey_clone"] = {
   name = "Clone Deck",
   text = {
-   "Starts with 52 Ases de",
-   "Espadas."
+   "Starts with 52 Aces of",
+   "Spades."
   }
  },
 
@@ -11219,10 +11218,10 @@ return {
  },
 
  ["b_odyssey_radioactive"] = {
-  name = "Radioativo Deck",
+  name = "Radioactive Deck",
   text = {
-   "Cartas na hand decaem (mudam",
-   "rank) a cada round."
+   "Cards in hand decay (change",
+   "rank) each round."
   }
  },
 
@@ -11235,136 +11234,136 @@ return {
  },
 
  ["b_odyssey_frozen"] = {
-  name = "Congelado Deck",
+  name = "Frozen Deck",
   text = {
-   "Primeira hand sempre",
-   "debuffada. +2 Hands."
+   "First hand is always",
+   "debuffed. +2 Hands."
   }
  },
 
  ["b_odyssey_volcanic"] = {
-  name = "Vulcânico Deck",
+  name = "Volcanic Deck",
   text = {
-   "Descarta hand inteira após",
-   "jogar. +$5 por hand."
+   "Discards entire hand after",
+   "playing. +$5 per hand."
   }
  },
 
  ["b_odyssey_oceanic"] = {
-  name = "Oceânico Deck",
+  name = "Oceanic Deck",
   text = {
-   "Only naipes Pretos. Flush",
-   "vale 2x."
+   "Only Black suits. Flush",
+   "scores 2x."
   }
  },
 
  ["b_odyssey_solar"] = {
   name = "Solar Deck",
   text = {
-   "Only naipes Vermelhos.",
-   "Flush vale 2x."
+   "Only Red suits.",
+   "Flush scores 2x."
   }
  },
 
  ["b_odyssey_lunar"] = {
   name = "Lunar Deck",
   text = {
-   "Fases da lua afetam pontuação",
-   "(Ciclo de 4 rounds)."
+   "Moon phases affect scoring",
+   "(4-round cycle)."
   }
  },
 
  ["b_odyssey_stellar"] = {
-  name = "Estelar Deck",
+  name = "Stellar Deck",
   text = {
-   "Starts with 5 cards de",
-   "Planeta aleatórias."
+   "Starts with 5 random",
+   "Planet cards."
   }
  },
 
  ["b_odyssey_mystic"] = {
-  name = "Místico Deck",
+  name = "Mystic Deck",
   text = {
-   "Starts with 5 cards de Tarô",
-   "aleatórias."
+   "Starts with 5 random",
+   "Tarot cards."
   }
  },
 
  ["b_odyssey_tech"] = {
-  name = "Tecnológico Deck",
+  name = "Tech Deck",
   text = {
-   "Starts with $100. Shops são 2x",
-   "mais caras."
+   "Starts with $100. Shops are",
+   "2x more expensive."
   }
  },
 
  ["b_odyssey_primitive"] = {
-  name = "Primitivo Deck",
+  name = "Primitive Deck",
   text = {
-   "Sem lojas. Earn blind",
-   "rewards dobrados."
+   "No shops. Earn double",
+   "Blind rewards."
   }
  },
 
  ["b_odyssey_arcane"] = {
-  name = "Arcano Deck",
+  name = "Arcane Deck",
   text = {
-   "Arcana Packs são free."
+   "Arcana Packs are free."
   }
  },
 
  ["b_odyssey_celestial"] = {
   name = "Celestial Deck",
   text = {
-   "Planet Packs são free."
+   "Planet Packs are free."
   }
  },
 
  ["b_odyssey_spectral"] = {
-  name = "Espectral Deck",
+  name = "Spectral Deck",
   text = {
-   "Spectral Packs são free."
+   "Spectral Packs are free."
   }
  },
 
  ["b_odyssey_standard"] = {
   name = "Standard Deck",
   text = {
-   "Standard Packs são free."
+   "Standard Packs are free."
   }
  },
 
  ["b_odyssey_buffoon"] = {
   name = "Buffoon Deck",
   text = {
-   "Buffoon Packs são free."
+   "Buffoon Packs are free."
   }
  },
 
  ["b_odyssey_mercenary"] = {
-  name = "Mercenário Deck",
+  name = "Mercenary Deck",
   text = {
-   "Não ganha dinheiro de blinds.",
-   "Earn $5 por Joker vendido."
+   "Doesn't earn money from Blinds.",
+   "Earn $5 per Joker sold."
   }
  },
 
  ["b_odyssey_investor"] = {
-  name = "Investidor Deck",
+  name = "Investor Deck",
   text = {
-   "Juros não tem limit."
+   "Interest has no limit."
   }
  },
 
  ["b_odyssey_minimalist_ii"] = {
-  name = "Minimalista II Deck",
+  name = "Minimalist II Deck",
   text = {
    "Hand size 3. X5 Mult."
   }
  },
 
  ["b_odyssey_maximalist_ii"] = {
-  name = "Maximalista II Deck",
+  name = "Maximalist II Deck",
   text = {
    "Hand size 10. 0 Discards."
   }
@@ -11387,11 +11386,11 @@ return {
  },
 
  ["b_odyssey_lucky_ii"] = {
-  name = "Sortudo II Deck",
+  name = "Lucky II Deck",
   text = {
-   "Probabilidades são sempre 1",
-   "em 1 (Always acerta). Inimigos",
-   "4x Pontos."
+   "Odds are always 1 in 1",
+   "(Always hits). Enemies",
+   "4x Points."
   }
  },
 
@@ -11412,18 +11411,18 @@ return {
  },
 
  ["b_odyssey_arthur"] = {
-  name = "Rei Arthur Deck",
+  name = "King Arthur Deck",
   text = {
-   "Starts with Excalibur (Joker",
-   "Lendário)."
+   "Starts with Excalibur",
+   "(Legendary Joker)."
   }
  },
 
  ["b_odyssey_merlin"] = {
   name = "Merlin Deck",
   text = {
-   "Starts with 3 Poções",
-   "(Consumíveis)."
+   "Starts with 3 Potions",
+   "(Consumables)."
   }
  },
 
@@ -11436,10 +11435,10 @@ return {
  },
 
  ["b_odyssey_phoenix"] = {
-  name = "Fênix Deck",
+  name = "Phoenix Deck",
   text = {
-   "Se morrer, renasce no Ante 1",
-   "com tudo mantido (1 vez)."
+   "If you die, reborn at Ante 1",
+   "with everything kept (once)."
   }
  },
 
@@ -11453,10 +11452,10 @@ return {
  },
 
  ["b_odyssey_chimera"] = {
-  name = "Quimera Deck",
+  name = "Chimera Deck",
   text = {
-   "Deck misto de 4 baralhos",
-   "diferentes."
+   "Mixed deck of 4 different",
+   "decks."
   }
  },
 
@@ -11469,9 +11468,9 @@ return {
  },
 
  ["b_odyssey_unicorn"] = {
-  name = "Unicórnio Deck",
+  name = "Unicorn Deck",
   text = {
-   "Starts with Joker 'Pureza'."
+   "Starts with Joker 'Unicorn'."
   }
  },
 
@@ -11494,15 +11493,15 @@ return {
  ["b_odyssey_behemoth"] = {
   name = "Behemoth Deck",
   text = {
-   "Hands de 1 carta dão X5 Mult."
+   "1-card hands give X5 Mult."
   }
  },
 
  ["b_odyssey_titan"] = {
-  name = "Titã Deck",
+  name = "Titan Deck",
   text = {
-   "Cartas gigantes (ocupam 2",
-   "slots de hand)."
+   "Giant cards (occupy 2",
+   "hand slots)."
   }
  },
 
