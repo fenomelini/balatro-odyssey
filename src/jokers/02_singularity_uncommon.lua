@@ -86,9 +86,8 @@ SMODS.Joker({
                 local has_left = my_index > 1
                 local has_right = my_index < #G.jokers.cards
                 
-                -- Só ativa se NÃO tiver adjacentes EM AMBOS os lados
-                -- (pode ter 1 lado vazio, mas não pode ter os 2 lados ocupados)
-                if not (has_left and has_right) then
+                -- Só ativa se NÃO tiver nenhum adjacente (totalmente isolado)
+                if not has_left and not has_right then
                     return {
                         message = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },
                         mult_mod = card.ability.extra.mult,
