@@ -243,7 +243,7 @@ SMODS.Joker({
 -- 117. Passado Perdido
 SMODS.Joker({
     key = 'j_temporal_forgotten_past',
-    config = { extra = { odds = 5 } },
+    config = { extra = { odds = 5, bonus_hands = false } },
     rarity = 3,
     atlas = 'j_temporal_forgotten_past',
     pos = { x = 0, y = 0 },
@@ -268,11 +268,20 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over and not context.repetition and not context.other_card then
             if pseudorandom('forgotten_past') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                card.ability.extra.bonus_hands = true
                 return {
                     message = localize('k_saved_ex'),
                     saved = true,
                     colour = G.C.PURPLE
                 }
+            end
+        end
+        
+        if context.setting_blind and not context.blueprint then
+            if card.ability.extra.bonus_hands then
+                card.ability.extra.bonus_hands = false
+                ease_hands_played(2)
+                card_eval_status_text(card, 'extra', nil, nil, nil, { message = '+2 Mãos!', colour = G.C.BLUE })
             end
         end
     end
