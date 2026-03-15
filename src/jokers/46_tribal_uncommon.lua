@@ -348,6 +348,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.end_of_round and not context.blueprint and not context.other_card then
             local count = G.GAME.viking_destroyed_count or 0
+            G.GAME.viking_destroyed_count = 0
             if count > 0 then
                 ease_dollars(count * card.ability.extra.money_per_card)
                 return {
