@@ -224,10 +224,14 @@ function Card:get_chip_bonus()
 end
 
 -- 9. Pasteur Spectral: Permanent debuff immunity (perma_debuff_immune flag)
+--    Heart of the World (#445): immunity to all Boss Blind suit debuffs
 local old_set_debuff = Card.set_debuff
 function Card:set_debuff(should_debuff)
     if should_debuff and self.ability and self.ability.perma_debuff_immune then
         return -- Card is immune to Boss Blind debuffs (Pasteur spectral)
+    end
+    if should_debuff and G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_suit_immune then
+        return -- Heart of the World: immune to Boss Blind suit debuffs
     end
     return old_set_debuff(self, should_debuff)
 end
