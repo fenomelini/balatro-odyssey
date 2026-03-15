@@ -176,9 +176,9 @@ local local_jokers = {
         calculate = function(self, card, context)
             if context.after and not context.blueprint then
                 for k, v in ipairs(G.hand.cards) do
-                    local new_rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudorandom('entropy_rank'))
-                    local new_suit = pseudorandom_element({'Spades','Hearts','Clubs','Diamonds'}, pseudorandom('entropy_suit'))
-                    v:set_base(G.P_CARDS[new_suit..'_'..new_rank])
+                    local new_rank = pseudorandom_element({'2','3','4','5','6','7','8','9','T','J','Q','K','A'}, pseudorandom('entropy_rank'))
+                    local suit_prefix = pseudorandom_element({'S_','H_','C_','D_'}, pseudorandom('entropy_suit'))
+                    v:set_base(G.P_CARDS[suit_prefix..new_rank])
                 end
                 return {
                     message = localize('k_chaos'),
