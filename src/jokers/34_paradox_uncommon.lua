@@ -22,8 +22,8 @@ SMODS.Joker({
 
     end,
     calculate = function(self, card, context)
-        if context.end_of_round and not context.repetition and not context.game_over and not context.other_card then
-            if G.GAME.chips < G.GAME.blind.chips then
+        if context.end_of_round and context.game_over and not context.repetition and not context.blueprint then
+            if context.other_card == G.hand.cards[1] then
                 ease_dollars(card.ability.extra.dollars)
                 return {
                     message = localize('$') .. card.ability.extra.dollars,
