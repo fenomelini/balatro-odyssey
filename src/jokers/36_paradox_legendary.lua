@@ -55,8 +55,8 @@ SMODS.Joker({
     cost = 20,
     blueprint_compat = false,
     calculate = function(self, card, context)
-        if context.end_of_round and not context.repetition and not context.blueprint and not context.other_card then
-            if G.GAME.chips < G.GAME.blind.chips then
+        if context.end_of_round and context.game_over and not context.repetition and not context.blueprint then
+            if context.other_card == G.hand.cards[1] then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         G.hand_text_area.blind_chips:juice_up()
