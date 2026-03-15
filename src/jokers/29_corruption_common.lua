@@ -294,7 +294,7 @@ local local_jokers = {
             if context.individual and context.cardarea == G.play then
                 if context.other_card.ability.effect == 'Steel Card' then
                     return {
-                        x_mult = card.ability.extra.x_mult,
+                        Xmult_mod = card.ability.extra.x_mult,
                         card = card
                     }
                 end
