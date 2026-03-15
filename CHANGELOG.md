@@ -99,6 +99,13 @@ All notable changes to this project will be documented in this file.
 - **Memory Dump (#387)**: Selling this joker was supposed to add 3 random cards to your hand. Instead, the game crashed every time it was sold. Fixed.
 - **The Watcher (#399)**: The secondary effect — revealing the order of cards remaining in your deck — was never implemented. While this joker is in play, deck cards are now shown face-up so you can see what you'll draw next. Fixed.
 
+**Tribal series (#451–500):**
+
+- **Necromancer (#462)**: Should revive the last destroyed face card back into your deck during the next scoring hand. It never activated — the game was never recording which face card was destroyed, so there was nothing to revive. Additionally, the revival code itself had a bug that would have put the wrong card type back even if the data existed. Both issues are now fixed.
+- **Viking (#481)**: Should pay $1 at end of round for each playing card destroyed during that round. The counter tracking destroyed cards was initialized but never incremented, so Viking always paid $0. The counter also never reset between rounds, which would have caused permanent over-payment had it ever worked. Both issues are now fixed.
+- **Mage Circle (#492)**: Should grant +1 Consumable Slot and make Tarot cards appear twice as often in the shop. The consumable slot worked, but the Tarot frequency boost was completely missing — the code comment said "handled elsewhere" but that code was never written. The Tarot rate bonus is now correctly applied when the joker is in play.
+- **King of Kings (#499)**: Should make all played cards count as Kings for rank-based triggers while in play. The joker correctly sets an internal flag when added to your collection, but nothing ever read that flag to change how cards report their rank. All played cards now correctly report as Kings while this joker is active.
+
 **Elemental series (#401–450):**
 
 - **Magma (#412)**: Should make Hearts and Diamonds count as the same suit while in play. The effect was tracked internally but never applied — Hearts and Diamonds were always treated as separate suits. Fixed.
