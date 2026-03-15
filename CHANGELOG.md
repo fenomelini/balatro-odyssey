@@ -105,6 +105,7 @@ All notable changes to this project will be documented in this file.
 - **Viking (#481)**: Should pay $1 at end of round for each playing card destroyed during that round. The counter tracking destroyed cards was initialized but never incremented, so Viking always paid $0. The counter also never reset between rounds, which would have caused permanent over-payment had it ever worked. Both issues are now fixed.
 - **Mage Circle (#492)**: Should grant +1 Consumable Slot and make Tarot cards appear twice as often in the shop. The consumable slot worked, but the Tarot frequency boost was completely missing — the code comment said "handled elsewhere" but that code was never written. The Tarot rate bonus is now correctly applied when the joker is in play.
 - **King of Kings (#499)**: Should make all played cards count as Kings for rank-based triggers while in play. The joker correctly sets an internal flag when added to your collection, but nothing ever read that flag to change how cards report their rank. All played cards now correctly report as Kings while this joker is active.
+- **Assassin (#475)**: Should destroy the lowest-ranked held card and grant X2 Mult each time a hand is played. The card destruction worked correctly, but the X2 Mult reward was silently discarded and never applied to the score. Fixed.
 
 **Elemental series (#401–450):**
 
