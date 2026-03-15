@@ -63,7 +63,7 @@ SMODS.Joker({
             if not is_straight then
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                    x_mult_mod = card.ability.extra.x_mult,
+                    Xmult_mod = card.ability.extra.x_mult,
                     colour = G.C.MULT
                 }
             end
@@ -95,13 +95,13 @@ SMODS.Joker({
             if pseudorandom('all_or_nothing') < G.GAME.probabilities.normal / card.ability.extra.odds then
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.high_x_mult } },
-                    x_mult_mod = card.ability.extra.high_x_mult,
+                    Xmult_mod = card.ability.extra.high_x_mult,
                     colour = G.C.MULT
                 }
             else
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.low_x_mult } },
-                    x_mult_mod = card.ability.extra.low_x_mult,
+                    Xmult_mod = card.ability.extra.low_x_mult,
                     colour = G.C.MULT
                 }
             end
@@ -132,7 +132,7 @@ SMODS.Joker({
         if context.joker_main then
             return {
                 message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                x_mult_mod = card.ability.extra.x_mult,
+                Xmult_mod = card.ability.extra.x_mult,
                 colour = G.C.MULT
             }
         end
@@ -172,7 +172,7 @@ SMODS.Joker({
             if G.GAME.current_round.discards_left == 0 and G.GAME.current_round.hands_left == 1 then -- This is the last hand
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                    x_mult_mod = card.ability.extra.x_mult,
+                    Xmult_mod = card.ability.extra.x_mult,
                     colour = G.C.MULT
                 }
             end
@@ -203,7 +203,7 @@ SMODS.Joker({
         if context.joker_main and G.GAME.current_round.hands_left == 1 then
             return {
                 message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                x_mult_mod = card.ability.extra.x_mult,
+                Xmult_mod = card.ability.extra.x_mult,
                 colour = G.C.MULT
             }
         end
@@ -270,7 +270,7 @@ SMODS.Joker({
             if G.GAME.odyssey_prev_round_1_hand then
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                    x_mult_mod = card.ability.extra.x_mult,
+                    Xmult_mod = card.ability.extra.x_mult,
                     colour = G.C.MULT
                 }
             end

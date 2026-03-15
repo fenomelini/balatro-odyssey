@@ -206,7 +206,7 @@ SMODS.Joker({
             if unique_suits >= 4 then
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                    x_mult_mod = card.ability.extra.x_mult,
+                    Xmult_mod = card.ability.extra.x_mult,
                     colour = G.C.MULT
                 }
             end
@@ -440,7 +440,7 @@ SMODS.Joker({
         if context.joker_main and card.ability.extra.active then
             return {
                 message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                x_mult_mod = card.ability.extra.x_mult,
+                Xmult_mod = card.ability.extra.x_mult,
                 colour = G.C.MULT
             }
         end
