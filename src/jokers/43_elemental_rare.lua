@@ -188,10 +188,7 @@ SMODS.Joker({
                 if c.base.value == 'Jack' then new_base = 'D_J' end
                 if c.base.value == 'Queen' then new_base = 'D_Q' end
                 if c.base.value == 'King' then new_base = 'D_K' end
-                -- Safe way:
-                local rank = c.base.value
-                local suit = 'Diamonds'
-                c:set_base(G.P_CARDS[suit .. '_' .. rank])
+                c:set_base(G.P_CARDS[new_base])
             end
             return {
                 message = "Golden Hand!",
