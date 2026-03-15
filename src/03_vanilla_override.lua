@@ -410,3 +410,15 @@ function poll_edition(_key, _mod, _no_neg, _guaranteed)
     return result
 end
 
+-- 11. King of Kings (#499): all playing cards count as rank 13 (King)
+local old_get_id = Card.get_id
+function Card:get_id()
+    if G.GAME and (G.GAME.odyssey_king_of_kings_active or 0) > 0 then
+        local set = self.ability and self.ability.set
+        if (set == 'Default' or set == 'Enhanced') and self.ability.effect ~= 'Stone Card' then
+            return 13
+        end
+    end
+    return old_get_id(self)
+end
+
