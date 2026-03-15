@@ -353,3 +353,20 @@ function get_straight(hand)
     return ret
 end
 
+-- 10. Chromatic Anomaly (#367): Extra polychrome roll during edition polling
+local old_poll_edition = poll_edition
+function poll_edition(_key, _mod, _no_neg, _guaranteed)
+    local result = old_poll_edition(_key, _mod, _no_neg, _guaranteed)
+    if not result
+        and G.GAME and G.GAME.modifiers
+        and G.GAME.modifiers.odyssey_chromatic_rate
+        and G.GAME.modifiers.odyssey_chromatic_rate > 1 then
+        local rate = G.GAME.modifiers.odyssey_chromatic_rate
+        local extra_poll = pseudorandom(pseudoseed((_key or 'chromatic') .. '_odyssey_poly'))
+        if extra_poll > 1 - 0.006 * rate then
+            return { polychrome = true }
+        end
+    end
+    return result
+end
+
