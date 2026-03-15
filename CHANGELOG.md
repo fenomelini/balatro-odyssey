@@ -112,6 +112,7 @@ All notable changes to this project will be documented in this file.
 - **Heart of the World (#445)**: Should prevent Boss Blinds from debuffing your cards based on suit. The immunity was tracked internally but never applied — cards were still being debuffed normally. Fixed.
 - **Absolute Zero (#448)**: Crashed the game the moment any hand was scored while this joker was in play. Fixed. Additionally, the zero-chip detection now correctly identifies hands where no chips were scored.
 - **Avatar (#449)**: Should allow any 5-card combination to count as a Flush, regardless of suit. The effect was tracked internally but the hand evaluation was never overridden — only true same-suit hands counted as Flush. Fixed.
+- **Cataclysm (#450)**: Crashed the game immediately when purchased, due to an invalid internal random number calculation producing a nil suit. Fixed.
 
 #### Decks
 
