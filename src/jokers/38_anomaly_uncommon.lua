@@ -323,11 +323,13 @@ local jokers = {
         end,
         calculate = function(self, card, context)
             if context.joker_main then
-                return {
-                    message = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },
-                    mult_mod = card.ability.extra.mult,
-                    colour = G.C.MULT
-                }
+                if G.GAME.last_hand_time and (G.TIMERS.REAL - G.GAME.last_hand_time) < card.ability.extra.seconds then
+                    return {
+                        message = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },
+                        mult_mod = card.ability.extra.mult,
+                        colour = G.C.MULT
+                    }
+                end
             end
         end
     },
