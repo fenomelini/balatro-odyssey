@@ -13,6 +13,10 @@ end
 local old_ease_dollars = ease_dollars
 function ease_dollars(amount, instant)
     if G.GAME.bankrupt_at and (G.GAME.dollars + amount < G.GAME.bankrupt_at) then return end
+    -- Mirror Universe (#394): double all money gains and losses
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_mirror_universe then
+        amount = amount * 2
+    end
     old_ease_dollars(amount, instant)
 end
 
