@@ -122,12 +122,14 @@ SMODS.Joker({
     end,
     add_to_deck = function(self, card, from_debuff)
         G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.consumable_slots
+        G.GAME.tarot_rate = (G.GAME.tarot_rate or 4) * 2
     end,
     remove_from_deck = function(self, card, from_debuff)
         G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.consumable_slots
+        G.GAME.tarot_rate = (G.GAME.tarot_rate or 4) / 2
     end,
     calculate = function(self, card, context)
-        -- Passive effect for Tarot frequency handled in pool overrides
+        -- Passive: +1 consumable slot and 2x tarot rate handled in add/remove_from_deck
     end
 })
 
