@@ -134,10 +134,12 @@ SMODS.Enhancement({
             }
         end
         if context.destroy_card and context.cardarea == G.play then
-            if pseudorandom('ceramic_break') < G.GAME.probabilities.normal / card.ability.extra.chance then
-                return {
-                    remove = true
-                }
+            if not (G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_glass_safe) then
+                if pseudorandom('ceramic_break') < G.GAME.probabilities.normal / card.ability.extra.chance then
+                    return {
+                        remove = true
+                    }
+                end
             end
         end
     end
