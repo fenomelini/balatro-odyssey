@@ -38,6 +38,7 @@ local local_jokers = {
         config = { extra = { x_mult = 5, gain = 1 } },
         blueprint_compat = true,
         loc_vars = function(self, info_queue, card)
+            local extra = (card and card.ability and card.ability.extra) or self.config.extra
             local count = 0
             if G.jokers then
                 for k, v in ipairs(G.jokers.cards) do
@@ -46,7 +47,7 @@ local local_jokers = {
                     end
                 end
             end
-            return { vars = { card.ability.extra.x_mult, card.ability.extra.gain, card.ability.extra.x_mult + (count * card.ability.extra.gain) } }
+            return { vars = { extra.x_mult, extra.gain, extra.x_mult + (count * extra.gain) } }
         end,
         calculate = function(self, card, context)
             if context.joker_main then
