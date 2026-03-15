@@ -250,14 +250,14 @@ balatro-odyssey/
 <!-- CHANGELOG_SUMMARY_START -->
 | Version | Date | Highlights |
 |---|---|---|
-| [0.1.8-alpha](CHANGELOG.md#0.1.8-alpha) | 2026-03-13 | 17 joker crash fixes, 13 deck localization fixes, blind text fixes |
-| [0.1.7-alpha](CHANGELOG.md#0.1.7-alpha) | 2026-03-12 | 5 joker fixes, 10 tarot fixes, Kepler planet freeze fix, 5 voucher fixes, 2 deck fixes |
-| [0.1.6-alpha](CHANGELOG.md#0.1.6-alpha) | 2026-03-11 | 38 Spectral cards fully implemented, major deck bug sweep |
-| [0.1.5-alpha](CHANGELOG.md#0.1.5-alpha) | 2026-03-10 | Tarot flip animations, 7 new implementations, 10 bug fixes |
-| [0.1.4-alpha](CHANGELOG.md#0.1.4-alpha) | 2026-02-21 | Total Conversion toggle, critical crash fixes, Platinum sprite fix |
-| [0.1.3-alpha](CHANGELOG.md#0.1.3-alpha) | 2026-02-03 | 8 new mechanics implemented, 8 fixes |
-| [0.1.2-alpha](CHANGELOG.md#0.1.2-alpha) | 2026-01-27 | Nil-safety overhaul (100+ files), Polychrome crash fix |
-| [0.1.1-alpha](CHANGELOG.md#0.1.1.alpha) | 2026-01-25 | Gauntlet system, Ante 100 win condition, hand size 10 |
+| [0.1.9-alpha](CHANGELOG.md#019alpha) | 2026-03-15 | **Dimensional Isolator (#18)**: Was activating whenever it was placed ...; **Reverse Big Bang (#40)**: Was dealing X10 Mult instead of the intend...; **Schrödinger's Cat (#48)**: Was giving +25 Mult per flip instead of t... |
+| [0.1.8-alpha](CHANGELOG.md#018alpha) | 2026-03-13 | **17 Jokers caused the game to crash at startup** because their artwor...; **Ceramic Deck, Gold Deck, Steel Deck, Stone Deck**: These four decks ...; **13 Decks showing Portuguese text in English**: When playing in Engli... |
+| [0.1.7-alpha](CHANGELOG.md#017alpha) | 2026-03-12 | **Basilisk**: Description was incorrectly listing the wrong card type....; **Seer**: The next card's suit was not being shown in the description ...; **Shaman**: Was permanently enhancing cards that stayed in hand instea... |
+| [0.1.6-alpha](CHANGELOG.md#016alpha) | 2026-03-11 | **Big Bang**: Resets your hands and discards back to where they starte...; **Cordas**: Permanently reduces your hand size by 2, but upgrades ever...; **Heisenberg**: Hides the score requirement of the current blind and i... |
+| [0.1.5-alpha](CHANGELOG.md#015alpha) | 2026-03-10 | **Tarot Flip Animations**: Tarots now play a satisfying card-flip anim...; **Zuckerberg (Spectral 72) — Full Implementation**: Using this spectra...; **Deflation Joker — Shop Price Reduction**: The shop discount mechanic... |
+| [0.1.4-alpha](CHANGELOG.md#014alpha) | 2026-02-21 | **Total Conversion Toggle**: Added a new setting in the mod's configur...; **Webb & Hubble (Spectrals)**: Corrected logic for negative card trans...; **Negative Cards UI**: Fixed hand size display in localization (change... |
+| [0.1.3-alpha](CHANGELOG.md#013alpha) | 2026-02-03 | **Marie Curie (Spectral 53)**: Implemented full deck randomization mec...; **Developer Joker**: New functional mechanic - removes the lowest rank...; **Four Leaf Clover**: New probability mechanic - adds +1 to the numera... |
+| [0.1.2-alpha](CHANGELOG.md#012alpha) | 2026-01-27 | **Rogue Joker (Castling) Mechanic**: Implemented full protection logic...; **Connector Joker Bridge Functionality**: Jokers that depend on neighb...; **Drake Spectral Oracle System**: Implemented victory guarantee displa... |
 
 → [Full Changelog](CHANGELOG.md)
 <!-- CHANGELOG_SUMMARY_END -->

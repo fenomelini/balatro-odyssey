@@ -48,7 +48,6 @@ assets/raw/
 .env
 .env.example
 ACTION_PLAN.md
-.github/
 .github/copilot-instructions.md
 
 # Documentação Interna
