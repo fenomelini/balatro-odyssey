@@ -595,7 +595,7 @@ SMODS.Joker({
     perishable_compat = true,
     loc_vars = function(self, info_queue, card) return { vars = { (( (card and card.ability and card.ability.extra) or self.config.extra )).dollars } } end,
     calculate = function(self, card, context)
-        if context.discard and not context.blueprint then
+        if context.discard and not context.blueprint and context.other_card == context.full_hand[1] then
             local red_count = 0
             for i=1, #context.full_hand do
                 if context.full_hand[i]:is_suit("Hearts") or context.full_hand[i]:is_suit("Diamonds") then
