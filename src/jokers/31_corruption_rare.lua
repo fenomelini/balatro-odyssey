@@ -10,7 +10,7 @@ local local_jokers = {
         eternal_compat = true,
         calculate = function(self, card, context)
             if context.before and not context.blueprint then
-                local text, poker_hands, scoring_hand = G.FUNCS.get_poker_hand_info(G.play.cards)
+                local text, _, _, scoring_hand = G.FUNCS.get_poker_hand_info(G.play.cards)
                 if text == 'Flush' then
                     local suit = scoring_hand[1].base.suit
                     for k, v in ipairs(G.hand.cards) do
