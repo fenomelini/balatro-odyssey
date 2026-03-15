@@ -127,7 +127,7 @@ SMODS.Joker({
     unlocked = true,
     discovered = false,
     key = 'j_glitch_dead_pixel',
-    config = { extra = { mult = 15 } },
+    config = { extra = { mult = 15, debuffed_card = nil } },
     rarity = 1,
     atlas = 'j_glitch_dead_pixel',
     pos = { x = 0, y = 0 },
@@ -152,17 +152,24 @@ SMODS.Joker({
         end
         if context.before and not context.blueprint then
             local available_cards = {}
-            for k, v in ipairs(G.hand.cards) do
+            for k, v in ipairs(context.scoring_hand) do
                 if not v.debuff then table.insert(available_cards, v) end
             end
             if #available_cards > 0 then
                 local target = pseudorandom_element(available_cards, pseudorandom('dead_pixel'))
                 target:set_debuff(true)
+                card.ability.extra.debuffed_card = target
                 return {
                     message = 'Dead Pixel!',
                     colour = G.C.RED,
                     card = card
                 }
+            end
+        end
+        if context.after and not context.blueprint then
+            if card.ability.extra.debuffed_card then
+                card.ability.extra.debuffed_card:set_debuff(false)
+                card.ability.extra.debuffed_card = nil
             end
         end
     end
@@ -376,7 +383,7 @@ SMODS.Joker({
         if context.joker_main then
             return {
                 message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.current } },
-                x_mult = card.ability.extra.current,
+                Xmult_mod = card.ability.extra.current,
                 colour = G.C.MULT
             }
         end
@@ -404,7 +411,7 @@ SMODS.Joker({
 
     end,
     calculate = function(self, card, context)
-        if context.discard then
+        if context.discard and context.other_card == context.full_hand[1] then
             if #context.full_hand == 5 then
                 local suit = context.full_hand[1].base.suit
                 local all_same = true
