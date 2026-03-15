@@ -300,10 +300,14 @@ SMODS.Joker({
                 message = localize{type='variable', key='a_xmult', vars={card.ability.extra.x_mult}}
             }
         end
+        if context.before and not context.blueprint then
+            card.ability.extra.chips_before = G.GAME.chips
+        end
         if context.after and not context.blueprint then
-            if G.GAME.chips - G.GAME.chips_at_start_of_hand == 0 then
+            if (G.GAME.chips - (card.ability.extra.chips_before or G.GAME.chips)) == 0 then
                 card.ability.extra.next_hand_active = true
             end
+            card.ability.extra.chips_before = nil
         end
     end
 })
