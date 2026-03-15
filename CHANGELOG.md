@@ -8,56 +8,6 @@ All notable changes to this project will be documented in this file.
 
 #### Jokers
 
-**Corruption series (#281–320):**
-
-- **Decomposition (#288)**: Was supposed to permanently gain +5 Mult for every card discarded throughout the entire run. It was destroying itself after the very first discard, picking up only +5 Mult once and disappearing. Fixed.
-- **Pestilence (#311)**: Playing a Flush crashed the game. Fixed.
-
-**Paradox series (#321–360):**
-
-- **Reverse Flush (#326)**, **Pacifist Joker (#333)**, **Order of Chaos (#338)**, **All or Nothing (#339)**, **Zeno's Paradox (#340)**, **Alive and Dead Cat (#341)**, **Beginning of the End (#342)**: All 7 jokers showed an XMult popup when triggered but the multiplier was never actually applied to the score. Fixed across the board.
-- **Useful Discard (#324)**: Discarding cards should permanently award +2 Chips for the current round. None of the Chips were being awarded when cards were discarded. Fixed.
-- **Failure's Success (#337)**: Should give $10 whenever the player fails to beat a Blind. Was giving $10 whenever the player won instead. Fixed.
-- **Grandfather Paradox (#360)**: Should save the player when they lose a Blind. The rescue never triggered — losing a round never activated the effect. Fixed.
-- **Square Circle (#343)**: Did absolutely nothing. Diamond cards should count as black cards for all scoring purposes. The effect is now fully implemented.
-- **Hot Cold (#344)**: Did absolutely nothing. Hearts should score as Spades and Spades should score as Hearts. The effect is now fully implemented.
-- **Past Future (#345)**: Was supposed to give X3 Mult if the previous Blind was beaten in a single hand. The joker was completely inactive — the multiplier never applied and the game never tracked how many hands were used in the previous round. Fixed.
-- **Mortal Immortal (#347)**: Was supposed to allow Eternal Jokers to be sold for $0. Even with this joker in play, Eternal Jokers still could not be sold. Fixed; Eternal Jokers now show a $0 sell button and can be removed from play.
-
-**Anomaly series (#361–400):**
-
-- **Spade Anomaly (#361)**, **Heart Anomaly (#362)**, **Club Anomaly (#363)**, **Diamond Anomaly (#364)**: All 4 jokers are supposed to make one suit count as another when forming Flushes. They were doing nothing at all — the suit swaps were never applied. Fixed.
-- **Static Noise (#374)**: Should give a 1 in 4 chance to gain $5 each time a hand is played. It was only rolling that chance once, at the very end of the round. Fixed.
-- **Chromatic Anomaly (#367)**: Supposed to make Polychrome editions appear more often in the shop. Had no effect whatsoever — the Polychrome rate increase was tracked internally but never applied. Fixed.
-- **Augmented Reality (#381)**: Should prevent Ceramic Cards from breaking. Ceramic Cards kept breaking regardless. Fixed.
-- **Race Condition (#388)**: Should give +50 Mult only if the very first hand of the round is played within 5 seconds. It was always giving +50 Mult with no time check at all. Fixed.
-- **Mirror Universe (#394)**: Should double all money gained and all money lost. Neither effect was being applied. Fixed.
-- **Function Collapse (#397)**: Should make face cards (J, Q, K) count as having no suit for Flush purposes. Face cards were behaving normally regardless. Fixed.
-- **Memory Dump (#387)**: Selling this joker was supposed to add 3 random cards to your hand. Instead, the game crashed every time it was sold. Fixed.
-- **The Watcher (#399)**: The secondary effect — revealing the order of cards remaining in your deck — was never implemented. While this joker is in play, deck cards are now shown face-up so you can see what you'll draw next. Fixed.
-
-### Added
-
-#### Decks
-
-- **Enhancement Decks #25–32 now have custom artwork**: The eight decks based on mod enhancements (Ceramic, Rubber, Platinum, Diamond, Magic, Holy, Ruby, Emerald) were using generic placeholder images. Each deck now displays its own unique image.
-
-- **10 Decks fully implemented for the first time** — the following decks had descriptions but no working mechanics. All have been implemented with faithful (or redesigned-where-necessary) mechanics:
-  - **Zombie Deck (#55)**: Once per round, the first discarded card automatically returns to hand.
-  - **Ethereal Deck (#61)**: At the start of each Ante, receive 1 free Spectral card.
-  - **Magnetic Deck (#63)**: Cards of the same rank are sorted together in the deck and drawn in groups.
-  - **Lunar Deck (#68)**: 4-blind scoring cycle — New Moon (1x) → Waxing (1.5x) → Full Moon (2x) → Waning (0.5x).
-  - **Primitive Deck (#72)**: Shop items cost $9999 (effectively inaccessible). Blind rewards are doubled.
-  - **Mercenary Deck (#78)**: No money is earned from winning Blinds. Each Joker sold grants $5 instead.
-  - **Chimera Deck (#92)**: Deck starts with 4 groups of 13 enhanced cards: Rubber, Ceramic, Holy, and Magic.
-  - **Titan Deck (#98)**: Hand size is 4 (each card occupies 2 slots).
-  - **Alien Deck (#57)** *(redesigned)*: The original mechanic (4 new alien suits) was not possible to implement without breaking how Flushes work. New mechanic: starting card suits are randomized, and Flush scores X2 Mult.
-  - **Hydra Deck (#91)** *(redesigned)*: The original mechanic (extra Blinds after winning) was not possible to implement without rebuilding how the blind progression works. New mechanic: each Blind beaten permanently grants +2 Mult.
-
-### Fixed
-
-#### Jokers
-
 **Singularity series (#1–40):**
 
 - **Dimensional Isolator (#18)**: Was activating whenever it was placed at the edge of the Joker row — i.e., with only one neighbor. It is designed to activate only when completely isolated with no neighbors on either side. Fixed.
@@ -121,6 +71,34 @@ All notable changes to this project will be documented in this file.
 - **Hex Editor (#275)**: Was using broken internal card-lookup keys to reference cards in the game's table. This crashed the game whenever the effect tried to look up a card. Fixed.
 - **Digital Singularity (#280)**: Crashed the Collection menu when opened due to unsafe tooltip generation. Fixed.
 
+**Corruption series (#281–320):**
+
+- **Decomposition (#288)**: Was supposed to permanently gain +5 Mult for every card discarded throughout the entire run. It was destroying itself after the very first discard, picking up only +5 Mult once and disappearing. Fixed.
+- **Pestilence (#311)**: Playing a Flush crashed the game. Fixed.
+
+**Paradox series (#321–360):**
+
+- **Reverse Flush (#326)**, **Pacifist Joker (#333)**, **Order of Chaos (#338)**, **All or Nothing (#339)**, **Zeno's Paradox (#340)**, **Alive and Dead Cat (#341)**, **Beginning of the End (#342)**: All 7 jokers showed an XMult popup when triggered but the multiplier was never actually applied to the score. Fixed across the board.
+- **Useful Discard (#324)**: Discarding cards should permanently award +2 Chips for the current round. None of the Chips were being awarded when cards were discarded. Fixed.
+- **Failure's Success (#337)**: Should give $10 whenever the player fails to beat a Blind. Was giving $10 whenever the player won instead. Fixed.
+- **Grandfather Paradox (#360)**: Should save the player when they lose a Blind. The rescue never triggered — losing a round never activated the effect. Fixed.
+- **Square Circle (#343)**: Did absolutely nothing. Diamond cards should count as black cards for all scoring purposes. The effect is now fully implemented.
+- **Hot Cold (#344)**: Did absolutely nothing. Hearts should score as Spades and Spades should score as Hearts. The effect is now fully implemented.
+- **Past Future (#345)**: Was supposed to give X3 Mult if the previous Blind was beaten in a single hand. The joker was completely inactive — the multiplier never applied and the game never tracked how many hands were used in the previous round. Fixed.
+- **Mortal Immortal (#347)**: Was supposed to allow Eternal Jokers to be sold for $0. Even with this joker in play, Eternal Jokers still could not be sold. Fixed; Eternal Jokers now show a $0 sell button and can be removed from play.
+
+**Anomaly series (#361–400):**
+
+- **Spade Anomaly (#361)**, **Heart Anomaly (#362)**, **Club Anomaly (#363)**, **Diamond Anomaly (#364)**: All 4 jokers are supposed to make one suit count as another when forming Flushes. They were doing nothing at all — the suit swaps were never applied. Fixed.
+- **Static Noise (#374)**: Should give a 1 in 4 chance to gain $5 each time a hand is played. It was only rolling that chance once, at the very end of the round. Fixed.
+- **Chromatic Anomaly (#367)**: Supposed to make Polychrome editions appear more often in the shop. Had no effect whatsoever — the Polychrome rate increase was tracked internally but never applied. Fixed.
+- **Augmented Reality (#381)**: Should prevent Ceramic Cards from breaking. Ceramic Cards kept breaking regardless. Fixed.
+- **Race Condition (#388)**: Should give +50 Mult only if the very first hand of the round is played within 5 seconds. It was always giving +50 Mult with no time check at all. Fixed.
+- **Mirror Universe (#394)**: Should double all money gained and all money lost. Neither effect was being applied. Fixed.
+- **Function Collapse (#397)**: Should make face cards (J, Q, K) count as having no suit for Flush purposes. Face cards were behaving normally regardless. Fixed.
+- **Memory Dump (#387)**: Selling this joker was supposed to add 3 random cards to your hand. Instead, the game crashed every time it was sold. Fixed.
+- **The Watcher (#399)**: The secondary effect — revealing the order of cards remaining in your deck — was never implemented. While this joker is in play, deck cards are now shown face-up so you can see what you'll draw next. Fixed.
+
 #### Decks
 
 - **42 decks were showing Portuguese names and descriptions in English**: 42 decks had names like "Ira Deck", "Preguiça Deck", "Vulcânico Deck", and descriptions with Portuguese mixed in when playing in English. All 42 now display correct English text. Affected decks: Wrath, Sloth, Pride, Alpha, Omega, Prime, Odyssey, Fractal, Mirror, Ghost, Vampire, Zombie, Cyborg, Mutant, Clone, Radioactive, Frozen, Volcanic, Oceanic, Solar, Lunar, Stellar, Mystic, Tech, Primitive, Arcane, Celestial, Spectral, Standard, Buffoon, Mercenary, Investor, Minimalist II, Maximalist II, Lucky II, King Arthur, Merlin, Phoenix, Chimera, Unicorn, Behemoth, Titan.
@@ -140,6 +118,24 @@ All notable changes to this project will be documented in this file.
 - **Timeline Deck (#33)**: The bonus from the previous hand was never actually being added to your score — it was silently zeroing out the counter instead. The bonus now applies correctly every hand.
 - **Phoenix Deck (#90)**: The once-per-run resurrection never triggered when the player had no Jokers in play. It now works regardless of how many Jokers you have.
 - **6 deck popup messages** were missing from both languages, showing `"ERROR"` in floating text during gameplay. All 6 now display correctly.
+
+### Added
+
+#### Decks
+
+- **Enhancement Decks #25–32 now have custom artwork**: The eight decks based on mod enhancements (Ceramic, Rubber, Platinum, Diamond, Magic, Holy, Ruby, Emerald) were using generic placeholder images. Each deck now displays its own unique image.
+
+- **10 Decks fully implemented for the first time** — the following decks had descriptions but no working mechanics. All have been implemented with faithful (or redesigned-where-necessary) mechanics:
+  - **Zombie Deck (#55)**: Once per round, the first discarded card automatically returns to hand.
+  - **Ethereal Deck (#61)**: At the start of each Ante, receive 1 free Spectral card.
+  - **Magnetic Deck (#63)**: Cards of the same rank are sorted together in the deck and drawn in groups.
+  - **Lunar Deck (#68)**: 4-blind scoring cycle — New Moon (1x) → Waxing (1.5x) → Full Moon (2x) → Waning (0.5x).
+  - **Primitive Deck (#72)**: Shop items cost $9999 (effectively inaccessible). Blind rewards are doubled.
+  - **Mercenary Deck (#78)**: No money is earned from winning Blinds. Each Joker sold grants $5 instead.
+  - **Chimera Deck (#92)**: Deck starts with 4 groups of 13 enhanced cards: Rubber, Ceramic, Holy, and Magic.
+  - **Titan Deck (#98)**: Hand size is 4 (each card occupies 2 slots).
+  - **Alien Deck (#57)** *(redesigned)*: The original mechanic (4 new alien suits) was not possible to implement without breaking how Flushes work. New mechanic: starting card suits are randomized, and Flush scores X2 Mult.
+  - **Hydra Deck (#91)** *(redesigned)*: The original mechanic (extra Blinds after winning) was not possible to implement without rebuilding how the blind progression works. New mechanic: each Blind beaten permanently grants +2 Mult.
 
 ---
 
