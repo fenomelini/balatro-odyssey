@@ -373,7 +373,8 @@ SMODS.Joker({
     eternal_compat = true,
     perishable_compat = true,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.current or 1 } }
+        local extra = (card and card.ability and card.ability.extra) or self.config.extra
+        return { vars = { extra.current } }
     end,
     calculate = function(self, card, context)
         if context.before and not context.blueprint then
