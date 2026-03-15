@@ -149,10 +149,10 @@ SMODS.Joker({
             local elements = { fire=false, water=false, earth=false, air=false }
             for i = 1, #G.jokers.cards do
                 local j = G.jokers.cards[i]
-                if j.config.center.key == 'j_elemental_fire_spirit' or j.config.center.key == 'odyssey_j_elemental_fire_spirit' then elements.fire = true end
-                if j.config.center.key == 'j_elemental_water_spirit' or j.config.center.key == 'odyssey_j_elemental_water_spirit' then elements.water = true end
-                if j.config.center.key == 'j_elemental_earth_spirit' or j.config.center.key == 'odyssey_j_elemental_earth_spirit' then elements.earth = true end
-                if j.config.center.key == 'j_elemental_air_spirit' or j.config.center.key == 'odyssey_j_elemental_air_spirit' then elements.air = true end
+                if j.config.center.key == 'j_odyssey_j_elemental_fire_spirit' then elements.fire = true end
+                if j.config.center.key == 'j_odyssey_j_elemental_water_spirit' then elements.water = true end
+                if j.config.center.key == 'j_odyssey_j_elemental_earth_spirit' then elements.earth = true end
+                if j.config.center.key == 'j_odyssey_j_elemental_air_spirit' then elements.air = true end
             end
             local count = 0
             for _, v in pairs(elements) do if v then count = count + 1 end end
