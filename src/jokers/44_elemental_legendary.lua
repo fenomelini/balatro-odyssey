@@ -52,7 +52,7 @@ SMODS.Joker({
         end
         if context.buy_joker and not context.blueprint then
             local suits = {"Hearts", "Spades", "Diamonds", "Clubs"}
-            local target_suit = suits[pseudorandom('cataclysm') % 4 + 1]
+            local target_suit = suits[math.floor(pseudorandom('cataclysm') * 4) + 1]
             local cards_to_destroy = {}
             for i = 1, #G.playing_cards do
                 if G.playing_cards[i].base.suit == target_suit then
