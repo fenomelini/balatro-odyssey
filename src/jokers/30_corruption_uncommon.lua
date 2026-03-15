@@ -358,7 +358,7 @@ local local_jokers = {
             end
             if context.end_of_round and not context.repetition and not context.other_card and not context.blueprint then
                 local random_card = pseudorandom_element(G.playing_cards, pseudorandom('mutation'))
-                local new_rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudorandom('mutation_rank'))
+                local new_rank = pseudorandom_element({'2','3','4','5','6','7','8','9','T','J','Q','K','A'}, pseudorandom('mutation_rank'))
                 local new_suit = pseudorandom_element({'Spades','Hearts','Clubs','Diamonds'}, pseudorandom('mutation_suit'))
                 
                 assert(SMODS.change_base(random_card, new_suit, new_rank))
