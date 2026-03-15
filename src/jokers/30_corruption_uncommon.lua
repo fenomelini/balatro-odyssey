@@ -138,7 +138,7 @@ local local_jokers = {
         end,
         calculate = function(self, card, context)
             if context.discard and not context.blueprint then
-                if #context.full_hand == 5 then
+                if context.other_card == context.full_hand[1] and #context.full_hand == 5 then
                     local suits = {}
                     local ranks = {}
                     for _, c in ipairs(context.full_hand) do
