@@ -96,6 +96,24 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
             return false
         end
     end
+    -- Magma (#412): Hearts and Diamonds merge into one suit (Fire)
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_magma_active and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s then
+            if s == 'Hearts' and suit == 'Diamonds' then return true end
+            if s == 'Diamonds' and suit == 'Hearts' then return true end
+        end
+    end
+    -- Mud (#413): Spades and Clubs merge into one suit (Earth)
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_mud_active and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s then
+            if s == 'Spades' and suit == 'Clubs' then return true end
+            if s == 'Clubs' and suit == 'Spades' then return true end
+        end
+    end
     return old_is_suit(self, suit, bypass_debuff, flush_calc)
 end
 
