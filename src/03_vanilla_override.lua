@@ -117,6 +117,19 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
     return old_is_suit(self, suit, bypass_debuff, flush_calc)
 end
 
+-- Avatar (#449): any 5-card combination qualifies as a Flush
+local old_get_flush = get_flush
+function get_flush(hand)
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_any_flush then
+        local four_fingers = next(find_joker('Four Fingers'))
+        local min_size = 5 - (four_fingers and 1 or 0)
+        if #hand >= min_size and #hand <= 5 then
+            return { hand }
+        end
+    end
+    return old_get_flush(hand)
+end
+
 local old_get_cost = Card.get_cost
 function Card:get_cost()
     local cost = old_get_cost(self)
