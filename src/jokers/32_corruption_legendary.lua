@@ -74,8 +74,8 @@ local local_jokers = {
                                 if other_joker_ret.chip_mod then
                                     ret.chip_mod = (ret.chip_mod or 0) + other_joker_ret.chip_mod
                                 end
-                                if other_joker_ret.x_mult_mod then
-                                    ret.x_mult_mod = (ret.x_mult_mod or 1) * other_joker_ret.x_mult_mod
+                                if other_joker_ret.Xmult_mod then
+                                    ret.Xmult_mod = (ret.Xmult_mod or 1) * other_joker_ret.Xmult_mod
                                 end
                                 if other_joker_ret.message then
                                     ret.message = other_joker_ret.message
