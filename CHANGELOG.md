@@ -2,42 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.11-alpha] - 2026-03-15
+## [0.1.9-alpha] - 2026-03-14
 
 ### Fixed
 
 #### Jokers
 
-**Paradox series (#321–360) — re-analysis pass:**
+**Corruption series (#281–320):**
 
-- **Square Circle (#343)**: Was supposed to make Diamond cards count as black suits (Spades/Clubs) for all scoring purposes. The effect had been stubbed but not implemented — the modifier flag that drives suit logic was never set when the joker entered play. Fixed; Diamonds now act as black cards in suit checks, losing their original identity as Diamonds.
-- **Hot Cold (#344)**: Was supposed to swap Hearts and Spades suits for scoring purposes. Same cause as Square Circle — the modifier flag was never set. Fixed; Hearts now count as Spades (and vice versa), with wild-card enhancements correctly excluded from the swap.
-- **Past Future (#345)**: Was supposed to give X3 Mult if the previous Blind was beaten using only 1 hand. The flag tracking whether that had happened was initialized to `false` and never updated — making this joker permanently inactive. Fixed; the joker now counts hands played each round and updates the flag at round end.
-- **Mortal Immortal (#347)**: Was supposed to allow Eternal Jokers to be sold for $0. The flag was correctly set when this joker was in play, but no override existed to act on it. Fixed; `Card:can_sell_card` now allows selling Eternal Jokers when the modifier is active, and `Card:set_cost` sets their sell price to $0.
-
----
-
-## [0.1.10-alpha] - 2026-03-15
-
-### Fixed
-
-#### Jokers
-
-**Corruption series (#281–320) — re-analysis pass:**
-
-- **Decomposition (#288)**: Was self-destructing on the very first discard of the run, gaining only +5 Mult once. The permanently accumulating nature of the card was broken by an erroneous self-destruct flag. Fixed; the joker now persists and accumulates +5 Mult for every card discarded throughout the run.
-- **Pestilence (#311)**: Crashed the game any time a Flush was played. The code that reads the suit from the scoring hand was capturing the wrong return value from the hand-evaluation function, making it attempt to index a lookup table as if it were a card object. Fixed.
+- **Decomposition (#288)**: Was supposed to permanently gain +5 Mult for every card discarded throughout the entire run. It was destroying itself after the very first discard, picking up only +5 Mult once and disappearing. Fixed.
+- **Pestilence (#311)**: Playing a Flush crashed the game. Fixed.
 
 **Paradox series (#321–360):**
 
-- **Reverse Flush (#326)**, **Pacifist Joker (#333)**, **Order of Chaos (#338)**, **All or Nothing (#339)**, **Zeno's Paradox (#340)**, **Alive and Dead Cat (#341)**, **Beginning of the End (#342)**, **Past Future (#345)**: All 8 jokers used the wrong internal key for XMult (`x_mult_mod` instead of `Xmult_mod`). The floats were silently discarded — the popup appeared but the multiplier was never applied. Fixed across the board.
-- **Useful Discard (#324)**: Was supposed to permanently gain +2 Chips for the round every time a card was discarded, then reset at end of round. The chip accumulation never triggered because a guard meant to filter repeated calls was checking for a condition that can never be true during a discard event. Fixed; the joker now correctly gains chips for every card discarded.
-- **Failure's Success (#337)**: Was supposed to give $10 whenever the player failed to beat a Blind (useful alongside Mr. Bones-style rescue jokers). The condition was inverted — it checked "if NOT losing" instead of "if losing", which can never be true when chips are below the threshold. Fixed.
-- **Grandfather Paradox (#360)**: When the player loses a round, the game evaluates jokers once per card currently in hand — each time with a card reference attached. This joker's rescue trigger had a guard that requires the opposite: no card reference attached. So the rescue could never fire. Fixed to trigger correctly on the first card evaluation when losing.
-
----
-
-## [0.1.9-alpha] - 2026-03-14
+- **Reverse Flush (#326)**, **Pacifist Joker (#333)**, **Order of Chaos (#338)**, **All or Nothing (#339)**, **Zeno's Paradox (#340)**, **Alive and Dead Cat (#341)**, **Beginning of the End (#342)**: All 7 jokers showed an XMult popup when triggered but the multiplier was never actually applied to the score. Fixed across the board.
+- **Useful Discard (#324)**: Discarding cards should permanently award +2 Chips for the current round. None of the Chips were being awarded when cards were discarded. Fixed.
+- **Failure's Success (#337)**: Should give $10 whenever the player fails to beat a Blind. Was giving $10 whenever the player won instead. Fixed.
+- **Grandfather Paradox (#360)**: Should save the player when they lose a Blind. The rescue never triggered — losing a round never activated the effect. Fixed.
+- **Square Circle (#343)**: Did absolutely nothing. Diamond cards should count as black cards for all scoring purposes. The effect is now fully implemented.
+- **Hot Cold (#344)**: Did absolutely nothing. Hearts should score as Spades and Spades should score as Hearts. The effect is now fully implemented.
+- **Past Future (#345)**: Was supposed to give X3 Mult if the previous Blind was beaten in a single hand. The joker was completely inactive — the multiplier never applied and the game never tracked how many hands were used in the previous round. Fixed.
+- **Mortal Immortal (#347)**: Was supposed to allow Eternal Jokers to be sold for $0. Even with this joker in play, Eternal Jokers still could not be sold. Fixed; Eternal Jokers now show a $0 sell button and can be removed from play.
 
 ### Added
 
