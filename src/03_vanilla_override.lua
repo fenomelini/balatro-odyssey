@@ -43,6 +43,50 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
             if suit == 'Diamonds' then return false end
         end
     end
+    -- Spade Anomaly (#361): Spades count as Hearts for Flushes
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_spade_heart and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s == 'Spades' then
+            if suit == 'Hearts' then return true end
+            if suit == 'Spades' then return false end
+        end
+    end
+    -- Heart Anomaly (#362): Hearts count as Clubs for Flushes
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_heart_club and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s == 'Hearts' then
+            if suit == 'Clubs' then return true end
+            if suit == 'Hearts' then return false end
+        end
+    end
+    -- Club Anomaly (#363): Clubs count as Diamonds for Flushes
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_club_diamond and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s == 'Clubs' then
+            if suit == 'Diamonds' then return true end
+            if suit == 'Clubs' then return false end
+        end
+    end
+    -- Diamond Anomaly (#364): Diamonds count as Spades for Flushes
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_diamond_spade and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s == 'Diamonds' then
+            if suit == 'Spades' then return true end
+            if suit == 'Diamonds' then return false end
+        end
+    end
+    -- Function Collapse (#397): Face cards (J/Q/K) have no suit
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_faceless_suits and not bypass_debuff then
+        local id = self.base and self.base.id
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and id and (id == 11 or id == 12 or id == 13) then
+            return false
+        end
+    end
     return old_is_suit(self, suit, bypass_debuff, flush_calc)
 end
 
