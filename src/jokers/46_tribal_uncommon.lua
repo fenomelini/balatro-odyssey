@@ -138,7 +138,7 @@ SMODS.Joker({
     unlocked = true,
     key = 'j_tribal_assassin',
     discovered = false,
-    config = { extra = { x_mult = 2 } },
+    config = { extra = { x_mult = 2, activated = false } },
     rarity = 2,
     cost = 7,
     pos = { x = 0, y = 0 },
@@ -159,7 +159,13 @@ SMODS.Joker({
                     lowest_card = G.hand.cards[i]
                 end
             end
-            if not lowest_card.ability.eternal then lowest_card:start_dissolve() end
+            if not lowest_card.ability.eternal then
+                lowest_card:start_dissolve()
+                card.ability.extra.activated = true
+            end
+        end
+        if context.joker_main and card.ability.extra.activated then
+            card.ability.extra.activated = false
             return {
                 message = localize{type='variable', key='a_xmult', vars={card.ability.extra.x_mult}},
                 x_mult = card.ability.extra.x_mult
