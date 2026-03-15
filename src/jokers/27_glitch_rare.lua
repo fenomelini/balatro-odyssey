@@ -92,9 +92,9 @@ local local_jokers = {
         calculate = function(self, card, context)
             if context.discard and not context.blueprint then
                 if context.other_card then
-                    local new_rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudorandom('hex_editor_rank'))
-                    local new_suit = pseudorandom_element({'Spades','Hearts','Clubs','Diamonds'}, pseudorandom('hex_editor_suit'))
-                    context.other_card:set_base(G.P_CARDS[new_suit..'_'..new_rank])
+                    local new_rank = pseudorandom_element({'2','3','4','5','6','7','8','9','T','J','Q','K','A'}, pseudorandom('hex_editor_rank'))
+                    local new_suit = pseudorandom_element({'S_','H_','C_','D_'}, pseudorandom('hex_editor_suit'))
+                    context.other_card:set_base(G.P_CARDS[new_suit..new_rank])
                     return {
                         message = 'Edited!',
                         colour = G.C.PURPLE,
