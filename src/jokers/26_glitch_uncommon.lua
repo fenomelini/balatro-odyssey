@@ -1,3 +1,13 @@
+-- Noclip: face cards count as any suit while this joker is in play
+local _orig_card_is_suit = Card.is_suit
+function Card.is_suit(self, suit, modified, mod_text)
+    if G.GAME and G.GAME.odyssey_noclip_active and G.GAME.odyssey_noclip_active > 0
+       and self:is_face() and not self.debuff then
+        return true
+    end
+    return _orig_card_is_suit(self, suit, modified, mod_text)
+end
+
 local local_jokers = {
     {
         key = 'j_glitch_exploit',
@@ -68,7 +78,7 @@ local local_jokers = {
         config = {},
         blueprint_compat = false,
         calculate = function(self, card, context)
-            if context.game_over and (not context.repetition) and not context.blueprint then
+            if context.game_over and not context.other_card and (not context.repetition) and not context.blueprint then
                 if G.GAME.chips / G.GAME.blind.chips < 1 then
                     return {
                         message = localize('k_saved_ex'),
@@ -107,6 +117,13 @@ local local_jokers = {
         pos = { x = 0, y = 0 },
         blueprint_compat = false,
         config = {},
+        add_to_deck = function(self, card, from_debuff)
+            G.GAME.odyssey_noclip_active = (G.GAME.odyssey_noclip_active or 0) + 1
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            G.GAME.odyssey_noclip_active = (G.GAME.odyssey_noclip_active or 1) - 1
+            if G.GAME.odyssey_noclip_active <= 0 then G.GAME.odyssey_noclip_active = nil end
+        end,
     },
     {
         key = 'j_glitch_speedrun',
