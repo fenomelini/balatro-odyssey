@@ -125,7 +125,7 @@ SMODS.Joker({
         if context.before and not context.blueprint then
             for i = 1, #context.full_hand do
                 local c = context.full_hand[i]
-                c:set_base(G.P_CARDS[c.base.suit..'_A'])
+                c:set_base(G.P_CARDS[c.base.suit:sub(1,1)..'_A'])
             end
             G.E_MANAGER:add_event(Event({
                 func = function()
