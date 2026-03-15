@@ -137,7 +137,7 @@ Card.calculate_joker = function(self, context)
     return ret
 end
 
--- 2. Card:start_dissolve (For Event Horizon)
+-- 2. Card:start_dissolve (For Event Horizon, Viking #481, Necromancer #462)
 local old_start_dissolve = Card.start_dissolve
 Card.start_dissolve = function(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
     local deck_key = get_deck_key()
@@ -148,6 +148,26 @@ Card.start_dissolve = function(self, dissolve_colours, silent, dissolve_time_fac
         G.GAME.selected_back.effect.config.extra.mult = (G.GAME.selected_back.effect.config.extra.mult or 0) + 0.5
         -- Visual feedback on the card being dissolved
         card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type='variable', key='a_mult', vars={0.5}}})
+    end
+
+    -- Viking (#481) + Necromancer (#462): track destroyed playing cards
+    if G.GAME and self.ability and (self.ability.set == 'Default' or self.ability.set == 'Enhanced') then
+        -- Viking: count every destroyed playing card this round
+        G.GAME.viking_destroyed_count = (G.GAME.viking_destroyed_count or 0) + 1
+        -- Necromancer: record last destroyed face card for potential revival
+        if self:is_face(true) then
+            G.GAME.last_destroyed_face_card = {
+                card_key = self.base.suit:sub(1,1) .. '_' .. self.base.value,
+                center_key = self.config.center_key,
+                edition = self.edition and {
+                    polychrome = self.edition.polychrome,
+                    holo      = self.edition.holo,
+                    foil      = self.edition.foil,
+                    negative  = self.edition.negative
+                } or nil,
+                seal = self.seal
+            }
+        end
     end
 
     old_start_dissolve(self, dissolve_colours, silent, dissolve_time_fac, no_juice)

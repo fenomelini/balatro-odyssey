@@ -404,16 +404,17 @@ SMODS.Joker({
         if context.joker_main and not context.blueprint and G.GAME.last_destroyed_face_card then
             local card_data = G.GAME.last_destroyed_face_card
             G.GAME.last_destroyed_face_card = nil
-            
+
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    local _card = create_playing_card(G.P_CARDS[card_data.card_key], G.deck, nil, nil, nil)
-                    
-                    _card:set_ability(card_data.ability)
-                    _card:set_edition(card_data.edition)
-                    _card:set_seal(card_data.seal)
+                    local center = G.P_CENTERS[card_data.center_key] or G.P_CENTERS.c_base
+                    local _card = create_playing_card(
+                        {front = G.P_CARDS[card_data.card_key], center = center},
+                        G.deck, nil, nil, nil
+                    )
+                    if card_data.edition then _card:set_edition(card_data.edition) end
+                    if card_data.seal then _card:set_seal(card_data.seal) end
                     _card:juice_up()
-                    
                     return true
                 end
             }))
