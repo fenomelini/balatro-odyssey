@@ -261,8 +261,7 @@ local local_jokers = {
                 card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.gain
                 return {
                     message = localize('k_val_up'),
-                    colour = G.C.MULT,
-                    remove = true
+                    colour = G.C.MULT
                 }
             end
             if context.joker_main then
