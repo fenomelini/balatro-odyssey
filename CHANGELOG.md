@@ -28,11 +28,13 @@ All notable changes to this project will be documented in this file.
 
 - **Spade Anomaly (#361)**, **Heart Anomaly (#362)**, **Club Anomaly (#363)**, **Diamond Anomaly (#364)**: All 4 jokers are supposed to make one suit count as another when forming Flushes. They were doing nothing at all — the suit swaps were never applied. Fixed.
 - **Static Noise (#374)**: Should give a 1 in 4 chance to gain $5 each time a hand is played. It was only rolling that chance once, at the very end of the round. Fixed.
+- **Chromatic Anomaly (#367)**: Supposed to make Polychrome editions appear more often in the shop. Had no effect whatsoever — the Polychrome rate increase was tracked internally but never applied. Fixed.
 - **Augmented Reality (#381)**: Should prevent Ceramic Cards from breaking. Ceramic Cards kept breaking regardless. Fixed.
 - **Race Condition (#388)**: Should give +50 Mult only if the very first hand of the round is played within 5 seconds. It was always giving +50 Mult with no time check at all. Fixed.
 - **Mirror Universe (#394)**: Should double all money gained and all money lost. Neither effect was being applied. Fixed.
 - **Function Collapse (#397)**: Should make face cards (J, Q, K) count as having no suit for Flush purposes. Face cards were behaving normally regardless. Fixed.
 - **Memory Dump (#387)**: Selling this joker was supposed to add 3 random cards to your hand. Instead, the game crashed every time it was sold. Fixed.
+- **The Watcher (#399)**: The secondary effect — revealing the order of cards remaining in your deck — was never implemented. While this joker is in play, deck cards are now shown face-up so you can see what you'll draw next. Fixed.
 
 ### Added
 
