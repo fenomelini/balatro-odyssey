@@ -472,7 +472,7 @@ SMODS.Joker({
             local spades = 0
             for i=1, #context.scoring_hand do if context.scoring_hand[i]:is_suit("Spades") then spades = spades + 1 end end
             if spades >= 5 then
-                G.GAME.modifiers.odyssey_blizzard_frozen = true
+                G.GAME.modifiers.odyssey_blizzard_frozen = 3
                 return {
                     message = "Frozen!",
                     colour = G.C.FILTER,

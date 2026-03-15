@@ -4,6 +4,11 @@
 -- 1. Game Setup & Pool Management
 local old_get_blind_amount = get_blind_amount
 function get_blind_amount(ante)
+    -- Blizzard (#436): freeze next round's blind (uses previous ante's value for 3 calls)
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_blizzard_frozen and G.GAME.modifiers.odyssey_blizzard_frozen > 0 then
+        G.GAME.modifiers.odyssey_blizzard_frozen = G.GAME.modifiers.odyssey_blizzard_frozen - 1
+        return old_get_blind_amount(math.max(1, ante - 1)) * 3
+    end
     local amount = old_get_blind_amount(ante)
     -- Odyssey Scale: Base points grow 3x faster to compensate for 1000 Jokers power creep.
     return amount * 3
