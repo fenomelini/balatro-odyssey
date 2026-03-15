@@ -99,6 +99,20 @@ All notable changes to this project will be documented in this file.
 - **Memory Dump (#387)**: Selling this joker was supposed to add 3 random cards to your hand. Instead, the game crashed every time it was sold. Fixed.
 - **The Watcher (#399)**: The secondary effect — revealing the order of cards remaining in your deck — was never implemented. While this joker is in play, deck cards are now shown face-up so you can see what you'll draw next. Fixed.
 
+**Elemental series (#401–450):**
+
+- **Magma (#412)**: Should make Hearts and Diamonds count as the same suit while in play. The effect was tracked internally but never applied — Hearts and Diamonds were always treated as separate suits. Fixed.
+- **Mud (#413)**: Should make Spades and Clubs count as the same suit while in play. Same issue as Magma — the effect was never applied. Fixed.
+- **Ash (#420)**: When all 5 discarded cards were red, was awarding $3 up to five times ($15 total) instead of once. Fixed.
+- **Blizzard (#436)**: After scoring a 5-Spades hand, the "Freeze Blind" effect — preventing the next round's Blind requirement from increasing — was tracked internally but never actually applied. Fixed.
+- **Phoenix (#439)**: When all 5 discarded cards were Hearts, was gaining +1 Mult up to five times instead of once. Fixed.
+- **Leviathan (#440)**: The +1 maximum Hand bonus from scoring a 5-Spades Flush was only lasting for the current round instead of being permanent. Fixed.
+- **Fifth Element (#443)**: The four Elemental Spirit Jokers (Fire, Water, Earth, Air) could never be detected due to an internal naming mismatch, so the X5 Mult bonus never activated. Fixed.
+- **Master Alchemist (#444)**: Attempting to convert any card to a Diamond immediately crashed the game due to an invalid internal card reference. Fixed.
+- **Heart of the World (#445)**: Should prevent Boss Blinds from debuffing your cards based on suit. The immunity was tracked internally but never applied — cards were still being debuffed normally. Fixed.
+- **Absolute Zero (#448)**: Crashed the game the moment any hand was scored while this joker was in play. Fixed. Additionally, the zero-chip detection now correctly identifies hands where no chips were scored.
+- **Avatar (#449)**: Should allow any 5-card combination to count as a Flush, regardless of suit. The effect was tracked internally but the hand evaluation was never overridden — only true same-suit hands counted as Flush. Fixed.
+
 #### Decks
 
 - **42 decks were showing Portuguese names and descriptions in English**: 42 decks had names like "Ira Deck", "Preguiça Deck", "Vulcânico Deck", and descriptions with Portuguese mixed in when playing in English. All 42 now display correct English text. Affected decks: Wrath, Sloth, Pride, Alpha, Omega, Prime, Odyssey, Fractal, Mirror, Ghost, Vampire, Zombie, Cyborg, Mutant, Clone, Radioactive, Frozen, Volcanic, Oceanic, Solar, Lunar, Stellar, Mystic, Tech, Primitive, Arcane, Celestial, Spectral, Standard, Buffoon, Mercenary, Investor, Minimalist II, Maximalist II, Lucky II, King Arthur, Merlin, Phoenix, Chimera, Unicorn, Behemoth, Titan.
