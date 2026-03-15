@@ -23,13 +23,50 @@ local jokers = {
                     Xmult_mod = card.ability.extra.x_mult
                 }
             end
+            -- Reveal deck order: flip all deck cards face-up at round start (after shuffle)
+            if context.setting_blind and G.GAME.modifiers.odyssey_reveal_deck then
+                G.E_MANAGER:add_event(Event({func = function()
+                    if G.deck then
+                        for _, c in ipairs(G.deck.cards) do
+                            if c.facing == 'back' then c:flip() end
+                        end
+                    end
+                    return true
+                end}))
+            end
         end,
         add_to_deck = function(self, card, from_debuff)
             G.GAME.modifiers.odyssey_reveal_deck = true
+            -- Immediately reveal current deck cards
+            if G.deck then
+                for _, c in ipairs(G.deck.cards) do
+                    if c.facing == 'back' then c:flip() end
+                end
+            end
         end,
         remove_from_deck = function(self, card, from_debuff)
-            G.GAME.modifiers.odyssey_reveal_deck = nil
+            -- Only hide deck if no other Watcher copy remains
+            local has_other = false
+            if G.jokers and G.jokers.cards then
+                for _, j in ipairs(G.jokers.cards) do
+                    if j.config and j.config.center
+                        and j.config.center.key == 'j_odyssey_j_anomaly_the_watcher'
+                        and j ~= card then
+                        has_other = true
+                        break
+                    end
+                end
+            end
+            if not has_other then
+                G.GAME.modifiers.odyssey_reveal_deck = nil
+                if G.deck then
+                    for _, c in ipairs(G.deck.cards) do
+                        if c.facing == 'front' then c:flip() end
+                    end
+                end
+            end
         end
+
     },
     -- 400. Fatal Error
     {
