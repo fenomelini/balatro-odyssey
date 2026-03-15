@@ -222,9 +222,15 @@ SMODS.Joker({
     cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.modifiers.odyssey_square_circle = true
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.modifiers.odyssey_square_circle = false
+    end,
     loc_vars = function(self, info_queue, card) return { vars = {} } end,
     calculate = function(self, card, context)
-        -- Logic handled in Card:is_suit override
+        -- Logic handled in Card:is_suit override (03_vanilla_override.lua)
     end
 })
 
@@ -240,9 +246,15 @@ SMODS.Joker({
     cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.modifiers.odyssey_hot_cold = true
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.modifiers.odyssey_hot_cold = false
+    end,
     loc_vars = function(self, info_queue, card) return { vars = {} } end,
     calculate = function(self, card, context)
-        -- Logic handled in Card:is_suit override
+        -- Logic handled in Card:is_suit override (03_vanilla_override.lua)
     end
 })
 
@@ -274,6 +286,14 @@ SMODS.Joker({
                     colour = G.C.MULT
                 }
             end
+        end
+        if context.after and not context.blueprint then
+            -- Count hands played this round to determine the flag for next round
+            G.GAME.odyssey_past_future_hands = (G.GAME.odyssey_past_future_hands or 0) + 1
+        end
+        if context.end_of_round and not context.other_card and not context.repetition and not context.blueprint then
+            G.GAME.odyssey_prev_round_1_hand = (G.GAME.odyssey_past_future_hands == 1)
+            G.GAME.odyssey_past_future_hands = 0
         end
     end
 })

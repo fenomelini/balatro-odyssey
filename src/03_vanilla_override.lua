@@ -20,6 +20,29 @@ end
 local old_is_suit = Card.is_suit
 function Card:is_suit(suit, bypass_debuff, flush_calc)
     if G.GAME and G.GAME.modifiers.odyssey_chameleon and not bypass_debuff then return true end
+    -- Hot Cold (#344): Hearts and Spades swap suits for scoring
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_hot_cold and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s then
+            if s == 'Hearts' then
+                if suit == 'Spades' then return true end
+                if suit == 'Hearts' then return false end
+            elseif s == 'Spades' then
+                if suit == 'Hearts' then return true end
+                if suit == 'Spades' then return false end
+            end
+        end
+    end
+    -- Square Circle (#343): Diamonds count as black suits (Spades/Clubs)
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_square_circle and not bypass_debuff then
+        local s = self.base and self.base.suit
+        local is_wild = self.ability and self.ability.effect == 'Wild Card'
+        if not is_wild and s == 'Diamonds' then
+            if suit == 'Spades' or suit == 'Clubs' then return true end
+            if suit == 'Diamonds' then return false end
+        end
+    end
     return old_is_suit(self, suit, bypass_debuff, flush_calc)
 end
 
@@ -56,6 +79,29 @@ function Card:set_cost()
             self.sell_cost_label = self.facing == 'back' and '?' or self.sell_cost
         end
     end
+    -- Mortal Immortal (#347): Eternal Jokers sell for $0
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_can_sell_eternal then
+        if self.ability and self.ability.eternal then
+            self.sell_cost = 0
+            self.sell_cost_label = self.facing == 'back' and '?' or 0
+        end
+    end
+end
+
+local old_can_sell_card = Card.can_sell_card
+function Card:can_sell_card(context)
+    -- Mortal Immortal (#347): Allow selling Eternal Jokers (for $0)
+    if G.GAME and G.GAME.modifiers and G.GAME.modifiers.odyssey_can_sell_eternal then
+        if self.ability and self.ability.eternal then
+            if (G.play and #G.play.cards > 0) or
+               (G.CONTROLLER.locked) or
+               (G.GAME.STOP_USE and G.GAME.STOP_USE > 0) then return false end
+            if self.area and self.area.config.type == 'joker' then
+                return true
+            end
+        end
+    end
+    return old_can_sell_card(self, context)
 end
 
 -- 4. Safety Fixes (Lovely/Injector Stability)
