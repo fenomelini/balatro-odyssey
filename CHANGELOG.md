@@ -24,6 +24,16 @@ All notable changes to this project will be documented in this file.
 - **Past Future (#345)**: Was supposed to give X3 Mult if the previous Blind was beaten in a single hand. The joker was completely inactive — the multiplier never applied and the game never tracked how many hands were used in the previous round. Fixed.
 - **Mortal Immortal (#347)**: Was supposed to allow Eternal Jokers to be sold for $0. Even with this joker in play, Eternal Jokers still could not be sold. Fixed; Eternal Jokers now show a $0 sell button and can be removed from play.
 
+**Anomaly series (#361–400):**
+
+- **Spade Anomaly (#361)**, **Heart Anomaly (#362)**, **Club Anomaly (#363)**, **Diamond Anomaly (#364)**: All 4 jokers are supposed to make one suit count as another when forming Flushes. They were doing nothing at all — the suit swaps were never applied. Fixed.
+- **Static Noise (#374)**: Should give a 1 in 4 chance to gain $5 each time a hand is played. It was only rolling that chance once, at the very end of the round. Fixed.
+- **Augmented Reality (#381)**: Should prevent Ceramic Cards from breaking. Ceramic Cards kept breaking regardless. Fixed.
+- **Race Condition (#388)**: Should give +50 Mult only if the very first hand of the round is played within 5 seconds. It was always giving +50 Mult with no time check at all. Fixed.
+- **Mirror Universe (#394)**: Should double all money gained and all money lost. Neither effect was being applied. Fixed.
+- **Function Collapse (#397)**: Should make face cards (J, Q, K) count as having no suit for Flush purposes. Face cards were behaving normally regardless. Fixed.
+- **Memory Dump (#387)**: Selling this joker was supposed to add 3 random cards to your hand. Instead, the game crashed every time it was sold. Fixed.
+
 ### Added
 
 #### Decks
