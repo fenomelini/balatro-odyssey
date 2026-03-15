@@ -72,12 +72,22 @@ All notable changes to this project will be documented in this file.
 - **Discord (#220)**: Gives a bonus when you play a hand that isn't the "highest-level" hand type. Was incorrectly using how many times each hand had been played instead of its Planet level to determine the top hand. Fixed to use hand level.
 - **Transmutation (#223)**: When sold, was supposed to spawn a random Uncommon Joker. The rarity value used was invalid — same class of bug as Big Bang (#191). Nothing appeared when the joker was sold. Fixed.
 - **Will-o'-the-Wisp (#226)**: Creates a Negative consumable when a Boss Blind is defeated. Had no check for whether the consumable slots were full — the card could be added over the limit, causing UI overflow and potential crashes. Fixed.
-- **Primal Form (#234)**: Was supposed to treat all played cards as Aces for one hand. Was transforming the cards in the player's held hand instead of the played cards. Fixed.
+- **Primal Form (#234)**: Was supposed to transform all played cards into Aces for the current hand. Was selecting the wrong cards (held hand instead of the played hand), and the transformation code used a broken internal card-lookup format that always crashed the game immediately. Both issues fixed.
 - **Maximum Entropy (#235)**: Destroys a random Joker at the end of each round. Could target and destroy Eternal Jokers, which are supposed to be indestructible. Fixed.
 - **Heart of Chaos (#236)**: Copies the effect of a random Joker to its right. Was updating the shared scoring context object in-place, causing all Jokers evaluated after it to behave as if they were being copied by Blueprint — suppressing things like card creation or consumable rewards. Fixed to pass a local copy of the context.
 - **Crawling Chaos (#240)**: Gains X0.5 Mult every hand and is supposed to reset back to X2 after failing a round. The reset never triggered, so the multiplier grew permanently. Fixed.
 - **Chain Reaction (#225)**: Was supposed to give +5 Mult for each Joker ability that activated during the current hand. Instead, it was using the total number of Jokers owned as a proxy — owning 5 Jokers always gave the same bonus regardless of how many actually fired. Now counts real activations.
 - **The Great Filter (#238)**: Was supposed to permanently unlock X5 Mult the first time you played a Five of a Kind. It never triggered because the hand name check used `'5 of a Kind'` instead of the engine's actual name `'Five of a Kind'`. Fixed.
+
+**Glitch series (#241–280):**
+
+- **Dead Pixel (#244)**: Was debuffing a random card from the unplayed hand instead of from the scored hand. The debuff was also permanent — it was never cleared at the end of the round, leaving cards crippled for the rest of the run. Fixed.
+- **MissingNo (#250)**: The XMult it generates was silently discarded every hand due to a wrong internal key. The joker showed the correct popup but applied nothing. Also crashed the Collection menu when opened. Both fixed.
+- **Blue Screen (#251)**: When discarding 5 same-suit cards, it was awarding $4 five times ($20 total) instead of once. Fixed.
+- **God Mode (#259)**: The rescue effect was triggering once per card in your hand simultaneously, causing a crash when the second trigger tried to access an already-destroyed joker reference. Fixed to trigger only once.
+- **Noclip (#260)**: Was an empty stub — the mechanic (face cards count as any suit) was never implemented. Now fully implemented.
+- **Hex Editor (#275)**: Was using broken internal card-lookup keys to reference cards in the game's table. This crashed the game whenever the effect tried to look up a card. Fixed.
+- **Digital Singularity (#280)**: Crashed the Collection menu when opened due to unsafe tooltip generation. Fixed.
 
 #### Decks
 

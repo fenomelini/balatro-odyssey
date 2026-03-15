@@ -50,7 +50,7 @@ local local_jokers = {
             if context.joker_main then
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                    x_mult_mod = card.ability.extra.x_mult,
+                    Xmult_mod = card.ability.extra.x_mult,
                     colour = G.C.MULT
                 }
             end
@@ -217,7 +217,7 @@ local local_jokers = {
                     local mult = card.ability.extra.x_mult ^ unique_suits
                     return {
                         message = localize{ type = 'variable', key = 'a_xmult', vars = { mult } },
-                        x_mult_mod = mult,
+                        Xmult_mod = mult,
                         colour = G.C.MULT
                     }
                 end
@@ -245,7 +245,7 @@ local local_jokers = {
                 if G.GAME.current_round.hands_left == 1 and G.GAME.current_round.discards_left == 0 then
                         return {
                         message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                        x_mult_mod = card.ability.extra.x_mult,
+                        Xmult_mod = card.ability.extra.x_mult,
                         colour = G.C.MULT
                     }
                 end
@@ -274,7 +274,7 @@ local local_jokers = {
             if context.joker_main then
                 return {
                     message = localize{ type = 'variable', key = 'a_xmult', vars = { card.ability.extra.x_mult } },
-                    x_mult_mod = card.ability.extra.x_mult,
+                    Xmult_mod = card.ability.extra.x_mult,
                     colour = G.C.MULT
                 }
             end
