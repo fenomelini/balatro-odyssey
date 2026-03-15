@@ -115,7 +115,7 @@ SMODS.Joker({
 
     end,
     calculate = function(self, card, context)
-        if context.discard and not context.other_card and not context.blueprint then
+        if context.discard and not context.blueprint then
             card.ability.extra.current_chips = card.ability.extra.current_chips + card.ability.extra.chip_gain
             return {
                 message = localize{ type = 'variable', key = 'a_chips', vars = { card.ability.extra.current_chips } },
