@@ -397,7 +397,7 @@ local jokers = {
 
         end,
         calculate = function(self, card, context)
-            if context.end_of_round and not context.repetition and not context.other_card then
+            if context.after and not context.blueprint then
                 if pseudorandom('static_noise') < G.GAME.probabilities.normal / card.ability.extra.odds then
                     return {
                         dollars = card.ability.extra.money,
