@@ -55,6 +55,7 @@ SMODS.Joker({
             local spades = 0
             for i=1, #context.scoring_hand do if context.scoring_hand[i]:is_suit("Spades") then spades = spades + 1 end end
             if spades >= 5 then
+                G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
                 ease_hands_played(card.ability.extra.hands)
                 return {
                     message = "+"..card.ability.extra.hands.." Hand",
