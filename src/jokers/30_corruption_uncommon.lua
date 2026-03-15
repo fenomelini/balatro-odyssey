@@ -262,10 +262,11 @@ local local_jokers = {
         update = function(self, card, dt)
             if G.consumeables then
                 for k, v in pairs(G.consumeables.cards) do
-                    if v.config.center.set == 'Tarot' then
+                    if v.config.center.set == 'Tarot' and not v.ability.odyssey_soul_corrupted then
                         local spectral = pseudorandom_element(G.P_CENTER_POOLS.Spectral, pseudorandom('soul_corruption'))
                         v:set_ability(spectral)
                         v:set_edition(nil, true)
+                        v.ability.odyssey_soul_corrupted = true
                     end
                 end
             end
