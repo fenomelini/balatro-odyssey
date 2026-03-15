@@ -114,6 +114,7 @@ function Game:start_run(args)
     G.GAME.reveal_future_blinds = G.GAME.reveal_future_blinds or 0
     G.GAME.reveal_skip_rewards = G.GAME.reveal_skip_rewards or false
     G.GAME.odyssey_prev_round_1_hand = G.GAME.odyssey_prev_round_1_hand or false
+    G.GAME.odyssey_past_future_hands = G.GAME.odyssey_past_future_hands or 0
     
     -- Odyssey Shop Slots
     G.GAME.shop_extra_booster_slots = G.GAME.shop_extra_booster_slots or 0
