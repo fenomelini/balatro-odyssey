@@ -6,7 +6,7 @@
 
 > *Transform your poker roguelike into an epic journey across the frontiers of space, time, and reality.*
 
-[![Version](https://img.shields.io/badge/version-0.1.8--alpha-blueviolet?style=for-the-badge)](https://github.com/fenomelini/balatro-odyssey/releases)
+[![Version](https://img.shields.io/badge/version-0.1.9--alpha-blueviolet?style=for-the-badge)](https://github.com/fenomelini/balatro-odyssey/releases)
 [![Status](https://img.shields.io/badge/status-alpha-orange?style=for-the-badge)](https://github.com/fenomelini/balatro-odyssey/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![Nexus Mods](https://img.shields.io/badge/Nexus_Mods-Download-d4822a?style=for-the-badge&logo=nexusmods&logoColor=white)](https://www.nexusmods.com/balatro/mods/726)
